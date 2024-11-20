@@ -40,6 +40,7 @@ public class PlayerJump : MonoBehaviour
         if (isGrounded && hasJumped)
         {
             hasJumped = false;
+            Debug.Log("Reset jump");
             if (playerController.playerState == PlayerController.PlayerState.JUMPING)
             {
                 playerController.SwitchState(PlayerController.PlayerState.IDLING);
@@ -47,7 +48,7 @@ public class PlayerJump : MonoBehaviour
         }
 
         // Handle jumping input
-        if (jump.action.ReadValue<float>() > 0 && isGrounded && !hasJumped)
+        if (jump.action.ReadValue<float>() > 0 && !hasJumped)
         {
             StartJump();
         }
@@ -60,6 +61,7 @@ public class PlayerJump : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight); // Apply upward force
         jumpingState = JumpingState.JUMP;
         hasJumped = true; // Set the jumped flag to true
+        Debug.Log("Jumped");
     }
 
     public void HandleJumping()
@@ -86,6 +88,7 @@ public class PlayerJump : MonoBehaviour
                 {
                     playerController.SwitchState(PlayerController.PlayerState.IDLING);
                     hasJumped = false;
+                    Debug.Log("Landed");
                 }
                 break;
         }
