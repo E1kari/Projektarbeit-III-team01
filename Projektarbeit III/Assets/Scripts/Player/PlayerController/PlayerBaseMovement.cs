@@ -20,10 +20,8 @@ public class PlayerBaseMovement : MonoBehaviour
 
     private void Update()
     {
-        // Update movement direction based on input
         _moveDirection = move.action.ReadValue<Vector2>();
 
-        // Switch to WALKING state if there is horizontal input
         if (_moveDirection.x != 0 && playerController.playerState != PlayerController.PlayerState.JUMPING)
         {
             playerController.SwitchState(PlayerController.PlayerState.WALKING);
@@ -38,8 +36,7 @@ public class PlayerBaseMovement : MonoBehaviour
             velocity.x = _moveDirection.x * moveSpeed;
             rb.linearVelocity = velocity;
         }
-
-        // Switch to IDLING state if the player has stopped moving
+        
         if (playerController.playerState == PlayerController.PlayerState.WALKING && Mathf.Abs(rb.linearVelocity.x) < 0.01f)
         {
             playerController.SwitchState(PlayerController.PlayerState.IDLING);
@@ -48,12 +45,10 @@ public class PlayerBaseMovement : MonoBehaviour
 
     public void HandleWalking()
     {
-        // Apply movement
         Vector2 velocity = rb.linearVelocity;
         velocity.x = _moveDirection.x * moveSpeed;
         rb.linearVelocity = velocity;
 
-        // Switch to IDLING state if the player has stopped moving
         if (Mathf.Abs(rb.linearVelocity.x) < 0.01f)
         {
             playerController.SwitchState(PlayerController.PlayerState.IDLING);

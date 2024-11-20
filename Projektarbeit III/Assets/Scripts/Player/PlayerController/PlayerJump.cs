@@ -6,8 +6,13 @@ public class PlayerJump : MonoBehaviour
     public Rigidbody2D rb;
     public float jumpHeight;
     public InputActionReference jump;
+    public LayerMask groundLayer;          // Layer mask to specify what is considered ground
+    public Transform groundCheck;          // Empty GameObject positioned at the player's feet
+    public float groundCheckRadius = 0.2f; // Radius of the ground check
 
     private PlayerController playerController;
+    private bool isGrounded = false;       // Tracks if the player is on the ground
+    private bool hasJumped = false;        // Tracks if the player has jumped
 
     public enum JumpingState
     {
@@ -20,19 +25,29 @@ public class PlayerJump : MonoBehaviour
 
     private void Start()
     {
-        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        rb = rb != null ? rb : GetComponent<Rigidbody2D>();
+        playerController = GetComponent<PlayerController>();
 
         jump.action.Enable();
-        playerController = GetComponent<PlayerController>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        // Allow jumping only if player is idling or walking
-        if (jump.action.ReadValue<float>() > 0 &&
-            (playerController.playerState == PlayerController.PlayerState.IDLING 
-            || playerController.playerState == PlayerController.PlayerState.WALKING) 
-            && IsGrounded())
+        // Update grounded status
+        isGrounded = IsGrounded();
+
+        // Reset jump if the player is on the ground
+        if (isGrounded && hasJumped)
+        {
+            hasJumped = false;
+            if (playerController.playerState == PlayerController.PlayerState.JUMPING)
+            {
+                playerController.SwitchState(PlayerController.PlayerState.IDLING);
+            }
+        }
+
+        // Handle jumping input
+        if (jump.action.ReadValue<float>() > 0 && isGrounded && !hasJumped)
         {
             StartJump();
         }
@@ -40,30 +55,37 @@ public class PlayerJump : MonoBehaviour
 
     private void StartJump()
     {
+        // Transition to the JUMPING state and apply the jump force
         playerController.SwitchState(PlayerController.PlayerState.JUMPING);
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight); // Apply upward force
+        jumpingState = JumpingState.JUMP;
+        hasJumped = true; // Set the jumped flag to true
     }
 
     public void HandleJumping()
     {
+        // Manage jump states
         switch (jumpingState)
         {
             case JumpingState.WIND_UP:
-                // Prepare for jump, set initial jump velocity
+                // Prepare for jump (if needed for animations or delays)
                 jumpingState = JumpingState.JUMP;
                 break;
+
             case JumpingState.JUMP:
-                // Apply upward momentum or jump force
-                if (rb.linearVelocity.y <= 0) // Start falling when jump velocity reaches zero
+                // Transition to LANDING when vertical velocity is downward
+                if (rb.linearVelocity.y <= 0)
                 {
                     jumpingState = JumpingState.LANDING;
                 }
                 break;
+
             case JumpingState.LANDING:
-                // Transition to IDLING or WALKING once landed
-                if (IsGrounded()) // Check if grounded (needs implementation)
+                // Transition to IDLING or WALKING when grounded
+                if (isGrounded)
                 {
                     playerController.SwitchState(PlayerController.PlayerState.IDLING);
+                    hasJumped = false;
                 }
                 break;
         }
@@ -71,7 +93,17 @@ public class PlayerJump : MonoBehaviour
 
     private bool IsGrounded()
     {
-        // Implement ground check logic, e.g., using raycast or collision detection
-        return true;
+        // Check if the groundCheck collider overlaps with any ground layer colliders
+        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer) != null;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Visualize the ground check in the editor for debugging
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
     }
 }
