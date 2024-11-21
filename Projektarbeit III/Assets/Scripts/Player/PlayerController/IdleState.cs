@@ -40,10 +40,17 @@ public class IdleState : Interface.IState
         }
 
         // Transition to DashingState if Dash button is pressed and player hasn't dashed yet
-        if (dashAction.triggered && !controller.movementEditor.hasDashed && controller.movementEditor.hasJumped)
+        if (dashAction.triggered && !controller.movementEditor.hasDashed)
         {
+            if (controller.IsGrounded())
+            {
+                Debug.LogError("Cannot dash while grounded");
+            }
+            else
+            {   
             controller.ChangeState(new DashingState(controller));
             controller.movementEditor.hasDashed = true;
+            }
         }
     }
 

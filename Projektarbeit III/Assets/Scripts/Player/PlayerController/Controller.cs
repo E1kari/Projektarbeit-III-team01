@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
@@ -38,5 +37,10 @@ public class Controller : MonoBehaviour
             movementEditor.hasJumped = false;
             movementEditor.hasDashed = false;
         }
+    }
+
+    public bool IsGrounded()
+    {
+        return GetComponent<Rigidbody2D>().linearVelocity.y == 0;
     }
 }
