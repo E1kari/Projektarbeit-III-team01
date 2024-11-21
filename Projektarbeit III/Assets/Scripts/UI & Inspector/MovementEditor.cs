@@ -18,7 +18,7 @@ public class MovementEditor : MonoBehaviour
     [Tooltip("The speed at which the player moves. The higher the value, the faster the movement")]
     [Range(0.1f, 25f)] public float moveSpeed = 5f;
 
-    [Header("Grappling Hook Settings")]
+    [Header("Grappling Hook Settings\n(Changes apply after restarting the game)")]
     [Tooltip("The speed at which the player is pulled towards the grapple point. The higher the value, the faster the pull")]
     [Range(0.01f, 50f)] public float grappleSpeed = 20f;
 
