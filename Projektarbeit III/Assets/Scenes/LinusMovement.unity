@@ -616,12 +616,10 @@ GameObject:
   - component: {fileID: 545657138}
   - component: {fileID: 545657144}
   - component: {fileID: 545657145}
-  - component: {fileID: 545657141}
   - component: {fileID: 545657142}
-  - component: {fileID: 545657143}
-  - component: {fileID: 545657146}
-  - component: {fileID: 545657147}
   - component: {fileID: 545657148}
+  - component: {fileID: 545657150}
+  - component: {fileID: 545657151}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -701,22 +699,6 @@ Transform:
   - {fileID: 1239987530}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &545657141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545657136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d59906cb72e1a40ae90c3d0cd98926, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerState: 0
-  falling: 0
-  verticalMomentum: 0
-  horizontalMomentum: 0
 --- !u!114 &545657142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,7 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: c26bf920ac4059d478881b73255e0bda, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 28be8a987f6a82f42bb1e7baf2085e7e, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -747,21 +729,6 @@ MonoBehaviour:
   m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &545657143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545657136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c3bc2bf5a76c6d42957bb1f658fe4ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  moveSpeed: 9
-  move: {fileID: 416840669204217453, guid: c26bf920ac4059d478881b73255e0bda, type: 3}
 --- !u!61 &545657144
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -835,43 +802,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &545657146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545657136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc2deb2b69aa7f9459b914e82280acf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  jumpHeight: 7
-  jump: {fileID: -1055730896839945954, guid: c26bf920ac4059d478881b73255e0bda, type: 3}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  groundCheck: {fileID: 476420390}
-  groundCheckRadius: 0.2
-  jumpingState: 0
---- !u!114 &545657147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545657136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f2e38953fbd335459bd2684dd90c5a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grappleSpeed: 20
-  grappleLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!120 &545657148
 LineRenderer:
   serializedVersion: 2
@@ -979,6 +909,37 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &545657150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545657136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90440d481490ed4fa84f41b6f4e04c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStateName: 
+  hasJumped: 0
+--- !u!114 &545657151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545657136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2e38953fbd335459bd2684dd90c5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grappleSpeed: 20
+  grappleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  grappleCooldown: 0.75
 --- !u!1 &1239987527
 GameObject:
   m_ObjectHideFlags: 0

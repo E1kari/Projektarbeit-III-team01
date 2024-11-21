@@ -1,25 +1,20 @@
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
-public class GrapplingHook : MonoBehaviour
+public class PlayerGrapplingHook : MonoBehaviour
 {
-    private float grappleSpeed;
-    private float grappleCooldown;
-    private float grappleRange;
-    private LayerMask grappleLayer;          // Layer to check for grapple points
-
-    private Vector2 grapplePoint;            // Point where the hook attaches
-    private bool isGrappling;                // Whether the player is grappling
-    private bool isCooldown;                 // Whether the grappling hook is on cooldown
-    private Rigidbody2D rb;                  // Rigidbody for movement
-    private Controller controller;           // Reference to the player's state manager
-    private LineRenderer lineRenderer;       // Visual representation of the rope
-    private float cooldownTimer;             // Timer to track cooldown
+    public float grappleSpeed = 20f;         // Speed at which the player is pulled
+    public LayerMask grappleLayer;          // Layers to which the grappling hook can attach
+    private Vector2 grapplePoint;           // Point where the hook attaches
+    private bool isGrappling;               // Whether the player is grappling
+    private Rigidbody2D rb;                 // Rigidbody for movement
+    private PlayerController playerController; // Reference to the player's state manager
+    private LineRenderer lineRenderer;      // Visual representation of the rope
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        controller = GetComponent<Controller>();
+        playerController = GetComponent<PlayerController>();
         lineRenderer = GetComponent<LineRenderer>();
 
         // Initialize the LineRenderer to hide the rope
@@ -28,34 +23,13 @@ public class GrapplingHook : MonoBehaviour
         // Set the width of the LineRenderer
         lineRenderer.startWidth = 0.2f;
         lineRenderer.endWidth = 0.2f;
-
-        // Get values from MovementEditor
-        grappleSpeed = controller.movementEditor.grappleSpeed;
-        grappleCooldown = controller.movementEditor.grappleCooldown;
-        grappleRange = controller.movementEditor.grappleRange;
-        grappleLayer = controller.movementEditor.grappleLayer;
     }
 
     void Update()
     {
-        // Handle cooldown timer
-        if (isCooldown)
-        {
-            cooldownTimer -= Time.deltaTime;
-            if (cooldownTimer <= 0)
-            {
-                isCooldown = false;
-            }
-        }
-
         // Handle input to start grappling
         if (Input.GetMouseButtonDown(1) && !isGrappling)
         {
-            if (isCooldown)
-            {
-                Debug.Log("Grappling hook is on cooldown");
-                return;
-            }
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             StartGrapple(mousePosition);
         }
@@ -93,16 +67,9 @@ public class GrapplingHook : MonoBehaviour
 
     private void StartGrapple(Vector2 target)
     {
-        // Check if the target is within range
-        if (Vector2.Distance(transform.position, target) > grappleRange)
-        {
-            Debug.Log("Target out of range");
-            return; // Target is out of range, do not start grappling
-        }
-
         // Cast a ray towards the target to find a valid grapple point
         Vector2 direction = (target - (Vector2)transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleRange, grappleLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity, grappleLayer);
 
         if (hit.collider != null)
         {
@@ -110,7 +77,7 @@ public class GrapplingHook : MonoBehaviour
             isGrappling = true;
 
             // Switch to the GRAPPLING state
-            controller.ChangeState(new GrapplingState(controller, this));
+            playerController.SwitchState(PlayerController.PlayerState.GRAPPLING);
 
             // Enable the rope and update its positions
             lineRenderer.positionCount = 2;
@@ -123,14 +90,10 @@ public class GrapplingHook : MonoBehaviour
         isGrappling = false;
 
         // Switch back to IDLING state
-        controller.ChangeState(new IdleState(controller));
+        playerController.SwitchState(PlayerController.PlayerState.IDLING);
 
         // Disable the rope visual
         lineRenderer.positionCount = 0;
-
-        // Start cooldown
-        isCooldown = true;
-        cooldownTimer = grappleCooldown;
     }
 
     private void UpdateLineRenderer()

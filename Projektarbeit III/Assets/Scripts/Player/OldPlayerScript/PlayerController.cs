@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
                 playerJump.HandleJumping();
                 return true;
             case PlayerState.GRAPPLING:
-                grapplingHook.HandleGrappling();
+                //grapplingHook.HandleGrappling();
                 return true;
             default:
                 return false;
