@@ -22,7 +22,6 @@ public class Bounce : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("adding force");
         StartCoroutine(AddForceOverTime(other.relativeVelocity));
     }
 
