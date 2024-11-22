@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class Yeetus_Self_Deletus : MonoBehaviour
+public class Self_Destruct : MonoBehaviour
 {
 
     [SerializeField]
-    private float didADieCountdown = 10f;
+    private float deathTimer = 10f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(gameObject, didADieCountdown);
+        Destroy(gameObject, deathTimer);
     }
 }

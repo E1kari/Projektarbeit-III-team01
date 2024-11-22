@@ -5,8 +5,8 @@ using System.Collections;
 public class Bounce : MonoBehaviour
 {
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float bounceForce;
+    [SerializeField] private Rigidbody2D rb_;
+    [SerializeField] private float bounceForce_;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,14 +26,14 @@ public class Bounce : MonoBehaviour
     }
 
 
-    IEnumerator AddForceOverTime(Vector2 relativeVel)
+    IEnumerator AddForceOverTime(Vector2 pa_relativeVel)
     {
-        Vector2 accBounceForce = new Vector2(relativeVel.x * bounceForce, relativeVel.y * bounceForce);
+        Vector2 accBounceForce = new Vector2(pa_relativeVel.x * bounceForce_, pa_relativeVel.y * bounceForce_);
         while (accBounceForce.x != 0 || accBounceForce.y != 0)
         {
             if (accBounceForce.x < 0)
             {
-                accBounceForce.x += bounceForce;
+                accBounceForce.x += bounceForce_;
                 if (accBounceForce.x > 0)
                 {
                     accBounceForce.x = 0.0f;
@@ -41,7 +41,7 @@ public class Bounce : MonoBehaviour
             }
             else if (accBounceForce.x > 0)
             {
-                accBounceForce.x -= bounceForce;
+                accBounceForce.x -= bounceForce_;
                 if (accBounceForce.x < 0)
                 {
                     accBounceForce.x = 0.0f;
@@ -50,7 +50,7 @@ public class Bounce : MonoBehaviour
 
             if (accBounceForce.y < 0)
             {
-                accBounceForce.y += bounceForce;
+                accBounceForce.y += bounceForce_;
                 if (accBounceForce.y > 0)
                 {
                     accBounceForce.y = 0.0f;
@@ -58,14 +58,14 @@ public class Bounce : MonoBehaviour
             }
             else if (accBounceForce.y > 0)
             {
-                accBounceForce.y -= bounceForce;
+                accBounceForce.y -= bounceForce_;
                 if (accBounceForce.y < 0)
                 {
                     accBounceForce.y = 0.0f;
                 }
             }
 
-            rb.AddForce(accBounceForce);
+            rb_.AddForce(accBounceForce);
             yield return new WaitForFixedUpdate();
         }
     }
