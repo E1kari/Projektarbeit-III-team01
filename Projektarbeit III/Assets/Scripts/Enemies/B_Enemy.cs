@@ -11,21 +11,21 @@ public enum EnemyState
 
 abstract public class B_Enemy : MonoBehaviour
 {
-    protected Health health;
-    protected EnemyState enemyState = EnemyState.IDLE;
+    protected Health health_;
+    protected EnemyState enemyState_ = EnemyState.IDLE;
     protected float attackCooldown_;
 
     protected float lastAttack_;
 
     void Start()
     {
-        health = gameObject.AddComponent<Health>();
+        health_ = gameObject.AddComponent<Health>();
         lastAttack_ = Time.time;
     }
 
     void Update()
     {
-        if (enemyState == EnemyState.ATTACK)
+        if (enemyState_ == EnemyState.ATTACK)
         {
             if (Time.time - lastAttack_ > attackCooldown_)
             {
@@ -40,7 +40,7 @@ abstract public class B_Enemy : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
-            enemyState = EnemyState.ATTACK;
+            enemyState_ = EnemyState.ATTACK;
         }
     }
 
@@ -49,7 +49,7 @@ abstract public class B_Enemy : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-            enemyState = EnemyState.IDLE;
+            enemyState_ = EnemyState.IDLE;
         }
     }
 
