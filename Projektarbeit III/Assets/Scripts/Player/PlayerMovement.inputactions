@@ -1,0 +1,224 @@
+{
+    "name": "PlayerMovement",
+    "maps": [
+        {
+            "name": "Movement",
+            "id": "c4b5fdec-e43a-4c29-82ee-95316b708996",
+            "actions": [
+                {
+                    "name": "Walking",
+                    "type": "PassThrough",
+                    "id": "821e8aeb-a8c6-40eb-b2a7-4de609b5325a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "bf4e7559-7ed7-4ca0-a073-7172ec2b7490",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walking",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "2cf099a6-9935-4264-a364-d62221ce81fc",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walking",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "dcd4b6cd-da1f-468f-8dd1-8188d2df655e",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walking",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "a239113d-cb10-452d-9f6a-d53be059769c",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walking",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "bbc264b3-0768-4bc5-b085-b2e1931d21ef",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walking",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "aac3cd33-6166-4b2e-8bed-bc60df115ded",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walking",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Jump",
+            "id": "942e06f3-2ddc-4b02-b2b1-7156a4cd0c17",
+            "actions": [
+                {
+                    "name": "Jumping",
+                    "type": "Button",
+                    "id": "83a8d748-107e-40c2-8d6e-21bb43ec24d0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b189473e-566f-4d45-a887-f1d0942dff55",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jumping",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75a46023-27ad-465e-8ad7-1c2d8bc5fbc8",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jumping",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Hook",
+            "id": "aab9f399-8dae-4899-b76a-9d2e3cd787f6",
+            "actions": [
+                {
+                    "name": "Grappling",
+                    "type": "Button",
+                    "id": "1d2bb9d3-b8de-4a64-9532-13427b4167bb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "497946f4-8fec-4055-9061-c53e0e05e084",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grappling",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Dash",
+            "id": "6f11df06-be81-463e-8bcb-de2a45a55206",
+            "actions": [
+                {
+                    "name": "Dashing",
+                    "type": "Button",
+                    "id": "59089894-9655-4d2f-a65f-6d927245e8f3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8cf39e86-f08b-4a1f-adfb-3e1d6915e0d2",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dashing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Slide",
+            "id": "aef1426a-98f3-42c9-802e-5456c6839c3c",
+            "actions": [
+                {
+                    "name": "Sliding",
+                    "type": "Button",
+                    "id": "a57bf1f2-72ab-40e8-9e6b-79fd09821c0d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "18ca1bc8-533d-47a9-88dd-fbc6f43380a8",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sliding",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
