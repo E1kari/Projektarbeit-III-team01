@@ -44,7 +44,7 @@ public class IdleState : Interface.IState
         {
             if (controller.IsGrounded())
             {
-                Debug.LogError("Cannot dash while grounded");
+                Debug.Log("Cannot dash while grounded");
             }
             else
             {   
