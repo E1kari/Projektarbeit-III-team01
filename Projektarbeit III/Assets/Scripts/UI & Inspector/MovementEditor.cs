@@ -7,6 +7,12 @@ public class MovementEditor : MonoBehaviour
     [Tooltip("The force applied when the player jumps. The higher the value, the higher the jump")]
     [Range(0.1f, 25f)] public float jumpForce = 10f;
 
+    [Tooltip("The force applied to the player when they fall. The higher the value, the faster the fall")]
+    [Range(0.1f, 50f)] public float fallForce = 10f;
+
+    [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is grounded")]
+    [Range(0.1f, 5f)] public float raycastRange = 1f;
+
     [Header("Dashing Settings")]
     [Tooltip("The speed at which the player dashes. The higher the value, the faster the dash")]
     [Range(0.1f, 50f)] public float dashSpeed = 20f;

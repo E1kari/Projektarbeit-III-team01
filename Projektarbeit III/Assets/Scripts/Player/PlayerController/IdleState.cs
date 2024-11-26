@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class IdleState : Interface.IState
 {
     private Controller controller;
+    private Rigidbody2D rb;
+    private float fallForce;
     private PlayerInput playerInput;
     private InputAction movementAction;
     private InputAction jumpAction;
@@ -12,10 +14,12 @@ public class IdleState : Interface.IState
     public IdleState(Controller controller)
     {
         this.controller = controller;
+        rb = controller.GetComponent<Rigidbody2D>();
         playerInput = controller.GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Walking"];
         jumpAction = playerInput.actions["Jumping"];
         dashAction = playerInput.actions["Dashing"];
+        fallForce = controller.movementEditor.fallForce;
     }
 
     public void OnEnter()
@@ -28,6 +32,14 @@ public class IdleState : Interface.IState
     {
         // Example: Transition to WalkingState if horizontal input is detected
         Vector2 movementInput = movementAction.ReadValue<Vector2>();
+
+        // Apply fall force when the player starts falling
+        if (rb.linearVelocity.y <= 0)
+        {
+            rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
+        }
+
+        // Transition to WalkingState if horizontal input is detected
         if (movementInput.x != 0)
         {
             controller.ChangeState(new WalkingState(controller));

@@ -5,6 +5,10 @@ public class Controller : MonoBehaviour
     private Interface.IState currentState;
     public MovementEditor movementEditor;
 
+    private float raycastRange;
+    
+
+
     void Update()
     {
         currentState?.UpdateState(); // Safely call UpdateState if there's a current state
@@ -39,8 +43,10 @@ public class Controller : MonoBehaviour
         }
     }
 
-    public bool IsGrounded()
+    public bool IsGrounded() 
     {
-        return GetComponent<Rigidbody2D>().linearVelocity.y == 0;
+        raycastRange = movementEditor.raycastRange;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, movementEditor.grappleLayer);
+        return hit.collider != null;
     }
 }
