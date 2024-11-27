@@ -87,6 +87,12 @@ public class GrapplingHook : MonoBehaviour
             StopGrapple();
         }
 
+        // Check for wall and ceiling collisions
+        if (controller.IsWalled() || controller.IsCeilinged())
+        {
+            StopGrapple();
+        }
+
         // Update the rope's visual position
         UpdateLineRenderer();
     }
@@ -122,8 +128,23 @@ public class GrapplingHook : MonoBehaviour
     {
         isGrappling = false;
 
-        // Switch back to IDLING state
-        controller.ChangeState(new IdleState(controller));
+        if (controller.IsWalled())
+        {
+            Debug.Log("Player is touching a wall");
+            controller.ChangeState(new IdleState(controller));
+        }
+
+        else if (controller.IsCeilinged())
+        {
+            Debug.Log("Player is touching a ceiling");
+            controller.ChangeState(new IdleState(controller));
+        }
+
+        else
+        {
+            Debug.Log("Stopped grappling with no collision");
+            controller.ChangeState(new IdleState(controller));            
+        }
 
         // Disable the rope visual
         lineRenderer.positionCount = 0;

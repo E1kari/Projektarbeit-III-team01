@@ -39,6 +39,20 @@ public class DashingState : Interface.IState
     public void UpdateState()
     {
         dashTimer -= Time.deltaTime;
+
+        // Check for wall and ceiling collisions
+        if (controller.IsWalled())
+        {
+            Debug.Log("Player is touching a wall");
+            controller.ChangeState(new IdleState(controller));
+        }
+
+        if (controller.IsCeilinged())
+        {
+            Debug.Log("Player is touching a ceiling");
+            controller.ChangeState(new IdleState(controller));
+        }
+
         if (dashTimer <= 0)
         {
             controller.ChangeState(new IdleState(controller));
