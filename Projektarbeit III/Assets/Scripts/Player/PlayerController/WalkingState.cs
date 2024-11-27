@@ -53,6 +53,7 @@ public class WalkingState : Interface.IState
         {
             if (controller.IsGrounded())
             {
+                Debug.Log("Player is grounded");
                 Debug.Log("Cannot dash while grounded");
             }
             else
@@ -60,6 +61,19 @@ public class WalkingState : Interface.IState
             controller.ChangeState(new DashingState(controller));
             controller.movementEditor.hasDashed = true;
             }
+        }
+
+        // Check for wall and ceiling collisions
+        if (controller.IsWalled())
+        {
+            Debug.Log("Player is touching a wall");
+            controller.ChangeState(new IdleState(controller));
+        }
+
+        if (controller.IsCeilinged())
+        {
+            Debug.Log("Player is touching a ceiling");
+            controller.ChangeState(new IdleState(controller));
         }
     }
 

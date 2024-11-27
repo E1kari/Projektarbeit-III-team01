@@ -34,8 +34,14 @@ public class JumpingState : Interface.IState
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-        // Transition to IdleState when the player starts falling
+        // Apply gravitational pull after reaching the peak of the jump
         if (rb.linearVelocity.y <= 0)
+        {
+            rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
+        }
+
+        // Transition to IdleState when the player starts falling and is grounded
+        if (rb.linearVelocity.y <= 0 && controller.IsGrounded())
         {
             controller.ChangeState(new IdleState(controller));
         }
@@ -52,6 +58,19 @@ public class JumpingState : Interface.IState
             controller.ChangeState(new DashingState(controller));
             controller.movementEditor.hasDashed = true;
             }
+        }
+
+        // Check for wall and ceiling collisions
+        if (controller.IsWalled())
+        {
+            Debug.Log("Player is touching a wall");
+            controller.ChangeState(new IdleState(controller));
+        }
+
+        if (controller.IsCeilinged())
+        {
+            Debug.Log("Player is touching a ceiling");
+            controller.ChangeState(new IdleState(controller));
         }
     }
 

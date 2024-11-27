@@ -11,7 +11,13 @@ public class MovementEditor : MonoBehaviour
     [Range(0.1f, 50f)] public float fallForce = 10f;
 
     [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is grounded")]
-    [Range(0.1f, 5f)] public float raycastRange = 1f;
+    [Range(0.1f, 10f)] public float raycastDown = 1.005f;
+
+    [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is touching a wall")]
+    [Range(0.1f, 10f)] public float raycastLeftRight = 1f;
+
+    [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is touching a ceiling")]
+    [Range(0.1f, 10f)] public float raycastUp = 1.005f;
 
     [Header("Dashing Settings")]
     [Tooltip("The speed at which the player dashes. The higher the value, the faster the dash")]
