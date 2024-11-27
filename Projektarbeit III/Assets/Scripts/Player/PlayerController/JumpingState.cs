@@ -51,7 +51,8 @@ public class JumpingState : Interface.IState
         {
             if (controller.IsGrounded())
             {
-                Debug.LogError("Cannot dash while grounded");
+                Debug.Log("Player is grounded");
+                Debug.Log("Cannot dash while grounded");
             }
             else
             {   
