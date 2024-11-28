@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f08ee09cd435f04b92884a5663eb28c, type: 3}
   m_Name: S_Falling_Block
   m_EditorClassIdentifier: 
-  gravityScale_: 9.18
+  gravityScale_: 1
