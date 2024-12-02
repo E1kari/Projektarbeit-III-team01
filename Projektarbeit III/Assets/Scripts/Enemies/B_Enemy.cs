@@ -14,7 +14,6 @@ abstract public class B_Enemy : MonoBehaviour
     protected Health health_;
     protected EnemyState enemyState_ = EnemyState.IDLE;
     protected float attackCooldown_;
-
     protected float lastAttack_;
 
     void Start()
@@ -29,7 +28,6 @@ abstract public class B_Enemy : MonoBehaviour
         {
             if (Time.time - lastAttack_ > attackCooldown_)
             {
-                Debug.Log("Attack");
                 StartCoroutine(attack());
             }
         }
