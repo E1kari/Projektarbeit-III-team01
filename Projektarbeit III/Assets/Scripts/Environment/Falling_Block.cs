@@ -31,7 +31,7 @@ public class Falling_Block : MonoBehaviour
     IEnumerator activateGravity()
     {
         yield return new WaitForSeconds(fallingBlockData_.fallDelay_);
-        rb2D_.constraints = ~RigidbodyConstraints2D.FreezePosition;
+        rb2D_.constraints = ~RigidbodyConstraints2D.FreezePositionY;
         rb2D_.gravityScale = fallingBlockData_.gravityScale_;
 
         // reapplying simulated because unity wont update the rigidbody ;-;
