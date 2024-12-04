@@ -13,7 +13,7 @@ public class Falling_Block : MonoBehaviour
     void Start()
     {
         rb2D_ = gameObject.AddComponent<Rigidbody2D>();
-        rb2D_.gravityScale = 0.0f;
+        rb2D_.constraints = RigidbodyConstraints2D.FreezePosition;
         rb2D_.freezeRotation = true;
         boxCollider2D_ = gameObject.AddComponent<BoxCollider2D>();
         Vector2 spriteSize = gameObject.GetComponent<SpriteRenderer>().bounds.size;
@@ -24,7 +24,18 @@ public class Falling_Block : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            rb2D_.gravityScale = fallingBlockData_.gravityScale_;
+            StartCoroutine(activateGravity());
         }
+    }
+
+    IEnumerator activateGravity()
+    {
+        yield return new WaitForSeconds(fallingBlockData_.fallDelay_);
+        rb2D_.constraints = ~RigidbodyConstraints2D.FreezePosition;
+        rb2D_.gravityScale = fallingBlockData_.gravityScale_;
+
+        // reapplying simulated because unity wont update the rigidbody ;-;
+        rb2D_.simulated = false;
+        rb2D_.simulated = true;
     }
 }
