@@ -88,7 +88,7 @@ public class GrapplingHook : MonoBehaviour
         }
 
         // Check for wall and ceiling collisions
-        if (controller.IsWalled() || controller.IsCeilinged())
+        if (controller.IsTouchingLeftWall() || controller.IsTouchingRightWall() || controller.IsCeilinged())
         {
             StopGrapple();
         }
@@ -128,10 +128,10 @@ public class GrapplingHook : MonoBehaviour
     {
         isGrappling = false;
 
-        if (controller.IsWalled())
+        if (controller.IsWalkingAgainstWall())
         {
-            Debug.Log("Player is touching a wall");
-            controller.ChangeState(new IdleState(controller));
+            Debug.Log("Player is touching a wall and walking against it");
+            controller.ChangeState(new WallStickingState(controller));
         }
 
         else if (controller.IsCeilinged())

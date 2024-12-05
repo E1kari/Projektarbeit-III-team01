@@ -61650,9 +61650,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83c465bfd5695a41b9290c9aabcbbb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
+  jumpForce: 15
   fallForce: 10
-  raycastRange: 1
+  stickDuration: 3.5
+  wallJumpForce: 50
+  wallJumpSideForce: 500
+  wallJumpCooldown: 5
+  raycastDown: 1.005
+  raycastLeftRight: 0.75
+  raycastUp: 1.005
   dashSpeed: 20
   dashDuration: 0.25
   moveSpeed: 5

@@ -10,6 +10,21 @@ public class MovementEditor : MonoBehaviour
     [Tooltip("The force applied to the player when they fall. The higher the value, the faster the fall")]
     [Range(0.1f, 50f)] public float fallForce = 10f;
 
+    [Header("Wall Sticking Settings")]
+    [Tooltip("The duration the player can stick to a wall. The higher the value, the longer the stick duration")]
+    [Range(0.1f, 10f)] public float stickDuration = 3.5f;
+
+    [Header("Wall Jumping Settings")]
+    [Tooltip("The force applied to the player when they jump off a wall upwards. The higher the value, the higher the jump")]
+    [Range(0.1f, 100f)] public float wallJumpForce = 50f;
+
+    [Tooltip("The force applied to the player when they jump off a wall to the side. The higher the value, the further the jump")]
+    [Range(0.1f, 1000f)] public float wallJumpSideForce = 500f;   
+
+    [Tooltip("The cooldown time after a wall jump before the player can stick to a wall again. The higher the value, the longer the cooldown")]
+    [Range(0.1f, 25f)] public float wallJumpCooldown = 1f;
+
+    [Header("Raycast Settings")]
     [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is grounded")]
     [Range(0.1f, 10f)] public float raycastDown = 1.005f;
 

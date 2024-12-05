@@ -62,10 +62,10 @@ public class JumpingState : Interface.IState
         }
 
         // Check for wall and ceiling collisions
-        if (controller.IsWalled())
+        if (controller.IsWalkingAgainstWall())
         {
-            Debug.Log("Player is touching a wall");
-            controller.ChangeState(new IdleState(controller));
+            Debug.Log("Player is touching a wall and walking against it");
+            controller.ChangeState(new WallStickingState(controller));
         }
 
         if (controller.IsCeilinged())
