@@ -24,13 +24,26 @@ public class Falling_Block : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            StartCoroutine(activateGravity());
+            StartCoroutine(startCountdown());
         }
     }
 
-    IEnumerator activateGravity()
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            activateGravity();
+        }
+    }
+
+    IEnumerator startCountdown()
     {
         yield return new WaitForSeconds(fallingBlockData_.fallDelay_);
+        activateGravity();
+    }
+
+    private void activateGravity()
+    {
         rb2D_.constraints = ~RigidbodyConstraints2D.FreezePositionY;
         rb2D_.gravityScale = fallingBlockData_.gravityScale_;
 
