@@ -21,6 +21,7 @@ public class WallStickingState : Interface.IState
         jumpAction = playerInput.actions["Jumping"];
         stickDuration = controller.movementEditor.stickDuration;
         stickTimer = stickDuration;
+        controller.movementEditor.hasJumped = false;
     }
 
     public void OnEnter()

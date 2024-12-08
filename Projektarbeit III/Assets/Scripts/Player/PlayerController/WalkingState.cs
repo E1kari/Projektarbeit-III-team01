@@ -7,6 +7,7 @@ public class WalkingState : Interface.IState
     private Rigidbody2D rb;
     private float fallForce;
     private float moveSpeed;
+    private InputAction movementAction;
     private PlayerInput playerInput;
     private InputAction dashAction;
 
@@ -15,6 +16,7 @@ public class WalkingState : Interface.IState
         this.controller = controller;
         rb = controller.GetComponent<Rigidbody2D>();
         playerInput = controller.GetComponent<PlayerInput>();
+        movementAction = playerInput.actions["Walking"];
         dashAction = playerInput.actions["Dashing"];
         moveSpeed = controller.movementEditor.moveSpeed;
         fallForce = controller.movementEditor.fallForce;
@@ -27,8 +29,7 @@ public class WalkingState : Interface.IState
 
     public void UpdateState()
     {
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
 
         // Apply fall force when the player starts falling
         if (rb.linearVelocity.y <= 0)
@@ -37,7 +38,7 @@ public class WalkingState : Interface.IState
         }
 
         // Transition to IdleState if no input
-        if (moveInput == 0)
+        if (movementAction.ReadValue<Vector2>().x == 0)
         {
             controller.ChangeState(new IdleState(controller));
         }

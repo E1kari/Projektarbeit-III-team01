@@ -7,13 +7,17 @@ public class WallJumpingState : Interface.IState
     private Rigidbody2D rb;
     private PlayerInput playerInput;
     private InputAction movementAction;
+    private InputAction jumpAction;
     private float jumpForceUp;
-
     private float jumpForceSide;
     private float moveSpeed;
     private bool jumpingFromLeftWall;
     private float wallJumpCooldown;
     private float wallJumpCooldownTimer;
+    private float wallJumpingDirection;
+    private float wallJumpingTime = 0.2f;
+    private float wallJumpingCounter;
+    private Vector2 wallJumpingPower;
 
     public WallJumpingState(Controller controller)
     {
@@ -21,10 +25,12 @@ public class WallJumpingState : Interface.IState
         rb = controller.GetComponent<Rigidbody2D>();
         playerInput = controller.GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Walking"];
+        jumpAction = playerInput.actions["Jumping"];
         jumpForceUp = controller.movementEditor.wallJumpForce;
-        jumpForceSide = controller.movementEditor.wallJumpForce;
+        jumpForceSide = controller.movementEditor.wallJumpSideForce;
         moveSpeed = controller.movementEditor.moveSpeed;
         wallJumpCooldown = controller.movementEditor.wallJumpCooldown;
+        wallJumpingPower = new Vector2(jumpForceSide, jumpForceUp);
     }
 
     public void OnEnter()
@@ -35,20 +41,27 @@ public class WallJumpingState : Interface.IState
         jumpingFromLeftWall = controller.IsTouchingLeftWall();
 
         // Apply the jump force in the opposite direction of the wall
-        Vector2 jumpDirection = jumpingFromLeftWall ? new Vector2(1, 1).normalized : new Vector2(-1, 1).normalized;
-        Debug.Log("Jumping from " + (jumpingFromLeftWall ? "left" : "right") + " wall");
-        rb.linearVelocity = new Vector2(jumpDirection.x * jumpForceSide, jumpDirection.y * jumpForceUp); // Apply the jump force
+        wallJumpingDirection = jumpingFromLeftWall ? 1 : -1;
+        rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
 
         controller.movementEditor.hasJumped = true; // Set the jump flag
         wallJumpCooldownTimer = wallJumpCooldown; // Initialize the cooldown timer
+        wallJumpingCounter = wallJumpingTime; // Initialize the wall jumping counter
     }
 
     public void UpdateState()
     {
         Vector2 movementInput = movementAction.ReadValue<Vector2>();
 
-        // Apply horizontal movement
-        rb.linearVelocity = new Vector2(movementInput.x * moveSpeed, rb.linearVelocity.y);
+        // Allow player to influence horizontal movement while maintaining momentum
+        if (wallJumpingCounter > 0)
+        {
+            wallJumpingCounter -= Time.deltaTime;
+        }
+        else
+        {
+            MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
+        }
 
         // Decrease the cooldown timer
         wallJumpCooldownTimer -= Time.deltaTime;

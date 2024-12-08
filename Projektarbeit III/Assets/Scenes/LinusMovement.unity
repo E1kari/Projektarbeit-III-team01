@@ -61653,8 +61653,8 @@ MonoBehaviour:
   jumpForce: 15
   fallForce: 10
   stickDuration: 3.5
-  wallJumpForce: 50
-  wallJumpSideForce: 500
+  wallJumpForce: 10
+  wallJumpSideForce: 15
   wallJumpCooldown: 5
   raycastDown: 1.005
   raycastLeftRight: 0.75

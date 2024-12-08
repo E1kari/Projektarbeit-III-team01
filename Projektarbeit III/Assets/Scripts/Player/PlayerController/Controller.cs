@@ -43,7 +43,7 @@ public class Controller : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Reset the jump and dash flags when the player touches the ground or a wall
-        if (IsGrounded() || IsTouchingLeftWall() || IsTouchingRightWall())
+        if (IsGrounded())
         {
             movementEditor.hasJumped = false;
             movementEditor.hasDashed = false;

@@ -9,6 +9,7 @@ public class JumpingState : Interface.IState
     private float fallForce;
     private float moveSpeed;
     private PlayerInput playerInput;
+    private InputAction movementAction;
     private InputAction dashAction;
 
     public JumpingState(Controller controller)
@@ -16,6 +17,7 @@ public class JumpingState : Interface.IState
         this.controller = controller;
         rb = controller.GetComponent<Rigidbody2D>();
         playerInput = controller.GetComponent<PlayerInput>();
+        movementAction = playerInput.actions["Walking"];
         dashAction = playerInput.actions["Dashing"];
         moveSpeed = controller.movementEditor.moveSpeed;
         jumpForce = controller.movementEditor.jumpForce;
@@ -31,8 +33,7 @@ public class JumpingState : Interface.IState
 
     public void UpdateState()
     {
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
 
         // Apply gravitational pull after reaching the peak of the jump
         if (rb.linearVelocity.y <= 0)

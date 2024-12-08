@@ -7,7 +7,6 @@ public class GrapplingHook : MonoBehaviour
     private float grappleCooldown;
     private float grappleRange;
     private LayerMask grappleLayer;          // Layer to check for grapple points
-
     private Vector2 grapplePoint;            // Point where the hook attaches
     private bool isGrappling;                // Whether the player is grappling
     private bool isCooldown;                 // Whether the grappling hook is on cooldown
