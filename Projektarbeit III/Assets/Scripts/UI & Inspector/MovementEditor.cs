@@ -41,6 +41,9 @@ public class MovementEditor : MonoBehaviour
     [Tooltip("The duration of the dash in seconds. The higher the value, the longer the dash")]
     [Range(0.1f, 5f)] public float dashDuration = 0.25f;
 
+    [Tooltip("Whether to preserve momentum after dashing")]
+    public bool preserveDashMomentum = false;
+
     [Header("Walking Settings")]
     [Tooltip("The speed at which the player moves. The higher the value, the faster the movement")]
     [Range(0.1f, 25f)] public float moveSpeed = 5f;
