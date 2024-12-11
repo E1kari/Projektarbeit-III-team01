@@ -641,7 +641,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 23
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -866,7 +866,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 6759688343136247405, guid: 0ce2d339b6f0b074bbf081a6e81f0e51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -968,8 +968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c0215b60016e444a819bc2841c9004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 786196491}
-  bounceForce: 10
+  rb_: {fileID: 0}
+  bounceForce_: 0
 --- !u!114 &786196493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2065,17 +2065,33 @@ PrefabInstance:
       propertyPath: heavyEnemyData_
       value: 
       objectReference: {fileID: 11400000, guid: 3ac61d03949913a44bfa5f0ee3f0f6e8, type: 2}
+    - target: {fileID: 2899901974619451555, guid: 0cb20d6fe573b2d4ca83cfc34db0b9cf, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899901974619451555, guid: 0cb20d6fe573b2d4ca83cfc34db0b9cf, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899901974619451555, guid: 0cb20d6fe573b2d4ca83cfc34db0b9cf, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033921688851978227, guid: 0cb20d6fe573b2d4ca83cfc34db0b9cf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 716591755221624693, guid: 78a0afb4f94042c449f9acbd9157c3bc, type: 3}
     - target: {fileID: 8073874948019567428, guid: 0cb20d6fe573b2d4ca83cfc34db0b9cf, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8073874948019567428, guid: 0cb20d6fe573b2d4ca83cfc34db0b9cf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.48
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8073874948019567428, guid: 0cb20d6fe573b2d4ca83cfc34db0b9cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.83
+      value: -7.94
       objectReference: {fileID: 0}
     - target: {fileID: 8073874948019567428, guid: 0cb20d6fe573b2d4ca83cfc34db0b9cf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2134,6 +2150,10 @@ PrefabInstance:
       propertyPath: lightEnemyData_
       value: 
       objectReference: {fileID: 11400000, guid: c92d80381b77649498d6217b43df538c, type: 2}
+    - target: {fileID: 6524879068133375639, guid: d9856f0401b69f2498fc0efde9002ffd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4326991221657608486, guid: c16db70f84c981e44bc4253399543c88, type: 3}
     - target: {fileID: 7452495963359347904, guid: d9856f0401b69f2498fc0efde9002ffd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.43
