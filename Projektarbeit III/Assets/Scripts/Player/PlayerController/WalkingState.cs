@@ -5,7 +5,9 @@ public class WalkingState : Interface.IState
 {
     private Controller controller;
     private Rigidbody2D rb;
+    private float fallForce;
     private float moveSpeed;
+    private InputAction movementAction;
     private PlayerInput playerInput;
     private InputAction dashAction;
 
@@ -14,8 +16,10 @@ public class WalkingState : Interface.IState
         this.controller = controller;
         rb = controller.GetComponent<Rigidbody2D>();
         playerInput = controller.GetComponent<PlayerInput>();
+        movementAction = playerInput.actions["Walking"];
         dashAction = playerInput.actions["Dashing"];
         moveSpeed = controller.movementEditor.moveSpeed;
+        fallForce = controller.movementEditor.fallForce;
     }
 
     public void OnEnter()
@@ -25,11 +29,16 @@ public class WalkingState : Interface.IState
 
     public void UpdateState()
     {
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
+
+        // Apply fall force when the player starts falling
+        if (rb.linearVelocity.y <= 0)
+        {
+            rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
+        }
 
         // Transition to IdleState if no input
-        if (moveInput == 0)
+        if (movementAction.ReadValue<Vector2>().x == 0)
         {
             controller.ChangeState(new IdleState(controller));
         }
@@ -45,13 +54,27 @@ public class WalkingState : Interface.IState
         {
             if (controller.IsGrounded())
             {
-                Debug.LogError("Cannot dash while grounded");
+                Debug.Log("Player is grounded");
+                Debug.Log("Cannot dash while grounded");
             }
             else
             {   
             controller.ChangeState(new DashingState(controller));
             controller.movementEditor.hasDashed = true;
             }
+        }
+
+        // Check for wall and ceiling collisions
+        if (controller.IsWalkingAgainstWall())
+        {
+            Debug.Log("Player is touching a wall and walking against it");
+            controller.ChangeState(new WallStickingState(controller));
+        }
+
+        if (controller.IsCeilinged())
+        {
+            Debug.Log("Player is touching a ceiling");
+            controller.ChangeState(new IdleState(controller));
         }
     }
 
