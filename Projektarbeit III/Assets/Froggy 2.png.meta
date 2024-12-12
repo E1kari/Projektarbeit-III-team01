@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Froggy 2_0: -7107125503865223291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

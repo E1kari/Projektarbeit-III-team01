@@ -169,6 +169,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 10
+  fallForce: 10
+  stickDuration: 3.5
+  wallJumpForce: 10.6
+  wallJumpSideForce: 162
+  wallJumpCooldown: 1
+  raycastDown: 1.005
+  raycastLeftRight: 1
+  raycastUp: 1.005
   dashSpeed: 20
   dashDuration: 0.25
   moveSpeed: 5
