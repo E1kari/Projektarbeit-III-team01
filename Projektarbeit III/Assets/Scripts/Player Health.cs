@@ -6,6 +6,6 @@ public class PlayerHealth : Health
 {
     public override void takeDamage()
     {
-        SceneManager.LoadScene("Selection Screen");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
