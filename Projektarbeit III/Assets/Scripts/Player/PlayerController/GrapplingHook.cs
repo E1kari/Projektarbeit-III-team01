@@ -14,6 +14,7 @@ public class GrapplingHook : MonoBehaviour
     private Controller controller;           // Reference to the player's state manager
     private LineRenderer lineRenderer;       // Visual representation of the rope
     private float cooldownTimer;             // Timer to track cooldown
+    private LineRenderer grappleIndicator;   // Visual indicator for the potential grapple point
 
     void Start()
     {
@@ -33,6 +34,15 @@ public class GrapplingHook : MonoBehaviour
         grappleCooldown = controller.movementEditor.grappleCooldown;
         grappleRange = controller.movementEditor.grappleRange;
         grappleLayer = controller.movementEditor.grappleLayer;
+
+        // Create the grapple indicator
+        grappleIndicator = new GameObject("GrappleIndicator").AddComponent<LineRenderer>();
+        grappleIndicator.startWidth = 0.1f;
+        grappleIndicator.endWidth = 0.1f;
+        grappleIndicator.positionCount = 0;
+        grappleIndicator.material = new Material(Shader.Find("Sprites/Default"));
+        grappleIndicator.startColor = Color.blue;
+        grappleIndicator.endColor = Color.blue;
     }
 
     void Update()
@@ -64,6 +74,9 @@ public class GrapplingHook : MonoBehaviour
         {
             StopGrapple();
         }
+
+        // Update the grapple indicator position
+        UpdateGrappleIndicator();
     }
 
     private void FixedUpdate()
@@ -160,6 +173,38 @@ public class GrapplingHook : MonoBehaviour
         {
             lineRenderer.SetPosition(0, transform.position); // Start of the rope (player position)
             lineRenderer.SetPosition(1, grapplePoint);       // End of the rope (grapple point)
+        }
+    }
+
+    private void UpdateGrappleIndicator()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleRange, grappleLayer);
+
+        if (hit.collider != null && Vector2.Distance(transform.position, hit.point) <= grappleRange)
+        {
+            // Update the grapple indicator position
+            DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
+            grappleIndicator.enabled = true;
+        }
+        else
+        {
+            grappleIndicator.enabled = false;
+        }
+    }
+
+    private void DrawCircle(LineRenderer lineRenderer, Vector2 position, float radius, int segments)
+    {
+        lineRenderer.positionCount = segments + 1; 
+        float angle = 0f;
+
+        for (int i = 0; i <= segments; i++)
+        {
+            float x = position.x + Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
+            float y = position.y + Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
+            lineRenderer.SetPosition(i, new Vector3(x, y, 0));
+            angle += 360f / segments;
         }
     }
 }

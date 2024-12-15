@@ -7,6 +7,7 @@ public class DashingState : Interface.IState
     private float dashSpeed;
     private float dashDuration;
     private float dashTimer;
+    private Vector2 dashDirection;
 
     public DashingState(Controller controller)
     {
@@ -22,7 +23,7 @@ public class DashingState : Interface.IState
         dashTimer = dashDuration;
 
         // Determine the dash direction
-        Vector2 dashDirection = Vector2.zero;
+        dashDirection = Vector2.zero;
         if (Input.GetAxis("Horizontal") != 0)
         {
             dashDirection = new Vector2(Input.GetAxis("Horizontal"), 0).normalized;
@@ -55,6 +56,16 @@ public class DashingState : Interface.IState
 
         if (dashTimer <= 0)
         {
+            if (controller.movementEditor.preserveDashMomentum)
+            {
+                // Preserve momentum by maintaining the horizontal velocity
+                rb.linearVelocity = new Vector2(dashDirection.x * dashSpeed, rb.linearVelocity.y);
+            }
+            else
+            {
+                // Revert to normal air speed
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            }
             controller.ChangeState(new IdleState(controller));
         }
     }
