@@ -8,6 +8,9 @@ public class Level_End : MonoBehaviour
 
     [SerializeField]
     private Object sceneToLoad_;
+
+    [SerializeField]
+    private Timer timer_;
     private BoxCollider2D boxCollider2D_;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,10 +24,10 @@ public class Level_End : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision with " + other.gameObject.name);
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player collision");
+            timer_.StopTimer();
+
             string scenePath = AssetDatabase.GetAssetPath(sceneToLoad_);
             string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
 
