@@ -765,9 +765,11 @@ MonoBehaviour:
   wallJumpForce: 8
   wallJumpSideForce: 5
   wallJumpCooldown: 1
-  raycastDown: 1.25
-  raycastLeftRight: 0.375
-  raycastUp: 1.2
+  offsetRayCastDown: -0.25
+  offsetRayCastLeft: 0.5
+  offsetRayCastRight: -0.5
+  offsetRayCastUp: 0.2
+  drawRaycasts: 1
   dashSpeed: 8
   dashDuration: 0.35
   moveSpeed: 5

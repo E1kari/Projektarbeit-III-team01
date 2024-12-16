@@ -24,15 +24,21 @@ public class MovementEditor : MonoBehaviour
     [Tooltip("The cooldown time after a wall jump before the player can stick to a wall again. The higher the value, the longer the cooldown")]
     [Range(0.1f, 25f)] public float wallJumpCooldown = 1f;
 
-    [Header("Raycast Settings (Only for Programmers)")]
-    [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is grounded")]
-    [Range(0.1f, 10f)] public float raycastDown = 1.25f;
+    [Header("Raycast Settings")]
+    [Tooltip("The range off the offset for the raycast. The higher the value, the higher the offset. Used for checking if the player is grounded")]
+    [Range(-5f, 5f)] public float offsetRayCastDown = -0.25f;
 
-    [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is touching a wall")]
-    [Range(0.1f, 10f)] public float raycastLeftRight = 0.375f;
+    [Tooltip("The range off the offset for the raycast. The higher the value, the more on the right the offset. Used for checking if the player is touching a wall on the left")]
+    [Range(-5f, 5f)] public float offsetRayCastLeft = 0.5f;
 
-    [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is touching a ceiling")]
-    [Range(0.1f, 10f)] public float raycastUp = 1.2f;
+    [Tooltip("The range off the offset for the raycast. The higher the value, the more on the right the offset. Used for checking if the player is touching a wall on the right")]
+    [Range(-5f, 5f)] public float offsetRayCastRight = -0.5f;
+
+    [Tooltip("The range off the offset for the raycast. The higher the value, the higher the offset. Used for checking if the player is touching a ceiling")]
+    [Range(-5f, 5f)] public float offsetRayCastUp = 0.2f;
+
+    [Tooltip("Toggle to enable or disable the raycasts in the editor")]
+    public bool drawRaycasts = false;
 
     [Header("Dashing Settings")]
     [Tooltip("The speed at which the player dashes. The higher the value, the faster the dash")]
@@ -81,5 +87,23 @@ public class ReadOnlyDrawer : PropertyDrawer
         GUI.enabled = false;
         EditorGUI.PropertyField(position, property, label); // Draw the property field as disabled
         GUI.enabled = true;
+    }
+}
+
+[CustomEditor(typeof(MovementEditor))]
+public class MovementEditorEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        MovementEditor movementEditor = (MovementEditor)target;
+
+        movementEditor.drawRaycasts = GUILayout.Toggle(movementEditor.drawRaycasts, "Draw Raycasts");
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(movementEditor);
+        }
     }
 }
