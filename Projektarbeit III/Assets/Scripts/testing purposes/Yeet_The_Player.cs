@@ -7,6 +7,8 @@ public class Yeet_The_Player : MonoBehaviour
     public float yeetSpeed_ = 10f;
     public bool travelToEnd = true;
 
+    private bool warning = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,10 +38,13 @@ public class Yeet_The_Player : MonoBehaviour
         Gizmos.color = Color.blue;
         if (travelToEnd)
         {
-            GameObject end = GameObject.FindGameObjectsWithTag("Level End")[0];
-            if (end)
+            if (GameObject.FindGameObjectsWithTag("Level End").Length != 0)
             {
-                destination_ = end.transform;
+                GameObject end = GameObject.FindGameObjectsWithTag("Level End")[0];
+                if (end)
+                {
+                    destination_ = end.transform;
+                }
             }
         }
         if (destination_)
@@ -51,9 +56,12 @@ public class Yeet_The_Player : MonoBehaviour
             return;
         }
 
-        Debug.LogWarning("No destination set for Yeet_The_Player");
-        Gizmos.DrawWireSphere(transform.position, 0.2f);
-
+        if (!warning)
+        {
+            Debug.LogWarning("No destination set for Yeet_The_Player.");
+            Gizmos.DrawWireSphere(transform.position, 0.2f);
+            warning = true;
+        }
     }
 
 }

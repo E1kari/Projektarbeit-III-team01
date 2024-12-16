@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 564157499
+  m_SortingLayerID: -533865393
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -6007857137893288414, guid: ae108dd1b21f1a54199334ea796bd1da, type: 3}
@@ -101,3 +101,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab_: {fileID: 5373175673608368738, guid: 18396234c85e8554f8361ee6894630ee, type: 3}
+  timer_: {fileID: 11400000, guid: d738793ecc4aa0e4c973fd2d915f9801, type: 2}
