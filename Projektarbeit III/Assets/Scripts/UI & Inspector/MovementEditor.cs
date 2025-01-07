@@ -25,17 +25,8 @@ public class MovementEditor : MonoBehaviour
     [Range(0.1f, 25f)] public float wallJumpCooldown = 1f;
 
     [Header("Raycast Settings")]
-    [Tooltip("The range off the offset for the raycast. The higher the value, the higher the offset. Used for checking if the player is grounded")]
-    [Range(-5f, 5f)] public float offsetRayCastDown = -0.25f;
-
-    [Tooltip("The range off the offset for the raycast. The higher the value, the more on the right the offset. Used for checking if the player is touching a wall on the left")]
-    [Range(-5f, 5f)] public float offsetRayCastLeft = 0.5f;
-
-    [Tooltip("The range off the offset for the raycast. The higher the value, the more on the right the offset. Used for checking if the player is touching a wall on the right")]
-    [Range(-5f, 5f)] public float offsetRayCastRight = -0.5f;
-
-    [Tooltip("The range off the offset for the raycast. The higher the value, the higher the offset. Used for checking if the player is touching a ceiling")]
-    [Range(-5f, 5f)] public float offsetRayCastUp = 0.2f;
+    [Tooltip("The range for the player where he is able to jump. The higher the value, the earlier he can jump")]
+    [Range(-5f, 5f)] public float playerJumpOffset = 0.5f;
 
     [Tooltip("Toggle to enable or disable the raycasts in the editor")]
     public bool drawRaycasts = false;

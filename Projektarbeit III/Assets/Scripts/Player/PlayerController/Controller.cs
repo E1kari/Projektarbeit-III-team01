@@ -5,10 +5,7 @@ public class Controller : MonoBehaviour
 {
     private Interface.IState currentState;
     public MovementEditor movementEditor;
-    private float offsetG;
-    private float offsetL;
-    private float offsetR;
-    private float offsetC;
+    private float playerJumpOffset;
     private float wallJumpCooldownTimer;
 
     void Update()
@@ -60,8 +57,15 @@ public class Controller : MonoBehaviour
 
     public bool IsGrounded()
     {
-        offsetG = movementEditor.offsetRayCastDown;
-        Vector2 raycastStart =  (Vector2)transform.position + new Vector2(0, offsetG);
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("SpriteRenderer component is missing on the Player game object.");
+            return false;
+        }
+        float spriteHeight = spriteRenderer.bounds.size.y;
+
+        Vector2 raycastStart = (Vector2)transform.position - new Vector2(playerJumpOffset, spriteHeight / 2);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, Vector2.down, 1f, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {
@@ -72,8 +76,15 @@ public class Controller : MonoBehaviour
 
     public bool IsTouchingLeftWall()
     {
-        offsetL = movementEditor.offsetRayCastLeft;
-        Vector2 raycastStart =  (Vector2)transform.position + new Vector2(offsetL, 0);         
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("SpriteRenderer component is missing on the Player game object.");
+            return false;
+        }
+        float spriteWidth = spriteRenderer.bounds.size.x;
+
+        Vector2 raycastStart = (Vector2)transform.position + new Vector2(spriteWidth / 2, 0);       
         RaycastHit2D hitLeft = Physics2D.Raycast(raycastStart, Vector2.left, 1f, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {
@@ -84,8 +95,15 @@ public class Controller : MonoBehaviour
 
     public bool IsTouchingRightWall()
     {
-        offsetR = movementEditor.offsetRayCastRight;
-        Vector2 raycastStart =  (Vector2)transform.position + new Vector2(offsetR, 0);
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("SpriteRenderer component is missing on the Player game object.");
+            return false;
+        }
+        float spriteWidth = spriteRenderer.bounds.size.x;
+
+        Vector2 raycastStart = (Vector2)transform.position - new Vector2(spriteWidth / 2, 0);   
         RaycastHit2D hitRight = Physics2D.Raycast(raycastStart, Vector2.right, 1f, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {
@@ -96,8 +114,15 @@ public class Controller : MonoBehaviour
     
     public bool IsCeilinged()
     {
-        offsetC = movementEditor.offsetRayCastUp;
-        Vector2 raycastStart =  (Vector2)transform.position + new Vector2(0, offsetC);
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("SpriteRenderer component is missing on the Player game object.");
+            return false;
+        }
+        float spriteHeight = spriteRenderer.bounds.size.y;
+
+        Vector2 raycastStart = (Vector2)transform.position + new Vector2(playerJumpOffset, spriteHeight / 2);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, Vector2.up, 1f, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {
