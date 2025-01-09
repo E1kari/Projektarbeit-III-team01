@@ -59942,11 +59942,14 @@ MonoBehaviour:
   jumpForce: 18.2
   fallForce: 10
   stickDuration: 3.5
-  raycastDown: 1.005
-  raycastLeftRight: 1
-  raycastUp: 1.005
+  wallJumpForce: 50
+  wallJumpSideForce: 500
+  wallJumpCooldown: 1
+  playerJumpOffset: 0.5
+  drawRaycasts: 0
   dashSpeed: 20
   dashDuration: 0.25
+  preserveDashMomentum: 0
   moveSpeed: 5
   grappleSpeed: 20
   grappleCooldown: 0.5
@@ -60043,6 +60046,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d627ed24f17060e4598fa4ca8876dab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showFps: 0
+  showTime: 1
+  timer_: {fileID: 11400000, guid: d738793ecc4aa0e4c973fd2d915f9801, type: 2}
 --- !u!1001 &862820372
 PrefabInstance:
   m_ObjectHideFlags: 0
