@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(LineRenderer))]
 public class GrapplingHook : MonoBehaviour
 {
-    private float grappleSpeed;
-    private float grappleCooldown;
-    private float grappleRange;
+    private float grappleSpeed;              // Speed at which the grappling hook moves
+    private float grappleCooldown;           // Cooldown time between grappling hook uses
+    private float grappleRange;              // Maximum distance the grappling hook can reach
     private LayerMask grappleLayer;          // Layer to check for grapple points
     private Vector2 grapplePoint;            // Point where the hook attaches
     private bool isGrappling;                // Whether the player is grappling
@@ -15,12 +16,16 @@ public class GrapplingHook : MonoBehaviour
     private LineRenderer lineRenderer;       // Visual representation of the rope
     private float cooldownTimer;             // Timer to track cooldown
     private LineRenderer grappleIndicator;   // Visual indicator for the potential grapple point
+    private PlayerInput playerInput;         // Player input reference
+    private InputAction grappleAction;      // Grappling input action
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<Controller>();
         lineRenderer = GetComponent<LineRenderer>();
+        playerInput = controller.GetComponent<PlayerInput>();
+        grappleAction = playerInput.actions["Grappling"];
 
         // Initialize the LineRenderer to hide the rope
         lineRenderer.positionCount = 0;

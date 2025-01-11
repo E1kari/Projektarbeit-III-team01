@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class DashingState : Interface.IState
 {
     private Controller controller;
@@ -24,9 +24,11 @@ public class DashingState : Interface.IState
 
         // Determine the dash direction
         dashDirection = Vector2.zero;
-        if (Input.GetAxis("Horizontal") != 0)
+        Vector2 movementInput = controller.GetComponent<PlayerInput>().actions["Walking"].ReadValue<Vector2>();
+
+        if (movementInput.x != 0)
         {
-            dashDirection = new Vector2(Input.GetAxis("Horizontal"), 0).normalized;
+            dashDirection = new Vector2(movementInput.x, 0).normalized;
         }
         else
         {
