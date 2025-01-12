@@ -10,7 +10,7 @@ public class HUD : MonoBehaviour
     private bool showTime = true;
 
     [SerializeField]
-    private Timer timer_;
+    private S_Timer timer_;
 
 
     private float deltaTime = 0.0f;

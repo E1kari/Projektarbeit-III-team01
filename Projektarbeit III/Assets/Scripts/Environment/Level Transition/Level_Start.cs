@@ -6,7 +6,7 @@ public class Level_Start : MonoBehaviour
     private GameObject playerPrefab_;
 
     [SerializeField]
-    private Timer timer_;
+    private S_Timer timer_;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
