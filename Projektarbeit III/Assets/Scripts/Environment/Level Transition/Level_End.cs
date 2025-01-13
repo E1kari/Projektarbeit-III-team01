@@ -10,7 +10,7 @@ public class Level_End : MonoBehaviour
     private Object sceneToLoad_;
 
     [SerializeField]
-    private Timer timer_;
+    private S_Timer timer_;
     private BoxCollider2D boxCollider2D_;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
