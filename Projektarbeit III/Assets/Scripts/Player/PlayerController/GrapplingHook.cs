@@ -18,7 +18,8 @@ public class GrapplingHook : MonoBehaviour
     private LineRenderer grappleIndicator;   // Visual indicator for the potential grapple point
     private PlayerInput playerInput;         // Player input reference
     private InputAction grappleAction;       // Grappling input action
-    private InputAction rightClickAction;    // Right click input action
+    private InputAction aimAction;           // Aim input action for controller
+    private bool isUsingController;          // Whether the player is using a controller
 
     void Start()
     {
@@ -27,6 +28,8 @@ public class GrapplingHook : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         playerInput = controller.GetComponent<PlayerInput>();
         grappleAction = playerInput.actions["Grappling"];
+        aimAction = playerInput.actions["Aiming"];
+        aimAction.Enable();
 
         // Initialize the LineRenderer to hide the rope
         lineRenderer.positionCount = 0;
@@ -51,34 +54,21 @@ public class GrapplingHook : MonoBehaviour
         grappleIndicator.endColor = Color.blue;
 
         // Register input callbacks
-        grappleAction.started += ctx => StartGrapple(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
-        grappleAction.canceled += ctx => StopGrapple();
         grappleAction.Enable();
-
-        // Bind right mouse button as a separate action
-        rightClickAction = new InputAction(binding: "<Mouse>/rightButton");
-        rightClickAction.performed += ctx => Debug.Log("Right Mouse Clicked");
-        rightClickAction.performed += ctx => StartGrapple(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
-        rightClickAction.canceled -= ctx => StopGrapple();
-        rightClickAction.Enable();
     }
 
     private void OnDestroy()
     {
         // Unregister input callbacks
-        grappleAction.performed -= ctx => Debug.Log("Grapple Button Clicked");
-        grappleAction.started -= ctx => StartGrapple(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
-        grappleAction.canceled -= ctx => StopGrapple();
         grappleAction.Disable();
-        
-        rightClickAction.performed -= ctx => Debug.Log("Right Mouse Clicked");
-        rightClickAction.started -= ctx => StartGrapple(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
-        rightClickAction.canceled -= ctx => StopGrapple();
-        rightClickAction.Disable();
+        aimAction.Disable();
     }
 
     void Update()
     {
+        // Check if the player is using a controller (for Aiming)
+        isUsingController = playerInput.currentControlScheme == "Gamepad";
+
         // Handle cooldown timer
         if (isCooldown)
         {
@@ -89,16 +79,38 @@ public class GrapplingHook : MonoBehaviour
             }
         }
 
-        // Update the grapple indicator position
-        UpdateGrappleIndicator();
-
         if (grappleAction.triggered)
         {
             Debug.Log("Grapple action triggered");
+            UpdateGrappleIndicator();
+            Vector2 target;
+
+            if (isUsingController)
+            {
+                // Get the aim direction from the controller
+                Vector2 aimDirection = aimAction.ReadValue<Vector2>().normalized;
+
+                // Calculate the target based on the aim direction
+                Vector2 startPosition = transform.position;
+                target = startPosition + aimDirection * grappleRange;
+            }
+            else
+            {
+                // Get the target position from the mouse
+                target = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            }
+
+            // Start the grapple if a valid target is found
+            if (target != Vector2.zero)
+            {
+                StartGrapple(target);
+            }
         }
-        if (rightClickAction.triggered)
+
+        else
         {
-            Debug.Log("Right click action triggered");
+            // Update the grapple indicator position
+            UpdateGrappleIndicator();
         }
     }
 
@@ -116,8 +128,8 @@ public class GrapplingHook : MonoBehaviour
         Vector2 direction = (grapplePoint - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * grappleSpeed;
 
-        // Check if the player cancels the grapple
-        if (!rightClickAction.IsPressed() && !grappleAction.IsPressed())
+        // Check if the player cancels the grapple by releasing the grapple button
+        if (!grappleAction.IsPressed())
         {
             StopGrapple();
         }
@@ -208,15 +220,43 @@ public class GrapplingHook : MonoBehaviour
 
     private void UpdateGrappleIndicator()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
+        Vector2 direction;
+
+        if (isUsingController)
+        {
+            // Use the controller's aim input for direction
+            direction = aimAction.ReadValue<Vector2>().normalized;
+
+            // Falls der Stick nicht bewegt wird, keine Anzeige
+            if (direction == Vector2.zero)
+            {
+                grappleIndicator.enabled = false;
+                return;
+            }
+        }
+        else
+        {
+            // Use the mouse position for direction
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            direction = (mousePosition - (Vector2)transform.position).normalized;
+        }
+
+        // Find a valid grapple point in the direction
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleRange, grappleLayer);
 
-        if (hit.collider != null && Vector2.Distance(transform.position, hit.point) <= grappleRange)
+        if (hit.collider != null)
         {
-            // Update the grapple indicator position
-            DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
-            grappleIndicator.enabled = true;
+            // Check if the target is within range
+            if (Vector2.Distance(transform.position, hit.point) <= grappleRange)
+            {
+                // Draw the grapple indicator at the hit point
+                DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
+                grappleIndicator.enabled = true;                
+            }
+            else
+            {
+                grappleIndicator.enabled = false;
+            }	
         }
         else
         {
