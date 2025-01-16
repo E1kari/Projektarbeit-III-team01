@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class DashingState : Interface.IState
 {
     private Controller controller;
@@ -7,6 +7,7 @@ public class DashingState : Interface.IState
     private float dashSpeed;
     private float dashDuration;
     private float dashTimer;
+    private Vector2 dashDirection;
 
     public DashingState(Controller controller)
     {
@@ -22,10 +23,12 @@ public class DashingState : Interface.IState
         dashTimer = dashDuration;
 
         // Determine the dash direction
-        Vector2 dashDirection = Vector2.zero;
-        if (Input.GetAxis("Horizontal") != 0)
+        dashDirection = Vector2.zero;
+        Vector2 movementInput = controller.GetComponent<PlayerInput>().actions["Walking"].ReadValue<Vector2>();
+
+        if (movementInput.x != 0)
         {
-            dashDirection = new Vector2(Input.GetAxis("Horizontal"), 0).normalized;
+            dashDirection = new Vector2(movementInput.x, 0).normalized;
         }
         else
         {
@@ -39,8 +42,32 @@ public class DashingState : Interface.IState
     public void UpdateState()
     {
         dashTimer -= Time.deltaTime;
+
+        // Check for wall and ceiling collisions
+        if (controller.IsWalkingAgainstWall())
+        {
+            Debug.Log("Player is touching a wall and walking against it");
+            controller.ChangeState(new WallStickingState(controller));
+        }
+
+        if (controller.IsCeilinged())
+        {
+            Debug.Log("Player is touching a ceiling");
+            controller.ChangeState(new IdleState(controller));
+        }
+
         if (dashTimer <= 0)
         {
+            if (controller.movementEditor.preserveDashMomentum)
+            {
+                // Preserve momentum by maintaining the horizontal velocity
+                rb.linearVelocity = new Vector2(dashDirection.x * dashSpeed, rb.linearVelocity.y);
+            }
+            else
+            {
+                // Revert to normal air speed
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            }
             controller.ChangeState(new IdleState(controller));
         }
     }

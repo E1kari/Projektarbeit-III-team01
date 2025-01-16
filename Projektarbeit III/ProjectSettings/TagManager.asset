@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Light Enemy
   - Heavy Enemy
+  - Level Start
+  - Level End
   layers:
   - Default
   - TransparentFX
@@ -40,8 +42,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3761101903
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2937685789
+    locked: 0
+  - name: Main Character
+    uniqueID: 2047910673
     locked: 0
   m_RenderingLayers:
   - Default

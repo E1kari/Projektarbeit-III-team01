@@ -59674,15 +59674,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708369303}
-  - component: {fileID: 708369302}
-  - component: {fileID: 708369308}
+  - component: {fileID: 708369304}
+  - component: {fileID: 708369309}
   - component: {fileID: 708369300}
+  - component: {fileID: 708369308}
   - component: {fileID: 708369299}
-  - component: {fileID: 708369298}
   - component: {fileID: 708369306}
   - component: {fileID: 708369305}
-  - component: {fileID: 708369304}
   - component: {fileID: 708369307}
+  - component: {fileID: 708369302}
+  - component: {fileID: 708369298}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -59809,7 +59810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 28be8a987f6a82f42bb1e7baf2085e7e, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 3f3d51987d171ba4d94f09e53aad4990, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -59823,8 +59824,8 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
-  m_DefaultActionMap: Movement
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!50 &708369300
@@ -59938,9 +59939,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83c465bfd5695a41b9290c9aabcbbb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
+  jumpForce: 18.2
+  fallForce: 10
+  stickDuration: 3.5
+  wallJumpForce: 5
+  wallJumpSideForce: 10
+  wallJumpCooldown: 1
+  spriteWidthOffsetX: 3
+  spriteHeightOffsetY: 3
+  drawRaycasts: 0
   dashSpeed: 20
   dashDuration: 0.25
+  preserveDashMomentum: 0
   moveSpeed: 5
   grappleSpeed: 20
   grappleCooldown: 0.5
@@ -60025,6 +60035,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &708369309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708369294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d627ed24f17060e4598fa4ca8876dab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFps: 0
+  showTime: 1
+  timer_: {fileID: 11400000, guid: d738793ecc4aa0e4c973fd2d915f9801, type: 2}
 --- !u!1001 &862820372
 PrefabInstance:
   m_ObjectHideFlags: 0

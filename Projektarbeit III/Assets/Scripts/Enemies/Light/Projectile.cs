@@ -60,11 +60,6 @@ public class Projectile : MonoBehaviour
         Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), pa_shootingEnemy.GetComponent<Collider2D>());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     void OnDrawGizmos()
     {
         Gizmos.DrawRay(transform.position, direction);
