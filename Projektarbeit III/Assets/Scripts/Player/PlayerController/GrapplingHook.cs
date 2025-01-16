@@ -17,7 +17,8 @@ public class GrapplingHook : MonoBehaviour
     private float cooldownTimer;             // Timer to track cooldown
     private LineRenderer grappleIndicator;   // Visual indicator for the potential grapple point
     private PlayerInput playerInput;         // Player input reference
-    private InputAction grappleAction;      // Grappling input action
+    private InputAction grappleAction;       // Grappling input action
+    private InputAction rightClickAction;    // Right click input action
 
     void Start()
     {
@@ -48,6 +49,32 @@ public class GrapplingHook : MonoBehaviour
         grappleIndicator.material = new Material(Shader.Find("Sprites/Default"));
         grappleIndicator.startColor = Color.blue;
         grappleIndicator.endColor = Color.blue;
+
+        // Register input callbacks
+        grappleAction.started += ctx => StartGrapple(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
+        grappleAction.canceled += ctx => StopGrapple();
+        grappleAction.Enable();
+
+        // Bind right mouse button as a separate action
+        rightClickAction = new InputAction(binding: "<Mouse>/rightButton");
+        rightClickAction.performed += ctx => Debug.Log("Right Mouse Clicked");
+        rightClickAction.performed += ctx => StartGrapple(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
+        rightClickAction.canceled -= ctx => StopGrapple();
+        rightClickAction.Enable();
+    }
+
+    private void OnDestroy()
+    {
+        // Unregister input callbacks
+        grappleAction.performed -= ctx => Debug.Log("Grapple Button Clicked");
+        grappleAction.started -= ctx => StartGrapple(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
+        grappleAction.canceled -= ctx => StopGrapple();
+        grappleAction.Disable();
+        
+        rightClickAction.performed -= ctx => Debug.Log("Right Mouse Clicked");
+        rightClickAction.started -= ctx => StartGrapple(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
+        rightClickAction.canceled -= ctx => StopGrapple();
+        rightClickAction.Disable();
     }
 
     void Update()
@@ -62,26 +89,17 @@ public class GrapplingHook : MonoBehaviour
             }
         }
 
-        // Handle input to start grappling
-        if (Input.GetMouseButtonDown(1) && !isGrappling)
-        {
-            if (isCooldown)
-            {
-                Debug.Log("Grappling hook is on cooldown");
-                return;
-            }
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            StartGrapple(mousePosition);
-        }
-
-        // Handle input to stop grappling
-        if (Input.GetMouseButtonUp(1) && isGrappling)
-        {
-            StopGrapple();
-        }
-
         // Update the grapple indicator position
         UpdateGrappleIndicator();
+
+        if (grappleAction.triggered)
+        {
+            Debug.Log("Grapple action triggered");
+        }
+        if (rightClickAction.triggered)
+        {
+            Debug.Log("Right click action triggered");
+        }
     }
 
     private void FixedUpdate()
@@ -97,6 +115,11 @@ public class GrapplingHook : MonoBehaviour
         // Move the player towards the grapple point
         Vector2 direction = (grapplePoint - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * grappleSpeed;
+
+        if (!rightClickAction.IsPressed() && !grappleAction.IsPressed()) // Check if the player cancels the grapple
+        {
+            StopGrapple();
+        }
 
         // Stop grappling if the player reaches the grapple point
         if (Vector2.Distance(transform.position, grapplePoint) < 0.5f)
@@ -116,11 +139,17 @@ public class GrapplingHook : MonoBehaviour
 
     private void StartGrapple(Vector2 target)
     {
+        if (isCooldown && !isGrappling) // Check if the hook is on cooldown and not already grappling
+        {
+            Debug.Log("Hook is on cooldown and/or already grappling");
+            return;
+        }
+
         // Check if the target is within range
         if (Vector2.Distance(transform.position, target) > grappleRange)
         {
             Debug.Log("Target out of range");
-            return; // Target is out of range, do not start grappling
+            return;
         }
 
         // Cast a ray towards the target to find a valid grapple point
@@ -143,32 +172,27 @@ public class GrapplingHook : MonoBehaviour
 
     private void StopGrapple()
     {
-        isGrappling = false;
+        // Stop grappling, Start the cooldown timer and hide the rope
+        isGrappling = false; 
+        isCooldown = true;
+        cooldownTimer = grappleCooldown;        
+        lineRenderer.positionCount = 0;
 
         if (controller.IsWalkingAgainstWall())
         {
             Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
         }
-
         else if (controller.IsCeilinged())
         {
             Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
         }
-
         else
         {
             Debug.Log("Stopped grappling with no collision");
             controller.ChangeState(new IdleState(controller));            
         }
-
-        // Disable the rope visual
-        lineRenderer.positionCount = 0;
-
-        // Start cooldown
-        isCooldown = true;
-        cooldownTimer = grappleCooldown;
     }
 
     private void UpdateLineRenderer()
@@ -183,7 +207,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void UpdateGrappleIndicator()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleRange, grappleLayer);
 

@@ -130,7 +130,7 @@
                 {
                     "name": "Grappling",
                     "type": "Button",
-                    "id": "1d2bb9d3-b8de-4a64-9532-13427b4167bb",
+                    "id": "8ffd563e-0a7c-404f-b9fa-0abcd9ce2044",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -140,8 +140,19 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "497946f4-8fec-4055-9061-c53e0e05e084",
+                    "id": "ee758b59-1b6e-4218-9470-5988569d9ebe",
                     "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grappling",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "685cb3a0-0111-4d9c-86ad-3d4bce80b9ed",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
