@@ -17,10 +17,10 @@ public class MovementEditor : MonoBehaviour
 
     [Header("Wall Jumping Settings")]
     [Tooltip("The force applied to the player when they jump off a wall upwards. The higher the value, the higher the jump")]
-    [Range(0.1f, 100f)] public float wallJumpForce = 5f;
+    [Range(0.1f, 30f)] public float wallJumpForce = 5f;
 
     [Tooltip("The force applied to the player when they jump off a wall to the side. The higher the value, the further the jump")]
-    [Range(0.1f, 1000f)] public float wallJumpSideForce = 8f;   
+    [Range(0.1f, 30f)] public float wallJumpSideForce = 8f;   
 
     [Tooltip("The cooldown time after a wall jump before the player can stick to a wall again. The higher the value, the longer the cooldown")]
     [Range(0.1f, 25f)] public float wallJumpCooldown = 1f;
