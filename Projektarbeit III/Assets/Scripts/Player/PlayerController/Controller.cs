@@ -54,7 +54,7 @@ public class Controller : MonoBehaviour
         }
     }
 
-    public bool IsGrounded()
+public bool IsGrounded()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)

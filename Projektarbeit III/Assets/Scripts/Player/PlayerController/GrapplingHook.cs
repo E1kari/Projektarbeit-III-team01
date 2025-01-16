@@ -116,7 +116,8 @@ public class GrapplingHook : MonoBehaviour
         Vector2 direction = (grapplePoint - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * grappleSpeed;
 
-        if (!rightClickAction.IsPressed() && !grappleAction.IsPressed()) // Check if the player cancels the grapple
+        // Check if the player cancels the grapple
+        if (!rightClickAction.IsPressed() && !grappleAction.IsPressed())
         {
             StopGrapple();
         }
