@@ -5,7 +5,6 @@ public class Controller : MonoBehaviour
 {
     private Interface.IState currentState;
     public MovementEditor movementEditor;
-    private float playerJumpOffset;
     private float wallJumpCooldownTimer;
 
     void Update()
@@ -63,9 +62,10 @@ public bool IsGrounded()
             Debug.LogError("SpriteRenderer component is missing on the Player game object.");
             return false;
         }
-        float spriteHeight = spriteRenderer.bounds.size.y;
 
-        Vector2 raycastStart = (Vector2)transform.position - new Vector2(playerJumpOffset, spriteHeight / 2);
+        float spriteHeight = spriteRenderer.bounds.size.y / movementEditor.spriteHeightOffsetY;
+
+        Vector2 raycastStart = (Vector2)transform.position - new Vector2(0, spriteHeight);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, Vector2.down, 1f, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {
@@ -82,9 +82,10 @@ public bool IsGrounded()
             Debug.LogError("SpriteRenderer component is missing on the Player game object.");
             return false;
         }
-        float spriteWidth = spriteRenderer.bounds.size.x;
 
-        Vector2 raycastStart = (Vector2)transform.position + new Vector2(spriteWidth / 2, 0);       
+        float spriteWidth = spriteRenderer.bounds.size.x / movementEditor.spriteWidthOffsetX;
+
+        Vector2 raycastStart = (Vector2)transform.position + new Vector2(spriteWidth, 0);       
         RaycastHit2D hitLeft = Physics2D.Raycast(raycastStart, Vector2.left, 1f, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {
@@ -101,9 +102,10 @@ public bool IsGrounded()
             Debug.LogError("SpriteRenderer component is missing on the Player game object.");
             return false;
         }
-        float spriteWidth = spriteRenderer.bounds.size.x;
 
-        Vector2 raycastStart = (Vector2)transform.position - new Vector2(spriteWidth / 2, 0);   
+        float spriteWidth = spriteRenderer.bounds.size.x / movementEditor.spriteWidthOffsetX;
+
+        Vector2 raycastStart = (Vector2)transform.position - new Vector2(spriteWidth, 0); 
         RaycastHit2D hitRight = Physics2D.Raycast(raycastStart, Vector2.right, 1f, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {
@@ -120,9 +122,10 @@ public bool IsGrounded()
             Debug.LogError("SpriteRenderer component is missing on the Player game object.");
             return false;
         }
-        float spriteHeight = spriteRenderer.bounds.size.y;
 
-        Vector2 raycastStart = (Vector2)transform.position + new Vector2(playerJumpOffset, spriteHeight / 2);
+        float spriteHeight = spriteRenderer.bounds.size.y / movementEditor.spriteHeightOffsetY;
+
+        Vector2 raycastStart = (Vector2)transform.position + new Vector2(0, spriteHeight);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, Vector2.up, 1f, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {

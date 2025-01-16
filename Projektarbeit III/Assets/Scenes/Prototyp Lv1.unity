@@ -59674,16 +59674,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708369303}
-  - component: {fileID: 708369302}
-  - component: {fileID: 708369308}
-  - component: {fileID: 708369300}
-  - component: {fileID: 708369299}
-  - component: {fileID: 708369298}
+  - component: {fileID: 708369304}
   - component: {fileID: 708369309}
+  - component: {fileID: 708369300}
+  - component: {fileID: 708369308}
+  - component: {fileID: 708369299}
   - component: {fileID: 708369306}
   - component: {fileID: 708369305}
-  - component: {fileID: 708369304}
   - component: {fileID: 708369307}
+  - component: {fileID: 708369302}
+  - component: {fileID: 708369298}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -59942,10 +59942,11 @@ MonoBehaviour:
   jumpForce: 18.2
   fallForce: 10
   stickDuration: 3.5
-  wallJumpForce: 50
-  wallJumpSideForce: 500
+  wallJumpForce: 5
+  wallJumpSideForce: 10
   wallJumpCooldown: 1
-  playerJumpOffset: 0.5
+  spriteWidthOffsetX: 3
+  spriteHeightOffsetY: 3
   drawRaycasts: 0
   dashSpeed: 20
   dashDuration: 0.25
