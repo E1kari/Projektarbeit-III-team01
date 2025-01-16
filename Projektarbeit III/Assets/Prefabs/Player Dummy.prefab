@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination_: {fileID: 0}
-  yeetSpeed_: 0.25
+  yeetSpeed_: 9
   travelToEnd: 1
 --- !u!114 &8215635337497724642
 MonoBehaviour:
