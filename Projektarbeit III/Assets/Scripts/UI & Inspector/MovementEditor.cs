@@ -1,3 +1,4 @@
+using Unity.Collections;
 using UnityEditor;
 using UnityEngine;
 
@@ -25,8 +26,11 @@ public class MovementEditor : MonoBehaviour
     [Range(0.1f, 25f)] public float wallJumpCooldown = 1f;
 
     [Header("Raycast Settings")]
-    [Tooltip("The range for the player where he is able to jump. The higher the value, the earlier he can jump")]
-    [Range(-5f, 5f)] public float playerJumpOffset = 0.5f;
+    [Tooltip("The width offset for the sprite where raycasts are performed. The higher the value, the wider the offset")]
+    [Range(-10f, 10f)] public float spriteWidthOffsetX = 0.5f;
+
+    [Tooltip("The height offset for the sprite where raycasts are performed. The higher the value, the higher the offset")]
+    [Range(-10f, 10f)] public float spriteHeightOffsetY = 3f;
 
     [Tooltip("Toggle to enable or disable the raycasts in the editor")]
     public bool drawRaycasts = false;
