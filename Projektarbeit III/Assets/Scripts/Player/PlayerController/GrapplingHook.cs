@@ -7,7 +7,6 @@ public class GrapplingHook : MonoBehaviour
     private float grappleCooldown;
     private float grappleRange;
     private LayerMask grappleLayer;          // Layer to check for grapple points
-
     private Vector2 grapplePoint;            // Point where the hook attaches
     private bool isGrappling;                // Whether the player is grappling
     private bool isCooldown;                 // Whether the grappling hook is on cooldown
@@ -87,6 +86,12 @@ public class GrapplingHook : MonoBehaviour
             StopGrapple();
         }
 
+        // Check for wall and ceiling collisions
+        if (controller.IsTouchingLeftWall() || controller.IsTouchingRightWall() || controller.IsCeilinged())
+        {
+            StopGrapple();
+        }
+
         // Update the rope's visual position
         UpdateLineRenderer();
     }
@@ -122,8 +127,23 @@ public class GrapplingHook : MonoBehaviour
     {
         isGrappling = false;
 
-        // Switch back to IDLING state
-        controller.ChangeState(new IdleState(controller));
+        if (controller.IsWalkingAgainstWall())
+        {
+            Debug.Log("Player is touching a wall and walking against it");
+            controller.ChangeState(new WallStickingState(controller));
+        }
+
+        else if (controller.IsCeilinged())
+        {
+            Debug.Log("Player is touching a ceiling");
+            controller.ChangeState(new IdleState(controller));
+        }
+
+        else
+        {
+            Debug.Log("Stopped grappling with no collision");
+            controller.ChangeState(new IdleState(controller));            
+        }
 
         // Disable the rope visual
         lineRenderer.positionCount = 0;
