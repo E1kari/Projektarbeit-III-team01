@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a3f0df4d93e36eb45a30a6b0e8f268dd
+guid: 27b341a9596b2af498415a861cdaa593
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8922898586642809051
-    second: Froggy_0
+      213: -3126212362881107856
+    second: smol_frog_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Froggy_0
+      name: smol_frog_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 0
-        width: 71
-        height: 254
+        x: 939
+        y: 489
+        width: 42
+        height: 102
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 52ff150d20f7b2480800000000000000
-      internalID: -8922898586642809051
+      spriteID: 078790a5b667d94d0800000000000000
+      internalID: -3126212362881107856
       vertices: []
       indices: 
       edges: []
