@@ -10,6 +10,7 @@ public class WalkingState : Interface.IState
     private InputAction movementAction;
     private PlayerInput playerInput;
     private InputAction dashAction;
+    private InputAction jumpAction;
 
     public WalkingState(Controller controller)
     {
@@ -18,6 +19,7 @@ public class WalkingState : Interface.IState
         playerInput = controller.GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Walking"];
         dashAction = playerInput.actions["Dashing"];
+        jumpAction = playerInput.actions["Jumping"];
         moveSpeed = controller.movementEditor.moveSpeed;
         fallForce = controller.movementEditor.fallForce;
     }
@@ -44,7 +46,7 @@ public class WalkingState : Interface.IState
         }
 
         // Transition to JumpingState if Jump button is pressed and player hasn't jumped yet
-        if (Input.GetButtonDown("Jump") && !controller.movementEditor.hasJumped)
+        if (jumpAction.triggered && !controller.movementEditor.hasJumped)
         {
             controller.ChangeState(new JumpingState(controller));
         }

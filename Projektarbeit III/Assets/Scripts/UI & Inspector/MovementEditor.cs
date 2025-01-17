@@ -1,3 +1,4 @@
+using Unity.Collections;
 using UnityEditor;
 using UnityEngine;
 
@@ -5,10 +6,10 @@ public class MovementEditor : MonoBehaviour
 {
     [Header("Jumping Settings")]
     [Tooltip("The force applied when the player jumps. The higher the value, the higher the jump")]
-    [Range(0.1f, 25f)] public float jumpForce = 10f;
+    [Range(0.1f, 25f)] public float jumpForce = 8f;
 
     [Tooltip("The force applied to the player when they fall. The higher the value, the faster the fall")]
-    [Range(0.1f, 50f)] public float fallForce = 10f;
+    [Range(0.1f, 50f)] public float fallForce = 7f;
 
     [Header("Wall Sticking Settings")]
     [Tooltip("The duration the player can stick to a wall. The higher the value, the longer the stick duration")]
@@ -16,23 +17,23 @@ public class MovementEditor : MonoBehaviour
 
     [Header("Wall Jumping Settings")]
     [Tooltip("The force applied to the player when they jump off a wall upwards. The higher the value, the higher the jump")]
-    [Range(0.1f, 100f)] public float wallJumpForce = 50f;
+    [Range(0.1f, 30f)] public float wallJumpForce = 5f;
 
     [Tooltip("The force applied to the player when they jump off a wall to the side. The higher the value, the further the jump")]
-    [Range(0.1f, 1000f)] public float wallJumpSideForce = 500f;   
+    [Range(0.1f, 30f)] public float wallJumpSideForce = 8f;   
 
     [Tooltip("The cooldown time after a wall jump before the player can stick to a wall again. The higher the value, the longer the cooldown")]
     [Range(0.1f, 25f)] public float wallJumpCooldown = 1f;
 
     [Header("Raycast Settings")]
-    [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is grounded")]
-    [Range(0.1f, 10f)] public float raycastDown = 1.005f;
+    [Tooltip("The width offset for the sprite where raycasts are performed. The higher the value, the wider the offset")]
+    [Range(-10f, 10f)] public float spriteWidthOffsetX = 0.5f;
 
-    [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is touching a wall")]
-    [Range(0.1f, 10f)] public float raycastLeftRight = 1f;
+    [Tooltip("The height offset for the sprite where raycasts are performed. The higher the value, the higher the offset")]
+    [Range(-10f, 10f)] public float spriteHeightOffsetY = 3f;
 
-    [Tooltip("The range the raycast is casted. The higher the value, the longer the raycast. Used for checking if the player is touching a ceiling")]
-    [Range(0.1f, 10f)] public float raycastUp = 1.005f;
+    [Tooltip("Toggle to enable or disable the raycasts in the editor")]
+    public bool drawRaycasts = false;
 
     [Header("Dashing Settings")]
     [Tooltip("The speed at which the player dashes. The higher the value, the faster the dash")]
@@ -40,6 +41,9 @@ public class MovementEditor : MonoBehaviour
 
     [Tooltip("The duration of the dash in seconds. The higher the value, the longer the dash")]
     [Range(0.1f, 5f)] public float dashDuration = 0.25f;
+
+    [Tooltip("Whether to preserve momentum after dashing. If enabled, the player will maintain their dash speed after the dash ends")]
+    public bool preserveDashMomentum = false;
 
     [Header("Walking Settings")]
     [Tooltip("The speed at which the player moves. The higher the value, the faster the movement")]
@@ -81,5 +85,23 @@ public class ReadOnlyDrawer : PropertyDrawer
         GUI.enabled = false;
         EditorGUI.PropertyField(position, property, label); // Draw the property field as disabled
         GUI.enabled = true;
+    }
+}
+
+[CustomEditor(typeof(MovementEditor))]
+public class MovementEditorEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        MovementEditor movementEditor = (MovementEditor)target;
+
+        movementEditor.drawRaycasts = GUILayout.Toggle(movementEditor.drawRaycasts, "Draw Raycasts");
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(movementEditor);
+        }
     }
 }
