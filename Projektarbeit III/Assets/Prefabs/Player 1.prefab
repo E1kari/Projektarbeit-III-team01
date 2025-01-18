@@ -96,6 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5544526036617351500}
+  - component: {fileID: 8130442852615025473}
   - component: {fileID: 2423272949190126130}
   - component: {fileID: 6812843440418315951}
   - component: {fileID: 8141815679330776558}
@@ -103,7 +104,6 @@ GameObject:
   - component: {fileID: 402384375411835692}
   - component: {fileID: 7640782763494674744}
   - component: {fileID: 8199025683995900189}
-  - component: {fileID: 8130442852615025473}
   - component: {fileID: 2852863991819113617}
   - component: {fileID: 2447963193211004808}
   m_Layer: 7
@@ -129,6 +129,19 @@ Transform:
   - {fileID: 7223521336003288970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8130442852615025473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115396661000261481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84468519a07a33745b7066643f1d85fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincible: 1
 --- !u!114 &2423272949190126130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,19 +310,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementEditor: {fileID: 2423272949190126130}
---- !u!114 &8130442852615025473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9115396661000261481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84468519a07a33745b7066643f1d85fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  invincible: 0
 --- !u!212 &2852863991819113617
 SpriteRenderer:
   m_ObjectHideFlags: 0
