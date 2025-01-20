@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 28be8a987f6a82f42bb1e7baf2085e7e, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 3f3d51987d171ba4d94f09e53aad4990, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -237,8 +237,8 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
-  m_DefaultActionMap: Movement
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!120 &8873838601332629134
@@ -406,7 +406,8 @@ MonoBehaviour:
   wallJumpForce: 7.3
   wallJumpSideForce: 8.1
   wallJumpCooldown: 1
-  playerJumpOffset: 0.5
+  spriteWidthOffsetX: 0.5
+  spriteHeightOffsetY: 3
   drawRaycasts: 0
   dashSpeed: 7.7
   dashDuration: 0.25

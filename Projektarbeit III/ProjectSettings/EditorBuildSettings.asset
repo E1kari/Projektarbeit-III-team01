@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Selection Screen.unity
     guid: 9811f0678eea237459393905311e8cf5
   - enabled: 1
-    path: Assets/Scenes/Cem Greyboxing.unity
+    path: Assets/Scenes/Cem Greyboxing Level 2.unity
     guid: 4fe635b16c962864fb50d7f8a949d534
   - enabled: 1
     path: Assets/Scenes/LinusMovement.unity
