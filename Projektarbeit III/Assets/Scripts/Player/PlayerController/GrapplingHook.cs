@@ -8,7 +8,7 @@ public class GrapplingHook : MonoBehaviour
     private float grappleCooldown;           // Cooldown time between grappling hook uses
     private float grappleRange;              // Maximum distance the grappling hook can reach
     private LayerMask grappleLayer;          // Layer to check for grapple points
-    private Vector2 grapplePoint;            // Point where the hook attaches
+    private Vector2 grappleSpot;            // Point where the hook attaches
     private bool isGrappling;                // Whether the player is grappling
     private bool isCooldown;                 // Whether the grappling hook is on cooldown
     private Rigidbody2D rb;                  // Rigidbody for movement
@@ -59,7 +59,7 @@ public class GrapplingHook : MonoBehaviour
 
     void Update()
     {
-        HandleGrappleInput();
+        CheckPlayerInput();
     }
 
     private void FixedUpdate()
@@ -91,7 +91,7 @@ public class GrapplingHook : MonoBehaviour
 
         if (hit.collider != null) // Check if the ray hits a valid grapple point
         {
-            grapplePoint = hit.point;
+            grappleSpot = hit.point;
             isGrappling = true;
 
             // Switch to the GRAPPLING state
@@ -106,7 +106,7 @@ public class GrapplingHook : MonoBehaviour
     public void HandleGrappling()
     {
         // Move the player towards the grapple point
-        Vector2 direction = (grapplePoint - (Vector2)transform.position).normalized;
+        Vector2 direction = (grappleSpot - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * grappleSpeed;
 
         // Check if the player cancels the grapple
@@ -116,7 +116,18 @@ public class GrapplingHook : MonoBehaviour
         UpdateLineRenderer();
     }
 
-    private void HandleGrappleInput()
+    private void StopGrapple()
+    {
+        // Stop grappling, Start the cooldown timer and hide the rope
+        isGrappling = false; 
+        isCooldown = true;
+        cooldownTimer = grappleCooldown;        
+        lineRenderer.positionCount = 0;
+
+        CheckCollisionState(); // Check which state to transition to
+    }
+
+    private void CheckPlayerInput()
     {
         // Check if the player is using a controller (for Aiming)
         isUsingController = playerInput.currentControlScheme == "Gamepad";
@@ -165,17 +176,6 @@ public class GrapplingHook : MonoBehaviour
         }
     }
 
-    private void StopGrapple()
-    {
-        // Stop grappling, Start the cooldown timer and hide the rope
-        isGrappling = false; 
-        isCooldown = true;
-        cooldownTimer = grappleCooldown;        
-        lineRenderer.positionCount = 0;
-
-        CheckCollisionState(); // Check which state to transition to
-    }
-
     private void CheckGrappleStops()
     {
         // Check if the player cancels the grapple by releasing the grapple button
@@ -185,7 +185,7 @@ public class GrapplingHook : MonoBehaviour
         }
 
         // Stop grappling if the player reaches the grapple point
-        if (Vector2.Distance(transform.position, grapplePoint) < 0.5f)
+        if (Vector2.Distance(transform.position, grappleSpot) < 0.5f)
         {
             StopGrapple();
         }
@@ -222,7 +222,7 @@ public class GrapplingHook : MonoBehaviour
         if (isGrappling)
         {
             lineRenderer.SetPosition(0, transform.position); // Start of the rope (player position)
-            lineRenderer.SetPosition(1, grapplePoint);       // End of the rope (grapple point)
+            lineRenderer.SetPosition(1, grappleSpot);       // End of the rope (grapple point)
         }
     }
 
