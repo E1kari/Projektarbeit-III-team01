@@ -66,6 +66,11 @@ public class GrapplingHook : MonoBehaviour
 
     void Update()
     {
+        HandleGrappleInput();
+    }
+
+    private void HandleGrappleInput()
+    {
         // Check if the player is using a controller (for Aiming)
         isUsingController = playerInput.currentControlScheme == "Gamepad";
 
@@ -106,7 +111,6 @@ public class GrapplingHook : MonoBehaviour
                 StartGrapple(target);
             }
         }
-
         else
         {
             // Update the grapple indicator position
@@ -128,6 +132,15 @@ public class GrapplingHook : MonoBehaviour
         Vector2 direction = (grapplePoint - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * grappleSpeed;
 
+        // Check if the player cancels the grapple
+        CheckGrappleStops();
+
+        // Update the rope's visual position
+        UpdateLineRenderer();
+    }
+
+    private void CheckGrappleStops()
+    {
         // Check if the player cancels the grapple by releasing the grapple button
         if (!grappleAction.IsPressed())
         {
@@ -145,9 +158,6 @@ public class GrapplingHook : MonoBehaviour
         {
             StopGrapple();
         }
-
-        // Update the rope's visual position
-        UpdateLineRenderer();
     }
 
     private void StartGrapple(Vector2 target)
@@ -169,7 +179,7 @@ public class GrapplingHook : MonoBehaviour
         Vector2 direction = (target - (Vector2)transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleRange, grappleLayer);
 
-        if (hit.collider != null)
+        if (hit.collider != null) // Check if the ray hits a valid grapple point
         {
             grapplePoint = hit.point;
             isGrappling = true;
@@ -191,6 +201,11 @@ public class GrapplingHook : MonoBehaviour
         cooldownTimer = grappleCooldown;        
         lineRenderer.positionCount = 0;
 
+        CheckCollisionState(); // Check which state to transition to
+    }
+
+    private void CheckCollisionState()
+    {
         if (controller.IsWalkingAgainstWall())
         {
             Debug.Log("Player is touching a wall and walking against it");
