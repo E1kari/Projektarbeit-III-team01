@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,10 +6,12 @@ using UnityEngine.InputSystem;
 public class GrapplingHook : MonoBehaviour
 {
     private float grappleSpeed;              // Speed at which the grappling hook moves
+    private float grappleSpeedBoost;         // Speed boost when grappling to a point
     private float grappleCooldown;           // Cooldown time between grappling hook uses
     private float grappleRange;              // Maximum distance the grappling hook can reach
+    private Collider2D grappleCollider;      // Collider of the grapple point
     private LayerMask grappleLayer;          // Layer to check for grapple points
-    private Vector2 grappleSpot;            // Point where the hook attaches
+    private Vector2 grappleSpot;             // Point where the hook attaches
     private bool isGrappling;                // Whether the player is grappling
     private bool isCooldown;                 // Whether the grappling hook is on cooldown
     private Rigidbody2D rb;                  // Rigidbody for movement
@@ -43,6 +46,7 @@ public class GrapplingHook : MonoBehaviour
         grappleCooldown = controller.movementEditor.grappleCooldown;
         grappleRange = controller.movementEditor.grappleRange;
         grappleLayer = controller.movementEditor.grappleLayer;
+        grappleSpeedBoost = controller.movementEditor.grappleSpeedBoost;
 
         // Create the grapple indicator
         grappleIndicator = new GameObject("GrappleIndicator").AddComponent<LineRenderer>();
@@ -92,6 +96,8 @@ public class GrapplingHook : MonoBehaviour
         if (hit.collider != null) // Check if the ray hits a valid grapple point
         {
             grappleSpot = hit.point;
+            grappleCollider = hit.collider;
+            grappleCollider.tag = hit.collider.tag;
             isGrappling = true;
 
             // Switch to the GRAPPLING state
@@ -107,7 +113,17 @@ public class GrapplingHook : MonoBehaviour
     {
         // Move the player towards the grapple point
         Vector2 direction = (grappleSpot - (Vector2)transform.position).normalized;
-        rb.linearVelocity = direction * grappleSpeed;
+        float currentGrappleSpeed = grappleSpeed;
+
+        // Check if the grappleSpot has the tag "GrapplePoint" and apply speed boost
+        if (grappleCollider.tag == "GrapplePoint")
+        {
+            Debug.Log("GrapplePoint found!");
+            currentGrappleSpeed += grappleSpeedBoost;
+        }
+
+        rb.linearVelocity = direction * currentGrappleSpeed;
+
 
         // Check if the player cancels the grapple
         CheckGrappleStops();
