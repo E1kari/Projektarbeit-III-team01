@@ -6,7 +6,7 @@ public class Breakable_Ground : MonoBehaviour
     [HideInInspector]
     public S_Breakable_Ground_Data breakableGroundData_;
     private BoxCollider2D boxCollider2D_;
-    private BoxCollider2D triggerCollider2D_;
+    private bool playerContact = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,10 +20,21 @@ public class Breakable_Ground : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log(other.contacts[0].normal + " " + Vector2.down);
             if (other.contacts[0].normal == Vector2.down)
             {
+                playerContact = true;
                 StartCoroutine(activateBreaking());
+            }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            if (playerContact)
+            {
+                Destroy(gameObject);
             }
         }
     }
