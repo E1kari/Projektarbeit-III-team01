@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f80ddeb8c78d74e9500506b57b1722, type: 3}
   m_Name: S_Breakable_Ground_Data
   m_EditorClassIdentifier: 
-  breakDelay_: 0.5
-  graceArea_: 0.2
+  breakDelay_: 0.27
+  graceArea_: 0.103

@@ -46,9 +46,18 @@ public class Falling_Block : MonoBehaviour
     {
         rb2D_.constraints = ~RigidbodyConstraints2D.FreezePositionY;
         rb2D_.gravityScale = fallingBlockData_.gravityScale_;
+        rb2D_.sharedMaterial = new PhysicsMaterial2D() { friction = 0, bounciness = 0 };
 
         // reapplying simulated because unity wont update the rigidbody ;-;
         rb2D_.simulated = false;
         rb2D_.simulated = true;
+    }
+
+    void FixedUpdate()
+    {
+        if (rb2D_.linearVelocity.y > 0)
+        {
+            rb2D_.linearVelocity = new Vector2(rb2D_.linearVelocity.x, 0);
+        }
     }
 }
