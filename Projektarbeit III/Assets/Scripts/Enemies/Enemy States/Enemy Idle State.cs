@@ -23,6 +23,7 @@ public class EnemyIdleState : Interface.IState
 
     public void CheckExitConditions()
     {
+        // Check for alert state
         float attackRange = enemy.lightEnemyData_.attackRange_;
         // Check for colliders overlapping with a circle
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(enemy.transform.position, attackRange);
@@ -34,6 +35,18 @@ public class EnemyIdleState : Interface.IState
                 enemy.ChangeState(new EnemyAlertState(enemy, Time.time));
                 return;
             }
+        }
+
+        // Check for falling state
+        SpriteRenderer spriteRenderer = enemy.gameObject.GetComponent<SpriteRenderer>();
+        float spriteHeight = spriteRenderer.bounds.size.y / 2;
+
+        Vector2 raycastStart = (Vector2)enemy.gameObject.transform.position - new Vector2(0, spriteHeight);
+        RaycastHit2D hit = Physics2D.Raycast(raycastStart, Vector2.down, enemy.lightEnemyData_.fallDistance_, LayerMask.GetMask("Ground"));
+
+        if (!hit)
+        {
+            enemy.ChangeState(new EnemyFallingState(enemy));
         }
     }
 
