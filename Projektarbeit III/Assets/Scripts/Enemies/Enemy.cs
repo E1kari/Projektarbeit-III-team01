@@ -4,6 +4,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+    public bool startInGrapple = false;
+
     public S_Light_Enemy lightEnemyData_;
 
     private Interface.IState currentState;
@@ -16,6 +18,10 @@ public class Enemy : MonoBehaviour
     {
         lightEnemyData_ = Resources.Load<S_Light_Enemy>("Scriptable Objects/S_Light_Enemy");
         currentState = new EnemyIdleState(this);
+        if (startInGrapple)
+        {
+            ChangeState(new EnemyGrappledState(this));
+        }
     }
 
     public void ChangeState(Interface.IState newState)

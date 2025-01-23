@@ -3989,14 +3989,14 @@ PrefabInstance:
     - target: {fileID: 100767885773302178, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: playerPrefab_
       value: 
-      objectReference: {fileID: 9115396661000261481, guid: d5791e76de416614283b8442e6b3478e, type: 3}
+      objectReference: {fileID: 1383375594605279248, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
     - target: {fileID: 2575070112632428251, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.73
+      value: 6.48
       objectReference: {fileID: 0}
     - target: {fileID: 2575070112632428251, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.95
+      value: 16.44
       objectReference: {fileID: 0}
     - target: {fileID: 2575070112632428251, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13993,6 +13993,14 @@ PrefabInstance:
     - target: {fileID: 1564632886432097817, guid: d9856f0401b69f2498fc0efde9002ffd, type: 3}
       propertyPath: m_Name
       value: Light Enemy Raum 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564632886432097817, guid: d9856f0401b69f2498fc0efde9002ffd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992289167453489037, guid: d9856f0401b69f2498fc0efde9002ffd, type: 3}
+      propertyPath: startInGrapple
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7452495963359347904, guid: d9856f0401b69f2498fc0efde9002ffd, type: 3}
       propertyPath: m_LocalPosition.x
