@@ -30143,6 +30143,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
+      propertyPath: grappleLayer.m_Bits
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
       propertyPath: preserveDashMomentum
       value: 1
       objectReference: {fileID: 0}
@@ -30215,7 +30219,7 @@ GameObject:
   - component: {fileID: 1903922544}
   - component: {fileID: 1903922543}
   - component: {fileID: 1903922545}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: GrapplePoint
   m_TagString: GrapplePoint
   m_Icon: {fileID: 0}

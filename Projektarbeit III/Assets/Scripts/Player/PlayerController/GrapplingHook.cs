@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -89,16 +90,22 @@ public class GrapplingHook : MonoBehaviour
             return;
         }
 
-        // Cast a ray towards the target to find a valid grapple point
+        // Cast a ray towards the target to find a valid grapple spoit
         Vector2 direction = (target - (Vector2)transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleRange, grappleLayer);
 
-        if (hit.collider != null) // Check if the ray hits a valid grapple point
+        if (hit.collider != null) // Check if the ray hits a valid grapple spot
         {
             grappleSpot = hit.point;
             grappleCollider = hit.collider;
             grappleCollider.tag = hit.collider.tag;
             isGrappling = true;
+
+            if (grappleCollider.tag == "GrapplePoint")
+            {
+                Debug.Log("Disabling grapple collider");
+                grappleCollider.enabled = false;
+            }
 
             // Switch to the GRAPPLING state
             controller.ChangeState(new GrapplingState(controller, this));
@@ -118,7 +125,7 @@ public class GrapplingHook : MonoBehaviour
         // Check if the grappleSpot has the tag "GrapplePoint" and apply speed boost
         if (grappleCollider.tag == "GrapplePoint")
         {
-            Debug.Log("GrapplePoint found!");
+            Debug.Log("GrapplePoint found! Applying speed boost");
             currentGrappleSpeed += grappleSpeedBoost;
         }
 
@@ -140,7 +147,25 @@ public class GrapplingHook : MonoBehaviour
         cooldownTimer = grappleCooldown;        
         lineRenderer.positionCount = 0;
 
+        // Start the coroutine to check the player's distance from the grapple point
+        StartCoroutine(CheckAndEnableGrappleCollider());
+        
         CheckCollisionState(); // Check which state to transition to
+    }
+
+    private IEnumerator CheckAndEnableGrappleCollider()
+    {
+        while (true)
+        {
+            // Check if the collider is a grapple point and the player is not near it
+            if (grappleCollider.tag == "GrapplePoint" && !IsPlayerNearGrapplePoint())
+            {
+                Debug.Log("Enabling grapple collider");
+                grappleCollider.enabled = true;
+                yield break; // Exit the coroutine once the collider is enabled
+            }
+            yield return new WaitForSeconds(0.1f); // Check every 0.1 seconds
+        }
     }
 
     private void CheckPlayerInput()
@@ -230,6 +255,12 @@ public class GrapplingHook : MonoBehaviour
             Debug.Log("Stopped grappling with no collision");
             controller.ChangeState(new IdleState(controller));            
         }
+    }
+
+    private bool IsPlayerNearGrapplePoint()
+    {
+        float distanceToGrapplePoint = Vector2.Distance(transform.position, grappleSpot);
+        return distanceToGrapplePoint < 2.5f;
     }
 
     private void UpdateLineRenderer()
