@@ -18,39 +18,11 @@ public class Projectile : MonoBehaviour
         rb_.gravityScale = 0.0f;
 
         GameObject player = GameObject.FindWithTag("Player");
+        Vector2 distance = player.transform.position - transform.position;
+        Vector2 normal = distance.normalized;
 
-
-        float xDistance = player.transform.position.x - transform.position.x;
-        float yDistance = player.transform.position.y - transform.position.y;
-
-        if (yDistance < xDistance)
-        {
-            if (yDistance > 1.0f)
-            {
-                xDistance = xDistance / yDistance;
-                yDistance = 1.0f;
-            }
-            else if (yDistance < -1.0f)
-            {
-                xDistance = xDistance / yDistance * -1.0f;
-                yDistance = -1.0f;
-            }
-        }
-        else
-        {
-            if (xDistance > 1.0f)
-            {
-                yDistance = (yDistance / xDistance);
-                xDistance = 1.0f;
-            }
-            else if (xDistance < -1.0f)
-            {
-                yDistance = (yDistance / xDistance) * -1.0f;
-                xDistance = -1.0f;
-            }
-        }
-        direction = new Vector2(xDistance * speed_, yDistance * speed_);
-        rb_.AddForce(direction, ForceMode2D.Impulse);
+        direction = new Vector2(normal.x * speed_, normal.y * speed_);
+        rb_.linearVelocity = direction;
     }
 
     public void init(float pa_speed, float pa_size, GameObject pa_shootingEnemy)
