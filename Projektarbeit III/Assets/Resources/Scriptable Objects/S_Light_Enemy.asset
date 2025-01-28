@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7415ef61f479d0c46916ef8eadc98015, type: 3}
   m_Name: S_Light_Enemy
   m_EditorClassIdentifier: 
+  fallDistance_: 0.1
   attackRange_: 4.6
   attackCooldown_: 1.2
   projectileSpeed_: 6.59

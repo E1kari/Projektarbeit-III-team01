@@ -4,6 +4,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "S_Light_Enemy", menuName = "Scriptable Objects/S_Light_Enemy")]
 public class S_Light_Enemy : ScriptableObject
 {
+    [Header("//----- General -----\\\\")]
+
+    [Range(0.1f, 0.5f)]
+    [Tooltip("The distance the Enemy has to be above ground to be considered falling.")]
+    public float fallDistance_ = 0.2f;
+
     [Header("//----- Attack -----\\\\")]
     [Range(3.0f, 30.0f)]
     public float attackRange_ = 10.0f;
