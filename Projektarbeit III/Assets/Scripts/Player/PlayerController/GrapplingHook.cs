@@ -260,7 +260,7 @@ public class GrapplingHook : MonoBehaviour
     private bool IsPlayerNearGrapplePoint()
     {
         float distanceToGrapplePoint = Vector2.Distance(transform.position, grappleSpot);
-        return distanceToGrapplePoint < 2.5f;
+        return distanceToGrapplePoint <= 2.5f;
     }
 
     private void UpdateLineRenderer()
