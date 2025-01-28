@@ -70,9 +70,10 @@ MonoBehaviour:
   grappleSpeed: 10.5
   grappleCooldown: 1
   grappleRange: 12
+  grappleSpeedBoost: 0.5
   grappleLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   currentStateName: 
   hasJumped: 0
   hasDashed: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84468519a07a33745b7066643f1d85fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invincible: 0
 --- !u!212 &8718892119889206154
 SpriteRenderer:
   m_ObjectHideFlags: 0
