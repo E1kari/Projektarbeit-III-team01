@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 98aeca88b04b62c48863945f73fb156c
+guid: 83b556d34eec6ad4a8e51c4fa42157f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7107125503865223291
-    second: Froggy 2_0
+      213: 5344433435365923069
+    second: Light_Enemy_Base_Sprite_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Froggy 2_0
+      name: Light_Enemy_Base_Sprite_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 0
-        width: 71
-        height: 254
+        x: 1014
+        y: 481
+        width: 72
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5878ef7620b6e5d90800000000000000
-      internalID: -7107125503865223291
+      spriteID: df8d4b8b4ed3b2a40800000000000000
+      internalID: 5344433435365923069
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Froggy 2_0: -7107125503865223291
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
