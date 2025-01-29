@@ -251,6 +251,15 @@ public class GrapplingHook : MonoBehaviour
                 // Get the aim direction from the controller
                 Vector2 aimDirection = aimAction.ReadValue<Vector2>().normalized;
 
+                if (aimDirection == Vector2.zero)
+                {
+                    aimDirection = lastControllerDirection;
+                }
+                else
+                {
+                    lastControllerDirection = aimDirection;
+                }
+
                 // Calculate the target based on the aim direction
                 Vector2 startPosition = transform.position;
                 target = startPosition + aimDirection * grappleRange;
@@ -381,17 +390,13 @@ public class GrapplingHook : MonoBehaviour
         // Find a valid grapple point in the direction
         RaycastHit2D hit = Physics2D.Raycast(playerPosition, direction, grappleRange, grappleLayer);
 
-        if (hit.collider != null)
+        if (hit.collider != null && Vector2.Distance(playerPosition, hit.point) <= grappleRange)
         {
             grappleIndicator.startColor = Color.green;
             grappleIndicator.endColor = Color.green;
             
-            // Check if the target is within range
-            if (Vector2.Distance(playerPosition, hit.point) <= grappleRange)
-            {
-                // Draw the grapple indicator at the hit point
-                DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
-            }
+            // Draw the grapple indicator at the hit point
+            DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
         }
         else
         {
