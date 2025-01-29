@@ -24,6 +24,7 @@ public class GrapplingHook : MonoBehaviour
     private InputAction grappleAction;       // Grappling input action
     private InputAction aimAction;           // Aim input action for controller
     private bool isUsingController;          // Whether the player is using a controller
+    private Enemy enemy;                     // Reference to the enemy
 
     void Start()
     {
@@ -129,6 +130,25 @@ public class GrapplingHook : MonoBehaviour
             currentGrappleSpeed += grappleSpeedBoost;
         }
 
+        if (grappleCollider.tag == "Light Enemy")
+        {
+            Debug.Log("LightEnemy found!");
+            enemy = grappleCollider.GetComponent<Enemy>();
+
+            if (enemy.currentStateName == "EnemyGrappledState")
+            {
+                Debug.Log("Enemy is already grappled"); 
+            }
+            else if (enemy != null)
+            {
+                enemy.ChangeState(new EnemyGrappledState(enemy));
+            }
+            else
+            {
+                Debug.LogError("Enemy component not found on Light Enemy");
+            }
+        }
+
         rb.linearVelocity = direction * currentGrappleSpeed;
 
 
@@ -141,11 +161,26 @@ public class GrapplingHook : MonoBehaviour
 
     private void StopGrapple()
     {
+        Debug.Log("Stopping grapple");
+
         // Stop grappling, Start the cooldown timer and hide the rope
         isGrappling = false; 
         isCooldown = true;
         cooldownTimer = grappleCooldown;        
         lineRenderer.positionCount = 0;
+
+        if (grappleCollider.tag == "Light Enemy")
+        {
+            enemy = grappleCollider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.ChangeState(new EnemyFallingState(enemy));
+            }
+            else
+            {
+                Debug.LogError("Enemy component not found on Light Enemy");
+            }
+        }
 
         // Start the coroutine to check the player's distance from the grapple point
         StartCoroutine(CheckAndEnableGrappleCollider());
@@ -153,7 +188,7 @@ public class GrapplingHook : MonoBehaviour
         CheckCollisionState(); // Check which state to transition to
     }
 
-    private IEnumerator CheckAndEnableGrappleCollider()
+    private IEnumerator CheckAndEnableGrappleCollider() // Coroutine to check the player's distance from the grapple point
     {
         while (true)
         {
@@ -217,23 +252,33 @@ public class GrapplingHook : MonoBehaviour
         }
     }
 
-    private void CheckGrappleStops()
+    public void CheckGrappleStops()
     {
+        // Check if the player is near an enemy
+        if (enemy != null && Vector2.Distance(transform.position, enemy.transform.position) < 0.5f)
+        {
+            Debug.Log("Player is near the enemy. Stopping grapple.");
+            StopGrapple();
+        }
+
         // Check if the player cancels the grapple by releasing the grapple button
         if (!grappleAction.IsPressed())
         {
+            Debug.Log("Grapple action released");
             StopGrapple();
         }
 
         // Stop grappling if the player reaches the grapple point
         if (Vector2.Distance(transform.position, grappleSpot) < 0.5f)
         {
+            Debug.Log("Player reached the grapple point");
             StopGrapple();
         }
 
         // Check for wall and ceiling collisions
         if (controller.IsTouchingLeftWall() || controller.IsTouchingRightWall() || controller.IsCeilinged())
         {
+            Debug.Log("Player is touching a wall or ceiling");
             StopGrapple();
         }
     }

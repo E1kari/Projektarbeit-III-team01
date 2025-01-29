@@ -8,12 +8,12 @@ public class EnemyGrappledState : Interface.IState
     public EnemyGrappledState(Enemy pa_enemy)
     {
         enemy = pa_enemy;
-        enemy.gameObject.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePosition;
     }
 
     public void OnEnter()
     {
         enemy.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.5f, 1.0f, 0.5f);
+        enemy.gameObject.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePosition;
         Debug.Log("Enemy entered Grappled State");
     }
 
