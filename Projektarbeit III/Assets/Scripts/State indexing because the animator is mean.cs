@@ -13,8 +13,9 @@ public class StateIndexingBecauseTheAnimatorIsMean : ScriptableObject
         playerStates["WalkingState"] = 1;
         playerStates["JumpingState"] = 2;
         playerStates["WallJumpingState"] = 3;
-        playerStates["DashingState"] = 4;
-        playerStates["GrapplingState"] = 5;
+        playerStates["WallStickingState"] = 4;
+        playerStates["DashingState"] = 5;
+        playerStates["GrapplingState"] = 6;
     }
     public int GetPlayerIndex(string stateName)
     {

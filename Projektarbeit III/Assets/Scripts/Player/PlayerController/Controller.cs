@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class Controller : MonoBehaviour
 {
     private Interface.IState currentState;
+    private int lastStateIndex = 0;
     public MovementEditor movementEditor;
     private float wallJumpCooldownTimer;
     private Animator animator;
@@ -40,7 +41,13 @@ public class Controller : MonoBehaviour
     {
         int playerIndex = stateIndex?.GetPlayerIndex(currentState?.GetType().Name) ?? -1;
 
-        animator.SetInteger("State", playerIndex);
+        if (playerIndex != lastStateIndex)
+        {
+            lastStateIndex = playerIndex;
+
+            animator.SetInteger("State", playerIndex);
+            animator.SetTrigger("switch");
+        }
     }
 
     void Start()
