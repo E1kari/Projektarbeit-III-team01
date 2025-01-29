@@ -25,6 +25,7 @@ public class GrapplingHook : MonoBehaviour
     private InputAction grappleAction;       // Grappling input action
     private InputAction aimAction;           // Aim input action for controller
     private bool isUsingController;          // Whether the player is using a controller
+    private Vector2 lastControllerDirection; // Last direction from the controller
     private Enemy enemy;                     // Reference to the enemy
 
     void Start()
@@ -250,6 +251,15 @@ public class GrapplingHook : MonoBehaviour
                 // Get the aim direction from the controller
                 Vector2 aimDirection = aimAction.ReadValue<Vector2>().normalized;
 
+                if (aimDirection == Vector2.zero)
+                {
+                    aimDirection = lastControllerDirection;
+                }
+                else
+                {
+                    lastControllerDirection = aimDirection;
+                }
+
                 // Calculate the target based on the aim direction
                 Vector2 startPosition = transform.position;
                 target = startPosition + aimDirection * grappleRange;
@@ -355,48 +365,52 @@ public class GrapplingHook : MonoBehaviour
     private void UpdateGrappleIndicator()
     {
         Vector2 direction;
+        Vector2 playerPosition = transform.position;
 
         if (isUsingController)
         {
             // Use the controller's aim input for direction
             direction = aimAction.ReadValue<Vector2>().normalized;
-
-            // Falls der Stick nicht bewegt wird, keine Anzeige
-            if (direction == Vector2.zero)
+            if (direction != Vector2.zero)
             {
-                grappleIndicator.enabled = false;
-                return;
+                lastControllerDirection = direction;
+            }
+            else
+            {
+                direction = lastControllerDirection;
             }
         }
         else
         {
             // Use the mouse position for direction
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            direction = (mousePosition - (Vector2)transform.position).normalized;
+            direction = (mousePosition - (Vector2)playerPosition).normalized;
         }
 
         // Find a valid grapple point in the direction
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleRange, grappleLayer);
+        RaycastHit2D hit = Physics2D.Raycast(playerPosition, direction, grappleRange, grappleLayer);
 
-        if (hit.collider != null)
+        if (hit.collider != null && Vector2.Distance(playerPosition, hit.point) <= grappleRange)
         {
-            // Check if the target is within range
-            if (Vector2.Distance(transform.position, hit.point) <= grappleRange)
-            {
-                // Draw the grapple indicator at the hit point
-                DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
-                grappleIndicator.enabled = true;                
-            }
-            else
-            {
-                grappleIndicator.enabled = false;
-            }	
+            grappleIndicator.startColor = Color.green;
+            grappleIndicator.endColor = Color.green;
+            
+            // Draw the grapple indicator at the hit point
+            DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
         }
         else
         {
-            grappleIndicator.enabled = false;
+            grappleIndicator.startColor = Color.blue;
+            grappleIndicator.endColor = Color.blue;
+            
+            // Draw the grapple indicator at the maximum range in the direction
+            Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
+            DrawCircle(grappleIndicator, maxRangePoint, 0.5f, 20);
         }
+
+        if (grappleIndicator.enabled == false) grappleIndicator.enabled = true;
     }
+
 
     private void DrawCircle(LineRenderer lineRenderer, Vector2 position, float radius, int segments)
     {
