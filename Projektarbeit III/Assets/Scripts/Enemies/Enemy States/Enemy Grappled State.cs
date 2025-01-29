@@ -14,12 +14,13 @@ public class EnemyGrappledState : Interface.IState
     public void OnEnter()
     {
         enemy.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.5f, 1.0f, 0.5f);
+        Debug.Log("Enemy entered Grappled State");
     }
 
     public void UpdateState()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        distanceToPlayer = player.transform.position - enemy.transform.position;
+        distanceToPlayer = player.transform.position - enemy.transform.position; // Pulls the enemy towards the player
         enemy.gameObject.GetComponent<Rigidbody2D>().linearVelocity = distanceToPlayer.normalized * player.GetComponent<MovementEditor>().grappleSpeed;
     }
 
