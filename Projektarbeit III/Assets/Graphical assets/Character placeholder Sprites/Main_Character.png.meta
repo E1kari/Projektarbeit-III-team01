@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 95bf78ff8cda3794a9da912f5b426ef2
+guid: 1dea652ef282d894f9bcde385c37c2c0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4919221725687713545
-    second: Lasso_Larry_base_sprite_0
+      213: 1715604451433344739
+    second: Main_Character_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lasso_Larry_base_sprite_0
+      name: Main_Character_0
       rect:
         serializedVersion: 2
-        x: 939
-        y: 489
-        width: 42
-        height: 103
+        x: 28
+        y: 0
+        width: 71
+        height: 254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90f000ba816944440800000000000000
-      internalID: 4919221725687713545
+      spriteID: 3ee63cea82d0fc710800000000000000
+      internalID: 1715604451433344739
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lasso_Larry_base_sprite_0: 4919221725687713545
+      Main_Character_0: 1715604451433344739
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
