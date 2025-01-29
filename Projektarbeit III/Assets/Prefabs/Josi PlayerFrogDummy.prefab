@@ -83,9 +83,10 @@ MonoBehaviour:
   grappleSpeed: 10.5
   grappleCooldown: 1
   grappleRange: 12
+  grappleSpeedBoost: 0.5
   grappleLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   currentStateName: 
   hasJumped: 0
   hasDashed: 0
