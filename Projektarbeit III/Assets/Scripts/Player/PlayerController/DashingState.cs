@@ -29,6 +29,14 @@ public class DashingState : Interface.IState
         if (movementInput.x != 0)
         {
             dashDirection = new Vector2(movementInput.x, 0).normalized;
+            if (dashDirection.x > 0)
+            {
+                controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else if (dashDirection.x < 0)
+            {
+                controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
         else
         {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,11 +7,13 @@ public class Controller : MonoBehaviour
     private Interface.IState currentState;
     public MovementEditor movementEditor;
     private float wallJumpCooldownTimer;
+    private Animator animator;
+
+    private StateIndexingBecauseTheAnimatorIsMean stateIndex;
 
     void Update()
     {
         currentState?.UpdateState(); // Safely call UpdateState if there's a current state
-        UpdateStateName();
 
         // Decrease the cooldown timer
         if (wallJumpCooldownTimer > 0)
@@ -25,6 +28,7 @@ public class Controller : MonoBehaviour
         currentState = newState;
         currentState?.OnEnter(); // Enter the new state
         UpdateStateName();
+        UpdatePlayerAnimator();
     }
 
     private void UpdateStateName()
@@ -32,8 +36,18 @@ public class Controller : MonoBehaviour
         movementEditor.currentStateName = currentState?.GetType().Name ?? "None";
     }
 
+    private void UpdatePlayerAnimator()
+    {
+        int playerIndex = stateIndex?.GetPlayerIndex(currentState?.GetType().Name) ?? -1;
+
+        animator.SetInteger("State", playerIndex);
+    }
+
     void Start()
     {
+        animator = gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        stateIndex = Resources.Load<StateIndexingBecauseTheAnimatorIsMean>("Scriptable Objects/State indexing");
+        stateIndex.init();
         ChangeState(new IdleState(this));
     }
 
@@ -54,7 +68,7 @@ public class Controller : MonoBehaviour
         }
     }
 
-public bool IsGrounded()
+    public bool IsGrounded()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
@@ -83,7 +97,7 @@ public bool IsGrounded()
             Debug.LogError("SpriteRenderer component is missing on the Player game object.");
             return false;
         }
-        
+
         float spriteWidth = spriteRenderer.bounds.size.x / movementEditor.spriteWidthOffsetX;
 
         Vector2 raycastStart = (Vector2)transform.position + new Vector2(spriteWidth, 0);
@@ -106,15 +120,15 @@ public bool IsGrounded()
 
         float spriteWidth = spriteRenderer.bounds.size.x / movementEditor.spriteWidthOffsetX;
 
-        Vector2 raycastStart = (Vector2)transform.position - new Vector2(spriteWidth, 0); 
+        Vector2 raycastStart = (Vector2)transform.position - new Vector2(spriteWidth, 0);
         RaycastHit2D hitRight = Physics2D.Raycast(raycastStart, Vector2.right, 1f, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {
-            Debug.DrawRay(raycastStart, Vector2.right, Color.blue, 2f); 
+            Debug.DrawRay(raycastStart, Vector2.right, Color.blue, 2f);
         }
         return hitRight.collider != null;
     }
-    
+
     public bool IsCeilinged()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -138,7 +152,7 @@ public bool IsGrounded()
     public bool IsWalkingAgainstWall()
     {
         Vector2 movementInput = GetComponent<PlayerInput>().actions["Walking"].ReadValue<Vector2>();
-        
+
         // Check if the player is touching the left wall and pressing left input
         if (IsTouchingLeftWall() && movementInput.x < 0)
         {
