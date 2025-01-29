@@ -132,16 +132,15 @@ public class GrapplingHook : MonoBehaviour
 
         if (grappleCollider.tag == "Light Enemy")
         {
-            Debug.Log("LightEnemy found!");
             enemy = grappleCollider.GetComponent<Enemy>();
 
-            if (enemy.currentStateName == "EnemyGrappledState")
+            if (enemy != null)
             {
-                Debug.Log("Enemy is already grappled"); 
-            }
-            else if (enemy != null)
-            {
+                if (enemy.currentStateName != "EnemyGrappledState")
+                {
+                Debug.Log("Enemy found! Changing to Grappled state");
                 enemy.ChangeState(new EnemyGrappledState(enemy));
+                }
             }
             else
             {
