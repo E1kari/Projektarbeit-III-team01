@@ -24,6 +24,7 @@ public class GrapplingHook : MonoBehaviour
     private InputAction grappleAction;       // Grappling input action
     private InputAction aimAction;           // Aim input action for controller
     private bool isUsingController;          // Whether the player is using a controller
+    private Vector2 lastControllerDirection; // Last direction from the controller
 
     void Start()
     {
@@ -282,6 +283,14 @@ public class GrapplingHook : MonoBehaviour
         {
             // Use the controller's aim input for direction
             direction = aimAction.ReadValue<Vector2>().normalized;
+            if (direction != Vector2.zero)
+            {
+                lastControllerDirection = direction;
+            }
+            else
+            {
+                direction = lastControllerDirection;
+            }
         }
         else
         {
