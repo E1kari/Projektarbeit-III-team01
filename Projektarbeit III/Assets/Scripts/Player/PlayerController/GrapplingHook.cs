@@ -276,6 +276,7 @@ public class GrapplingHook : MonoBehaviour
     private void UpdateGrappleIndicator()
     {
         Vector2 direction;
+        Vector2 playerPosition = transform.position;
 
         if (isUsingController)
         {
@@ -286,16 +287,19 @@ public class GrapplingHook : MonoBehaviour
         {
             // Use the mouse position for direction
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            direction = (mousePosition - (Vector2)transform.position).normalized;
+            direction = (mousePosition - (Vector2)playerPosition).normalized;
         }
 
         // Find a valid grapple point in the direction
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleRange, grappleLayer);
+        RaycastHit2D hit = Physics2D.Raycast(playerPosition, direction, grappleRange, grappleLayer);
 
         if (hit.collider != null)
         {
+            grappleIndicator.startColor = Color.green;
+            grappleIndicator.endColor = Color.green;
+            
             // Check if the target is within range
-            if (Vector2.Distance(transform.position, hit.point) <= grappleRange)
+            if (Vector2.Distance(playerPosition, hit.point) <= grappleRange)
             {
                 // Draw the grapple indicator at the hit point
                 DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
@@ -303,8 +307,11 @@ public class GrapplingHook : MonoBehaviour
         }
         else
         {
+            grappleIndicator.startColor = Color.blue;
+            grappleIndicator.endColor = Color.blue;
+            
             // Draw the grapple indicator at the maximum range in the direction
-            Vector2 maxRangePoint = (Vector2)transform.position + direction * grappleRange;
+            Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
             DrawCircle(grappleIndicator, maxRangePoint, 0.5f, 20);
         }
 
