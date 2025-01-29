@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Health : MonoBehaviour
         if (gameObject.tag == "Player")
         {
             GameObject levelStart = GameObject.FindWithTag("Level Start");
-            levelStart.GetComponent<Level_Start>().spawnPlayer();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
