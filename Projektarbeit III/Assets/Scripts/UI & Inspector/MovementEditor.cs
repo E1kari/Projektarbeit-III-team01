@@ -59,6 +59,9 @@ public class MovementEditor : MonoBehaviour
     [Tooltip("The maximum distance the player can grapple. The higher the value, the longer the grapple")]
     [Range(0.1f, 50f)] public float grappleRange = 12f;
 
+    [Tooltip("The speedboost which the player gets by hooking onto a grapple point. The higher the value, the faster the player")]
+    [Range(0.1f, 50f)] public float grappleSpeedBoost = 0.5f;
+
     [Tooltip("The layer to check for grapple points (e.g., walls, ground etc.)")]
     public LayerMask grappleLayer; // Layer to check for grapple points
 
