@@ -208,6 +208,17 @@
                 },
                 {
                     "name": "",
+                    "id": "8d696bd7-1ee6-44ca-93be-f51e2ca3c563",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Grappling",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6f50a96a-dcc9-42d0-82b8-f2e572942397",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
@@ -220,7 +231,7 @@
                 {
                     "name": "",
                     "id": "1d4305db-85ba-47d5-a6ff-6f8a222b479e",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
