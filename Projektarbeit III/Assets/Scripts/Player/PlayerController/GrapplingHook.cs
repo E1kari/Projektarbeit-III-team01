@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(LineRenderer))]
@@ -24,6 +25,7 @@ public class GrapplingHook : MonoBehaviour
     private InputAction grappleAction;       // Grappling input action
     private InputAction aimAction;           // Aim input action for controller
     private bool isUsingController;          // Whether the player is using a controller
+    private Enemy enemy;                     // Reference to the enemy
 
     void Start()
     {
@@ -112,7 +114,17 @@ public class GrapplingHook : MonoBehaviour
 
             // Enable the rope and update its positions
             lineRenderer.positionCount = 2;
-            UpdateLineRenderer();
+
+            if (grappleCollider.tag == "Light Enemy")
+            {
+                enemy = grappleCollider.GetComponent<Enemy>();
+                // Update the rope's visual position
+                UpdateLineRenderer(transform.position, enemy.transform.position);
+            }
+            else 
+            {
+                UpdateLineRenderer(transform.position, grappleSpot);
+            }
         }
     }
 
@@ -123,29 +135,70 @@ public class GrapplingHook : MonoBehaviour
         float currentGrappleSpeed = grappleSpeed;
 
         // Check if the grappleSpot has the tag "GrapplePoint" and apply speed boost
-        if (grappleCollider.tag == "GrapplePoint")
+        if (grappleCollider != null)
         {
-            Debug.Log("GrapplePoint found! Applying speed boost");
-            currentGrappleSpeed += grappleSpeedBoost;
+            if (grappleCollider.tag == "GrapplePoint")
+            {
+                Debug.Log("GrapplePoint found! Applying speed boost");
+                currentGrappleSpeed += grappleSpeedBoost;
+            }
+
+            if (grappleCollider.tag == "Light Enemy")
+            {
+                if (enemy != null)
+                {
+                    if (enemy.currentStateName != "EnemyGrappledState")
+                    {
+                    Debug.Log("Enemy found! Changing to Grappled state");
+                    enemy.ChangeState(new EnemyGrappledState(enemy));
+                    }
+                }
+                else
+                {
+                    Debug.LogError("Enemy component not found on Light Enemy");
+                }
+            }
+
+            rb.linearVelocity = direction * currentGrappleSpeed;
+
+            if (grappleCollider.tag == "Light Enemy")
+            {
+                // Update the rope's visual position
+                UpdateLineRenderer(transform.position, enemy.transform.position);
+            }
+            else 
+            {
+                UpdateLineRenderer(transform.position, grappleSpot);
+            }
+
+            // Check if the player cancels the grapple
+            CheckGrappleStops();
         }
-
-        rb.linearVelocity = direction * currentGrappleSpeed;
-
-
-        // Check if the player cancels the grapple
-        CheckGrappleStops();
-
-        // Update the rope's visual position
-        UpdateLineRenderer();
     }
 
     private void StopGrapple()
     {
+        Debug.Log("Stopping grapple");
+
         // Stop grappling, Start the cooldown timer and hide the rope
         isGrappling = false; 
         isCooldown = true;
         cooldownTimer = grappleCooldown;        
         lineRenderer.positionCount = 0;
+
+        if (grappleCollider.tag == "Light Enemy" && enemy.currentStateName == "EnemyGrappledState")
+        {
+            enemy = grappleCollider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                Debug.Log("Enemy found and in GrappleState! Changing to Falling state");
+                enemy.ChangeState(new EnemyFallingState(enemy));
+            }
+            else
+            {
+                Debug.LogError("Enemy component not found on Light Enemy");
+            }
+        }
 
         // Start the coroutine to check the player's distance from the grapple point
         StartCoroutine(CheckAndEnableGrappleCollider());
@@ -153,16 +206,19 @@ public class GrapplingHook : MonoBehaviour
         CheckCollisionState(); // Check which state to transition to
     }
 
-    private IEnumerator CheckAndEnableGrappleCollider()
+    private IEnumerator CheckAndEnableGrappleCollider() // Coroutine to check the player's distance from the grapple point
     {
         while (true)
         {
             // Check if the collider is a grapple point and the player is not near it
-            if (grappleCollider.tag == "GrapplePoint" && !IsPlayerNearGrapplePoint())
+            if (grappleCollider != null)
             {
-                Debug.Log("Enabling grapple collider");
-                grappleCollider.enabled = true;
-                yield break; // Exit the coroutine once the collider is enabled
+                if (grappleCollider.tag == "GrapplePoint" && !IsPlayerNearGrapplePoint())
+                {
+                    Debug.Log("Enabling grapple collider");
+                    grappleCollider.enabled = true;
+                    yield break; // Exit the coroutine once the collider is enabled
+                }
             }
             yield return new WaitForSeconds(0.1f); // Check every 0.1 seconds
         }
@@ -219,23 +275,45 @@ public class GrapplingHook : MonoBehaviour
 
     private void CheckGrappleStops()
     {
+        if (CheckEnemyCollision())
+        {
+            Debug.Log("Player is near the enemy. Stopping grapple.");
+            StopGrapple();
+        }
+
         // Check if the player cancels the grapple by releasing the grapple button
         if (!grappleAction.IsPressed())
         {
+            Debug.Log("Grapple action released");
             StopGrapple();
         }
 
         // Stop grappling if the player reaches the grapple point
         if (Vector2.Distance(transform.position, grappleSpot) < 0.5f)
         {
+            Debug.Log("Player reached the grapple point");
             StopGrapple();
         }
 
         // Check for wall and ceiling collisions
         if (controller.IsTouchingLeftWall() || controller.IsTouchingRightWall() || controller.IsCeilinged())
         {
+            Debug.Log("Player is touching a wall or ceiling");
             StopGrapple();
         }
+    }
+    private bool CheckEnemyCollision()
+    {
+        if (enemy == null)
+        {
+            //Debug.LogWarning("Enemy reference is null");
+            return false;
+        }
+
+        float distance = Vector2.Distance(transform.position, enemy.transform.position);
+        //Debug.Log($"Distance to enemy: {distance}");
+
+        return distance < 2f;   // Check if the player is near an enemy
     }
 
     private void CheckCollisionState()
@@ -263,13 +341,14 @@ public class GrapplingHook : MonoBehaviour
         return distanceToGrapplePoint <= 2.5f;
     }
 
-    private void UpdateLineRenderer()
+    public void UpdateLineRenderer(Vector2 playerPosition, Vector2 grapplePosition)
     {
         // Draw the rope between the player and the grapple point
         if (isGrappling)
         {
-            lineRenderer.SetPosition(0, transform.position); // Start of the rope (player position)
-            lineRenderer.SetPosition(1, grappleSpot);       // End of the rope (grapple point)
+            //Debug.Log("Updating line renderer for PlayerPos and GrapplePos: " + playerPosition + " " + grapplePosition);
+            lineRenderer.SetPosition(0, playerPosition);    // Start of the rope (player position)
+            lineRenderer.SetPosition(1, grapplePosition);   // End of the rope (grapple point)
         }
     }
 
