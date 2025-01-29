@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lasso_Larry_base_sprite_0: 4919221725687713545
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

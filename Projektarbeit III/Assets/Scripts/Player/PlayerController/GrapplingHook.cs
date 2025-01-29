@@ -281,13 +281,6 @@ public class GrapplingHook : MonoBehaviour
         {
             // Use the controller's aim input for direction
             direction = aimAction.ReadValue<Vector2>().normalized;
-
-            // Falls der Stick nicht bewegt wird, keine Anzeige
-            if (direction == Vector2.zero)
-            {
-                grappleIndicator.enabled = false;
-                return;
-            }
         }
         else
         {
@@ -306,18 +299,18 @@ public class GrapplingHook : MonoBehaviour
             {
                 // Draw the grapple indicator at the hit point
                 DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
-                grappleIndicator.enabled = true;                
             }
-            else
-            {
-                grappleIndicator.enabled = false;
-            }	
         }
         else
         {
-            grappleIndicator.enabled = false;
+            // Draw the grapple indicator at the maximum range in the direction
+            Vector2 maxRangePoint = (Vector2)transform.position + direction * grappleRange;
+            DrawCircle(grappleIndicator, maxRangePoint, 0.5f, 20);
         }
+
+        if (grappleIndicator.enabled == false) grappleIndicator.enabled = true;
     }
+
 
     private void DrawCircle(LineRenderer lineRenderer, Vector2 position, float radius, int segments)
     {
