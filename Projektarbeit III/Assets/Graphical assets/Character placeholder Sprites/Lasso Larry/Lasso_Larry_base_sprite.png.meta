@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 98aeca88b04b62c48863945f73fb156c
+guid: 54b5ba462c445194aaf9d9a2a46c206c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7107125503865223291
-    second: Froggy 2_0
+      213: 4919221725687713545
+    second: Lasso_Larry_base_sprite_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Froggy 2_0
+      name: Lasso_Larry_base_sprite_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 0
-        width: 71
-        height: 254
+        x: 939
+        y: 489
+        width: 42
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5878ef7620b6e5d90800000000000000
-      internalID: -7107125503865223291
+      spriteID: 90f000ba816944440800000000000000
+      internalID: 4919221725687713545
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Froggy 2_0: -7107125503865223291
+      Lasso_Larry_base_sprite_0: 4919221725687713545
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

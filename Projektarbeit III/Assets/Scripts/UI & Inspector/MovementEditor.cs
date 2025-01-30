@@ -62,6 +62,10 @@ public class MovementEditor : MonoBehaviour
     [Tooltip("The speedboost which the player gets by hooking onto a grapple point. The higher the value, the faster the player")]
     [Range(0.1f, 50f)] public float grappleSpeedBoost = 0.5f;
 
+    [Header("Enemy Settings")]
+    [Tooltip("The speed the player hooks the enemy with. The higher the value, the faster the pull")]
+    [Range(0.01f, 50f)] public float enemyHookSpeed = 10f;
+
     [Tooltip("The layer to check for grapple points (e.g., walls, ground etc.)")]
     public LayerMask grappleLayer; // Layer to check for grapple points
 

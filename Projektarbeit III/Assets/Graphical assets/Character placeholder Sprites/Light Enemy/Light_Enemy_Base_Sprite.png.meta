@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f9186e544cc70734dbe725a5a9b52787
+guid: 83b556d34eec6ad4a8e51c4fa42157f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7482667652216324306
-    second: Square_0
+      213: 5344433435365923069
+    second: Light_Enemy_Base_Sprite_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Square_0
+      name: Light_Enemy_Base_Sprite_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 1014
+        y: 481
+        width: 72
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d009a6b596c7d760800000000000000
-      internalID: 7482667652216324306
+      spriteID: df8d4b8b4ed3b2a40800000000000000
+      internalID: 5344433435365923069
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Square_0: 7482667652216324306
+      Light_Enemy_Base_Sprite_0: 5344433435365923069
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -71,6 +71,7 @@ MonoBehaviour:
   grappleCooldown: 1
   grappleRange: 12
   grappleSpeedBoost: 0.5
+  enemyHookSpeed: 10
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
