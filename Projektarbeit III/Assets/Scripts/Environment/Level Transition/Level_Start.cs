@@ -11,12 +11,27 @@ public class Level_Start : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        spawnPlayer();
+    }
+
+    public void spawnPlayer()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+
         float height = GetComponent<SpriteRenderer>().bounds.size.y;
         float playerHeight = playerPrefab_.GetComponent<SpriteRenderer>().bounds.size.y;
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0.0f, height / 2.0f, 0.0f), Vector2.down);
         if (hit)
         {
-            Instantiate(playerPrefab_, hit.point + new Vector2(0.0f, playerHeight / 2.0f), transform.rotation);
+            var newPlayerPosition = hit.point + new Vector2(0.0f, playerHeight / 2.0f);
+            if (player)
+            {
+                player.transform.position = newPlayerPosition;
+            }
+            else
+            {
+                Instantiate(playerPrefab_, newPlayerPosition, transform.rotation);
+            }
         }
         else
         {
