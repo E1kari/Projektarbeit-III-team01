@@ -30098,6 +30098,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.15123081
       objectReference: {fileID: 0}
+    - target: {fileID: 5529917082366911884, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
+      propertyPath: showFps
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
       propertyPath: dashSpeed
       value: 13.1
@@ -30133,6 +30137,10 @@ PrefabInstance:
     - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
       propertyPath: wallJumpForce
       value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
+      propertyPath: toleranceRadius
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
       propertyPath: currentStateName

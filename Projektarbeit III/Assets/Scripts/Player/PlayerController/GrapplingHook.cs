@@ -364,7 +364,7 @@ public class GrapplingHook : MonoBehaviour
     public RaycastHit2D FindGrapplePoint(Vector2 direction, float grappleRange, LayerMask grappleLayer)
     {
         // Define a small tolerance radius
-        float toleranceRadius = 0.5f;
+        float toleranceRadius = controller.movementEditor.toleranceRadius;
 
         // Find a valid grapple point in the direction with a CircleCast
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, toleranceRadius, direction, grappleRange, grappleLayer);
