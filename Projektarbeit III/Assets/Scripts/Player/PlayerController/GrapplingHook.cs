@@ -93,13 +93,22 @@ public class GrapplingHook : MonoBehaviour
             return;
         }
 
-        // Cast a ray towards the target to find a valid grapple spoit
+        // Cast a ray towards the target to find a valid grapple spot
         Vector2 direction = (target - (Vector2)transform.position).normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleRange, grappleLayer);
 
         if (hit.collider != null) // Check if the ray hits a valid grapple spot
         {
-            grappleSpot = hit.point;
+            // Snap to the center of the target object if it has the specified tags
+            if (hit.collider.tag == "Light Enemy" || hit.collider.tag == "GrapplePoint")
+            {
+                grappleSpot = hit.collider.bounds.center;
+            }
+            else
+            {
+                grappleSpot = hit.point;
+            }
+
             grappleCollider = hit.collider;
             grappleCollider.tag = hit.collider.tag;
             isGrappling = true;
