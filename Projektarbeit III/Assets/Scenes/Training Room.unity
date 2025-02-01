@@ -30098,66 +30098,6 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.15123081
       objectReference: {fileID: 0}
-    - target: {fileID: 5529917082366911884, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: showFps
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: dashSpeed
-      value: 13.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: jumpForce
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: moveSpeed
-      value: 7.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: dashDuration
-      value: 0.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: drawRaycasts
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: grappleRange
-      value: 13.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: grappleSpeed
-      value: 14.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: stickDuration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: wallJumpForce
-      value: 4.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: toleranceRadius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: currentStateName
-      value: IdleState
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: wallJumpSideForce
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: grappleLayer.m_Bits
-      value: 320
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467274663089508137, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
-      propertyPath: preserveDashMomentum
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

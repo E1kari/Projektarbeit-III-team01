@@ -6,7 +6,7 @@ public class Controller : MonoBehaviour
 {
     private Interface.IState currentState;
     private int lastStateIndex = 0;
-    public MovementEditor movementEditor;
+    public S_MovementEditor movementEditor;
     private float wallJumpCooldownTimer;
     private Animator animator;
 
@@ -60,6 +60,9 @@ public class Controller : MonoBehaviour
         animator = gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         stateIndex = Resources.Load<StateIndexingBecauseTheAnimatorIsMean>("Scriptable Objects/State indexing");
         stateIndex.init();
+
+        movementEditor = Resources.Load<S_MovementEditor>("Scriptable Objects/S_MovementEditor");
+
         ChangeState(new IdleState(this));
     }
 

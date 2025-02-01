@@ -2,65 +2,66 @@ using Unity.Collections;
 using UnityEditor;
 using UnityEngine;
 
-public class MovementEditor : MonoBehaviour
+[CreateAssetMenu(fileName = "S_MovementEditor", menuName = "Scriptable Objects/S_MovementEditor")]
+public class S_MovementEditor : ScriptableObject
 {
     [Header("Jumping Settings")]
     [Tooltip("The force applied when the player jumps. The higher the value, the higher the jump")]
     [Range(0.1f, 25f)] public float jumpForce = 8f;
 
     [Tooltip("The force applied to the player when they fall. The higher the value, the faster the fall")]
-    [Range(0.1f, 50f)] public float fallForce = 7f;
+    [Range(0.1f, 50f)] public float fallForce = 6f;
 
     [Header("Wall Sticking Settings")]
     [Tooltip("The duration the player can stick to a wall. The higher the value, the longer the stick duration")]
-    [Range(0.1f, 10f)] public float stickDuration = 3.5f;
+    [Range(0.1f, 10f)] public float stickDuration = 0.1f;
 
     [Header("Wall Jumping Settings")]
     [Tooltip("The force applied to the player when they jump off a wall upwards. The higher the value, the higher the jump")]
-    [Range(0.1f, 30f)] public float wallJumpForce = 5f;
+    [Range(0.1f, 30f)] public float wallJumpForce = 4.8f;
 
     [Tooltip("The force applied to the player when they jump off a wall to the side. The higher the value, the further the jump")]
-    [Range(0.1f, 30f)] public float wallJumpSideForce = 8f;   
+    [Range(0.1f, 30f)] public float wallJumpSideForce = 6f;   
 
     [Tooltip("The cooldown time after a wall jump before the player can stick to a wall again. The higher the value, the longer the cooldown")]
     [Range(0.1f, 25f)] public float wallJumpCooldown = 1f;
 
     [Header("Raycast Settings")]
     [Tooltip("The width offset for the sprite where raycasts are performed. The higher the value, the wider the offset")]
-    [Range(-10f, 10f)] public float spriteWidthOffsetX = 0.5f;
+    [Range(-10f, 10f)] public float spriteWidthOffsetX = 3f;
 
     [Tooltip("The height offset for the sprite where raycasts are performed. The higher the value, the higher the offset")]
     [Range(-10f, 10f)] public float spriteHeightOffsetY = 3f;
 
     [Tooltip("Toggle to enable or disable the raycasts in the editor")]
-    public bool drawRaycasts = false;
+    public bool drawRaycasts = true;
 
     [Header("Dashing Settings")]
     [Tooltip("The speed at which the player dashes. The higher the value, the faster the dash")]
-    [Range(0.1f, 50f)] public float dashSpeed = 20f;
+    [Range(0.1f, 50f)] public float dashSpeed = 13.1f;
 
     [Tooltip("The duration of the dash in seconds. The higher the value, the longer the dash")]
-    [Range(0.1f, 5f)] public float dashDuration = 0.25f;
+    [Range(0.1f, 5f)] public float dashDuration = 0.52f;
 
     [Tooltip("Whether to preserve momentum after dashing. If enabled, the player will maintain their dash speed after the dash ends")]
-    public bool preserveDashMomentum = false;
+    public bool preserveDashMomentum = true;
 
     [Header("Walking Settings")]
     [Tooltip("The speed at which the player moves. The higher the value, the faster the movement")]
-    [Range(0.1f, 25f)] public float moveSpeed = 5f;
+    [Range(0.1f, 25f)] public float moveSpeed = 7.7f;
 
     [Header("Grappling Hook Settings\n(Changes apply after restarting the game)")]
     [Tooltip("The speed at which the player is pulled towards the grapple point. The higher the value, the faster the pull")]
-    [Range(0.01f, 50f)] public float grappleSpeed = 20f;
+    [Range(0.01f, 50f)] public float grappleSpeed = 14.8f;
 
     [Tooltip("The cooldown time between grapples. The higher the value, the longer the cooldown")]
-    [Range(0.01f, 5f)] public float grappleCooldown = 0.5f;
+    [Range(0.01f, 5f)] public float grappleCooldown = 1f;
 
     [Tooltip("The maximum distance the player can grapple. The higher the value, the longer the grapple")]
-    [Range(0.1f, 50f)] public float grappleRange = 12f;
+    [Range(0.1f, 50f)] public float grappleRange = 13.7f;
 
     [Tooltip("The speedboost which the player gets by hooking onto a grapple point. The higher the value, the faster the player")]
-    [Range(0.1f, 50f)] public float grappleSpeedBoost = 0.5f;
+    [Range(0.1f, 50f)] public float grappleSpeedBoost = 10f;
 
     [Tooltip("The tolerance for the grapple distance. The higher the value, the more forgiving the grapple/easier to hit the target")]
     [Range(0.1f, 10f)] public float toleranceRadius = 0.5f;
@@ -98,14 +99,14 @@ public class ReadOnlyDrawer : PropertyDrawer
     }
 }
 
-[CustomEditor(typeof(MovementEditor))]
+[CustomEditor(typeof(S_MovementEditor))]
 public class MovementEditorEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        MovementEditor movementEditor = (MovementEditor)target;
+        S_MovementEditor movementEditor = (S_MovementEditor)target;
 
         movementEditor.drawRaycasts = GUILayout.Toggle(movementEditor.drawRaycasts, "Draw Raycasts");
 
