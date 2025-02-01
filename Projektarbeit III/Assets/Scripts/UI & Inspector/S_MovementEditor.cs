@@ -50,7 +50,7 @@ public class S_MovementEditor : ScriptableObject
     [Tooltip("The speed at which the player moves. The higher the value, the faster the movement")]
     [Range(0.1f, 25f)] public float moveSpeed = 7.7f;
 
-    [Header("Grappling Hook Settings\n(Changes apply after restarting the game)")]
+    [Header("Grappling Hook Settings")]
     [Tooltip("The speed at which the player is pulled towards the grapple point. The higher the value, the faster the pull")]
     [Range(0.01f, 50f)] public float grappleSpeed = 14.8f;
 
@@ -64,7 +64,17 @@ public class S_MovementEditor : ScriptableObject
     [Range(0.1f, 50f)] public float grappleSpeedBoost = 10f;
 
     [Tooltip("The tolerance for the grapple distance. The higher the value, the more forgiving the grapple/easier to hit the target")]
-    [Range(0.1f, 10f)] public float toleranceRadius = 0.5f;
+    [Range(-5f, 10f)] public float toleranceRadius = 0.5f;
+
+    [Header("Indicator Settings")]
+    [Tooltip("The puffer when the hook is in the tolerance radius. The higher the value, the bigger the puffer")]
+    [Range(-5f, 10f)] public float indicatorPuffer = 0.55f;
+
+    [Tooltip("The indicator size. The higher the value, the bigger the indicator")]
+    [Range(-5f, 10f)] public float indicatorSize = 0.55f;
+
+    [Tooltip("The amount of segments the indicator has. The higher the value, the more segments. Segments are basically the lines of the indicator")]
+    [Range(-5f, 25f)] public int indicatorSegments = 15;
 
     [Header("Enemy Settings")]
     [Tooltip("The speed the player hooks the enemy with. The higher the value, the faster the pull")]
