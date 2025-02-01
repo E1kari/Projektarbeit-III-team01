@@ -403,9 +403,17 @@ public class GrapplingHook : MonoBehaviour
         {
             grappleIndicator.startColor = Color.green;
             grappleIndicator.endColor = Color.green;
-            
-            // Draw the grapple indicator at the hit point
-            DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
+
+            if (hit.collider.tag == "Light Enemy" || hit.collider.tag == "GrapplePoint")
+            {
+                // Draw the grapple indicator at the hit point
+                DrawCircle(grappleIndicator, hit.transform.position, 0.55f, 15);
+            }
+            else
+            {
+                // Draw the grapple indicator at the hit point
+                DrawCircle(grappleIndicator, hit.point, 0.55f, 15);
+            }
         }
         else
         {
@@ -414,12 +422,11 @@ public class GrapplingHook : MonoBehaviour
             
             // Draw the grapple indicator at the maximum range in the direction
             Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
-            DrawCircle(grappleIndicator, maxRangePoint, 0.5f, 20);
+            DrawCircle(grappleIndicator, maxRangePoint, 0.35f, 15);
         }
 
         if (grappleIndicator.enabled == false) grappleIndicator.enabled = true;
     }
-
 
     private void DrawCircle(LineRenderer lineRenderer, Vector2 position, float radius, int segments)
     {
