@@ -39,6 +39,11 @@ public class Controller : MonoBehaviour
 
     private void UpdatePlayerAnimator()
     {
+        if (animator == null)
+        {
+            Debug.Log("Animator component is missing on the Player game object.");
+            return;
+        }
         int playerIndex = stateIndex?.GetPlayerIndex(currentState?.GetType().Name) ?? -1;
 
         if (playerIndex != lastStateIndex)
