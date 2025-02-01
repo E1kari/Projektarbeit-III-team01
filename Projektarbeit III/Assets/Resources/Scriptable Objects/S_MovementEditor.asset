@@ -13,27 +13,27 @@ MonoBehaviour:
   m_Name: S_MovementEditor
   m_EditorClassIdentifier: 
   jumpForce: 8
-  fallForce: 7
-  stickDuration: 3.5
-  wallJumpForce: 5
-  wallJumpSideForce: 8
+  fallForce: 6
+  stickDuration: 0.1
+  wallJumpForce: 4.8
+  wallJumpSideForce: 6
   wallJumpCooldown: 1
-  spriteWidthOffsetX: 0.5
+  spriteWidthOffsetX: 3
   spriteHeightOffsetY: 3
-  drawRaycasts: 0
-  dashSpeed: 20
-  dashDuration: 0.25
-  preserveDashMomentum: 0
-  moveSpeed: 5
-  grappleSpeed: 20
-  grappleCooldown: 0.5
-  grappleRange: 12
-  grappleSpeedBoost: 0.5
+  drawRaycasts: 1
+  dashSpeed: 13.1
+  dashDuration: 0.52
+  preserveDashMomentum: 1
+  moveSpeed: 7.7
+  grappleSpeed: 14.8
+  grappleCooldown: 1
+  grappleRange: 13.7
+  grappleSpeedBoost: 10
   toleranceRadius: 0.5
   enemyHookSpeed: 10
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
-  currentStateName: 
-  hasJumped: 0
-  hasDashed: 0
+  currentStateName: IdleState
+  hasJumped: 1
+  hasDashed: 1
