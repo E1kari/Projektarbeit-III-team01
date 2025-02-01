@@ -96,11 +96,7 @@ public class GrapplingHook : MonoBehaviour
         // Cast a ray towards the target to find a valid grapple spot
         Vector2 direction = (target - (Vector2)transform.position).normalized;
 
-        // Define a small tolerance radius
-        float toleranceRadius = 0.5f;
-
-        // Find a valid grapple point in the direction with a CircleCast
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, toleranceRadius, direction, grappleRange, grappleLayer);
+        RaycastHit2D hit = FindGrapplePoint(direction, grappleRange, grappleLayer);
 
         if (hit.collider != null) // Check if the ray hits a valid grapple spot
         {
@@ -365,6 +361,17 @@ public class GrapplingHook : MonoBehaviour
         return distanceToGrapplePoint <= 2.5f;
     }
 
+    public RaycastHit2D FindGrapplePoint(Vector2 direction, float grappleRange, LayerMask grappleLayer)
+    {
+        // Define a small tolerance radius
+        float toleranceRadius = 0.5f;
+
+        // Find a valid grapple point in the direction with a CircleCast
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, toleranceRadius, direction, grappleRange, grappleLayer);
+
+        return hit;
+    }
+
     public void UpdateLineRenderer(Vector2 playerPosition, Vector2 grapplePosition)
     {
         // Draw the rope between the player and the grapple point
@@ -401,11 +408,7 @@ public class GrapplingHook : MonoBehaviour
             direction = (mousePosition - (Vector2)playerPosition).normalized;
         }
 
-        // Define a smoll tolerance radius
-        float toleranceRadius = 0.5f;
-
-        // Find a valid grapple point in the direction with a CircleCast (circle with a radius duh)
-        RaycastHit2D hit = Physics2D.CircleCast(playerPosition, toleranceRadius, direction, grappleRange, grappleLayer);
+        RaycastHit2D hit = FindGrapplePoint(direction, grappleRange, grappleLayer);
 
         if (hit.collider != null && Vector2.Distance(playerPosition, hit.point) <= grappleRange)
         {
