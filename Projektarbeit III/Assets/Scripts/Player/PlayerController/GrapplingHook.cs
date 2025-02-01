@@ -95,7 +95,7 @@ public class GrapplingHook : MonoBehaviour
         }
 
         // Check if the target is within range
-        if (Vector2.Distance(transform.position, target) > grappleRange)
+        if (Vector2.Distance(transform.position, target) > grappleRange && IsIndicatorOnValidGrappleSpot())
         {
             Debug.Log("Target out of range");
             return;
@@ -367,6 +367,12 @@ public class GrapplingHook : MonoBehaviour
     {
         float distanceToGrapplePoint = Vector2.Distance(transform.position, grappleSpot);
         return distanceToGrapplePoint <= 2.5f;
+    }
+
+    private bool IsIndicatorOnValidGrappleSpot()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(grappleIndicator.transform.position, Vector2.zero, 0f, grappleLayer);
+        return hit.collider != null;
     }
 
     public RaycastHit2D FindGrapplePoint(Vector2 direction, float grappleRange, LayerMask grappleLayer)
