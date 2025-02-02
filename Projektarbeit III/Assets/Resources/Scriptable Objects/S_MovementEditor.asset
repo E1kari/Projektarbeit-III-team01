@@ -12,28 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a022905d44d467f4f91c10a0851e2383, type: 3}
   m_Name: S_MovementEditor
   m_EditorClassIdentifier: 
-  jumpForce: 8
+  jumpForce: 7.8
   fallForce: 6
-  stickDuration: 0.1
-  wallJumpForce: 4.8
-  wallJumpSideForce: 6
+  stickDuration: 3.5
+  wallJumpForce: 7.3
+  wallJumpSideForce: 8.1
   wallJumpCooldown: 1
   spriteWidthOffsetX: 3
   spriteHeightOffsetY: 3
   drawRaycasts: 1
-  dashSpeed: 13.1
-  dashDuration: 0.52
+  dashSpeed: 12.4
+  dashDuration: 0.62
   preserveDashMomentum: 1
-  moveSpeed: 7.7
-  grappleSpeed: 14.8
+  moveSpeed: 6.8
+  grappleSpeed: 10.5
   grappleCooldown: 1
-  grappleRange: 13.7
-  grappleSpeedBoost: 10
+  grappleRange: 12
+  grappleSpeedBoost: 0.5
   toleranceRadius: 0.5
+  indicatorPuffer: 0.55
+  indicatorSize: 0.55
+  indicatorSegments: 15
   enemyHookSpeed: 10
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
   currentStateName: IdleState
-  hasJumped: 1
-  hasDashed: 1
+  hasJumped: 0
+  hasDashed: 0
