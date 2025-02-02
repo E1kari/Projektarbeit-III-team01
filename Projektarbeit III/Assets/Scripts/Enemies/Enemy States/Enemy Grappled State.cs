@@ -20,8 +20,9 @@ public class EnemyGrappledState : Interface.IState
     public void UpdateState()
     {
         GameObject player = GameObject.FindWithTag("Player");
+        Controller playerController = player.GetComponent<Controller>();
         distanceToPlayer = player.transform.position - enemy.transform.position; // Pulls the enemy towards the player
-        enemy.gameObject.GetComponent<Rigidbody2D>().linearVelocity = distanceToPlayer.normalized * player.GetComponent<MovementEditor>().enemyHookSpeed; // Moves the enemy towards the player
+        enemy.gameObject.GetComponent<Rigidbody2D>().linearVelocity = distanceToPlayer.normalized * playerController.movementEditor.enemyHookSpeed; // Moves the enemy towards the player
     }
 
     public void CheckExitConditions()

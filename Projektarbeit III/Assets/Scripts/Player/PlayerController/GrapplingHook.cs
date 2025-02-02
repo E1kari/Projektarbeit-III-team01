@@ -27,6 +27,10 @@ public class GrapplingHook : MonoBehaviour
     private bool isUsingController;          // Whether the player is using a controller
     private Vector2 lastControllerDirection; // Last direction from the controller
     private Enemy enemy;                     // Reference to the enemy
+    private float toleranceRadius;           // Tolerance for the grapple distance
+    private float indicatorPuffer;           // Puffer when the hook is in the tolerance radius
+    private float indicatorSize;             // Indicator size
+    private int indicatorSegments;         // Amount of segments the indicator has
 
     void Start()
     {
@@ -51,6 +55,10 @@ public class GrapplingHook : MonoBehaviour
         grappleRange = controller.movementEditor.grappleRange;
         grappleLayer = controller.movementEditor.grappleLayer;
         grappleSpeedBoost = controller.movementEditor.grappleSpeedBoost;
+        toleranceRadius = controller.movementEditor.toleranceRadius;
+        indicatorPuffer = controller.movementEditor.indicatorPuffer;
+        indicatorSize = controller.movementEditor.indicatorSize;
+        indicatorSegments = controller.movementEditor.indicatorSegments;
 
         // Create the grapple indicator
         grappleIndicator = new GameObject("GrappleIndicator").AddComponent<LineRenderer>();
@@ -87,19 +95,29 @@ public class GrapplingHook : MonoBehaviour
         }
 
         // Check if the target is within range
-        if (Vector2.Distance(transform.position, target) > grappleRange)
+        if (Vector2.Distance(transform.position, target) > grappleRange && IsIndicatorOnValidGrappleSpot())
         {
             Debug.Log("Target out of range");
             return;
         }
 
-        // Cast a ray towards the target to find a valid grapple spoit
+        // Cast a ray towards the target to find a valid grapple spot
         Vector2 direction = (target - (Vector2)transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, grappleRange, grappleLayer);
+
+        RaycastHit2D hit = FindGrapplePoint(direction, grappleRange, grappleLayer);
 
         if (hit.collider != null) // Check if the ray hits a valid grapple spot
         {
-            grappleSpot = hit.point;
+            // Snap to the center of the target object if it has the specified tags
+            if (hit.collider.tag == "Light Enemy" || hit.collider.tag == "GrapplePoint")
+            {
+                grappleSpot = hit.collider.bounds.center;
+            }
+            else
+            {
+                grappleSpot = hit.point;
+            }
+
             grappleCollider = hit.collider;
             grappleCollider.tag = hit.collider.tag;
             isGrappling = true;
@@ -351,6 +369,20 @@ public class GrapplingHook : MonoBehaviour
         return distanceToGrapplePoint <= 2.5f;
     }
 
+    private bool IsIndicatorOnValidGrappleSpot()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(grappleIndicator.transform.position, Vector2.zero, 0f, grappleLayer);
+        return hit.collider != null;
+    }
+
+    public RaycastHit2D FindGrapplePoint(Vector2 direction, float grappleRange, LayerMask grappleLayer)
+    {
+        // Find a valid grapple point in the direction with a CircleCast
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, toleranceRadius, direction, grappleRange, grappleLayer);
+
+        return hit;
+    }
+
     public void UpdateLineRenderer(Vector2 playerPosition, Vector2 grapplePosition)
     {
         // Draw the rope between the player and the grapple point
@@ -387,30 +419,49 @@ public class GrapplingHook : MonoBehaviour
             direction = (mousePosition - (Vector2)playerPosition).normalized;
         }
 
-        // Find a valid grapple point in the direction
-        RaycastHit2D hit = Physics2D.Raycast(playerPosition, direction, grappleRange, grappleLayer);
+        RaycastHit2D hit = FindGrapplePoint(direction, grappleRange, grappleLayer);
 
-        if (hit.collider != null && Vector2.Distance(playerPosition, hit.point) <= grappleRange)
+        if (hit.collider != null)
         {
-            grappleIndicator.startColor = Color.green;
-            grappleIndicator.endColor = Color.green;
-            
-            // Draw the grapple indicator at the hit point
-            DrawCircle(grappleIndicator, hit.point, 0.5f, 20);
+            float distanceToHit = Vector2.Distance(playerPosition, hit.point);
+            if (distanceToHit <= grappleRange + indicatorPuffer)
+            {
+                grappleIndicator.startColor = Color.green;
+                grappleIndicator.endColor = Color.green;
+
+                if (hit.collider.tag == "Light Enemy" || hit.collider.tag == "GrapplePoint")
+                {
+                    // Draw the grapple indicator at the hit point
+                    DrawCircle(grappleIndicator, hit.transform.position, indicatorSize, indicatorSegments);
+                }
+                else
+                {
+                    // Draw the grapple indicator at the hit point
+                    DrawCircle(grappleIndicator, hit.point, indicatorSize, indicatorSegments);
+                }
+            }
+            else
+            {
+                grappleIndicator.startColor = Color.blue;
+                grappleIndicator.endColor = Color.blue;
+
+                // Draw the grapple indicator at the maximum range in the direction
+                Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
+                DrawCircle(grappleIndicator, maxRangePoint, indicatorSize, indicatorSegments);
+            }
         }
         else
         {
             grappleIndicator.startColor = Color.blue;
             grappleIndicator.endColor = Color.blue;
-            
+
             // Draw the grapple indicator at the maximum range in the direction
             Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
-            DrawCircle(grappleIndicator, maxRangePoint, 0.5f, 20);
+            DrawCircle(grappleIndicator, maxRangePoint, indicatorSize, indicatorSegments);
         }
 
         if (grappleIndicator.enabled == false) grappleIndicator.enabled = true;
     }
-
 
     private void DrawCircle(LineRenderer lineRenderer, Vector2 position, float radius, int segments)
     {
