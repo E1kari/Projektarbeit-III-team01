@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.42, y: -7.36, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.77608, y: 0.77608, z: 0.77608}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df5264ac4d6695478f783e406265150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startInGrapple: 0
   lightEnemyData_: {fileID: 11400000, guid: c92d80381b77649498d6217b43df538c, type: 2}
   currentStateName: 
 --- !u!114 &2228542314358876342

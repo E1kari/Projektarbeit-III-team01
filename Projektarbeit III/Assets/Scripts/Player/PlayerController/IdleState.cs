@@ -14,7 +14,7 @@ public class IdleState : Interface.IState
     public IdleState(Controller controller)
     {
         this.controller = controller;
-        rb = controller.GetComponent<Rigidbody2D>();
+        rb = controller.gameObject.GetComponent<Rigidbody2D>();
         playerInput = controller.GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Walking"];
         jumpAction = playerInput.actions["Jumping"];
@@ -60,9 +60,9 @@ public class IdleState : Interface.IState
                 Debug.Log("Cannot dash while grounded");
             }
             else
-            {   
-            controller.ChangeState(new DashingState(controller));
-            controller.movementEditor.hasDashed = true;
+            {
+                controller.ChangeState(new DashingState(controller));
+                controller.movementEditor.hasDashed = true;
             }
         }
 

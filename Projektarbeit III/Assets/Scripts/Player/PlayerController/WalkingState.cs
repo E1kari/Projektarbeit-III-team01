@@ -33,6 +33,15 @@ public class WalkingState : Interface.IState
     {
         MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
 
+        if (rb.linearVelocity.x > 0)
+        {
+            controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (rb.linearVelocity.x < 0)
+        {
+            controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
         // Apply fall force when the player starts falling
         if (rb.linearVelocity.y <= 0)
         {
@@ -60,9 +69,9 @@ public class WalkingState : Interface.IState
                 Debug.Log("Cannot dash while grounded");
             }
             else
-            {   
-            controller.ChangeState(new DashingState(controller));
-            controller.movementEditor.hasDashed = true;
+            {
+                controller.ChangeState(new DashingState(controller));
+                controller.movementEditor.hasDashed = true;
             }
         }
 

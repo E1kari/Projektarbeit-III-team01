@@ -25,10 +25,9 @@ public class HUD : MonoBehaviour
         int width = Screen.width, height = Screen.height;
         GUIStyle style = new GUIStyle();
 
-
         style.alignment = TextAnchor.UpperLeft;
         style.fontSize = height / 20;
-        style.normal.textColor = Color.white;
+        style.normal.textColor = Color.black;
 
         if (showFps)
         {

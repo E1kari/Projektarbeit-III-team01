@@ -8,19 +8,21 @@ public class EnemyGrappledState : Interface.IState
     public EnemyGrappledState(Enemy pa_enemy)
     {
         enemy = pa_enemy;
-        enemy.gameObject.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePosition;
     }
 
     public void OnEnter()
     {
         enemy.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.5f, 1.0f, 0.5f);
+        enemy.gameObject.GetComponent<Rigidbody2D>().constraints = ~RigidbodyConstraints2D.FreezePosition;
+        Debug.Log("Enemy entered Grappled State");
     }
 
     public void UpdateState()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        distanceToPlayer = player.transform.position - enemy.transform.position;
-        enemy.gameObject.GetComponent<Rigidbody2D>().linearVelocity = distanceToPlayer.normalized * player.GetComponent<MovementEditor>().grappleSpeed;
+        Controller playerController = player.GetComponent<Controller>();
+        distanceToPlayer = player.transform.position - enemy.transform.position; // Pulls the enemy towards the player
+        enemy.gameObject.GetComponent<Rigidbody2D>().linearVelocity = distanceToPlayer.normalized * playerController.movementEditor.enemyHookSpeed; // Moves the enemy towards the player
     }
 
     public void CheckExitConditions()
