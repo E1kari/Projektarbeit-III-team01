@@ -12,11 +12,11 @@ AnimatorStateTransition:
     m_ConditionEvent: State
     m_EventTreshold: 2
   - m_ConditionMode: 1
-    m_ConditionEvent: Switch
+    m_ConditionEvent: switch
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2933557296015041389}
-  m_Solo: 0
+  m_Solo: 1
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
@@ -48,7 +48,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: 7400000, guid: 10c725c18d88eff41aa5bcc5d0ab33f2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -66,7 +66,7 @@ AnimatorStateTransition:
     m_ConditionEvent: State
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: Switch
+    m_ConditionEvent: switch
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4536827834573909449}
@@ -149,7 +149,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Switch
+  - m_Name: switch
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -188,7 +188,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: 7400000, guid: ff831edb8feb24144ad51312e36d785d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -206,11 +206,11 @@ AnimatorStateTransition:
     m_ConditionEvent: State
     m_EventTreshold: 3
   - m_ConditionMode: 1
-    m_ConditionEvent: Switch
+    m_ConditionEvent: switch
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2108909215208656669}
-  m_Solo: 0
+  m_Solo: 1
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
@@ -273,11 +273,11 @@ AnimatorStateTransition:
     m_ConditionEvent: State
     m_EventTreshold: 1
   - m_ConditionMode: 1
-    m_ConditionEvent: Switch
+    m_ConditionEvent: switch
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6804029912528461473}
-  m_Solo: 0
+  m_Solo: 1
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
@@ -327,11 +327,11 @@ AnimatorStateTransition:
     m_ConditionEvent: State
     m_EventTreshold: 4
   - m_ConditionMode: 1
-    m_ConditionEvent: Switch
+    m_ConditionEvent: switch
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1074268095491523393}
-  m_Solo: 0
+  m_Solo: 1
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3

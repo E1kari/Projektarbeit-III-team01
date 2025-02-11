@@ -22,13 +22,16 @@ public class Enemy : MonoBehaviour
     {
         animator = gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         stateIndex = Resources.Load<StateIndexingBecauseTheAnimatorIsMean>("Scriptable Objects/State indexing");
+        stateIndex.init();
 
         lightEnemyData_ = Resources.Load<S_Light_Enemy>("Scriptable Objects/S_Light_Enemy");
         currentState = new EnemyIdleState(this);
+        currentStateName = currentState.GetType().Name;
         if (startInGrapple)
         {
             ChangeState(new EnemyGrappledState(this));
         }
+        UpdateEnemyAnimator();
     }
 
     public void ChangeState(Interface.IState newState)
