@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 83b556d34eec6ad4a8e51c4fa42157f4
+guid: 3fc85b9b9ba0c4946ab23c9794160ad5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5344433435365923069
-    second: Light_Enemy_Base_Sprite_0
+      213: -7770290341698512403
+    second: Salamander_Idle_Animation_0
+  - first:
+      213: -8968285031727129134
+    second: Salamander_Idle_Animation_1
+  - first:
+      213: -2826173926928229302
+    second: Salamander_Idle_Animation_2
+  - first:
+      213: -7370854006893687397
+    second: Salamander_Idle_Animation_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Light_Enemy_Base_Sprite_0
+      name: Salamander_Idle_Animation_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 328
-        height: 542
+        width: 326
+        height: 545
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df8d4b8b4ed3b2a40800000000000000
-      internalID: 5344433435365923069
+      spriteID: de9596d5a126a2490800000000000000
+      internalID: -7770290341698512403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salamander_Idle_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 326
+        height: 545
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dd937797404a8380800000000000000
+      internalID: -8968285031727129134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salamander_Idle_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 0
+        width: 326
+        height: 545
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4cd8f389c967c8d0800000000000000
+      internalID: -2826173926928229302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Salamander_Idle_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 0
+        width: 326
+        height: 545
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d46db455775b990800000000000000
+      internalID: -7370854006893687397
       vertices: []
       indices: 
       edges: []
@@ -138,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: b0d292d4b837e744a8acdd4e375c76cf
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Light_Enemy_Base_Sprite_0: 5344433435365923069
+      Salamander_Idle_Animation_0: -7770290341698512403
+      Salamander_Idle_Animation_1: -8968285031727129134
+      Salamander_Idle_Animation_2: -2826173926928229302
+      Salamander_Idle_Animation_3: -7370854006893687397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
