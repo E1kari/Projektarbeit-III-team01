@@ -28,4 +28,9 @@ public class StateIndexingBecauseTheAnimatorIsMean : ScriptableObject
     {
         return playerStates[stateName];
     }
+
+    public int GetEnemyIndex(string stateName)
+    {
+        return enemyStates[stateName];
+    }
 }
