@@ -18,19 +18,14 @@ public class StateIndexingBecauseTheAnimatorIsMean : ScriptableObject
         playerStates["GrapplingState"] = 6;
 
 
-        enemyStates["EnemyIdleState"] = 0;
-        enemyStates["EnemyFallingState"] = 1;
-        enemyStates["EnemyGrappledState"] = 2;
-        enemyStates["EnemyAlertState"] = 3;
-        enemyStates["EnemyAttackState"] = 4;
+        enemyStates["IdleState"] = 0;
+        enemyStates["FallingState"] = 1;
+        enemyStates["GrappledState"] = 2;
+        enemyStates["AlertState"] = 3;
+        enemyStates["AttackState"] = 4;
     }
     public int GetPlayerIndex(string stateName)
     {
         return playerStates[stateName];
-    }
-
-    public int GetEnemyIndex(string stateName)
-    {
-        return enemyStates[stateName];
     }
 }
