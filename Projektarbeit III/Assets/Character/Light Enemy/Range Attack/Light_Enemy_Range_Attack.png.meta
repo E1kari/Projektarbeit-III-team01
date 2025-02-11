@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 54b5ba462c445194aaf9d9a2a46c206c
+guid: fbfb463696f7207428ad399453631319
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4919221725687713545
-    second: Lasso_Larry_base_sprite_0
+      213: 326588662574996807
+    second: Light_Enemy_Range_Attack_0
+  - first:
+      213: 6634308437616298197
+    second: Light_Enemy_Range_Attack_1
+  - first:
+      213: 263237017675659471
+    second: Light_Enemy_Range_Attack_2
+  - first:
+      213: 8342570884887644865
+    second: Light_Enemy_Range_Attack_3
+  - first:
+      213: 2420373384863863067
+    second: Light_Enemy_Range_Attack_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lasso_Larry_base_sprite_0
+      name: Light_Enemy_Range_Attack_0
       rect:
         serializedVersion: 2
-        x: 939
-        y: 489
-        width: 42
-        height: 103
+        x: 0
+        y: 0
+        width: 374
+        height: 533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90f000ba816944440800000000000000
-      internalID: 4919221725687713545
+      spriteID: 74dd37488a6488400800000000000000
+      internalID: 326588662574996807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Enemy_Range_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 0
+        width: 374
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d80f7abf5cc11c50800000000000000
+      internalID: 6634308437616298197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Enemy_Range_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 0
+        width: 374
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc87a424ca437a300800000000000000
+      internalID: 263237017675659471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Enemy_Range_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 0
+        width: 374
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca8e3bd404c6c370800000000000000
+      internalID: 8342570884887644865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Enemy_Range_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 0
+        width: 374
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f2bdfed1056d0647956d3be3a311b50
+      internalID: 2420373384863863067
       vertices: []
       indices: 
       edges: []
@@ -138,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9cabc42cb089f344ea4c53d353c3e2dc
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lasso_Larry_base_sprite_0: 4919221725687713545
+      Light_Enemy_Range_Attack_0: 326588662574996807
+      Light_Enemy_Range_Attack_1: 6634308437616298197
+      Light_Enemy_Range_Attack_2: 263237017675659471
+      Light_Enemy_Range_Attack_3: 8342570884887644865
+      Light_Enemy_Range_Attack_4: 2420373384863863067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

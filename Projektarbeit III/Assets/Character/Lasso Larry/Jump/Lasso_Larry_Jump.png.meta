@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: a4ffde831ace0f74b9aa95dfa303bcc2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3703297789620015083
+    second: Lasso_Larry_Jump_0
+  - first:
+      213: 4597946227710043624
+    second: Lasso_Larry_Jump_1
+  - first:
+      213: -2182819086703418802
+    second: Lasso_Larry_Jump_2
+  - first:
+      213: -4768399644604508186
+    second: Lasso_Larry_Jump_3
+  - first:
+      213: 6632319561234267267
+    second: Lasso_Larry_Jump_4
+  - first:
+      213: 3527452378034712710
+    second: Lasso_Larry_Jump_5
+  - first:
+      213: -8505727537545220548
+    second: Lasso_Larry_Jump_6
+  - first:
+      213: -1731574877284811672
+    second: Lasso_Larry_Jump_7
+  - first:
+      213: 929412806836361964
+    second: Lasso_Larry_Jump_8
+  - first:
+      213: 1563735346340140314
+    second: Lasso_Larry_Jump_9
+  - first:
+      213: 628443340031857045
+    second: Lasso_Larry_Jump_10
+  - first:
+      213: 1005489779994929909
+    second: Lasso_Larry_Jump_11
+  - first:
+      213: -7098998681872247589
+    second: Lasso_Larry_Jump_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 15
+        width: 167
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510b530084e3b9cc0800000000000000
+      internalID: -3703297789620015083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_1
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 13
+        width: 170
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e5210fabbf2fcf30800000000000000
+      internalID: 4597946227710043624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_2
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 15
+        width: 189
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e42a9101b9115b1e0800000000000000
+      internalID: -2182819086703418802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_3
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 99
+        width: 180
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e7df3c89cd33ddb0800000000000000
+      internalID: -4768399644604508186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_4
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 184
+        width: 180
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38c3e3c508bba0c50800000000000000
+      internalID: 6632319561234267267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_5
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 228
+        width: 180
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 680bdd2af3704f030800000000000000
+      internalID: 3527452378034712710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_6
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 238
+        width: 181
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3eeb50bed595f980800000000000000
+      internalID: -8505727537545220548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_7
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 181
+        width: 181
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86cb279c2d538f7e0800000000000000
+      internalID: -1731574877284811672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_8
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 122
+        width: 181
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea1e290600f5ec00800000000000000
+      internalID: 929412806836361964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_9
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 39
+        width: 144
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a159351330183b510800000000000000
+      internalID: 1563735346340140314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_10
+      rect:
+        serializedVersion: 2
+        x: 2026
+        y: 0
+        width: 166
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5911f0c53eda8b800800000000000000
+      internalID: 628443340031857045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_11
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 148
+        height: 355
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fa22e9a0a734fd00800000000000000
+      internalID: 1005489779994929909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lasso_Larry_Jump_12
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 8
+        width: 146
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd4d90a9f4a4b7d90800000000000000
+      internalID: -7098998681872247589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Lasso_Larry_Jump_0: -3703297789620015083
+      Lasso_Larry_Jump_1: 4597946227710043624
+      Lasso_Larry_Jump_10: 628443340031857045
+      Lasso_Larry_Jump_11: 1005489779994929909
+      Lasso_Larry_Jump_12: -7098998681872247589
+      Lasso_Larry_Jump_2: -2182819086703418802
+      Lasso_Larry_Jump_3: -4768399644604508186
+      Lasso_Larry_Jump_4: 6632319561234267267
+      Lasso_Larry_Jump_5: 3527452378034712710
+      Lasso_Larry_Jump_6: -8505727537545220548
+      Lasso_Larry_Jump_7: -1731574877284811672
+      Lasso_Larry_Jump_8: 929412806836361964
+      Lasso_Larry_Jump_9: 1563735346340140314
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
