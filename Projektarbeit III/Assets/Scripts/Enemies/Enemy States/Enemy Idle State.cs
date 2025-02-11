@@ -29,13 +29,20 @@ public class EnemyIdleState : Interface.IState
         // Check for colliders overlapping with a circle
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(enemy.transform.position, attackRange);
 
+        RaycastHit2D hit;
+
         foreach (var collider in hitColliders)
         {
             if (collider.CompareTag("Player"))
             {
-                Debug.Log("Player found. Enemy changing to Alert State");
-                enemy.ChangeState(new EnemyAlertState(enemy, Time.time));
-                return;
+                hit = Physics2D.Raycast(enemy.transform.position, collider.transform.position - enemy.transform.position, attackRange);
+
+                if (hit && hit.collider.gameObject.tag == "Player")
+                {
+                    Debug.Log("Player found. Enemy changing to Alert State");
+                    enemy.ChangeState(new EnemyAlertState(enemy, Time.time));
+                    return;
+                }
             }
         }
 
@@ -44,7 +51,7 @@ public class EnemyIdleState : Interface.IState
         float spriteHeight = spriteRenderer.bounds.size.y / 2;
 
         Vector2 raycastStart = (Vector2)enemy.gameObject.transform.position - new Vector2(0, spriteHeight);
-        RaycastHit2D hit = Physics2D.Raycast(raycastStart, Vector2.down, enemy.lightEnemyData_.fallDistance_, LayerMask.GetMask("Ground"));
+        hit = Physics2D.Raycast(raycastStart, Vector2.down, enemy.lightEnemyData_.fallDistance_, LayerMask.GetMask("Ground"));
 
         if (!hit)
         {
