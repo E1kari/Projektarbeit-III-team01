@@ -18,8 +18,8 @@ MonoBehaviour:
   wallJumpForce: 7.3
   wallJumpSideForce: 8.1
   wallJumpCooldown: 1
-  spriteWidthOffsetX: 3
-  spriteHeightOffsetY: 3
+  raycastDistanceX: 0.5
+  raycastDistanceY: 1
   drawRaycasts: 1
   dashSpeed: 12.4
   dashDuration: 0.62
@@ -37,6 +37,6 @@ MonoBehaviour:
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
-  currentStateName: IdleState
+  currentStateName: WallJumpingState
   hasJumped: 0
   hasDashed: 0

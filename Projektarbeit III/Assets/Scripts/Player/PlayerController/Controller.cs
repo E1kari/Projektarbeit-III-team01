@@ -77,8 +77,9 @@ public class Controller : MonoBehaviour
             movementEditor.hasDashed = false;
         }
 
+        WallStickingState wallStickingState = new WallStickingState(this);
         // Transition to WallStickingState if the player is touching a wall, cooldown has expired and the player holds the stick button
-        if (currentState is WallStickingState wallStickingState && wallStickingState.StickingCheck())
+        if (currentState is not WallStickingState && wallStickingState.StickingCheck())
         {
             Debug.Log("Player is touching a wall and walking against it");
             ChangeState(new WallStickingState(this));

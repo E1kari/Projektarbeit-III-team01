@@ -37,15 +37,6 @@ public class JumpingState : Interface.IState
     {
         MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
 
-        if (rb.linearVelocity.x > 0)
-        {
-            controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        }
-        else if (rb.linearVelocity.x < 0)
-        {
-            controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }
-
         // Apply gravitational pull after reaching the peak of the jump
         if (rb.linearVelocity.y <= 0)
         {

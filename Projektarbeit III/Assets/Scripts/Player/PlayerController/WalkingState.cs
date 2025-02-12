@@ -35,15 +35,6 @@ public class WalkingState : Interface.IState
     {
         MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
 
-        if (rb.linearVelocity.x > 0)
-        {
-            controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        }
-        else if (rb.linearVelocity.x < 0)
-        {
-            controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }
-
         // Apply fall force when the player starts falling
         if (rb.linearVelocity.y <= 0)
         {

@@ -63,15 +63,6 @@ public class WallJumpingState : Interface.IState
         else
         {
             MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
-
-            if (rb.linearVelocity.x > 0)
-            {
-                controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            }
-            else if (rb.linearVelocity.x < 0)
-            {
-                controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
-            }
         }
 
         // Decrease the cooldown timer
