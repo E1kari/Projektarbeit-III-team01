@@ -78,7 +78,8 @@ public class WalkingState : Interface.IState
         }
 
         // Check for wall and ceiling collisions
-        if (controller.StickingCheck())
+        WallStickingState wallStickingState = new WallStickingState(controller);
+        if (wallStickingState.StickingCheck())
         {
             Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));

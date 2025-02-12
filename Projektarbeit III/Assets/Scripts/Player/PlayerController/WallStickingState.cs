@@ -12,6 +12,7 @@ public class WallStickingState : Interface.IState
     private float stickDuration;
     private float stickTimer;
     private bool stickingToLeftWall;
+    private float wallJumpCooldownTimer;
 
     public WallStickingState(Controller controller)
     {
@@ -41,6 +42,7 @@ public class WallStickingState : Interface.IState
     {
         Vector2 movementInput = movementAction.ReadValue<Vector2>();
         stickTimer -= Time.deltaTime;
+        wallJumpCooldownTimer -= Time.deltaTime;
 
         // Ensure the player presses the correct input for sticking
         bool correctInput = stickingToLeftWall ? movementInput.x < 0 : movementInput.x > 0;
@@ -68,6 +70,16 @@ public class WallStickingState : Interface.IState
 
         // Ensure the player sticks to the wall without sliding down
         rb.linearVelocity = Vector2.zero;
+    }
+
+    public bool StickingCheck()
+    {
+        return controller.IsWalkingAgainstWall() && wallJumpCooldownTimer <= 0 && stickAction.IsPressed();
+    }
+
+    public void StartWallJumpCooldown()
+    {
+        wallJumpCooldownTimer = controller.movementEditor.wallJumpCooldown;
     }
 
     public void OnDeath()
