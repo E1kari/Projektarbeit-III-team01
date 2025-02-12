@@ -30388,10 +30388,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -4.99
       objectReference: {fileID: 0}
-    - target: {fileID: 6397819308051543604, guid: 828f3dcd3d4fac047b5731f00a501aae, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 4c6fb32b2b95767488bbd33c34fcd52d, type: 2}
     - target: {fileID: 5611957542525670278, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
       propertyPath: movementEditor
       value: 
