@@ -84,10 +84,8 @@ public class Controller : MonoBehaviour
             movementEditor.hasDashed = false;
         }
 
-        InputAction stickAction = GetComponent<PlayerInput>().actions["WallSticking"];
-
         // Transition to WallStickingState if the player is touching a wall, cooldown has expired and the player holds the stick button
-        if (IsWalkingAgainstWall() && wallJumpCooldownTimer <= 0 && stickAction.IsPressed())
+        if (StickingCheck())
         {
             Debug.Log("Player is touching a wall and walking against it");
             ChangeState(new WallStickingState(this));
@@ -148,6 +146,11 @@ public class Controller : MonoBehaviour
         }
 
         return false;
+    }
+
+    public bool StickingCheck()
+    {
+        return IsWalkingAgainstWall() && wallJumpCooldownTimer <= 0 && GetComponent<PlayerInput>().actions["WallSticking"].IsPressed();
     }
 
     public void StartWallJumpCooldown()

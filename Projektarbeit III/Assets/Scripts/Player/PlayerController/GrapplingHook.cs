@@ -348,7 +348,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void CheckCollisionState()
     {
-        if (controller.IsWalkingAgainstWall() && controller.wallJumpCooldownTimer <= 0 && stickAction.IsPressed())
+        if (controller.StickingCheck())
         {
             Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));

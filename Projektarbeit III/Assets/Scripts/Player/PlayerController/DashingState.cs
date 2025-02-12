@@ -54,7 +54,7 @@ public class DashingState : Interface.IState
         dashTimer -= Time.deltaTime;
 
         // Check for wall and ceiling collisions
-        if (controller.IsWalkingAgainstWall() && controller.wallJumpCooldownTimer <= 0 && stickAction.IsPressed())
+        if (controller.StickingCheck())
         {
             Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
