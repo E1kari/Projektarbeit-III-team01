@@ -11,6 +11,7 @@ public class WalkingState : Interface.IState
     private PlayerInput playerInput;
     private InputAction dashAction;
     private InputAction jumpAction;
+    private InputAction stickAction;
 
     public WalkingState(Controller controller)
     {
@@ -20,6 +21,7 @@ public class WalkingState : Interface.IState
         movementAction = playerInput.actions["Walking"];
         dashAction = playerInput.actions["Dashing"];
         jumpAction = playerInput.actions["Jumping"];
+        stickAction = playerInput.actions["WallSticking"];
         moveSpeed = controller.movementEditor.moveSpeed;
         fallForce = controller.movementEditor.fallForce;
     }
@@ -76,7 +78,7 @@ public class WalkingState : Interface.IState
         }
 
         // Check for wall and ceiling collisions
-        if (controller.IsWalkingAgainstWall())
+        if (controller.IsWalkingAgainstWall() && controller.wallJumpCooldownTimer <= 0 && stickAction.IsPressed())
         {
             Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));

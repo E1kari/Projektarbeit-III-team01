@@ -18,6 +18,7 @@ public class WallJumpingState : Interface.IState
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private Vector2 wallJumpingPower;
+    private InputAction stickAction;
 
     public WallJumpingState(Controller controller)
     {
@@ -26,6 +27,7 @@ public class WallJumpingState : Interface.IState
         playerInput = controller.GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Walking"];
         jumpAction = playerInput.actions["Jumping"];
+        stickAction = playerInput.actions["WallSticking"];
         jumpForceUp = controller.movementEditor.wallJumpForce;
         jumpForceSide = controller.movementEditor.wallJumpSideForce;
         moveSpeed = controller.movementEditor.moveSpeed;
@@ -82,7 +84,7 @@ public class WallJumpingState : Interface.IState
         }
 
         // Check for wall and ceiling collisions
-        if (wallJumpCooldownTimer <= 0 && controller.IsWalkingAgainstWall())
+        if (controller.IsWalkingAgainstWall() && controller.wallJumpCooldownTimer <= 0 && stickAction.IsPressed())
         {
             Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));

@@ -7,9 +7,8 @@ public class Controller : MonoBehaviour
     private Interface.IState currentState;
     private int lastStateIndex = 0;
     public S_MovementEditor movementEditor;
-    private float wallJumpCooldownTimer;
+    public float wallJumpCooldownTimer;
     private Animator animator;
-
     private StateIndexingBecauseTheAnimatorIsMean stateIndex;
 
     void Update()
@@ -75,8 +74,10 @@ public class Controller : MonoBehaviour
             movementEditor.hasDashed = false;
         }
 
-        // Transition to WallStickingState if the player is touching a wall and the cooldown has expired
-        if (IsWalkingAgainstWall() && wallJumpCooldownTimer <= 0)
+        InputAction stickAction = GetComponent<PlayerInput>().actions["WallSticking"];
+
+        // Transition to WallStickingState if the player is touching a wall, cooldown has expired and the player holds the stick button
+        if (IsWalkingAgainstWall() && wallJumpCooldownTimer <= 0 && stickAction.IsPressed())
         {
             Debug.Log("Player is touching a wall and walking against it");
             ChangeState(new WallStickingState(this));

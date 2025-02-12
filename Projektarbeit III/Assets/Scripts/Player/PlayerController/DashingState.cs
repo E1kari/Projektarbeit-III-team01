@@ -8,6 +8,7 @@ public class DashingState : Interface.IState
     private float dashDuration;
     private float dashTimer;
     private Vector2 dashDirection;
+    private InputAction stickAction;
 
     public DashingState(Controller controller)
     {
@@ -15,6 +16,7 @@ public class DashingState : Interface.IState
         rb = controller.GetComponent<Rigidbody2D>();
         dashSpeed = controller.movementEditor.dashSpeed;
         dashDuration = controller.movementEditor.dashDuration;
+        stickAction = controller.GetComponent<PlayerInput>().actions["WallSticking"];
     }
 
     public void OnEnter()
@@ -52,7 +54,7 @@ public class DashingState : Interface.IState
         dashTimer -= Time.deltaTime;
 
         // Check for wall and ceiling collisions
-        if (controller.IsWalkingAgainstWall())
+        if (controller.IsWalkingAgainstWall() && controller.wallJumpCooldownTimer <= 0 && stickAction.IsPressed())
         {
             Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
