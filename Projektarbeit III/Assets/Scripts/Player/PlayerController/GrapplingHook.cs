@@ -357,11 +357,13 @@ public class GrapplingHook : MonoBehaviour
         }
         else if (controller.IsCeilinged())
         {
+            controller.UpdatePhysicsMaterial();
             Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
         }
         else
         {
+            controller.UpdatePhysicsMaterial();
             Debug.Log("Stopped grappling with no collision");
             controller.ChangeState(new IdleState(controller));            
         }

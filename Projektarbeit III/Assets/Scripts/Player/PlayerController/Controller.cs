@@ -1,21 +1,34 @@
 using System;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
 {
     private Interface.IState currentState;
+    private Interface.IState previousState;
     private int lastStateIndex = 0;
     public S_MovementEditor movementEditor;
     private Animator animator;
     private StateIndexingBecauseTheAnimatorIsMean stateIndex;
     private SpriteRenderer spriteRenderer;
+    private PhysicsMaterial2D material;
+    private Rigidbody2D rb;
 
     void Update()
     {
+        UpdatePhysicsMaterial(); // Update the physics material based on the player's velocity
+        ClampPlayerSpeed(); // Clamp the player's speed
         currentState?.UpdateState(); // Safely call UpdateState if there's a current state
     }
 
+    private void ClampPlayerSpeed()
+    {
+        if (rb.linearVelocity.x > movementEditor.maxSpeed)
+        {
+            rb.linearVelocity = rb.linearVelocity.normalized * movementEditor.maxSpeed;
+        }
+    }
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -27,11 +40,17 @@ public class Controller : MonoBehaviour
 
     public void ChangeState(Interface.IState newState)
     {
+        previousState = currentState;
         currentState?.OnExit(); // Exit the current state if it exists
         currentState = newState;
         currentState?.OnEnter(); // Enter the new state
         UpdateStateName();
         UpdatePlayerAnimator();
+    }
+
+    public Interface.IState GetPreviousState()
+    {
+        return previousState;
     }
 
     private void UpdateStateName()
@@ -64,6 +83,9 @@ public class Controller : MonoBehaviour
         stateIndex.init();
 
         movementEditor = Resources.Load<S_MovementEditor>("Scriptable Objects/S_MovementEditor");
+
+        rb = GetComponent<Rigidbody2D>();
+        material = GetComponent<Rigidbody2D>().sharedMaterial;
 
         ChangeState(new IdleState(this));
     }
@@ -140,5 +162,17 @@ public class Controller : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void UpdatePhysicsMaterial()
+    {
+        if (rb.linearVelocity.y == 0)
+        {
+            rb.sharedMaterial = null;
+        }
+        else if (rb.linearVelocity.y > 0)
+        {
+            rb.sharedMaterial = material;
+        }
     }
 }

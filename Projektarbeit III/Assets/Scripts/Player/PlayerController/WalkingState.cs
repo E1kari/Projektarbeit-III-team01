@@ -36,7 +36,7 @@ public class WalkingState : Interface.IState
         MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
 
         // Apply fall force when the player starts falling
-        if (rb.linearVelocity.y <= 0)
+        if (rb.linearVelocity.y < 0)
         {
             rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
         }

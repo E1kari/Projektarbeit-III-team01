@@ -17,7 +17,6 @@ MonoBehaviour:
   stickDuration: 3.5
   wallJumpForce: 7.3
   wallJumpSideForce: 8.1
-  wallJumpCooldown: 1
   raycastDistanceX: 0.5
   raycastDistanceY: 1
   drawRaycasts: 1
@@ -25,10 +24,11 @@ MonoBehaviour:
   dashDuration: 0.62
   preserveDashMomentum: 1
   moveSpeed: 6.8
+  maxSpeed: 15
   grappleSpeed: 10.5
   grappleCooldown: 1
   grappleRange: 12
-  grappleSpeedBoost: 0.5
+  grappleSpeedBoost: 10
   toleranceRadius: 0.5
   indicatorPuffer: 0.55
   indicatorSize: 0.55
@@ -37,6 +37,6 @@ MonoBehaviour:
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
-  currentStateName: WallJumpingState
+  currentStateName: WalkingState
   hasJumped: 0
   hasDashed: 0

@@ -11,7 +11,7 @@ public class JumpingState : Interface.IState
     private PlayerInput playerInput;
     private InputAction movementAction;
     private InputAction dashAction;
-    private InputAction stickAction;
+    private float wallJumpCooldownTimer;
 
     public JumpingState(Controller controller)
     {
@@ -20,10 +20,10 @@ public class JumpingState : Interface.IState
         playerInput = controller.GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Walking"];
         dashAction = playerInput.actions["Dashing"];
-        stickAction = playerInput.actions["WallSticking"];
         moveSpeed = controller.movementEditor.moveSpeed;
         jumpForce = controller.movementEditor.jumpForce;
         fallForce = controller.movementEditor.fallForce;
+        wallJumpCooldownTimer = 0f;
     }
 
     public void OnEnter()
@@ -31,6 +31,15 @@ public class JumpingState : Interface.IState
         Debug.Log("Entered Jumping State");
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Apply upward force
         controller.movementEditor.hasJumped = true; // Set the jump flag
+
+        if (controller.GetPreviousState() is WallJumpingState)
+        {
+            wallJumpCooldownTimer = 0.5f;
+        }
+        else
+        {
+            wallJumpCooldownTimer = 0f;
+        }
     }
 
     public void UpdateState()
@@ -66,7 +75,7 @@ public class JumpingState : Interface.IState
 
         // Check for wall and ceiling collisions
         WallStickingState wallStickingState = new WallStickingState(controller);
-        if (wallStickingState.StickingCheck())
+        if (wallStickingState.StickingCheck() && wallJumpCooldownTimer <= 0)
         {
             Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
@@ -76,6 +85,12 @@ public class JumpingState : Interface.IState
         {
             Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
+        }
+
+        // Decrease the wall jump cooldown timer
+        if (wallJumpCooldownTimer > 0)
+        {
+            wallJumpCooldownTimer -= Time.deltaTime;
         }
     }
 

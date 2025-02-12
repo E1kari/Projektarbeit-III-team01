@@ -33,7 +33,6 @@ public class WallStickingState : Interface.IState
         rb.linearVelocity = Vector2.zero; // Stop movement initially
         rb.gravityScale = 0f; // Disable gravity
         stickTimer = controller.movementEditor.stickDuration; // Initialize the stick timer
-        wallJumpCooldownTimer = controller.movementEditor.wallJumpCooldown; // Initialize the wall jump cooldown timer
     }
 
     public void UpdateState()
@@ -73,11 +72,6 @@ public class WallStickingState : Interface.IState
     public bool StickingCheck()
     {
         return controller.IsWalkingAgainstWall() && wallJumpCooldownTimer <= 0 && stickAction.IsPressed();
-    }
-
-    public void StartWallJumpCooldown()
-    {
-        wallJumpCooldownTimer = controller.movementEditor.wallJumpCooldown;
     }
 
     public void OnDeath()

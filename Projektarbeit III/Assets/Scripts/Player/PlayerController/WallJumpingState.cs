@@ -12,13 +12,8 @@ public class WallJumpingState : Interface.IState
     private float jumpForceSide;
     private float moveSpeed;
     private bool jumpingFromLeftWall;
-    private float wallJumpCooldown;
-    private float wallJumpCooldownTimer;
     private float wallJumpingDirection;
-    private float wallJumpingTime = 0.2f;
-    private float wallJumpingCounter;
     private Vector2 wallJumpingPower;
-    private InputAction stickAction;
 
     public WallJumpingState(Controller controller)
     {
@@ -27,11 +22,9 @@ public class WallJumpingState : Interface.IState
         playerInput = controller.GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Walking"];
         jumpAction = playerInput.actions["Jumping"];
-        stickAction = playerInput.actions["WallSticking"];
         jumpForceUp = controller.movementEditor.wallJumpForce;
         jumpForceSide = controller.movementEditor.wallJumpSideForce;
         moveSpeed = controller.movementEditor.moveSpeed;
-        wallJumpCooldown = controller.movementEditor.wallJumpCooldown;
         wallJumpingPower = new Vector2(jumpForceSide, jumpForceUp);
     }
 
@@ -47,48 +40,14 @@ public class WallJumpingState : Interface.IState
         rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
 
         controller.movementEditor.hasJumped = true; // Set the jump flag
-        wallJumpCooldownTimer = wallJumpCooldown; // Initialize the cooldown timer
-        wallJumpingCounter = wallJumpingTime; // Initialize the wall jumping counter
     }
 
     public void UpdateState()
     {
-        Vector2 movementInput = movementAction.ReadValue<Vector2>();
-
-        // Allow player to influence horizontal movement while maintaining momentum
-        if (wallJumpingCounter > 0)
-        {
-            wallJumpingCounter -= Time.deltaTime;
-        }
-        else
-        {
-            MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
-        }
-
-        // Decrease the cooldown timer
-        wallJumpCooldownTimer -= Time.deltaTime;
-
-        // Transition to IdleState when the player starts falling and is grounded
-        if (rb.linearVelocity.y <= 0 && controller.IsGrounded())
-        {
-            controller.ChangeState(new IdleState(controller));
-        }
-
-        // Check for wall and ceiling collisions
-        WallStickingState wallStickingState = new WallStickingState(controller);
-        if (wallStickingState.StickingCheck())
-        {
-            Debug.Log("Player is touching a wall and walking against it");
-            controller.ChangeState(new WallStickingState(controller));
-        }
-
-        if (controller.IsCeilinged())
-        {
-            Debug.Log("Player is touching a ceiling");
-            controller.ChangeState(new IdleState(controller));
-        }
+        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
+        
+        controller.ChangeState(new JumpingState(controller));
     }
-
     public void OnDeath()
     {
         // Handle death logic
