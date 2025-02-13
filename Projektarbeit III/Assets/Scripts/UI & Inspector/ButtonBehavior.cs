@@ -39,6 +39,8 @@ public class ButtonBehavior : MonoBehaviour
 
     public void loadScene(SceneAsset pa_scene)
     {
+
+        Time.timeScale = 1f; // Resume time
         if (pa_scene == null)
         {
             Debug.LogError("Scene is not set");
