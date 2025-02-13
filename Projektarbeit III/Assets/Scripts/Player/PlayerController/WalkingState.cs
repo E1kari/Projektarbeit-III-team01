@@ -26,7 +26,7 @@ public class WalkingState : Interface.IState
 
     public void OnEnter()
     {
-        Debug.Log("Entered Walking State");
+        //Debug.Log("Entered Walking State");
     }
 
     public void UpdateState()
@@ -65,8 +65,8 @@ public class WalkingState : Interface.IState
         {
             if (controller.IsGrounded())
             {
-                Debug.Log("Player is grounded");
-                Debug.Log("Cannot dash while grounded");
+                //Debug.Log("Player is grounded");
+                //Debug.Log("Cannot dash while grounded");
             }
             else
             {
@@ -78,13 +78,13 @@ public class WalkingState : Interface.IState
         // Check for wall and ceiling collisions
         if (controller.IsWalkingAgainstWall())
         {
-            Debug.Log("Player is touching a wall and walking against it");
+            //Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
         }
 
         if (controller.IsCeilinged())
         {
-            Debug.Log("Player is touching a ceiling");
+            //Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
         }
     }
@@ -96,6 +96,6 @@ public class WalkingState : Interface.IState
 
     public void OnExit()
     {
-        Debug.Log("Exiting Walking State");
+        //Debug.Log("Exiting Walking State");
     }
 }

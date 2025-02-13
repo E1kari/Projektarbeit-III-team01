@@ -26,7 +26,7 @@ public class JumpingState : Interface.IState
 
     public void OnEnter()
     {
-        Debug.Log("Entered Jumping State");
+        //Debug.Log("Entered Jumping State");
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Apply upward force
         controller.movementEditor.hasJumped = true; // Set the jump flag
     }
@@ -61,8 +61,8 @@ public class JumpingState : Interface.IState
         {
             if (controller.IsGrounded())
             {
-                Debug.Log("Player is grounded");
-                Debug.Log("Cannot dash while grounded");
+                //Debug.Log("Player is grounded");
+                //Debug.Log("Cannot dash while grounded");
             }
             else
             {
@@ -74,13 +74,13 @@ public class JumpingState : Interface.IState
         // Check for wall and ceiling collisions
         if (controller.IsWalkingAgainstWall())
         {
-            Debug.Log("Player is touching a wall and walking against it");
+            //Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
         }
 
         if (controller.IsCeilinged())
         {
-            Debug.Log("Player is touching a ceiling");
+            //Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
         }
     }
@@ -92,6 +92,6 @@ public class JumpingState : Interface.IState
 
     public void OnExit()
     {
-        Debug.Log("Exiting Jumping State");
+        //Debug.Log("Exiting Jumping State");
     }
 }

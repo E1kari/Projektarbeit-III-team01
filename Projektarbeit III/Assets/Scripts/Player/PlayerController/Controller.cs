@@ -29,7 +29,7 @@ public class Controller : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
-            Debug.LogError("SpriteRenderer component is missing on the Player game object.");
+            //Debug.LogError("SpriteRenderer component is missing on the Player game object.");
         }
     }
 
@@ -51,7 +51,7 @@ public class Controller : MonoBehaviour
     {
         if (animator == null)
         {
-            Debug.Log("Animator component is missing on the Player game object.");
+            //Debug.Log("Animator component is missing on the Player game object.");
             return;
         }
         int playerIndex = stateIndex?.GetPlayerIndex(currentState?.GetType().Name) ?? -1;
@@ -88,7 +88,7 @@ public class Controller : MonoBehaviour
         // Transition to WallStickingState if the player is touching a wall and the cooldown has expired
         if (IsWalkingAgainstWall() && wallJumpCooldownTimer <= 0)
         {
-            Debug.Log("Player is touching a wall and walking against it");
+            //Debug.Log("Player is touching a wall and walking against it");
             ChangeState(new WallStickingState(this));
         }
     }
@@ -97,7 +97,7 @@ public class Controller : MonoBehaviour
     {
         if (spriteRenderer == null)
         {
-            Debug.LogError("SpriteRenderer component is missing on the Player game object.");
+            //Debug.LogError("SpriteRenderer component is missing on the Player game object.");
             return false;
         }
 
@@ -105,7 +105,7 @@ public class Controller : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, direction, distance, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {
-            Debug.DrawRay(raycastStart, direction * distance, debugColor, 2f);
+            //Debug.DrawRay(raycastStart, direction * distance, debugColor, 2f);
         }
         return hit.collider != null;
     }

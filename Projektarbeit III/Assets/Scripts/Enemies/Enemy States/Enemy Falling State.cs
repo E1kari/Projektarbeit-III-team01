@@ -13,7 +13,7 @@ public class EnemyFallingState : Interface.IState
     public void OnEnter()
     {
         enemy.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 1.0f);
-        Debug.Log("Enemy entered Falling State");
+        //Debug.Log("Enemy entered Falling State");
     }
 
     public void UpdateState()
@@ -31,7 +31,7 @@ public class EnemyFallingState : Interface.IState
 
         if (hit)
         {
-            Debug.Log("Enemy landed. Enemy changing to Idle State");
+            //Debug.Log("Enemy landed. Enemy changing to Idle State");
             enemy.ChangeState(new EnemyIdleState(enemy));
         }
     }

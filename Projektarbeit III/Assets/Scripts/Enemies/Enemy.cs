@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
     {
         if (animator == null)
         {
-            Debug.Log("Animator component is missing on the Enemy game object.");
+            //Debug.Log("Animator component is missing on the Enemy game object.");
             return;
         }
         int enemyIndex = stateIndex?.GetEnemyIndex(currentState?.GetType().Name) ?? -1;
