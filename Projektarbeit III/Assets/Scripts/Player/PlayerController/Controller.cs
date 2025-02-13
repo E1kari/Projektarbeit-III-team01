@@ -1,27 +1,24 @@
 using System;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
 {
     private Interface.IState currentState;
+    private Interface.IState previousState;
     private int lastStateIndex = 0;
     public S_MovementEditor movementEditor;
-    private float wallJumpCooldownTimer;
     private Animator animator;
-
     private StateIndexingBecauseTheAnimatorIsMean stateIndex;
     private SpriteRenderer spriteRenderer;
+    private PhysicsMaterial2D material;
+    private Rigidbody2D rb;
 
     void Update()
     {
+        UpdatePhysicsMaterial(); // Update the physics material based on the player's velocity
         currentState?.UpdateState(); // Safely call UpdateState if there's a current state
-
-        // Decrease the cooldown timer
-        if (wallJumpCooldownTimer > 0)
-        {
-            wallJumpCooldownTimer -= Time.deltaTime;
-        }
     }
 
     private void Awake()
@@ -35,11 +32,17 @@ public class Controller : MonoBehaviour
 
     public void ChangeState(Interface.IState newState)
     {
+        previousState = currentState;
         currentState?.OnExit(); // Exit the current state if it exists
         currentState = newState;
         currentState?.OnEnter(); // Enter the new state
         UpdateStateName();
         UpdatePlayerAnimator();
+    }
+
+    public Interface.IState GetPreviousState()
+    {
+        return previousState;
     }
 
     private void UpdateStateName()
@@ -73,6 +76,9 @@ public class Controller : MonoBehaviour
 
         movementEditor = Resources.Load<S_MovementEditor>("Scriptable Objects/S_MovementEditor");
 
+        rb = GetComponent<Rigidbody2D>();
+        material = GetComponent<Rigidbody2D>().sharedMaterial;
+
         ChangeState(new IdleState(this));
     }
 
@@ -85,8 +91,9 @@ public class Controller : MonoBehaviour
             movementEditor.hasDashed = false;
         }
 
-        // Transition to WallStickingState if the player is touching a wall and the cooldown has expired
-        if (IsWalkingAgainstWall() && wallJumpCooldownTimer <= 0)
+        WallStickingState wallStickingState = new WallStickingState(this);
+        // Transition to WallStickingState if the player is touching a wall, cooldown has expired and the player holds the stick button
+        if (currentState is not WallStickingState && wallStickingState.StickingCheck())
         {
             //Debug.Log("Player is touching a wall and walking against it");
             ChangeState(new WallStickingState(this));
@@ -149,8 +156,15 @@ public class Controller : MonoBehaviour
         return false;
     }
 
-    public void StartWallJumpCooldown()
+    public void UpdatePhysicsMaterial()
     {
-        wallJumpCooldownTimer = movementEditor.wallJumpCooldown;
+        if (rb.linearVelocity.y < 0 && IsGrounded())
+        {
+            rb.sharedMaterial = null;
+        }
+        else if (rb.linearVelocity.y > 0)
+        {
+            rb.sharedMaterial = material;
+        }
     }
 }

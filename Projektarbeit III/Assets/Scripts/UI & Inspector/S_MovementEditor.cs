@@ -21,10 +21,7 @@ public class S_MovementEditor : ScriptableObject
     [Range(0.1f, 30f)] public float wallJumpForce = 4.8f;
 
     [Tooltip("The force applied to the player when they jump off a wall to the side. The higher the value, the further the jump")]
-    [Range(0.1f, 30f)] public float wallJumpSideForce = 6f;   
-
-    [Tooltip("The cooldown time after a wall jump before the player can stick to a wall again. The higher the value, the longer the cooldown")]
-    [Range(0.1f, 25f)] public float wallJumpCooldown = 1f;
+    [Range(0.1f, 30f)] public float wallJumpSideForce = 6f;
 
     [Header("Raycast Settings")]
     [Tooltip("The distance the raycasts are performed in the X direction. The higher the value, the further the raycast")]
@@ -49,6 +46,9 @@ public class S_MovementEditor : ScriptableObject
     [Header("Walking Settings")]
     [Tooltip("The speed at which the player moves. The higher the value, the faster the movement")]
     [Range(0.1f, 25f)] public float moveSpeed = 7.7f;
+
+    [Tooltip("The maximum speed the player can reach. The higher the value, the faster the player can move")]
+    [Range(0.1f, 25f)] public float maxSpeed = 15f;
 
     [Header("Grappling Hook Settings")]
     [Tooltip("The speed at which the player is pulled towards the grapple point. The higher the value, the faster the pull")]
