@@ -13,7 +13,7 @@ public class GrapplingState : Interface.IState
 
     public void OnEnter()
     {
-        Debug.Log("Entered Grappling State");
+        //Debug.Log("Entered Grappling State");
     }
 
     public void UpdateState()
@@ -29,6 +29,6 @@ public class GrapplingState : Interface.IState
 
     public void OnExit()
     {
-        Debug.Log("Exiting Grappling State");
+        //Debug.Log("Exiting Grappling State");
     }
 }

@@ -27,11 +27,11 @@ public class S_MovementEditor : ScriptableObject
     [Range(0.1f, 25f)] public float wallJumpCooldown = 1f;
 
     [Header("Raycast Settings")]
-    [Tooltip("The width offset for the sprite where raycasts are performed. The higher the value, the wider the offset")]
-    [Range(-10f, 10f)] public float spriteWidthOffsetX = 3f;
+    [Tooltip("The distance the raycasts are performed in the X direction. The higher the value, the further the raycast")]
+    [Range(-5f, 5f)] public float raycastDistanceX = 0.5f;
 
-    [Tooltip("The height offset for the sprite where raycasts are performed. The higher the value, the higher the offset")]
-    [Range(-10f, 10f)] public float spriteHeightOffsetY = 3f;
+    [Tooltip("The distance the raycasts are performed in the Y direction. The higher the value, the further the raycast")]
+    [Range(-5f, 5f)] public float raycastDistanceY = 1f;
 
     [Tooltip("Toggle to enable or disable the raycasts in the editor")]
     public bool drawRaycasts = true;
@@ -106,23 +106,5 @@ public class ReadOnlyDrawer : PropertyDrawer
         GUI.enabled = false;
         EditorGUI.PropertyField(position, property, label); // Draw the property field as disabled
         GUI.enabled = true;
-    }
-}
-
-[CustomEditor(typeof(S_MovementEditor))]
-public class MovementEditorEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        DrawDefaultInspector();
-
-        S_MovementEditor movementEditor = (S_MovementEditor)target;
-
-        movementEditor.drawRaycasts = GUILayout.Toggle(movementEditor.drawRaycasts, "Draw Raycasts");
-
-        if (GUI.changed)
-        {
-            EditorUtility.SetDirty(movementEditor);
-        }
     }
 }

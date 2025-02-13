@@ -21,8 +21,9 @@ public class Projectile : MonoBehaviour
         Vector2 distance = player.transform.position - transform.position;
         Vector2 normal = distance.normalized;
 
-        direction = new Vector2(normal.x * speed_, normal.y * speed_);
-        rb_.linearVelocity = direction;
+        transform.right = normal * -1.0f;
+
+        rb_.linearVelocity = transform.right * -1 * speed_;
     }
 
     public void init(float pa_speed, float pa_size, GameObject pa_shootingEnemy)
