@@ -21,7 +21,7 @@ public class DashingState : Interface.IState
 
     public void OnEnter()
     {
-        Debug.Log("Entered Dashing State");
+        //Debug.Log("Entered Dashing State");
         dashTimer = dashDuration;
 
         // Determine the dash direction
@@ -57,13 +57,13 @@ public class DashingState : Interface.IState
         WallStickingState wallStickingState = new WallStickingState(controller);
         if (wallStickingState.StickingCheck())
         {
-            Debug.Log("Player is touching a wall and walking against it");
+            //Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
         }
 
         if (controller.IsCeilinged())
         {
-            Debug.Log("Player is touching a ceiling");
+            //Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
         }
 
@@ -90,6 +90,6 @@ public class DashingState : Interface.IState
 
     public void OnExit()
     {
-        Debug.Log("Exiting Dashing State");
+        //Debug.Log("Exiting Dashing State");
     }
 }

@@ -26,7 +26,7 @@ public class WallStickingState : Interface.IState
 
     public void OnEnter()
     {
-        Debug.Log("Entered Wall Sticking State");
+        //Debug.Log("Entered Wall Sticking State");
 
         // Determine which wall the player is sticking to
         stickingToLeftWall = controller.IsTouchingLeftWall();
@@ -53,7 +53,7 @@ public class WallStickingState : Interface.IState
 
         if (stickTimer <= 0)
         {
-            Debug.Log("The Stick Timer has expired");
+            //Debug.Log("The Stick Timer has expired");
             controller.ChangeState(new IdleState(controller));
             return;
         }
@@ -81,7 +81,7 @@ public class WallStickingState : Interface.IState
 
     public void OnExit()
     {
-        Debug.Log("Exiting Wall Sticking State");
+        //Debug.Log("Exiting Wall Sticking State");
 
         // Reset gravity scale when exiting the state
         rb.gravityScale = 1f; // Default gravity scale

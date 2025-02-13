@@ -18,6 +18,8 @@ MonoBehaviour:
   wallJumpForce: 7.3
   wallJumpSideForce: 8.1
   raycastDistanceX: 0.5
+  wallJumpSideForce: 3.2
+  raycastDistanceX: 0.35
   raycastDistanceY: 1
   drawRaycasts: 1
   dashSpeed: 12.4
@@ -38,5 +40,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 320
   currentStateName: IdleState
-  hasJumped: 0
+  hasJumped: 1
   hasDashed: 0
