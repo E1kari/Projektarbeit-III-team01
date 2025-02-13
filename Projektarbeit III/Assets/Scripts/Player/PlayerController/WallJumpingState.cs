@@ -35,7 +35,7 @@ public class WallJumpingState : Interface.IState
 
     public void OnEnter()
     {
-        Debug.Log("Entered Wall Jumping State");
+        //Debug.Log("Entered Wall Jumping State");
 
         // Determine which wall the player is jumping from
         jumpingFromLeftWall = controller.IsTouchingLeftWall();
@@ -84,13 +84,13 @@ public class WallJumpingState : Interface.IState
         // Check for wall and ceiling collisions
         if (wallJumpCooldownTimer <= 0 && controller.IsWalkingAgainstWall())
         {
-            Debug.Log("Player is touching a wall and walking against it");
+            //Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
         }
 
         if (controller.IsCeilinged())
         {
-            Debug.Log("Player is touching a ceiling");
+            //Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
         }
     }
@@ -102,6 +102,6 @@ public class WallJumpingState : Interface.IState
 
     public void OnExit()
     {
-        Debug.Log("Exiting Wall Jumping State");
+       //Debug.Log("Exiting Wall Jumping State");
     }
 }

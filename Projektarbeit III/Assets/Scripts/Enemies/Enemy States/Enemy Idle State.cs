@@ -14,7 +14,7 @@ public class EnemyIdleState : Interface.IState
     public void OnEnter()
     {
         enemy.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        Debug.Log("Enemy entered Idle State");
+        //Debug.Log("Enemy entered Idle State");
     }
 
     public void UpdateState()
@@ -39,7 +39,7 @@ public class EnemyIdleState : Interface.IState
 
                 if (hit && hit.collider.gameObject.tag == "Player")
                 {
-                    Debug.Log("Player found. Enemy changing to Alert State");
+                    //Debug.Log("Player found. Enemy changing to Alert State");
                     enemy.ChangeState(new EnemyAlertState(enemy, Time.time));
                     return;
                 }
@@ -55,7 +55,7 @@ public class EnemyIdleState : Interface.IState
 
         if (!hit)
         {
-            Debug.Log("Enemy is falling. Enemy changing to Falling State");
+            //Debug.Log("Enemy is falling. Enemy changing to Falling State");
             enemy.ChangeState(new EnemyFallingState(enemy));
         }
     }
