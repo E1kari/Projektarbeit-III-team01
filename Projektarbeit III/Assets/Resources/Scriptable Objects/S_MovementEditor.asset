@@ -24,11 +24,11 @@ MonoBehaviour:
   dashDuration: 0.62
   preserveDashMomentum: 1
   moveSpeed: 6.8
-  maxSpeed: 15
+  maxSpeed: 10
   grappleSpeed: 10.5
   grappleCooldown: 1
   grappleRange: 12
-  grappleSpeedBoost: 10
+  grappleSpeedBoost: 0.5
   toleranceRadius: 0.5
   indicatorPuffer: 0.55
   indicatorSize: 0.55
@@ -37,6 +37,6 @@ MonoBehaviour:
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
-  currentStateName: WalkingState
+  currentStateName: IdleState
   hasJumped: 0
   hasDashed: 0

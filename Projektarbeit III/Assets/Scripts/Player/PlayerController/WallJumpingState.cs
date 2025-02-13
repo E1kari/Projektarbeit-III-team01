@@ -44,7 +44,7 @@ public class WallJumpingState : Interface.IState
 
     public void UpdateState()
     {
-        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
+        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed, controller.movementEditor.maxSpeed);
         
         controller.ChangeState(new JumpingState(controller));
     }

@@ -33,7 +33,7 @@ public class IdleState : Interface.IState
     public void UpdateState()
     {
         // Example: Transition to WalkingState if horizontal input is detected
-        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
+        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed, controller.movementEditor.maxSpeed);
 
         // Apply fall force when the player starts falling
         if (rb.linearVelocityY < 0)

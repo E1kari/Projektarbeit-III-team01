@@ -18,17 +18,9 @@ public class Controller : MonoBehaviour
     void Update()
     {
         UpdatePhysicsMaterial(); // Update the physics material based on the player's velocity
-        ClampPlayerSpeed(); // Clamp the player's speed
         currentState?.UpdateState(); // Safely call UpdateState if there's a current state
     }
 
-    private void ClampPlayerSpeed()
-    {
-        if (rb.linearVelocity.x > movementEditor.maxSpeed)
-        {
-            rb.linearVelocity = rb.linearVelocity.normalized * movementEditor.maxSpeed;
-        }
-    }
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -166,7 +158,7 @@ public class Controller : MonoBehaviour
 
     public void UpdatePhysicsMaterial()
     {
-        if (rb.linearVelocity.y == 0)
+        if (rb.linearVelocity.y < 0 && IsGrounded())
         {
             rb.sharedMaterial = null;
         }

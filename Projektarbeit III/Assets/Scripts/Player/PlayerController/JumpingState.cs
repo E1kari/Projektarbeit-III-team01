@@ -44,13 +44,16 @@ public class JumpingState : Interface.IState
 
     public void UpdateState()
     {
-        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
+        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed, controller.movementEditor.maxSpeed);
 
         // Apply gravitational pull after reaching the peak of the jump
         if (rb.linearVelocity.y <= 0)
         {
             rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
         }
+
+        // Clamp the player's velocity to prevent insane speeds
+        rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocity.x, -controller.movementEditor.maxSpeed, controller.movementEditor.maxSpeed), rb.linearVelocity.y);
 
         // Transition to IdleState when the player starts falling and is grounded
         if (rb.linearVelocity.y <= 0 && controller.IsGrounded())

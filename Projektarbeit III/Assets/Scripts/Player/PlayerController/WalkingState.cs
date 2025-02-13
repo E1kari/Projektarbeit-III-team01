@@ -33,13 +33,15 @@ public class WalkingState : Interface.IState
 
     public void UpdateState()
     {
-        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
+        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed, controller.movementEditor.maxSpeed);
 
         // Apply fall force when the player starts falling
         if (rb.linearVelocity.y < 0)
         {
             rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
         }
+
+        rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocity.x, -controller.movementEditor.maxSpeed, controller.movementEditor.maxSpeed), rb.linearVelocity.y);
 
         // Transition to IdleState if no input
         if (movementAction.ReadValue<Vector2>().x == 0)
