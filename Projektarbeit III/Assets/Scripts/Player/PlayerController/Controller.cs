@@ -141,14 +141,14 @@ public class Controller : MonoBehaviour
     {
         Vector2 movementInput = GetComponent<PlayerInput>().actions["Walking"].ReadValue<Vector2>();
 
-        // Check if the player is touching the left wall and pressing left input
-        if (IsTouchingLeftWall() && movementInput.x < 0)
+        // Check if the player is touching the left wall
+        if (IsTouchingLeftWall())
         {
             return true;
         }
 
-        // Check if the player is touching the right wall and pressing right input
-        if (IsTouchingRightWall() && movementInput.x > 0)
+        // Check if the player is touching the right wall
+        if (IsTouchingRightWall())
         {
             return true;
         }
