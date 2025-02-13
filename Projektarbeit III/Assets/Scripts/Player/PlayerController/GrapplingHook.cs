@@ -24,6 +24,7 @@ public class GrapplingHook : MonoBehaviour
     private PlayerInput playerInput;         // Player input reference
     private InputAction grappleAction;       // Grappling input action
     private InputAction aimAction;           // Aim input action for controller
+    private InputAction stickAction;         // Wall sticking input action
     private bool isUsingController;          // Whether the player is using a controller
     private Vector2 lastControllerDirection; // Last direction from the controller
     private Enemy enemy;                     // Reference to the enemy
@@ -40,6 +41,7 @@ public class GrapplingHook : MonoBehaviour
         playerInput = controller.GetComponent<PlayerInput>();
         grappleAction = playerInput.actions["Grappling"];
         aimAction = playerInput.actions["Aiming"];
+        stickAction = playerInput.actions["WallSticking"];
         aimAction.Enable();
 
         // Initialize the LineRenderer to hide the rope
@@ -319,18 +321,22 @@ public class GrapplingHook : MonoBehaviour
 
     private void CheckCollisionState()
     {
-        if (controller.IsWalkingAgainstWall())
+        // Check for wall and ceiling collisions
+        WallStickingState wallStickingState = new WallStickingState(controller);
+        if (wallStickingState.StickingCheck())
         {
             //Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
         }
         else if (controller.IsCeilinged())
         {
+            controller.UpdatePhysicsMaterial();
             //Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
         }
         else
         {
+            controller.UpdatePhysicsMaterial();
             //Debug.Log("Stopped grappling with no collision");
             controller.ChangeState(new IdleState(controller));            
         }

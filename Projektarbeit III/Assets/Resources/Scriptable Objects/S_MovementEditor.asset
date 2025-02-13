@@ -17,7 +17,6 @@ MonoBehaviour:
   stickDuration: 3.5
   wallJumpForce: 7.3
   wallJumpSideForce: 3.2
-  wallJumpCooldown: 0.1
   raycastDistanceX: 0.35
   raycastDistanceY: 1
   drawRaycasts: 1
@@ -25,6 +24,7 @@ MonoBehaviour:
   dashDuration: 0.62
   preserveDashMomentum: 1
   moveSpeed: 6.8
+  maxSpeed: 15
   grappleSpeed: 10.5
   grappleCooldown: 1
   grappleRange: 12
