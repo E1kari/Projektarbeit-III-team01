@@ -30,6 +30,15 @@ public class Controller : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("SpriteRenderer component is missing on the Player game object.");
+        }
+    }
+
     public void ChangeState(Interface.IState newState)
     {
         previousState = currentState;
