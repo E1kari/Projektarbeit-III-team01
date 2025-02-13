@@ -8,6 +8,7 @@ public class DashingState : Interface.IState
     private float dashDuration;
     private float dashTimer;
     private Vector2 dashDirection;
+    private InputAction stickAction;
 
     public DashingState(Controller controller)
     {
@@ -15,11 +16,12 @@ public class DashingState : Interface.IState
         rb = controller.GetComponent<Rigidbody2D>();
         dashSpeed = controller.movementEditor.dashSpeed;
         dashDuration = controller.movementEditor.dashDuration;
+        stickAction = controller.GetComponent<PlayerInput>().actions["WallSticking"];
     }
 
     public void OnEnter()
     {
-        Debug.Log("Entered Dashing State");
+        //Debug.Log("Entered Dashing State");
         dashTimer = dashDuration;
 
         // Determine the dash direction
@@ -52,15 +54,16 @@ public class DashingState : Interface.IState
         dashTimer -= Time.deltaTime;
 
         // Check for wall and ceiling collisions
-        if (controller.IsWalkingAgainstWall())
+        WallStickingState wallStickingState = new WallStickingState(controller);
+        if (wallStickingState.StickingCheck())
         {
-            Debug.Log("Player is touching a wall and walking against it");
+            //Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
         }
 
         if (controller.IsCeilinged())
         {
-            Debug.Log("Player is touching a ceiling");
+            //Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
         }
 
@@ -87,6 +90,6 @@ public class DashingState : Interface.IState
 
     public void OnExit()
     {
-        Debug.Log("Exiting Dashing State");
+        //Debug.Log("Exiting Dashing State");
     }
 }

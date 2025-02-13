@@ -5,10 +5,10 @@ using UnityEngine;
 public class StateIndexingBecauseTheAnimatorIsMean : ScriptableObject
 {
     Dictionary<string, int> playerStates = new Dictionary<string, int>();
+    Dictionary<string, int> enemyStates = new Dictionary<string, int>();
 
     public void init()
     {
-        Debug.LogWarning("State indexing because the animator is mean");
         playerStates["IdleState"] = 0;
         playerStates["WalkingState"] = 1;
         playerStates["JumpingState"] = 2;
@@ -16,9 +16,21 @@ public class StateIndexingBecauseTheAnimatorIsMean : ScriptableObject
         playerStates["WallStickingState"] = 4;
         playerStates["DashingState"] = 5;
         playerStates["GrapplingState"] = 6;
+
+
+        enemyStates["EnemyIdleState"] = 0;
+        enemyStates["EnemyFallingState"] = 1;
+        enemyStates["EnemyGrappledState"] = 2;
+        enemyStates["EnemyAlertState"] = 3;
+        enemyStates["EnemyAttackState"] = 4;
     }
     public int GetPlayerIndex(string stateName)
     {
         return playerStates[stateName];
+    }
+
+    public int GetEnemyIndex(string stateName)
+    {
+        return enemyStates[stateName];
     }
 }

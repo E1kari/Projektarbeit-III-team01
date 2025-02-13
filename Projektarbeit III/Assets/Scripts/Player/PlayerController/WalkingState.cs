@@ -11,6 +11,7 @@ public class WalkingState : Interface.IState
     private PlayerInput playerInput;
     private InputAction dashAction;
     private InputAction jumpAction;
+    private InputAction stickAction;
 
     public WalkingState(Controller controller)
     {
@@ -20,33 +21,27 @@ public class WalkingState : Interface.IState
         movementAction = playerInput.actions["Walking"];
         dashAction = playerInput.actions["Dashing"];
         jumpAction = playerInput.actions["Jumping"];
+        stickAction = playerInput.actions["WallSticking"];
         moveSpeed = controller.movementEditor.moveSpeed;
         fallForce = controller.movementEditor.fallForce;
     }
 
     public void OnEnter()
     {
-        Debug.Log("Entered Walking State");
+        //Debug.Log("Entered Walking State");
     }
 
     public void UpdateState()
     {
-        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed);
-
-        if (rb.linearVelocity.x > 0)
-        {
-            controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        }
-        else if (rb.linearVelocity.x < 0)
-        {
-            controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }
+        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed, controller.movementEditor.maxSpeed);
 
         // Apply fall force when the player starts falling
-        if (rb.linearVelocity.y <= 0)
+        if (rb.linearVelocity.y < 0)
         {
             rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
         }
+
+        rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocity.x, -controller.movementEditor.maxSpeed, controller.movementEditor.maxSpeed), rb.linearVelocity.y);
 
         // Transition to IdleState if no input
         if (movementAction.ReadValue<Vector2>().x == 0)
@@ -65,8 +60,8 @@ public class WalkingState : Interface.IState
         {
             if (controller.IsGrounded())
             {
-                Debug.Log("Player is grounded");
-                Debug.Log("Cannot dash while grounded");
+                //Debug.Log("Player is grounded");
+                //Debug.Log("Cannot dash while grounded");
             }
             else
             {
@@ -76,15 +71,16 @@ public class WalkingState : Interface.IState
         }
 
         // Check for wall and ceiling collisions
-        if (controller.IsWalkingAgainstWall())
+        WallStickingState wallStickingState = new WallStickingState(controller);
+        if (wallStickingState.StickingCheck())
         {
-            Debug.Log("Player is touching a wall and walking against it");
+            //Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
         }
 
         if (controller.IsCeilinged())
         {
-            Debug.Log("Player is touching a ceiling");
+            //Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
         }
     }
@@ -96,6 +92,6 @@ public class WalkingState : Interface.IState
 
     public void OnExit()
     {
-        Debug.Log("Exiting Walking State");
+        //Debug.Log("Exiting Walking State");
     }
 }

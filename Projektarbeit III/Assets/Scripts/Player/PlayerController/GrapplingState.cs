@@ -13,13 +13,17 @@ public class GrapplingState : Interface.IState
 
     public void OnEnter()
     {
-        Debug.Log("Entered Grappling State");
+        //Debug.Log("Entered Grappling State");
     }
 
     public void UpdateState()
     {
         // Handle grappling logic in the GrapplingHook component
         grapplingHook.HandleGrappling();
+
+        // Clamp the player's velocity to prevent insane speeds
+        Rigidbody2D rb = controller.GetComponent<Rigidbody2D>();
+        rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocity.x, -controller.movementEditor.maxSpeed, controller.movementEditor.maxSpeed), rb.linearVelocity.y);
     }
 
     public void OnDeath()
@@ -29,6 +33,6 @@ public class GrapplingState : Interface.IState
 
     public void OnExit()
     {
-        Debug.Log("Exiting Grappling State");
+        //Debug.Log("Exiting Grappling State");
     }
 }

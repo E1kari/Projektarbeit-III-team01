@@ -9,6 +9,7 @@ TagManager:
   - Level Start
   - Level End
   - GrapplePoint
+  - Panel
   layers:
   - Default
   - TransparentFX
@@ -49,7 +50,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Foreground
     uniqueID: 2937685789
     locked: 0
   - name: Main Character

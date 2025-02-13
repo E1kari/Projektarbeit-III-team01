@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: S_Falling_Block
   m_EditorClassIdentifier: 
   gravityScale_: 1
-  fallDelay_: 2.1
+  fallDelay_: 1

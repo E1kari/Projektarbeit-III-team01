@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a022905d44d467f4f91c10a0851e2383, type: 3}
+  m_Name: S_MovementEditor
+  m_EditorClassIdentifier: 
+  jumpForce: 7.8
+  fallForce: 6
+  stickDuration: 3.5
+  wallJumpForce: 7.3
+  wallJumpSideForce: 3.2
+  raycastDistanceX: 0.35
+  raycastDistanceY: 1
+  drawRaycasts: 1
+  dashSpeed: 12.4
+  dashDuration: 0.62
+  preserveDashMomentum: 1
+  moveSpeed: 6.8
+  maxSpeed: 15
+  grappleSpeed: 10.5
+  grappleCooldown: 1
+  grappleRange: 12
+  grappleSpeedBoost: 0.5
+  toleranceRadius: 0.5
+  indicatorPuffer: 0.55
+  indicatorSize: 0.55
+  indicatorSegments: 15
+  enemyHookSpeed: 20
+  grappleLayer:
+    serializedVersion: 2
+    m_Bits: 320
+  currentStateName: WalkingState
+  hasJumped: 1
+  hasDashed: 0
