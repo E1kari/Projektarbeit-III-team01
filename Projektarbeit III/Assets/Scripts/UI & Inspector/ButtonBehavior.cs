@@ -4,33 +4,45 @@ using UnityEngine.SceneManagement;
 
 public class ButtonBehavior : MonoBehaviour
 {
+    [SerializeField] private Object button1Scene_;
+    [SerializeField] private Object button2Scene_;
+    [SerializeField] private Object button3Scene_;
+    [SerializeField] private Object button4Scene_;
 
-    [SerializeField] private Object level1Scene_;
-    [SerializeField] private Object level2Scene_;
-    [SerializeField] private Object level3Scene_;
-
-
-    public void level1()
+    public void button1()
     {
-        string scenePath = AssetDatabase.GetAssetPath(level1Scene_);
+        string scenePath = AssetDatabase.GetAssetPath(button1Scene_);
         string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
 
         SceneManager.LoadScene(sceneName);
     }
 
-    public void level2()
+    public void button2()
     {
-        string scenePath = AssetDatabase.GetAssetPath(level2Scene_);
+        string scenePath = AssetDatabase.GetAssetPath(button2Scene_);
         string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
 
         SceneManager.LoadScene(sceneName);
     }
 
-    public void level3()
+    public void button3()
     {
-        string scenePath = AssetDatabase.GetAssetPath(level3Scene_);
+        string scenePath = AssetDatabase.GetAssetPath(button3Scene_);
         string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
 
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void button4()
+    {
+        string scenePath = AssetDatabase.GetAssetPath(button3Scene_);
+        string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void exitGame()
+    {
+        Application.Quit();
     }
 }
