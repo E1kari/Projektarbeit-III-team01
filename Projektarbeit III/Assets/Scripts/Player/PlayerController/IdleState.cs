@@ -10,6 +10,7 @@ public class IdleState : Interface.IState
     private InputAction movementAction;
     private InputAction jumpAction;
     private InputAction dashAction;
+    private float moveSpeed;
 
     public IdleState(Controller controller)
     {
@@ -20,6 +21,7 @@ public class IdleState : Interface.IState
         jumpAction = playerInput.actions["Jumping"];
         dashAction = playerInput.actions["Dashing"];
         fallForce = controller.movementEditor.fallForce;
+        moveSpeed = controller.movementEditor.moveSpeed;
     }
 
     public void OnEnter()
@@ -31,16 +33,16 @@ public class IdleState : Interface.IState
     public void UpdateState()
     {
         // Example: Transition to WalkingState if horizontal input is detected
-        Vector2 movementInput = movementAction.ReadValue<Vector2>();
+        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed, controller.movementEditor.maxSpeed);
 
         // Apply fall force when the player starts falling
-        if (rb.linearVelocity.y <= 0)
+        if (rb.linearVelocityY < 0)
         {
             rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
         }
 
         // Transition to WalkingState if horizontal input is detected
-        if (movementInput.x != 0)
+        if (rb.linearVelocityX != 0)
         {
             controller.ChangeState(new WalkingState(controller));
         }
@@ -64,13 +66,6 @@ public class IdleState : Interface.IState
                 controller.ChangeState(new DashingState(controller));
                 controller.movementEditor.hasDashed = true;
             }
-        }
-
-        // Check for wall and ceiling collisions
-        if (controller.IsWalkingAgainstWall())
-        {
-            //Debug.Log("Player is touching a wall and walking against it");
-            controller.ChangeState(new WallStickingState(controller));
         }
 
         if (controller.IsCeilinged())

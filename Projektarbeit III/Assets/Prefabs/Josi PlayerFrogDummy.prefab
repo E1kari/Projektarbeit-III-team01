@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d627ed24f17060e4598fa4ca8876dab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showFps: 0
+  showFps: 1
   showTime: 1
   timer_: {fileID: 11400000, guid: d738793ecc4aa0e4c973fd2d915f9801, type: 2}
 --- !u!50 &6397819308051543604
@@ -89,7 +89,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4c6fb32b2b95767488bbd33c34fcd52d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

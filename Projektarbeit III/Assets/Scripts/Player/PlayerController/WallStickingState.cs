@@ -8,9 +8,9 @@ public class WallStickingState : Interface.IState
     private PlayerInput playerInput;
     private InputAction movementAction;
     private InputAction jumpAction;
-    private float stickDuration;
+    private InputAction stickAction;
     private float stickTimer;
-    private bool stickingToLeftWall;
+    private float wallJumpCooldownTimer;
 
     public WallStickingState(Controller controller)
     {
@@ -19,8 +19,7 @@ public class WallStickingState : Interface.IState
         playerInput = controller.GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Walking"];
         jumpAction = playerInput.actions["Jumping"];
-        stickDuration = controller.movementEditor.stickDuration;
-        stickTimer = stickDuration;
+        stickAction = playerInput.actions["WallSticking"];
         controller.movementEditor.hasJumped = false;
     }
 
@@ -28,11 +27,9 @@ public class WallStickingState : Interface.IState
     {
         //Debug.Log("Entered Wall Sticking State");
 
-        // Determine which wall the player is sticking to
-        stickingToLeftWall = controller.IsTouchingLeftWall();
         rb.linearVelocity = Vector2.zero; // Stop movement initially
         rb.gravityScale = 0f; // Disable gravity
-        stickTimer = stickDuration; // Initialize the stick timer
+        stickTimer = controller.movementEditor.stickDuration; // Initialize the stick timer
     }
 
     public void UpdateState()
@@ -40,11 +37,9 @@ public class WallStickingState : Interface.IState
         Vector2 movementInput = movementAction.ReadValue<Vector2>();
         stickTimer -= Time.deltaTime;
 
-        // Ensure the player presses the correct input for sticking
-        bool correctInput = stickingToLeftWall ? movementInput.x < 0 : movementInput.x > 0;
 
-        // Transition to IdleState if the player is grounded or input is invalid
-        if (controller.IsGrounded() || !correctInput || (!controller.IsTouchingLeftWall() && !controller.IsTouchingRightWall()))
+        // Transition to IdleState if the player is grounded or WallSticking button is released
+        if (controller.IsGrounded() || !stickAction.IsPressed())
         {
             controller.ChangeState(new IdleState(controller));
             return;
@@ -66,6 +61,11 @@ public class WallStickingState : Interface.IState
 
         // Ensure the player sticks to the wall without sliding down
         rb.linearVelocity = Vector2.zero;
+    }
+
+    public bool StickingCheck()
+    {
+        return controller.IsWalkingAgainstWall() && wallJumpCooldownTimer <= 0 && stickAction.IsPressed();
     }
 
     public void OnDeath()

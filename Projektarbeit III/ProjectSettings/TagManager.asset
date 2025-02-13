@@ -9,6 +9,7 @@ TagManager:
   - Level Start
   - Level End
   - GrapplePoint
+  - Panel
   layers:
   - Default
   - TransparentFX
