@@ -250,6 +250,22 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 3.006796
       objectReference: {fileID: 0}
+    - target: {fileID: 452135563547516192, guid: e7e5be6ce4114f24bb013254fc4f055b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5958095353372408864, guid: e77920078e50667468c682f36773eec5, type: 3}
+    - target: {fileID: 452135563547516192, guid: e7e5be6ce4114f24bb013254fc4f055b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 452135563547516192, guid: e7e5be6ce4114f24bb013254fc4f055b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 452135563547516192, guid: e7e5be6ce4114f24bb013254fc4f055b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 533743694732826200, guid: e7e5be6ce4114f24bb013254fc4f055b, type: 3}
       propertyPath: m_Name
       value: falling Block Raum 2
@@ -10267,7 +10283,7 @@ SpriteRenderer:
   m_Size: {x: 0.42, y: 1.03}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &198065547
