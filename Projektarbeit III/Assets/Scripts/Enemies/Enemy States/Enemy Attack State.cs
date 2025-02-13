@@ -14,7 +14,7 @@ public class EnemyAttackState : Interface.IState
     public void OnEnter()
     {
         enemy.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
-        Debug.Log("Enemy entered Attack State");
+        //Debug.Log("Enemy entered Attack State");
     }
 
     public void UpdateState()
@@ -56,12 +56,12 @@ public class EnemyAttackState : Interface.IState
 
         if (!playerFound)
         {
-            Debug.Log("Player lost. Enemy changing to Idle State");
+            //Debug.Log("Player lost. Enemy changing to Idle State");
             enemy.ChangeState(new EnemyIdleState(enemy));
         }
         else
         {
-            Debug.Log("Player still in range. Enemy changing to Alert State");
+            //Debug.Log("Player still in range. Enemy changing to Alert State");
             enemy.ChangeState(new EnemyAlertState(enemy, Time.time));
         }
 

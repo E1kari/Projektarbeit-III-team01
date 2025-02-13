@@ -90,14 +90,14 @@ public class GrapplingHook : MonoBehaviour
     {
         if (isCooldown && !isGrappling) // Check if the hook is on cooldown and not already grappling
         {
-            Debug.Log("Hook is on cooldown and/or already grappling");
+            //Debug.Log("Hook is on cooldown and/or already grappling");
             return;
         }
 
         // Check if the target is within range
         if (Vector2.Distance(transform.position, target) > grappleRange && IsIndicatorOnValidGrappleSpot())
         {
-            Debug.Log("Target out of range");
+            //Debug.Log("Target out of range");
             return;
         }
 
@@ -124,7 +124,7 @@ public class GrapplingHook : MonoBehaviour
 
             if (grappleCollider.tag == "GrapplePoint")
             {
-                Debug.Log("Disabling grapple collider");
+                //Debug.Log("Disabling grapple collider");
                 grappleCollider.enabled = false;
             }
 
@@ -158,7 +158,7 @@ public class GrapplingHook : MonoBehaviour
         {
             if (grappleCollider.tag == "GrapplePoint")
             {
-                Debug.Log("GrapplePoint found! Applying speed boost");
+                //Debug.Log("GrapplePoint found! Applying speed boost");
                 currentGrappleSpeed += grappleSpeedBoost;
             }
 
@@ -168,13 +168,13 @@ public class GrapplingHook : MonoBehaviour
                 {
                     if (enemy.currentStateName != "EnemyGrappledState")
                     {
-                    Debug.Log("Enemy found! Changing to Grappled state");
+                    //Debug.Log("Enemy found! Changing to Grappled state");
                     enemy.ChangeState(new EnemyGrappledState(enemy));
                     }
                 }
                 else
                 {
-                    Debug.LogError("Enemy component not found on Light Enemy");
+                    //Debug.LogError("Enemy component not found on Light Enemy");
                 }
             }
 
@@ -197,7 +197,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void StopGrapple()
     {
-        Debug.Log("Stopping grapple");
+        //Debug.Log("Stopping grapple");
 
         // Stop grappling, Start the cooldown timer and hide the rope
         isGrappling = false; 
@@ -210,12 +210,12 @@ public class GrapplingHook : MonoBehaviour
             enemy = grappleCollider.GetComponent<Enemy>();
             if (enemy != null)
             {
-                Debug.Log("Enemy found and in GrappleState! Changing to Falling state");
+                //Debug.Log("Enemy found and in GrappleState! Changing to Falling state");
                 enemy.ChangeState(new EnemyFallingState(enemy));
             }
             else
             {
-                Debug.LogError("Enemy component not found on Light Enemy");
+                //Debug.LogError("Enemy component not found on Light Enemy");
             }
         }
 
@@ -234,7 +234,7 @@ public class GrapplingHook : MonoBehaviour
             {
                 if (grappleCollider.tag == "GrapplePoint" && !IsPlayerNearGrapplePoint())
                 {
-                    Debug.Log("Enabling grapple collider");
+                    //Debug.Log("Enabling grapple collider");
                     grappleCollider.enabled = true;
                     yield break; // Exit the coroutine once the collider is enabled
                 }
@@ -260,7 +260,7 @@ public class GrapplingHook : MonoBehaviour
 
         if (grappleAction.triggered)
         {
-            Debug.Log("Grapple action triggered");
+            //Debug.Log("Grapple action triggered");
             UpdateGrappleIndicator();
             Vector2 target;
 
@@ -305,28 +305,28 @@ public class GrapplingHook : MonoBehaviour
     {
         if (CheckEnemyCollision())
         {
-            Debug.Log("Player is near the enemy. Stopping grapple.");
+            //Debug.Log("Player is near the enemy. Stopping grapple.");
             StopGrapple();
         }
 
         // Check if the player cancels the grapple by releasing the grapple button
         if (!grappleAction.IsPressed())
         {
-            Debug.Log("Grapple action released");
+            //Debug.Log("Grapple action released");
             StopGrapple();
         }
 
         // Stop grappling if the player reaches the grapple point
         if (Vector2.Distance(transform.position, grappleSpot) < 0.5f)
         {
-            Debug.Log("Player reached the grapple point");
+            //Debug.Log("Player reached the grapple point");
             StopGrapple();
         }
 
         // Check for wall and ceiling collisions
         if (controller.IsTouchingLeftWall() || controller.IsTouchingRightWall() || controller.IsCeilinged())
         {
-            Debug.Log("Player is touching a wall or ceiling");
+            //Debug.Log("Player is touching a wall or ceiling");
             StopGrapple();
         }
     }
@@ -348,17 +348,17 @@ public class GrapplingHook : MonoBehaviour
     {
         if (controller.IsWalkingAgainstWall())
         {
-            Debug.Log("Player is touching a wall and walking against it");
+            //Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
         }
         else if (controller.IsCeilinged())
         {
-            Debug.Log("Player is touching a ceiling");
+            //Debug.Log("Player is touching a ceiling");
             controller.ChangeState(new IdleState(controller));
         }
         else
         {
-            Debug.Log("Stopped grappling with no collision");
+            //Debug.Log("Stopped grappling with no collision");
             controller.ChangeState(new IdleState(controller));            
         }
     }
