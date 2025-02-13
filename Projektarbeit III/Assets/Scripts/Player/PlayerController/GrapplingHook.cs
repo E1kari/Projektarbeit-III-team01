@@ -122,12 +122,6 @@ public class GrapplingHook : MonoBehaviour
             grappleCollider.tag = hit.collider.tag;
             isGrappling = true;
 
-            if (grappleCollider.tag == "GrapplePoint")
-            {
-                //Debug.Log("Disabling grapple collider");
-                grappleCollider.enabled = false;
-            }
-
             // Switch to the GRAPPLING state
             controller.ChangeState(new GrapplingState(controller, this));
 
@@ -218,29 +212,8 @@ public class GrapplingHook : MonoBehaviour
                 //Debug.LogError("Enemy component not found on Light Enemy");
             }
         }
-
-        // Start the coroutine to check the player's distance from the grapple point
-        StartCoroutine(CheckAndEnableGrappleCollider());
         
         CheckCollisionState(); // Check which state to transition to
-    }
-
-    private IEnumerator CheckAndEnableGrappleCollider() // Coroutine to check the player's distance from the grapple point
-    {
-        while (true)
-        {
-            // Check if the collider is a grapple point and the player is not near it
-            if (grappleCollider != null)
-            {
-                if (grappleCollider.tag == "GrapplePoint" && !IsPlayerNearGrapplePoint())
-                {
-                    //Debug.Log("Enabling grapple collider");
-                    grappleCollider.enabled = true;
-                    yield break; // Exit the coroutine once the collider is enabled
-                }
-            }
-            yield return new WaitForSeconds(0.1f); // Check every 0.1 seconds
-        }
     }
 
     private void CheckPlayerInput()
@@ -361,12 +334,6 @@ public class GrapplingHook : MonoBehaviour
             //Debug.Log("Stopped grappling with no collision");
             controller.ChangeState(new IdleState(controller));            
         }
-    }
-
-    private bool IsPlayerNearGrapplePoint()
-    {
-        float distanceToGrapplePoint = Vector2.Distance(transform.position, grappleSpot);
-        return distanceToGrapplePoint <= 2.5f;
     }
 
     private bool IsIndicatorOnValidGrappleSpot()
