@@ -204,11 +204,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 269516908}
         m_TargetAssemblyTypeName: ButtonBehavior, Assembly-CSharp
-        m_MethodName: button2
-        m_Mode: 1
+        m_MethodName: loadScene
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 102900000, guid: a3fb294355d906b4ea9904e5303d9171, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -281,10 +281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053fe35f383fef248aa57a50486209b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button1Scene_: {fileID: 102900000, guid: 9811f0678eea237459393905311e8cf5, type: 3}
-  button2Scene_: {fileID: 102900000, guid: a3fb294355d906b4ea9904e5303d9171, type: 3}
-  button3Scene_: {fileID: 102900000, guid: b3d55176b5a60474eb8bfc5482364cf6, type: 3}
-  button4Scene_: {fileID: 0}
 --- !u!4 &269516909
 Transform:
   m_ObjectHideFlags: 0
@@ -1486,11 +1482,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 269516908}
         m_TargetAssemblyTypeName: ButtonBehavior, Assembly-CSharp
-        m_MethodName: button1
-        m_Mode: 1
+        m_MethodName: loadScene
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 102900000, guid: 9811f0678eea237459393905311e8cf5, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1698,11 +1694,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 269516908}
         m_TargetAssemblyTypeName: ButtonBehavior, Assembly-CSharp
-        m_MethodName: button3
-        m_Mode: 1
+        m_MethodName: loadScene
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 102900000, guid: b3d55176b5a60474eb8bfc5482364cf6, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
