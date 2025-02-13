@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 650
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -137,10 +137,10 @@ TextureImporter:
       name: Lasso_Larry_Dash_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1007
-        height: 1117
+        x: 450
+        y: 10
+        width: 389
+        height: 1097
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,9 +159,9 @@ TextureImporter:
       name: Lasso_Larry_Dash_1
       rect:
         serializedVersion: 2
-        x: 1007
+        x: 1457
         y: 0
-        width: 1007
+        width: 398
         height: 1117
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: Lasso_Larry_Dash_2
       rect:
         serializedVersion: 2
-        x: 2014
-        y: 0
-        width: 1007
-        height: 1117
+        x: 2445
+        y: 22
+        width: 464
+        height: 1089
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,9 +203,9 @@ TextureImporter:
       name: Lasso_Larry_Dash_3
       rect:
         serializedVersion: 2
-        x: 3021
+        x: 3153
         y: 0
-        width: 1007
+        width: 783
         height: 1117
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: Lasso_Larry_Dash_4
       rect:
         serializedVersion: 2
-        x: 4028
-        y: 0
-        width: 1007
-        height: 1117
+        x: 4022
+        y: 77
+        width: 972
+        height: 1014
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,10 +247,10 @@ TextureImporter:
       name: Lasso_Larry_Dash_5
       rect:
         serializedVersion: 2
-        x: 5035
-        y: 0
-        width: 1007
-        height: 1117
+        x: 5072
+        y: 116
+        width: 929
+        height: 979
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,10 +269,10 @@ TextureImporter:
       name: Lasso_Larry_Dash_6
       rect:
         serializedVersion: 2
-        x: 6042
-        y: 0
-        width: 1007
-        height: 1117
+        x: 6422
+        y: 14
+        width: 633
+        height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,10 +291,10 @@ TextureImporter:
       name: Lasso_Larry_Dash_7
       rect:
         serializedVersion: 2
-        x: 7049
-        y: 0
-        width: 1007
-        height: 1117
+        x: 7389
+        y: 18
+        width: 563
+        height: 1089
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
