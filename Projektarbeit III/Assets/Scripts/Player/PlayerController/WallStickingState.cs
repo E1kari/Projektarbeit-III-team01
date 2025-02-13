@@ -10,7 +10,6 @@ public class WallStickingState : Interface.IState
     private InputAction jumpAction;
     private InputAction stickAction;
     private float stickTimer;
-    private bool stickingToLeftWall;
     private float wallJumpCooldownTimer;
 
     public WallStickingState(Controller controller)
@@ -28,8 +27,6 @@ public class WallStickingState : Interface.IState
     {
         //Debug.Log("Entered Wall Sticking State");
 
-        // Determine which wall the player is sticking to
-        stickingToLeftWall = controller.IsTouchingLeftWall();
         rb.linearVelocity = Vector2.zero; // Stop movement initially
         rb.gravityScale = 0f; // Disable gravity
         stickTimer = controller.movementEditor.stickDuration; // Initialize the stick timer
@@ -39,13 +36,10 @@ public class WallStickingState : Interface.IState
     {
         Vector2 movementInput = movementAction.ReadValue<Vector2>();
         stickTimer -= Time.deltaTime;
-        wallJumpCooldownTimer -= Time.deltaTime;
 
-        // Ensure the player presses the correct input for sticking
-        bool correctInput = stickingToLeftWall ? movementInput.x < 0 : movementInput.x > 0;
 
-        // Transition to IdleState if the player is grounded, input is invalid or WallSticking button is released
-        if (controller.IsGrounded() || !correctInput || !stickAction.IsPressed())
+        // Transition to IdleState if the player is grounded or WallSticking button is released
+        if (controller.IsGrounded() || !stickAction.IsPressed())
         {
             controller.ChangeState(new IdleState(controller));
             return;
