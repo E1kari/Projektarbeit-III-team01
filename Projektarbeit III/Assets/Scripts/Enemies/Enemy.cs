@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour
 
     private Interface.IState currentState;
 
+    GameObject player;
+    SpriteRenderer spriteRenderer;
+
     public string currentStateName;
     private int lastStateIndex = 0;
     private Animator animator;
@@ -23,6 +26,9 @@ public class Enemy : MonoBehaviour
         animator = gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         stateIndex = Resources.Load<StateIndexingBecauseTheAnimatorIsMean>("Scriptable Objects/State indexing");
         stateIndex.init();
+
+        player = GameObject.FindWithTag("Player");
+        spriteRenderer = gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
 
         lightEnemyData_ = Resources.Load<S_Light_Enemy>("Scriptable Objects/S_Light_Enemy");
         currentState = new EnemyIdleState(this);
@@ -64,6 +70,18 @@ public class Enemy : MonoBehaviour
 
             animator.SetInteger("State", enemyIndex);
             animator.SetTrigger("switch");
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        if (player.transform.position.x > transform.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
         }
     }
 }
