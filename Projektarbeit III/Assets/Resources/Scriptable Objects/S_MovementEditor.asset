@@ -33,10 +33,10 @@ MonoBehaviour:
   indicatorPuffer: 0.55
   indicatorSize: 0.55
   indicatorSegments: 15
-  enemyHookSpeed: 10
+  enemyHookSpeed: 20
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
-  currentStateName: IdleState
+  currentStateName: WalkingState
   hasJumped: 1
   hasDashed: 0
