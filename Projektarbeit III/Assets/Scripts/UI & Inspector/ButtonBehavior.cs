@@ -16,8 +16,6 @@ public class ButtonBehavior : MonoBehaviour
     {
         sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
-
         panels_ = GameObject.FindGameObjectsWithTag("Panel");
         foreach (GameObject panel in panels_)
         {
@@ -26,14 +24,6 @@ public class ButtonBehavior : MonoBehaviour
                 panel.SetActive(true);
             }
             else panel.SetActive(false);
-        }
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (this != null)
-        {
-            StartCoroutine(DeactivateDuplicatesCoroutine());
         }
     }
 
@@ -53,59 +43,16 @@ public class ButtonBehavior : MonoBehaviour
 
         if (sceneName.ToLower().Contains("level") || sceneName.ToLower().Contains("room") || sceneName.ToLower().Contains("main"))
         {
-            ReactivateDeactivatedObjects();
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }
 
         else if (sceneName.ToLower().Contains("menu"))
         {
-            ReactivateDeactivatedObjects();
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         }
 
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-
-    }
-
-    private IEnumerator DeactivateDuplicatesCoroutine()
-    {
-        yield return null; // Ensure all components are initialized
-
-        deactivatedObjects.Clear(); // Reset the list each time
-
-        // Find all EventSystems in the scene
-        EventSystem[] eventSystems = FindObjectsByType<EventSystem>(FindObjectsSortMode.None);
-        if (eventSystems.Length > 1)
-        {
-            for (int i = 1; i < eventSystems.Length; i++)
-            {
-                deactivatedObjects.Add(eventSystems[i].gameObject);
-                eventSystems[i].gameObject.SetActive(false); // Deactivate but store reference
-            }
-        }
-
-        // Find all AudioListeners in the scene
-        AudioListener[] audioListeners = FindObjectsByType<AudioListener>(FindObjectsSortMode.None);
-        if (audioListeners.Length > 1)
-        {
-            for (int i = 1; i < audioListeners.Length; i++)
-            {
-                deactivatedObjects.Add(audioListeners[i].gameObject);
-                audioListeners[i].gameObject.SetActive(false);
-            }
-        }
-    }
-
-    public void ReactivateDeactivatedObjects()
-    {
-        foreach (GameObject obj in deactivatedObjects)
-        {
-            if (obj != null)
-            {
-                obj.SetActive(true);
-            }
-        }
-        deactivatedObjects.Clear(); // Clear the list after reactivating
     }
 
     public void activatePanel(GameObject pa_panel)
@@ -125,9 +72,8 @@ public class ButtonBehavior : MonoBehaviour
     public void resetLevel()
     {
         resumeLevel();
-        ReactivateDeactivatedObjects();
         SceneManager.LoadScene(sceneSaver_.GetCurrentLevelSceneName());
-        SceneManager.UnloadSceneAsync("menu_pause"); // Unload menu
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
     }
 
     public void resumeLevel()
@@ -137,8 +83,7 @@ public class ButtonBehavior : MonoBehaviour
 
     public void back()
     {
-        ReactivateDeactivatedObjects();
-        SceneManager.LoadScene(sceneSaver_.GetPreviousMenuSceneName());
+        SceneManager.UnloadSceneAsync("menu_options");
     }
 
     public void exitGame()
