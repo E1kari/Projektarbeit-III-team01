@@ -10,7 +10,6 @@ public class ButtonBehavior : MonoBehaviour
     private GameObject[] panels_;
     private S_SceneSaver sceneSaver_;
 
-    private List<GameObject> deactivatedObjects = new List<GameObject>();
 
     public void Start()
     {
@@ -19,40 +18,33 @@ public class ButtonBehavior : MonoBehaviour
         panels_ = GameObject.FindGameObjectsWithTag("Panel");
         foreach (GameObject panel in panels_)
         {
-            if (panel.name == "Control Panel")
-            {
-                panel.SetActive(true);
-            }
-            else panel.SetActive(false);
+            panel.SetActive(false);
         }
     }
 
     public void loadScene(SceneAsset pa_scene)
     {
-
-        Time.timeScale = 1f; // Resume time
         if (pa_scene == null)
         {
             Debug.LogError("Scene is not set");
             return;
         }
+
+        Time.timeScale = 1f; // Resume time
+
         string scenePath = AssetDatabase.GetAssetPath(pa_scene);
         string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
 
 
-
-        if (sceneName.ToLower().Contains("level") || sceneName.ToLower().Contains("room") || sceneName.ToLower().Contains("main"))
+        if (sceneName.ToLower().Contains("level") || sceneName.ToLower().Contains("room") || sceneName.ToLower().Contains("main")) // can be removed, when scenes are cleaned up and sorted in the build menu
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         }
 
         else if (sceneName.ToLower().Contains("menu"))
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         }
-
     }
 
     public void activatePanel(GameObject pa_panel)
@@ -62,6 +54,7 @@ public class ButtonBehavior : MonoBehaviour
             Debug.LogError("Panel is not set");
             return;
         }
+
         foreach (GameObject panel in panels_)
         {
             panel.SetActive(false);
