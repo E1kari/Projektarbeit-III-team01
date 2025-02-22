@@ -145,7 +145,7 @@ public class Controller : MonoBehaviour
         Vector2 size = spriteRenderer.bounds.size;
         Vector2 position = transform.position;
 
-        float offsetX = size.x * 0.35f; // Adjust the offset to be closer to the center. High values will make the raycasts start further from the center 
+        float offsetX = size.x * 0.23f; // Adjust the offset to be closer to the center. High values will make the raycasts start further from the center 
         float offsetY = size.y * 0.4f;
 
         if (direction == Vector2.down || direction == Vector2.up)
