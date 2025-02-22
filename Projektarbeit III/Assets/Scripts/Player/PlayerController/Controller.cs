@@ -110,12 +110,13 @@ public class Controller : MonoBehaviour
 
     private bool CheckCollision(Vector2 direction, float distance, Color debugColor)
     {
+        int hitCount = 0;
+
         if (spriteRenderer == null)
         {
             //Debug.LogError("SpriteRenderer component is missing on the Player game object.");
             return false;
         }
-        int hitCount = 0;
 
         Vector2[] raycastOrigins = GetRaycastOrigins(direction);
 
@@ -197,12 +198,14 @@ public class Controller : MonoBehaviour
         // Check if the player is touching the left wall
         if (IsTouchingLeftWall())
         {
+            //Debug.Log("Player is touching the left wall");
             return true;
         }
 
         // Check if the player is touching the right wall
         if (IsTouchingRightWall())
         {
+            //Debug.Log("Player is touching the right wall");
             return true;
         }
 
