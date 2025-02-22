@@ -12,7 +12,8 @@ public class Controller : MonoBehaviour
     private Animator animator;
     private StateIndexingBecauseTheAnimatorIsMean stateIndex;
     private SpriteRenderer spriteRenderer;
-    private PhysicsMaterial2D material;
+    [SerializeField] private PhysicsMaterial2D highFriction;
+    [SerializeField] private PhysicsMaterial2D lowFriction;
     private Rigidbody2D rb;
 
     void Update()
@@ -77,7 +78,6 @@ public class Controller : MonoBehaviour
         movementEditor = Resources.Load<S_MovementEditor>("Scriptable Objects/S_MovementEditor");
 
         rb = GetComponent<Rigidbody2D>();
-        material = GetComponent<Rigidbody2D>().sharedMaterial;
 
         ChangeState(new IdleState(this));
     }
@@ -160,11 +160,12 @@ public class Controller : MonoBehaviour
     {
         if (rb.linearVelocity.y < 0 && IsGrounded())
         {
-            rb.sharedMaterial = null;
+            rb.sharedMaterial = highFriction;
         }
         else if (rb.linearVelocity.y > 0)
         {
-            rb.sharedMaterial = material;
+            rb.sharedMaterial = lowFriction;
         }
+        //Debug.Log(rb.sharedMaterial);
     }
 }
