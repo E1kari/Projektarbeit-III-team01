@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using SimpleJSON;
 using UnityEngine;
@@ -34,13 +35,11 @@ public struct LevelLeaderboard
 
 public struct ScoreboardStrings
 {
-    public string names;
     public string times;
     public string dates;
 
-    public ScoreboardStrings(string pa_names, string pa_times, string pa_dates)
+    public ScoreboardStrings(string pa_times, string pa_dates)
     {
-        names = pa_names;
         times = pa_times;
         dates = pa_dates;
     }
@@ -51,20 +50,27 @@ public class S_Scoreboard : ScriptableObject
 {
     // Define a private object for locking
     private readonly object _lock = new object();
-    string path;
+    string path_;
+
+    S_SceneSaver sceneSaver_;
 
     [SerializeField]
-    private int numLevel_ = 1;
+    private int numLevel_ = 3;
+    private int levelNumber_;
+
     private LevelLeaderboard[] allLeaderboards_;
-    private LeaderboardEntry playerEntry = new LeaderboardEntry();
+
+    private int playerEntryIndex_ = -1;
+    private LeaderboardEntry playerEntry_ = new LeaderboardEntry();
 
     private ScoreboardStrings scoreboardStrings;
 
 
     public void OnEnable()
     {
-        path = Application.persistentDataPath + "/best_time.json";
-        Debug.Log(numLevel_);
+        sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
+
+        path_ = Application.persistentDataPath + "/best_time.json";
         allLeaderboards_ = new LevelLeaderboard[numLevel_];
         for (int i = 0; i < numLevel_; i++)
         {
@@ -74,49 +80,44 @@ public class S_Scoreboard : ScriptableObject
         loadJSON();
     }
 
+    private void determineLevelNumber()
+    {
+        string levelName = sceneSaver_.GetCurrentLevelSceneName();
+        string levelNameNumber = levelName.Substring(levelName.Length - 1, 1);
+        levelNumber_ = int.Parse(levelNameNumber);
+    }
+
     public void sortTime(TimeSpan pa_time)
     {
         lock (_lock) // Ensure only one thread can execute this block at a time
         {
-            try
+            playerEntry_ = new LeaderboardEntry();
+
+            playerEntry_.time = pa_time;
+            playerEntry_.date = DateTime.Now;
+
+            determineLevelNumber();
+
+            LeaderboardEntry[] currentLevelEntries = allLeaderboards_[levelNumber_ - 1].entries;
+
+
+            for (int i = 0; i < currentLevelEntries.Length; i++)
             {
-                playerEntry = new LeaderboardEntry();
-
-                int sceneID = 0; // Warning: Replace with current scene ID
-                int index = -1;
-
-                LeaderboardEntry[] currentLevelEntries = allLeaderboards_[sceneID].entries;
-
-
-
-                for (int i = 0; i < currentLevelEntries.Length; i++)
+                TimeSpan currentIterationTime = currentLevelEntries[i].time;
+                if (pa_time < currentIterationTime || currentIterationTime == TimeSpan.Zero)
                 {
-                    TimeSpan currentIterationTime = currentLevelEntries[i].time;
-                    if (pa_time < currentIterationTime || currentIterationTime == TimeSpan.Zero)
+                    playerEntryIndex_ = i;
+
+                    for (int k = currentLevelEntries.Length - 1; k > i; k--)
                     {
-
-                        //seems to overrite the entry on the better place => 00:00:02.20, 00:00:06.20 => add 00:00:04.20 => 00:00:02.20, 00:00:04.20, 00:00:04.20 (I think)
-
-                        index = i;
-                        for (int k = currentLevelEntries.Length - 1; k > i + 1; k--)
-                        {
-                            currentLevelEntries[k] = currentLevelEntries[k - 1];
-                        }
-
-                        currentLevelEntries[i].time = pa_time;
-                        currentLevelEntries[i].date = DateTime.Now;
-
-                        return;
+                        currentLevelEntries[k] = currentLevelEntries[k - 1];
                     }
+
+                    currentLevelEntries[i].time = pa_time;
+                    currentLevelEntries[i].date = DateTime.Now;
+
+                    return;
                 }
-
-                playerEntry.time = pa_time;
-                playerEntry.date = DateTime.Now;
-
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning(e);
             }
         }
     }
@@ -126,7 +127,7 @@ public class S_Scoreboard : ScriptableObject
     public void saveJSON()
     {
         JSONObject bestTimeJSON = bestTimesToJSONObject();
-        File.WriteAllText(path, bestTimeJSON.ToString(4));
+        File.WriteAllText(path_, bestTimeJSON.ToString(4));
     }
 
     public JSONObject bestTimesToJSONObject()
@@ -144,34 +145,32 @@ public class S_Scoreboard : ScriptableObject
                 leaderboardEntryJSON = new JSONObject();
 
                 var currentEntry = allLeaderboards_[i].entries[j];
-                leaderboardEntryJSON["name"] = currentEntry.name;
                 leaderboardEntryJSON["time"] = currentEntry.time;
                 leaderboardEntryJSON["date"] = currentEntry.date.ToString("dd-MM-yyyy");
                 levelLeaderboardJSON.Add(string.Format("{0:00}.", j + 1), leaderboardEntryJSON);
             }
 
-            allLeaderboardsJSON.Add(string.Format("level {0}", i), levelLeaderboardJSON);
+            allLeaderboardsJSON.Add(string.Format("level {0}", i + 1), levelLeaderboardJSON);
         }
 
         return allLeaderboardsJSON;
     }
 
 
-
     public void loadJSON()
     {
-        if (!File.Exists(path))
+        if (!File.Exists(path_))
         {
             saveJSON();
         }
-        String bestTimesJSONString = File.ReadAllText(path);
+        String bestTimesJSONString = File.ReadAllText(path_);
         JSONObject json = (JSONObject)JSON.Parse(bestTimesJSONString);
 
         allLeaderboards_ = new LevelLeaderboard[numLevel_];
 
         int levelIndex = 0;
 
-        foreach (String level in json.Keys)
+        foreach (string level in json.Keys)
         {
             // Initialize the LevelLeaderboard
             JSONNode levelData = json[level];
@@ -193,7 +192,6 @@ public class S_Scoreboard : ScriptableObject
                 // Populate LeaderboardEntry
                 LeaderboardEntry entry = new LeaderboardEntry
                 {
-                    name = entryData["name"],
                     time = TimeSpan.Parse(entryData["time"]),
                     date = parsedDate
                 };
@@ -205,15 +203,15 @@ public class S_Scoreboard : ScriptableObject
 
             levelIndex++;
         }
-
-        Debug.Log("Loading completed");
     }
 
     public ScoreboardStrings formatForScoreboard()
     {
-        LevelLeaderboard levelLeaderboard = allLeaderboards_[0];
+        bool playerInTop10 = playerEntryIndex_ == -1 ? false : true;
 
-        scoreboardStrings.names = "";
+        determineLevelNumber();
+        LevelLeaderboard levelLeaderboard = allLeaderboards_[levelNumber_ - 1];
+
         scoreboardStrings.times = "";
         scoreboardStrings.dates = "";
 
@@ -221,27 +219,53 @@ public class S_Scoreboard : ScriptableObject
         {
             LeaderboardEntry currentEntry = levelLeaderboard.entries[j];
 
+            if (j == playerEntryIndex_)
+            {
+                formattingAid(currentEntry, true);
+                continue;
+            }
+
             formattingAid(currentEntry);
         }
 
-        formattingAid(playerEntry);
+        if (!playerInTop10)
+        {
+            formattingAid(playerEntry_, true);
+        }
+        else
+        {
+            formattingAid(new LeaderboardEntry());
+        }
 
         return scoreboardStrings;
     }
 
-    private void formattingAid(LeaderboardEntry pa_entry)
+    private void formattingAid(LeaderboardEntry pa_entry, bool isPlayerEntry = false)
     {
-        if (!pa_entry.isEmpty())
+        if (isPlayerEntry)
         {
-            scoreboardStrings.names += pa_entry.name + "\n";
-            scoreboardStrings.times += string.Format("{0:00}:{1:00}:{2:00}", pa_entry.time.Minutes, pa_entry.time.Seconds, pa_entry.time.Milliseconds) + "\n";
+            scoreboardStrings.times += string.Format("<b><color=#9ECC91>{0:00}:{1:00}:{2:000}</color></b>", pa_entry.time.Minutes, pa_entry.time.Seconds, pa_entry.time.Milliseconds) + "\n";
+            scoreboardStrings.dates += string.Format("<b><color=#9ECC91>{0}</color> </b>", pa_entry.date.ToString("dd.MM.yyyy")) + "\n";
+        }
+        else if (!pa_entry.isEmpty())
+        {
+            scoreboardStrings.times += string.Format("{0:00}:{1:00}:{2:000}", pa_entry.time.Minutes, pa_entry.time.Seconds, pa_entry.time.Milliseconds) + "\n";
             scoreboardStrings.dates += pa_entry.date.ToString("dd.MM.yyyy") + "\n";
         }
         else
         {
-            scoreboardStrings.names += "\n";
             scoreboardStrings.times += "\n";
             scoreboardStrings.dates += "\n";
         }
+    }
+
+    public ScoreboardStrings getPlayerStrings()
+    {
+        ScoreboardStrings playerScore;
+
+        playerScore.times = string.Format("{0:00}:{1:00}:{2:000}", playerEntry_.time.Minutes, playerEntry_.time.Seconds, playerEntry_.time.Milliseconds) + "\n";
+        playerScore.dates = playerEntry_.date.ToString("dd.MM.yyyy") + "\n";
+
+        return playerScore;
     }
 }

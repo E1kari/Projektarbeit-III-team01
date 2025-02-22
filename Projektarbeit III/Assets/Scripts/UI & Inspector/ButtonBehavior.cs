@@ -81,6 +81,7 @@ public class ButtonBehavior : MonoBehaviour
 
     public void exitGame()
     {
+        Debug.Log("closing game...");
         Application.Quit();
     }
 }
