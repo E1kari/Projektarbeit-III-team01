@@ -31,6 +31,27 @@ public class Controller : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        animator = gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        stateIndex = Resources.Load<StateIndexingBecauseTheAnimatorIsMean>("Scriptable Objects/State indexing");
+        stateIndex.init();
+
+        movementEditor = Resources.Load<S_MovementEditor>("Scriptable Objects/S_MovementEditor");
+
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D component is missing on the Player game object.");
+        }
+        if (rb.sharedMaterial == null)
+        {
+            rb.sharedMaterial = highFriction; // Set the default physics material to high friction
+        }
+
+        ChangeState(new IdleState(this));
+    }
+
     public void ChangeState(Interface.IState newState)
     {
         previousState = currentState;
@@ -69,19 +90,6 @@ public class Controller : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        animator = gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
-        stateIndex = Resources.Load<StateIndexingBecauseTheAnimatorIsMean>("Scriptable Objects/State indexing");
-        stateIndex.init();
-
-        movementEditor = Resources.Load<S_MovementEditor>("Scriptable Objects/S_MovementEditor");
-
-        rb = GetComponent<Rigidbody2D>();
-
-        ChangeState(new IdleState(this));
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Reset the jump and dash flags when the player touches the ground or a wall
@@ -107,14 +115,59 @@ public class Controller : MonoBehaviour
             //Debug.LogError("SpriteRenderer component is missing on the Player game object.");
             return false;
         }
+        int hitCount = 0;
 
-        Vector2 raycastStart = (Vector2)transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(raycastStart, direction, distance, LayerMask.GetMask("Ground"));
-        if (movementEditor.drawRaycasts)
+        Vector2[] raycastOrigins = GetRaycastOrigins(direction);
+
+        foreach (var origin in raycastOrigins)
         {
-            Debug.DrawRay(raycastStart, direction * distance, debugColor, 2f);
+            RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, LayerMask.GetMask("Ground"));
+            if (movementEditor.drawRaycasts)
+            {
+                Debug.DrawRay(origin, direction * distance, debugColor, 1.5f);
+            }
+            if (hit.collider != null)
+            {
+                hitCount++;
+            }
         }
-        return hit.collider != null;
+
+        if (hitCount > 0)
+        {
+            return true;
+        }
+        
+        return false;
+    }
+
+    private Vector2[] GetRaycastOrigins(Vector2 direction)
+    {
+        Vector2 size = spriteRenderer.bounds.size;
+        Vector2 position = transform.position;
+
+        float offsetX = size.x * 0.35f; // Adjust the offset to be closer to the center. High values will make the raycasts start further from the center 
+        float offsetY = size.y * 0.4f;
+
+        if (direction == Vector2.down || direction == Vector2.up)
+        {
+            return new Vector2[]
+            {
+            new Vector2(position.x - offsetX, position.y), // Left
+            new Vector2(position.x, position.y), // Center
+            new Vector2(position.x + offsetX, position.y) // Right
+            };
+        }
+        else if (direction == Vector2.left || direction == Vector2.right)
+        {
+            return new Vector2[]
+            {
+            new Vector2(position.x, position.y + offsetY), // Top
+            new Vector2(position.x, position.y), // Center
+            new Vector2(position.x, position.y - offsetY) // Bottom
+            };
+        }
+
+        return new Vector2[] { position };
     }
 
     public bool IsGrounded()
@@ -158,11 +211,11 @@ public class Controller : MonoBehaviour
 
     public void UpdatePhysicsMaterial()
     {
-        if (rb.linearVelocity.y < 0 && IsGrounded())
+        if (((rb.linearVelocity.y < 0) || (Mathf.Abs(rb.linearVelocity.x) < 0.01f)) && IsGrounded())  
         {
             rb.sharedMaterial = highFriction;
         }
-        else if (rb.linearVelocity.y > 0)
+        else 
         {
             rb.sharedMaterial = lowFriction;
         }

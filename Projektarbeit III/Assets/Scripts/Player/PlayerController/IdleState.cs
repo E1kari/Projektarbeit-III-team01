@@ -27,7 +27,6 @@ public class IdleState : Interface.IState
     public void OnEnter()
     {
         //Debug.Log("Entered Idle State");
-        // Reset animations, stop movement, etc.
     }
 
     public void UpdateState()
