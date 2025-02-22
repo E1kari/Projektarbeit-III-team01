@@ -493,11 +493,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1509025637}
         m_TargetAssemblyTypeName: ButtonBehavior, Assembly-CSharp
-        m_MethodName: loadScene
-        m_Mode: 2
+        m_MethodName: nextLevel
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 102900000, guid: 9811f0678eea237459393905311e8cf5, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -703,7 +703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: Exit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2422,11 +2422,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1509025637}
         m_TargetAssemblyTypeName: ButtonBehavior, Assembly-CSharp
-        m_MethodName: exitGame
-        m_Mode: 1
+        m_MethodName: loadScene
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 102900000, guid: 9811f0678eea237459393905311e8cf5, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

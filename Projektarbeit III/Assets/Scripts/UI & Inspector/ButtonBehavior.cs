@@ -22,6 +22,21 @@ public class ButtonBehavior : MonoBehaviour
         }
     }
 
+    private void loadScene(string pa_sceneName)
+    {
+        Time.timeScale = 1f; // Resume time
+
+        if (pa_sceneName.ToLower().Contains("level") || pa_sceneName.ToLower().Contains("room") || pa_sceneName.ToLower().Contains("main")) // can be removed, when scenes are cleaned up and sorted in the build menu
+        {
+            SceneManager.LoadScene(pa_sceneName, LoadSceneMode.Single);
+        }
+
+        else if (pa_sceneName.ToLower().Contains("menu"))
+        {
+            SceneManager.LoadScene(pa_sceneName, LoadSceneMode.Additive);
+        }
+    }
+
     public void loadScene(SceneAsset pa_scene)
     {
         if (pa_scene == null)
@@ -30,21 +45,10 @@ public class ButtonBehavior : MonoBehaviour
             return;
         }
 
-        Time.timeScale = 1f; // Resume time
-
         string scenePath = AssetDatabase.GetAssetPath(pa_scene);
         string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
 
-
-        if (sceneName.ToLower().Contains("level") || sceneName.ToLower().Contains("room") || sceneName.ToLower().Contains("main")) // can be removed, when scenes are cleaned up and sorted in the build menu
-        {
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-        }
-
-        else if (sceneName.ToLower().Contains("menu"))
-        {
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-        }
+        loadScene(sceneName);
     }
 
     public void activatePanel(GameObject pa_panel)
@@ -60,6 +64,13 @@ public class ButtonBehavior : MonoBehaviour
             panel.SetActive(false);
         }
         pa_panel.gameObject.SetActive(true);
+    }
+
+    public void nextLevel()
+    {
+        int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        string levelName = System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(nextLevelIndex));
+        SceneManager.LoadScene(levelName);
     }
 
     public void resetLevel()
