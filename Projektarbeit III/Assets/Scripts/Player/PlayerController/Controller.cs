@@ -112,7 +112,7 @@ public class Controller : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, direction, distance, LayerMask.GetMask("Ground"));
         if (movementEditor.drawRaycasts)
         {
-            //Debug.DrawRay(raycastStart, direction * distance, debugColor, 2f);
+            Debug.DrawRay(raycastStart, direction * distance, debugColor, 2f);
         }
         return hit.collider != null;
     }
