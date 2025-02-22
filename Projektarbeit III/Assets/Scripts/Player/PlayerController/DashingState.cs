@@ -68,6 +68,12 @@ public class DashingState : Interface.IState
             controller.ChangeState(new IdleState(controller));
         }
 
+        if (rb.linearVelocity.x == 0)
+        {
+            //Debug.Log("Player has stopped dashing (bumped against something)");
+            controller.ChangeState(new IdleState(controller));
+        }
+
         if (dashTimer <= 0)
         {
             if (controller.movementEditor.preserveDashMomentum)
