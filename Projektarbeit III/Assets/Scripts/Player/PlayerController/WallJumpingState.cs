@@ -14,6 +14,7 @@ public class WallJumpingState : Interface.IState
     private bool jumpingFromLeftWall;
     private float wallJumpingDirection;
     private Vector2 wallJumpingPower;
+    public float isWallJumping;
 
     public WallJumpingState(Controller controller)
     {
@@ -26,11 +27,12 @@ public class WallJumpingState : Interface.IState
         jumpForceSide = controller.movementEditor.wallJumpSideForce;
         moveSpeed = controller.movementEditor.moveSpeed;
         wallJumpingPower = new Vector2(jumpForceSide, jumpForceUp);
+        isWallJumping = 0.35f;
     }
 
     public void OnEnter()
     {
-        //Debug.Log("Entered Wall Jumping State");
+        Debug.Log("Entered Wall Jumping State");
 
         // Determine which wall the player is jumping from
         jumpingFromLeftWall = controller.IsTouchingLeftWall();
@@ -43,10 +45,13 @@ public class WallJumpingState : Interface.IState
     }
 
     public void UpdateState()
-    {
-        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed, controller.movementEditor.maxSpeed);
-        
-        controller.ChangeState(new JumpingState(controller));
+    {  
+        isWallJumping -= Time.deltaTime;
+        if (isWallJumping <= 0)
+        {
+            controller.ChangeState(new IdleState(controller));
+            return;
+        }
     }
     public void OnDeath()
     {
@@ -55,6 +60,6 @@ public class WallJumpingState : Interface.IState
 
     public void OnExit()
     {
-       //Debug.Log("Exiting Wall Jumping State");
+       Debug.Log("Exiting Wall Jumping State");
     }
 }
