@@ -205,7 +205,7 @@ public class S_Scoreboard : ScriptableObject
         }
     }
 
-    public ScoreboardStrings formatForScoreboard()
+    public ScoreboardStrings formatForScoreboard(bool markPlayer = true)
     {
         bool playerInTop10 = playerEntryIndex_ == -1 ? false : true;
 
@@ -219,7 +219,7 @@ public class S_Scoreboard : ScriptableObject
         {
             LeaderboardEntry currentEntry = levelLeaderboard.entries[j];
 
-            if (j == playerEntryIndex_)
+            if (j == playerEntryIndex_ && markPlayer)
             {
                 formattingAid(currentEntry, true);
                 continue;
@@ -228,7 +228,7 @@ public class S_Scoreboard : ScriptableObject
             formattingAid(currentEntry);
         }
 
-        if (!playerInTop10)
+        if (!playerInTop10 && markPlayer)
         {
             formattingAid(playerEntry_, true);
         }

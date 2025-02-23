@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (player.transform.position.x > transform.position.x)
+        if (player?.transform.position.x > transform.position.x)
         {
             spriteRenderer.flipX = true;
         }

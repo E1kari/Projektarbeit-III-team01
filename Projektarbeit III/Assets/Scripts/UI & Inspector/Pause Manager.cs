@@ -1,20 +1,38 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
+
+    private S_SceneSaver sceneSaver_;
     private bool isPaused = false;
     GameObject player;
+
+    public void Start()
+    {
+        StartCoroutine(OnSceneLoaded());
+    }
+
+    private IEnumerator OnSceneLoaded()
+    {
+        yield return null;
+        sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
+        if (!sceneSaver_.GetPreviousMenuSceneName().ToLower().Equals("menu_selection") && !sceneSaver_.GetCurrentLevelSceneName().ToLower().Equals("training room"))
+        {
+            previewMenu();
+        }
+    }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TogglePause();
+            TogglePause(true);
         }
     }
 
-    public void TogglePause()
+    public void TogglePause(bool loadPauseMenu = false)
     {
         if (isPaused)
         {
@@ -22,24 +40,36 @@ public class PauseManager : MonoBehaviour
         }
         else
         {
-            PauseGame();
+            PauseGame(loadPauseMenu);
         }
     }
 
-    private void PauseGame()
+    private void PauseGame(bool loadPauseMenu)
     {
         Time.timeScale = 0f; // Freeze time
         player = GameObject.FindWithTag("Player");
-        player.SetActive(false);
-        SceneManager.LoadScene("menu_pause", LoadSceneMode.Additive); // Load menu without unloading game
+        player?.SetActive(false);
+        if (loadPauseMenu)
+        {
+            SceneManager.LoadScene("menu_pause", LoadSceneMode.Additive); // Load menu without unloading game
+        }
         isPaused = true;
     }
 
     private void ResumeGame()
     {
-        SceneManager.UnloadSceneAsync("menu_pause"); // Unload menu
+        if (SceneManager.GetSceneByName("menu_pause").isLoaded)
+        {
+            SceneManager.UnloadSceneAsync("menu_pause"); // Unload menu
+        }
         isPaused = false;
         player.SetActive(true);
         Time.timeScale = 1f; // Resume time
+    }
+
+    private void previewMenu()
+    {
+        PauseGame(false);
+        SceneManager.LoadScene("menu_preview", LoadSceneMode.Additive);
     }
 }

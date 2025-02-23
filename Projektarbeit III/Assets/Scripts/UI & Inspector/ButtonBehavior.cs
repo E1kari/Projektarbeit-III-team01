@@ -10,7 +10,6 @@ public class ButtonBehavior : MonoBehaviour
     private GameObject[] panels_;
     private S_SceneSaver sceneSaver_;
 
-
     public void Start()
     {
         sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
@@ -29,6 +28,7 @@ public class ButtonBehavior : MonoBehaviour
         if (pa_sceneName.ToLower().Contains("level") || pa_sceneName.ToLower().Contains("room") || pa_sceneName.ToLower().Contains("main")) // can be removed, when scenes are cleaned up and sorted in the build menu
         {
             SceneManager.LoadScene(pa_sceneName, LoadSceneMode.Single);
+
         }
 
         else if (pa_sceneName.ToLower().Contains("menu"))
@@ -36,6 +36,7 @@ public class ButtonBehavior : MonoBehaviour
             SceneManager.LoadScene(pa_sceneName, LoadSceneMode.Additive);
         }
     }
+
 
     public void loadScene(SceneAsset pa_scene)
     {
@@ -64,6 +65,12 @@ public class ButtonBehavior : MonoBehaviour
             panel.SetActive(false);
         }
         pa_panel.gameObject.SetActive(true);
+    }
+
+    public void startLevel()
+    {
+        resumeLevel();
+        SceneManager.UnloadSceneAsync("menu_preview");
     }
 
     public void nextLevel()
