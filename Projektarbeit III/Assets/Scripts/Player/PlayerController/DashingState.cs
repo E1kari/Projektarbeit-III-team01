@@ -8,7 +8,6 @@ public class DashingState : Interface.IState
     private float dashDuration;
     private float dashTimer;
     private Vector2 dashDirection;
-    private InputAction stickAction;
 
     public DashingState(Controller controller)
     {
@@ -16,13 +15,13 @@ public class DashingState : Interface.IState
         rb = controller.GetComponent<Rigidbody2D>();
         dashSpeed = controller.movementEditor.dashSpeed;
         dashDuration = controller.movementEditor.dashDuration;
-        stickAction = controller.GetComponent<PlayerInput>().actions["WallSticking"];
     }
 
     public void OnEnter()
     {
         //Debug.Log("Entered Dashing State");
         dashTimer = dashDuration;
+        rb.gravityScale = 0f; // Disable gravity
 
         // Determine the dash direction
         dashDirection = Vector2.zero;
@@ -42,7 +41,9 @@ public class DashingState : Interface.IState
         }
         else
         {
-            dashDirection = controller.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+            // Check the sprite's facing direction and set the dash direction accordingly
+            SpriteRenderer spriteRenderer = controller.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+            dashDirection = spriteRenderer.flipX ? Vector2.left : Vector2.right;
         }
 
         // Apply the dash force
@@ -64,6 +65,12 @@ public class DashingState : Interface.IState
         if (controller.IsCeilinged())
         {
             //Debug.Log("Player is touching a ceiling");
+            controller.ChangeState(new IdleState(controller));
+        }
+
+        if (rb.linearVelocity.x == 0)
+        {
+            //Debug.Log("Player has stopped dashing (bumped against something)");
             controller.ChangeState(new IdleState(controller));
         }
 
@@ -91,5 +98,6 @@ public class DashingState : Interface.IState
     public void OnExit()
     {
         //Debug.Log("Exiting Dashing State");
+        rb.gravityScale = 1f; // Enable gravity
     }
 }
