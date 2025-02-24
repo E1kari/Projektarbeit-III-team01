@@ -32,11 +32,13 @@ MonoBehaviour:
   toleranceRadius: 0.5
   indicatorPuffer: 0.55
   indicatorSize: 0.55
-  indicatorSegments: 15
+  indicatorSegments: 10
+  indicatorColor: {r: 0.323599, g: 0.745283, b: 0.31287822, a: 0.8509804}
+  indicatorColorNotInRange: {r: 0.26254895, g: 0.3809565, b: 0.9433962, a: 0.87058824}
   enemyHookSpeed: 20
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
-  currentStateName: WalkingState
-  hasJumped: 1
+  currentStateName: IdleState
+  hasJumped: 0
   hasDashed: 0
