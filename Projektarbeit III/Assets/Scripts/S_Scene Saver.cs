@@ -12,6 +12,8 @@ public class S_SceneSaver : ScriptableObject
     private static string currentMenuScene;
     private static string currentLevelScene;
 
+    private static bool showPreview = true;
+
     static S_SceneSaver()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -27,14 +29,26 @@ public class S_SceneSaver : ScriptableObject
             // Update the current menu scene to the newly loaded scene
             currentMenuScene = scene.name;
 
+            if (scene.name.ToLower().Equals("menu_selection"))
+            {
+                showPreview = true;
+            }
+            else if (scene.name.ToLower().Equals("menu_preview"))
+            {
+                showPreview = false;
+            }
+
         }
         else if (scene.name.ToLower().Contains("level") || scene.name.ToLower().Contains("room"))
         {
-            // If a level or room scene is loaded, update that reference
             currentLevelScene = scene.name;
         }
     }
 
+    public bool GetShowPreview()
+    {
+        return showPreview;
+    }
 
     public string GetPreviousMenuSceneName()
     {

@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class ButtonBehavior : MonoBehaviour
@@ -69,8 +66,9 @@ public class ButtonBehavior : MonoBehaviour
 
     public void startLevel()
     {
-        resumeLevel();
+        GameObject.Find("Preview Manager").GetComponent<PreviewManager>().reactivatePauseManager();
         SceneManager.UnloadSceneAsync("menu_preview");
+        resumeLevel();
     }
 
     public void nextLevel()

@@ -87,6 +87,12 @@ public class S_Scoreboard : ScriptableObject
         levelNumber_ = int.Parse(levelNameNumber);
     }
 
+    public int getLevelIndex()
+    {
+        determineLevelNumber();
+        return levelNumber_ - 1;
+    }
+
     public void sortTime(TimeSpan pa_time)
     {
         lock (_lock) // Ensure only one thread can execute this block at a time

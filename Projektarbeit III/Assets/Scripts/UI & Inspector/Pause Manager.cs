@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour
     {
         yield return null;
         sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
-        if (!sceneSaver_.GetPreviousMenuSceneName().ToLower().Equals("menu_selection") && !sceneSaver_.GetCurrentLevelSceneName().ToLower().Equals("training room"))
+        if (sceneSaver_.GetShowPreview())
         {
             previewMenu();
         }
