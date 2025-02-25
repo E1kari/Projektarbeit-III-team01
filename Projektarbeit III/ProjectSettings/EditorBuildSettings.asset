@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/definitiv level 1.unity
     guid: e5d77a510c94abe4fac2cfbdd91f4426
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
+    path: Assets/Scenes/Level 3.unity
     guid: 86c0dab9b159268448dd9bc53e591d83
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3f3d51987d171ba4d94f09e53aad4990, type: 3}
