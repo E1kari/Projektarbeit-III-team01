@@ -141,7 +141,8 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -944628639613478452, guid: 3f3d51987d171ba4d94f09e53aad4990, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -686,11 +687,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 85684f2c-5a09-4050-84a7-648e61ad8a6a
+  cloudProjectId: 07b0afae-7e0f-47ae-9645-1b19f8a2f62b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Projektarbeit III 2024-10-23_16-17-12
-  organizationId: josefinecholl
+  projectName: Projektarbeit 3
+  organizationId: linustheuringer
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

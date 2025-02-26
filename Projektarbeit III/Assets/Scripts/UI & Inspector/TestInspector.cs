@@ -1,3 +1,4 @@
+/*
 using System.ComponentModel;
 using UnityEditor;
 using UnityEngine;
@@ -104,4 +105,4 @@ public class ReadOnlyDrawerTest : PropertyDrawer
         GUI.enabled = true;
     }
 }
-
+*/

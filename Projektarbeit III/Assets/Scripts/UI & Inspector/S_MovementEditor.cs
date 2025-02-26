@@ -97,14 +97,3 @@ public class S_MovementEditor : ScriptableObject
 public class ReadOnlyAttribute : PropertyAttribute // Custom attribute to make a field read-only in the inspector
 {
 }
-
-[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
-public class ReadOnlyDrawer : PropertyDrawer
-{
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) // Override the OnGUI method to make the property read-only
-    {
-        GUI.enabled = false;
-        EditorGUI.PropertyField(position, property, label); // Draw the property field as disabled
-        GUI.enabled = true;
-    }
-}
