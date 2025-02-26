@@ -1,11 +1,12 @@
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class Level_End : MonoBehaviour
 {
-
     [SerializeField]
     private Object sceneToLoad_;
 
@@ -13,7 +14,6 @@ public class Level_End : MonoBehaviour
     private S_Timer timer_;
     private BoxCollider2D boxCollider2D_;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         boxCollider2D_ = gameObject.AddComponent<BoxCollider2D>();
@@ -28,10 +28,26 @@ public class Level_End : MonoBehaviour
         {
             timer_.StopTimer();
 
-            string scenePath = AssetDatabase.GetAssetPath(sceneToLoad_);
-            string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+            string sceneName = "";
 
-            SceneManager.LoadScene(sceneName);
+            #if UNITY_EDITOR
+            if (sceneToLoad_ != null)
+            {
+                string scenePath = AssetDatabase.GetAssetPath(sceneToLoad_);
+                sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+            }
+            #else
+            sceneName = sceneToLoad_.name; // Use object name in a build
+            #endif
+
+            if (!string.IsNullOrEmpty(sceneName))
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+            else
+            {
+                Debug.LogError("Scene name is empty or null!");
+            }
         }
     }
 

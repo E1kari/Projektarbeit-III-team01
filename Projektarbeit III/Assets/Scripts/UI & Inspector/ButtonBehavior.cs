@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ButtonBehavior : MonoBehaviour
 {
@@ -37,34 +40,49 @@ public class ButtonBehavior : MonoBehaviour
         }
     }
 
-    public void loadScene(SceneAsset pa_scene)
+    public void loadScene(
+    #if UNITY_EDITOR
+        SceneAsset pa_scene
+    #else
+        string sceneName
+    #endif
+    )
     {
-
         Time.timeScale = 1f; // Resume time
-        if (pa_scene == null)
+
+        if (
+        #if UNITY_EDITOR
+            pa_scene == null
+        #else
+            string.IsNullOrEmpty(sceneName)
+        #endif
+        )
         {
             Debug.LogError("Scene is not set");
             return;
         }
+
+        string sceneNameToLoad;
+
+        #if UNITY_EDITOR
         string scenePath = AssetDatabase.GetAssetPath(pa_scene);
-        string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+        sceneNameToLoad = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+        #else
+        sceneNameToLoad = sceneName;
+        #endif
 
-
-
-        if (sceneName.ToLower().Contains("level") || sceneName.ToLower().Contains("room") || sceneName.ToLower().Contains("main"))
+        if (sceneNameToLoad.ToLower().Contains("level") || sceneNameToLoad.ToLower().Contains("room") || sceneNameToLoad.ToLower().Contains("main"))
         {
             ReactivateDeactivatedObjects();
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+            SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Single);
         }
-
-        else if (sceneName.ToLower().Contains("menu"))
+        else if (sceneNameToLoad.ToLower().Contains("menu"))
         {
             ReactivateDeactivatedObjects();
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Additive);
         }
 
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-
     }
 
     private IEnumerator DeactivateDuplicatesCoroutine()
