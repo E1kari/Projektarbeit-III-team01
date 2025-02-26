@@ -27,13 +27,13 @@ public class Logger : MonoBehaviour
 
         Debug.Log("Log-Message received. Original Message (if not written in the Log): " + logString);
 
-        // Log-Nachricht in die Datei schreiben
+        // Writing to the log file
         using (StreamWriter writer = new StreamWriter(logFilePath, true))
         {
             writer.WriteLine(logEntry);
         }
         
-        // Ausgabe in der Konsole
+        // Writing to the console
         Debug.Log(logEntry);
     }
 

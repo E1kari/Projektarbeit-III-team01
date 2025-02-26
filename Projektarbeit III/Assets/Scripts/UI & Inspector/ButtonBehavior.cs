@@ -12,14 +12,13 @@ public class ButtonBehavior : MonoBehaviour
 {
     private GameObject[] panels_;
     private S_SceneSaver sceneSaver_;
-    private Logger logger;
-
+    private Logger logger; // Logger object, needed for building (why is it needed tho?)
     private List<GameObject> deactivatedObjects = new List<GameObject>();
 
     public void Start()
     {
         #if UNITY_EDITOR
-        //
+        // Nuh uh, you do nothing editpr
         #else
         logger = Object.FindFirstObjectByType<Logger>();
         if (logger == null)
