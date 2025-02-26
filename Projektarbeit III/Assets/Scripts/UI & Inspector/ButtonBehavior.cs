@@ -12,11 +12,28 @@ public class ButtonBehavior : MonoBehaviour
 {
     private GameObject[] panels_;
     private S_SceneSaver sceneSaver_;
+    private Logger logger;
 
     private List<GameObject> deactivatedObjects = new List<GameObject>();
 
     public void Start()
     {
+        logger = Object.FindFirstObjectByType<Logger>();
+        if (logger == null)
+        {
+            Debug.LogError("Logger not found");
+            return;
+        }
+        else if (logger != null)
+        {
+            if (logger.logFilePath == null)
+            {
+                logger.logFilePath = System.IO.Path.Combine(Application.dataPath, "game_log.txt");
+                logger.Log("Logger started in Button. Log file path: " + logger.logFilePath, "Logger", LogType.Log);
+            }
+            logger.Log("Button loaded", "Button", LogType.Log);
+        }
+
         sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
 
         SceneManager.sceneLoaded += OnSceneLoaded;
