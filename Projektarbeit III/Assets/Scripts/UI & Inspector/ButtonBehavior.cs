@@ -18,6 +18,9 @@ public class ButtonBehavior : MonoBehaviour
 
     public void Start()
     {
+        #if UNITY_EDITOR
+        //
+        #else
         logger = Object.FindFirstObjectByType<Logger>();
         if (logger == null)
         {
@@ -33,6 +36,7 @@ public class ButtonBehavior : MonoBehaviour
             }
             logger.Log("Button loaded", "Button", LogType.Log);
         }
+        #endif
 
         sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
 

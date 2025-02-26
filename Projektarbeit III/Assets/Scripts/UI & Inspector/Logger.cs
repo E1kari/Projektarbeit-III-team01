@@ -8,11 +8,17 @@ public class Logger : MonoBehaviour
     void Awake()
     {
         logFilePath = Path.Combine(Application.dataPath, "game_log.txt");
+
+        #if UNITY_EDITOR
+        //
+        #else
+
         Debug.Log("Logger started. Log file path: " + logFilePath);
         
         DontDestroyOnLoad(this.gameObject);
         Application.logMessageReceived += Log;
         Log("Logger started (Log Message to test if Log function works)", "Logger", LogType.Log);
+        #endif
     }
 
     public void Log(string logString, string stackTrace, LogType type)
