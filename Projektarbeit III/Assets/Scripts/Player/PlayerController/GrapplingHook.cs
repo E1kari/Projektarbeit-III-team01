@@ -68,8 +68,8 @@ public class GrapplingHook : MonoBehaviour
         grappleIndicator.endWidth = 0.1f;
         grappleIndicator.positionCount = 0;
         grappleIndicator.material = new Material(Shader.Find("Sprites/Default"));
-        grappleIndicator.startColor = Color.blue;
-        grappleIndicator.endColor = Color.blue;
+        grappleIndicator.startColor = controller.movementEditor.indicatorColorNotInRange;
+        grappleIndicator.endColor = controller.movementEditor.indicatorColorNotInRange;
 
         // Register input callbacks
         grappleAction.Enable();
@@ -399,8 +399,8 @@ public class GrapplingHook : MonoBehaviour
             float distanceToHit = Vector2.Distance(playerPosition, hit.point);
             if (distanceToHit <= grappleRange + indicatorPuffer)
             {
-                grappleIndicator.startColor = Color.green;
-                grappleIndicator.endColor = Color.green;
+                grappleIndicator.startColor = controller.movementEditor.indicatorColor;
+                grappleIndicator.endColor = controller.movementEditor.indicatorColor;
 
                 if (hit.collider.tag == "Light Enemy" || hit.collider.tag == "GrapplePoint")
                 {
@@ -415,8 +415,8 @@ public class GrapplingHook : MonoBehaviour
             }
             else
             {
-                grappleIndicator.startColor = Color.blue;
-                grappleIndicator.endColor = Color.blue;
+                grappleIndicator.startColor = controller.movementEditor.indicatorColorNotInRange;
+                grappleIndicator.endColor = controller.movementEditor.indicatorColorNotInRange;
 
                 // Draw the grapple indicator at the maximum range in the direction
                 Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
@@ -425,8 +425,8 @@ public class GrapplingHook : MonoBehaviour
         }
         else
         {
-            grappleIndicator.startColor = Color.blue;
-            grappleIndicator.endColor = Color.blue;
+            grappleIndicator.startColor = controller.movementEditor.indicatorColorNotInRange;
+            grappleIndicator.endColor = controller.movementEditor.indicatorColorNotInRange;
 
             // Draw the grapple indicator at the maximum range in the direction
             Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
