@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 63aa54249ae90d946913d0589b3d1445
+guid: b6fc1c1eb6337f84693ed95abd34522d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5890257241921539557
-    second: IMG_2618_0
-  - first:
-      213: 296250477546995733
-    second: IMG_2618_1
-  - first:
-      213: 6919635554827528667
-    second: IMG_2618_2
-  - first:
-      213: 1770828637112117627
-    second: IMG_2618_3
+      213: 2955286255927101427
+    second: Well_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_2618_0
+      name: Well_0
       rect:
         serializedVersion: 2
-        x: 115
-        y: 1492
-        width: 385
-        height: 788
+        x: 187
+        y: 136
+        width: 320
+        height: 373
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,74 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5edc76ce0c56eb150800000000000000
-      internalID: 5890257241921539557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_2618_1
-      rect:
-        serializedVersion: 2
-        x: 955
-        y: 1451
-        width: 385
-        height: 788
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5108abe5d3e7c1400800000000000000
-      internalID: 296250477546995733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_2618_2
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 37
-        width: 630
-        height: 1264
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bd968a410eb770060800000000000000
-      internalID: 6919635554827528667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_2618_3
-      rect:
-        serializedVersion: 2
-        x: 959
-        y: 487
-        width: 385
-        height: 788
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b792821634f339810800000000000000
-      internalID: 1770828637112117627
+      spriteID: 3f701262139430920800000000000000
+      internalID: 2955286255927101427
       vertices: []
       indices: 
       edges: []
@@ -222,11 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      IMG_2618_0: 5890257241921539557
-      IMG_2618_1: 296250477546995733
-      IMG_2618_2: 6919635554827528667
-      IMG_2618_3: 1770828637112117627
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
