@@ -7,16 +7,24 @@ using System.IO;
 [CreateAssetMenu(fileName = "Timer", menuName = "Scriptable Objects/Timer")]
 public class S_Timer : ScriptableObject
 {
-    [SerializeField]
     private S_Scoreboard scoreboard_;
     private float startTime_;
     private float time_;
     private bool running_;
 
+    private void OnEnable()
+    {
+        scoreboard_ = Resources.Load<S_Scoreboard>("Scriptable Objects/S_Scoreboard");
+    }
 
 
     public void StartTimer()
     {
+        if (running_)
+        {
+            return;
+        }
+
         time_ = 0f;
         startTime_ = Time.time;
         running_ = true;
@@ -30,12 +38,19 @@ public class S_Timer : ScriptableObject
         scoreboard_.saveJSON();
     }
 
+    public void ResetTimer()
+    {
+        time_ = 0f;
+        running_ = false;
+    }
+
     public float retrieveTime()
     {
         if (running_)
         {
             return Time.time - startTime_;
         }
+
         return time_;
     }
 
