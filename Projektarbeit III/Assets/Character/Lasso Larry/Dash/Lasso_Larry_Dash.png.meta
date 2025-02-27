@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14c58f0dae9d73e47aae0f6d4164994b
+guid: 949b5cc788fc8ac40bbd77fce859ad42
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -20,12 +20,6 @@ TextureImporter:
   - first:
       213: -2440203367325892412
     second: Lasso_Larry_Dash_5
-  - first:
-      213: 5470169565817560220
-    second: Lasso_Larry_Dash_6
-  - first:
-      213: 4572258169219055947
-    second: Lasso_Larry_Dash_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -137,20 +131,20 @@ TextureImporter:
       name: Lasso_Larry_Dash_0
       rect:
         serializedVersion: 2
-        x: 450
-        y: 10
-        width: 389
-        height: 1097
+        x: 0
+        y: 0
+        width: 1013
+        height: 1111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7f4d5b0f02a8a6d41b5216d1d4c060ef
-      internalID: 1001444555
+      spriteID: 2a938a1fa4c09cd30800000000000000
+      internalID: 4452103222653893026
       vertices: []
       indices: 
       edges: []
@@ -159,20 +153,20 @@ TextureImporter:
       name: Lasso_Larry_Dash_1
       rect:
         serializedVersion: 2
-        x: 1457
+        x: 1013
         y: 0
-        width: 398
-        height: 1117
+        width: 1013
+        height: 1111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b7253c37eb46cbb4398d86c3bfa55cba
-      internalID: -2145520259
+      spriteID: 6df917bb38d4826f0800000000000000
+      internalID: -709231713130012714
       vertices: []
       indices: 
       edges: []
@@ -181,20 +175,20 @@ TextureImporter:
       name: Lasso_Larry_Dash_2
       rect:
         serializedVersion: 2
-        x: 2445
-        y: 22
-        width: 464
-        height: 1089
+        x: 2026
+        y: 0
+        width: 1013
+        height: 1111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a271dd05771417643bff758141c8e8d1
-      internalID: -1444470034
+      spriteID: f0a0386e01370c430800000000000000
+      internalID: 3801164601924717071
       vertices: []
       indices: 
       edges: []
@@ -203,20 +197,20 @@ TextureImporter:
       name: Lasso_Larry_Dash_3
       rect:
         serializedVersion: 2
-        x: 3153
+        x: 3039
         y: 0
-        width: 783
-        height: 1117
+        width: 1013
+        height: 1111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2f1d906651cf6594281bf02410ab2e84
-      internalID: -630383588
+      spriteID: e16d793705422ca20800000000000000
+      internalID: 3081065023030154782
       vertices: []
       indices: 
       edges: []
@@ -225,20 +219,20 @@ TextureImporter:
       name: Lasso_Larry_Dash_4
       rect:
         serializedVersion: 2
-        x: 4022
-        y: 77
-        width: 972
-        height: 1014
+        x: 4052
+        y: 0
+        width: 1013
+        height: 1111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e78797e785bde5341a8d06fa84094d3c
-      internalID: 2121513235
+      spriteID: cde1335a2eb3b94a0800000000000000
+      internalID: -6585604185478979876
       vertices: []
       indices: 
       edges: []
@@ -247,10 +241,10 @@ TextureImporter:
       name: Lasso_Larry_Dash_5
       rect:
         serializedVersion: 2
-        x: 5072
-        y: 116
-        width: 929
-        height: 979
+        x: 5065
+        y: 0
+        width: 1013
+        height: 1111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,52 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d559e267b265c342a8d50dfc8cd7ef4
-      internalID: 1534259984
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lasso_Larry_Dash_6
-      rect:
-        serializedVersion: 2
-        x: 6422
-        y: 14
-        width: 633
-        height: 1077
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fb05a624c21099438a5febb42f2d6e3
-      internalID: -1975062887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lasso_Larry_Dash_7
-      rect:
-        serializedVersion: 2
-        x: 7389
-        y: 18
-        width: 563
-        height: 1089
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 700bf63da6078d144bc50f5640b38432
-      internalID: -353966927
+      spriteID: 19dc0998958d2ab4dbbeed15827d4e60
+      internalID: -2440203367325892412
       vertices: []
       indices: 
       edges: []
@@ -313,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1b41dcda14a99bb4d8651ff343d99a1d
+    spriteID: c6d9097a89e74944eab8aeb80810a800
     internalID: 0
     vertices: []
     indices: 
@@ -323,14 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lasso_Larry_Dash_0: 1001444555
-      Lasso_Larry_Dash_1: -2145520259
-      Lasso_Larry_Dash_2: -1444470034
-      Lasso_Larry_Dash_3: -630383588
-      Lasso_Larry_Dash_4: 2121513235
-      Lasso_Larry_Dash_5: 1534259984
-      Lasso_Larry_Dash_6: -1975062887
-      Lasso_Larry_Dash_7: -353966927
+      Lasso_Larry_Dash_0: 4452103222653893026
+      Lasso_Larry_Dash_1: -709231713130012714
+      Lasso_Larry_Dash_2: 3801164601924717071
+      Lasso_Larry_Dash_3: 3081065023030154782
+      Lasso_Larry_Dash_4: -6585604185478979876
+      Lasso_Larry_Dash_5: -2440203367325892412
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
