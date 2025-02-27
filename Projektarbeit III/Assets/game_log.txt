@@ -28,3 +28,28 @@ To add a scene to the active build profile or shared scene list use the menu Fil
 27.02.2025 21:17:53 [Exception]: NullReferenceException: Object reference not set to an instance of an object
 27.02.2025 21:17:54 [Log]: Logger stopped
 27.02.2025 21:17:54 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:18:48 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+27.02.2025 21:18:48 [Log]: Logger initialized successfully
+27.02.2025 21:18:48 [Log]: 27.02.2025 21:18:48 [Log]: Logger initialized successfully
+27.02.2025 21:18:50 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:19:04 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+27.02.2025 21:19:04 [Log]: Logger initialized successfully
+27.02.2025 21:19:04 [Log]: 27.02.2025 21:19:04 [Log]: Logger initialized successfully
+27.02.2025 21:19:07 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:19:10 [Error]: Scene 'Training Room' couldn't be loaded because it has not been added to the active build profile or shared scene list or the AssetBundle has not been loaded.
+To add a scene to the active build profile or shared scene list use the menu File->Build Profiles
+27.02.2025 21:20:03 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+27.02.2025 21:20:03 [Log]: Logger initialized successfully
+27.02.2025 21:20:03 [Log]: 27.02.2025 21:20:03 [Log]: Logger initialized successfully
+27.02.2025 21:20:04 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:20:06 [Exception]: IndexOutOfRangeException: Index was outside the bounds of the array.
+27.02.2025 21:20:25 [Log]: Logger stopped
+27.02.2025 21:20:26 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:20:54 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+27.02.2025 21:20:54 [Log]: Logger initialized successfully
+27.02.2025 21:20:54 [Log]: 27.02.2025 21:20:54 [Log]: Logger initialized successfully
+27.02.2025 21:20:56 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:20:59 [Exception]: IndexOutOfRangeException: Index was outside the bounds of the array.
+27.02.2025 21:21:03 [Log]: Logger stopped
+27.02.2025 21:21:03 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:21:06 [Exception]: NullReferenceException: Object reference not set to an instance of an object
