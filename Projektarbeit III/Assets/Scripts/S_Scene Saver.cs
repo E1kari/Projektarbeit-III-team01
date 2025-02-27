@@ -5,16 +5,22 @@ using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "S_SceneSaver", menuName = "Scriptable Objects/S_SceneSaver")]
 
-[InitializeOnLoad]
+
 public class S_SceneSaver : ScriptableObject
 {
     private static string previousMenuScene;
     private static string currentMenuScene;
     private static string currentLevelScene;
 
-    static S_SceneSaver()
+    private static bool showPreview = true;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    private static void Initialize()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        #if !UNITY_EDITOR
+        Logger.Instance.Log("SceneSaver initialized", "SceneSaver", LogType.Log);
+        #endif
     }
 
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -27,14 +33,26 @@ public class S_SceneSaver : ScriptableObject
             // Update the current menu scene to the newly loaded scene
             currentMenuScene = scene.name;
 
+            if (scene.name.ToLower().Equals("menu_selection"))
+            {
+                showPreview = true;
+            }
+            else if (scene.name.ToLower().Equals("menu_preview"))
+            {
+                showPreview = false;
+            }
+
         }
         else if (scene.name.ToLower().Contains("level") || scene.name.ToLower().Contains("room"))
         {
-            // If a level or room scene is loaded, update that reference
             currentLevelScene = scene.name;
         }
     }
 
+    public bool GetShowPreview()
+    {
+        return showPreview;
+    }
 
     public string GetPreviousMenuSceneName()
     {

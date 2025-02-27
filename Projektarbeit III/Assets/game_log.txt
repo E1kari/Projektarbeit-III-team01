@@ -1,0 +1,35 @@
+27.02.2025 21:36:27 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+27.02.2025 21:36:27 [Log]: Logger initialized successfully
+27.02.2025 21:36:27 [Log]: 27.02.2025 21:36:27 [Log]: Logger initialized successfully
+27.02.2025 21:36:28 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:36:30 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+27.02.2025 21:36:32 [Log]: Logger stopped
+27.02.2025 21:36:32 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:36:33 [Exception]: IndexOutOfRangeException: Index was outside the bounds of the array.
+27.02.2025 21:36:38 [Log]: Logger stopped
+27.02.2025 21:36:38 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:39:34 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+27.02.2025 21:39:34 [Log]: Logger initialized successfully
+27.02.2025 21:39:34 [Log]: 27.02.2025 21:39:34 [Log]: Logger initialized successfully
+27.02.2025 21:39:36 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:39:37 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+27.02.2025 21:39:40 [Log]: Logger stopped
+27.02.2025 21:40:16 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+27.02.2025 21:40:16 [Log]: Logger initialized successfully
+27.02.2025 21:40:16 [Log]: 27.02.2025 21:40:16 [Log]: Logger initialized successfully
+27.02.2025 21:40:18 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:40:19 [Error]: Invalid scene asset
+27.02.2025 21:40:20 [Error]: Invalid scene asset
+27.02.2025 21:40:20 [Error]: Invalid scene asset
+27.02.2025 21:40:22 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+27.02.2025 21:40:25 [Log]: Logger stopped
+27.02.2025 21:40:26 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:40:56 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+27.02.2025 21:40:56 [Log]: Logger initialized successfully
+27.02.2025 21:40:56 [Log]: 27.02.2025 21:40:56 [Log]: Logger initialized successfully
+27.02.2025 21:40:58 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:40:59 [Error]: Invalid scene asset
+27.02.2025 21:41:00 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+27.02.2025 21:41:02 [Log]: Logger stopped
+27.02.2025 21:41:02 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+27.02.2025 21:41:03 [Exception]: NullReferenceException: Object reference not set to an instance of an object
