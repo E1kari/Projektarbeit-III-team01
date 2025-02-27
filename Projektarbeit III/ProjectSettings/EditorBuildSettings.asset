@@ -15,14 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/menu_selection.unity
     guid: 9811f0678eea237459393905311e8cf5
   - enabled: 1
+    path: Assets/Scenes/Menus/menu_preview.unity
+    guid: 6e3f11022a8dd354caf2be0e4694c8ad
+  - enabled: 1
     path: Assets/Scenes/Menus/menu_scoreboard.unity
     guid: ba04ce07129e8ab41a08e6377c443055
   - enabled: 1
     path: Assets/Scenes/Menus/menu_options.unity
     guid: a3fb294355d906b4ea9904e5303d9171
-  - enabled: 1
-    path: Assets/Scenes/Menus/menu_credits.unity
-    guid: b3d55176b5a60474eb8bfc5482364cf6
   - enabled: 1
     path: Assets/Scenes/Training Room.unity
     guid: d75baf28ed1c9e648838f0f3048159bb
@@ -32,6 +32,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 86c0dab9b159268448dd9bc53e591d83
+  - enabled: 1
+    path: Assets/Scenes/shortcut Level 2.unity
+    guid: 72d689ca92f580d44a6090e831b3cad0
+  - enabled: 1
+    path: Assets/Scenes/Menus/menu_credits.unity
+    guid: b3d55176b5a60474eb8bfc5482364cf6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3f3d51987d171ba4d94f09e53aad4990, type: 3}
   m_UseUCBPForAssetBundles: 0
