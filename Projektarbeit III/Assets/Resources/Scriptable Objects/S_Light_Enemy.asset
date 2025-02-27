@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: S_Light_Enemy
   m_EditorClassIdentifier: 
   fallDistance_: 0.1
-  attackRange_: 4.6
+  attackRange_: 11.1
   attackCooldown_: 1.2
   projectileSpeed_: 6.59
   projectileSize_: 0.3
