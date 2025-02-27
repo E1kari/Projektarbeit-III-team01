@@ -60,12 +60,10 @@ public class ButtonBehavior : MonoBehaviour
     {
         if (sceneNameToLoad.ToLower().Contains("level") || sceneNameToLoad.ToLower().Contains("room") || sceneNameToLoad.ToLower().Contains("main"))
         {
-            ReactivateDeactivatedObjects();
             SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Single);
         }
         else if (sceneNameToLoad.ToLower().Contains("menu"))
         {
-            ReactivateDeactivatedObjects();
             SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Additive);
         }
 
@@ -100,47 +98,6 @@ public class ButtonBehavior : MonoBehaviour
             Logger.Instance.Log("Invalid scene name " + sceneName, "Button", LogType.Error);
         }
         #endif
-    }
-
-    private IEnumerator DeactivateDuplicatesCoroutine()
-    {
-        yield return null; // Ensure all components are initialized
-
-        deactivatedObjects.Clear(); // Reset the list each time
-
-        // Find all EventSystems in the scene
-        EventSystem[] eventSystems = FindObjectsByType<EventSystem>(FindObjectsSortMode.None);
-        if (eventSystems.Length > 1)
-        {
-            for (int i = 1; i < eventSystems.Length; i++)
-            {
-                deactivatedObjects.Add(eventSystems[i].gameObject);
-                eventSystems[i].gameObject.SetActive(false); // Deactivate but store reference
-            }
-        }
-
-        // Find all AudioListeners in the scene
-        AudioListener[] audioListeners = FindObjectsByType<AudioListener>(FindObjectsSortMode.None);
-        if (audioListeners.Length > 1)
-        {
-            for (int i = 1; i < audioListeners.Length; i++)
-            {
-                deactivatedObjects.Add(audioListeners[i].gameObject);
-                audioListeners[i].gameObject.SetActive(false);
-            }
-        }
-    }
-
-    public void ReactivateDeactivatedObjects()
-    {
-        foreach (GameObject obj in deactivatedObjects)
-        {
-            if (obj != null)
-            {
-                obj.SetActive(true);
-            }
-        }
-        deactivatedObjects.Clear(); // Clear the list after reactivating
     }
 
     public void activatePanel(GameObject pa_panel)
