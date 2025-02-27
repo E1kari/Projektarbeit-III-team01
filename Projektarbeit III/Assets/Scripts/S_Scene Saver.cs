@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "S_SceneSaver", menuName = "Scriptable Objects/S_SceneSaver")]
 
-[InitializeOnLoad]
+
 public class S_SceneSaver : ScriptableObject
 {
     private static string previousMenuScene;
@@ -14,9 +14,13 @@ public class S_SceneSaver : ScriptableObject
 
     private static bool showPreview = true;
 
-    static S_SceneSaver()
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    private static void Initialize()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        #if !UNITY_EDITOR
+        Logger.Instance.Log("SceneSaver initialized", "SceneSaver", LogType.Log);
+        #endif
     }
 
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
