@@ -3,22 +3,32 @@ using UnityEngine;
 
 public class Logger : MonoBehaviour
 {
-    public string logFilePath;
-
-    void Awake()
+    private static Logger instance;
+    public static Logger Instance
     {
-        logFilePath = Path.Combine(Application.dataPath, "game_log.txt");
+        get
+        {
+            return instance;
+        }
+    }
 
-        #if UNITY_EDITOR
-        //
-        #else
+    private string logFilePath;
 
-        Debug.Log("Logger started. Log file path: " + logFilePath);
-        
-        DontDestroyOnLoad(this.gameObject);
-        Application.logMessageReceived += Log;
-        Log("Logger started (Log Message to test if Log function works)", "Logger", LogType.Log);
-        #endif
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            logFilePath = Path.Combine(Application.dataPath, "game_log.txt");
+            Debug.Log($"Logger started. Log file path: {logFilePath}");
+            Application.logMessageReceived += Log;
+            Log("Logger initialized successfully", "Logger", LogType.Log);
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Log(string logString, string stackTrace, LogType type)
@@ -37,9 +47,29 @@ public class Logger : MonoBehaviour
         Debug.Log(logEntry);
     }
 
+    public void FindLogger()
+    {
+        instance = this.gameObject.GetComponent<Logger>();
+        #if !UNITY_EDITOR
+        if (instance == null)
+        {
+            Debug.LogError("Logger not found");
+            return;
+        }
+        else if (instance != null)
+        {
+            if (instance.logFilePath == null)
+            {
+                instance.logFilePath = System.IO.Path.Combine(Application.dataPath, "game_log.txt");
+                instance.Log("Logger started over script. Log file path: " + instance.logFilePath, "Logger", LogType.Log);
+            }
+        }
+        #endif
+    }
+
     void OnDestroy()
     {
-        Debug.Log("Logger stopped");
         Application.logMessageReceived -= Log;
+        Debug.Log("Logger stopped");
     }
 }

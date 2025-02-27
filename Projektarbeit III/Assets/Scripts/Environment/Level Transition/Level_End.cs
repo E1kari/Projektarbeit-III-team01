@@ -13,6 +13,7 @@ public class Level_End : MonoBehaviour
     [SerializeField]
     private S_Timer timer_;
     private BoxCollider2D boxCollider2D_;
+    private Logger logger = Logger.Instance;
 
     void Start()
     {
@@ -38,14 +39,21 @@ public class Level_End : MonoBehaviour
             }
             #else
             sceneName = sceneToLoad_.name; // Use object name in a build
+            Logger.Instance.Log("Scene name: " + sceneName, "Level_End", LogType.Log);
             #endif
 
             if (!string.IsNullOrEmpty(sceneName))
             {
+                #if !UNITY_EDITOR
+                Logger.Instance.Log("Loading scene: " + sceneName, "Level_End", LogType.Log);
+                #endif
                 SceneManager.LoadScene(sceneName);
             }
             else
             {
+                #if !UNITY_EDITOR
+                Logger.Instance.Log("Scene name is empty or null!", "Level_End", LogType.Error);
+                #endif
                 Debug.LogError("Scene name is empty or null!");
             }
         }

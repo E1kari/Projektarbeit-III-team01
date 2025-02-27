@@ -12,31 +12,11 @@ public class ButtonBehavior : MonoBehaviour
 {
     private GameObject[] panels_;
     private S_SceneSaver sceneSaver_;
-    private Logger logger; // Logger object, needed for building (why is it needed tho?)
+    private Logger logger = Logger.Instance;
     private List<GameObject> deactivatedObjects = new List<GameObject>();
 
     public void Start()
     {
-        #if UNITY_EDITOR
-        // Nuh uh, you do nothing editpr
-        #else
-        logger = Object.FindFirstObjectByType<Logger>();
-        if (logger == null)
-        {
-            Debug.LogError("Logger not found");
-            return;
-        }
-        else if (logger != null)
-        {
-            if (logger.logFilePath == null)
-            {
-                logger.logFilePath = System.IO.Path.Combine(Application.dataPath, "game_log.txt");
-                logger.Log("Logger started in Button. Log file path: " + logger.logFilePath, "Logger", LogType.Log);
-            }
-            logger.Log("Button loaded", "Button", LogType.Log);
-        }
-        #endif
-
         sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -47,8 +27,14 @@ public class ButtonBehavior : MonoBehaviour
             if (panel.name == "Control Panel")
             {
                 panel.SetActive(true);
+                #if !UNITY_EDITOR 
+                Logger.Instance.Log("Control Panel loaded:", "Button", LogType.Log); 
+                #endif
             }
             else panel.SetActive(false);
+            #if !UNITY_EDITOR
+            Logger.Instance.Log("Panel loaded: " + panel.name, "Button", LogType.Log);
+            #endif
         }
     }
 
@@ -60,37 +46,26 @@ public class ButtonBehavior : MonoBehaviour
         }
     }
 
-    public void loadScene(
-    #if UNITY_EDITOR
-        SceneAsset pa_scene
-    #else
-        string sceneName
-    #endif
-    )
+    public void LoadScene(string sceneNameToLoad)
     {
         Time.timeScale = 1f; // Resume time
 
-        if (
-        #if UNITY_EDITOR
-            pa_scene == null
-        #else
-            string.IsNullOrEmpty(sceneName)
-        #endif
-        )
+        if (string.IsNullOrEmpty(sceneNameToLoad))
         {
-            Debug.LogError("Scene is not set");
+            Debug.LogError("Scene name is not set");
+            #if !UNITY_EDITOR
+            Logger.Instance.Log("Scene name is not set", "Button", LogType.Error);
+            #endif
             return;
         }
-
-        string sceneNameToLoad;
-
-        #if UNITY_EDITOR
-        string scenePath = AssetDatabase.GetAssetPath(pa_scene);
-        sceneNameToLoad = System.IO.Path.GetFileNameWithoutExtension(scenePath);
-        #else
-        sceneNameToLoad = sceneName;
+        #if !UNITY_EDITOR
+        Logger.Instance.Log("Scene to load: " + sceneNameToLoad, "Button", LogType.Log);
         #endif
+        LoadSceneByName(sceneNameToLoad);
+    }
 
+    private void LoadSceneByName(string sceneNameToLoad)
+    {
         if (sceneNameToLoad.ToLower().Contains("level") || sceneNameToLoad.ToLower().Contains("room") || sceneNameToLoad.ToLower().Contains("main"))
         {
             ReactivateDeactivatedObjects();
@@ -102,7 +77,37 @@ public class ButtonBehavior : MonoBehaviour
             SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Additive);
         }
 
+        #if !UNITY_EDITOR
+        Logger.Instance.Log("Scene loaded: " + sceneNameToLoad, "Button", LogType.Log);
+        #endif
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+    }
+
+    // Wrapper method to be called by the button in the Unity Inspector
+    public void LoadSceneWrapper(string sceneName)
+    {
+        #if UNITY_EDITOR
+        if (!string.IsNullOrEmpty(sceneName))
+        {
+            LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogError("Invalid scene asset");
+        }
+        #else
+        Logger.Instance.Log("Scene to load: " + sceneName, "Button", LogType.Log);
+        if (!string.IsNullOrEmpty(sceneName))
+        {
+            Logger.Instance.Log("Scene to load: " + sceneName, "Button", LogType.Log);
+            LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogError("Invalid scene name");
+            Logger.Instance.Log("Invalid scene name " + sceneName, "Button", LogType.Error);
+        }
+        #endif
     }
 
     private IEnumerator DeactivateDuplicatesCoroutine()
