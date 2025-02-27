@@ -14,7 +14,9 @@ public class Level_End : MonoBehaviour
     private S_Timer timer_;
     private BoxCollider2D boxCollider2D_;
     private Logger logger = Logger.Instance;
+    private bool isTriggered = false;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         boxCollider2D_ = gameObject.AddComponent<BoxCollider2D>();
@@ -25,8 +27,11 @@ public class Level_End : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !isTriggered) // for some reason this gets triggered twice without isTriggered and I don't know why and I hate this. It's so much clutter for nothing :/
         {
+            isTriggered = true;
+
+            GameObject.Find("Pause Manager").GetComponent<PauseManager>().TogglePause();
             timer_.StopTimer();
 
             string sceneName = "";
@@ -47,7 +52,7 @@ public class Level_End : MonoBehaviour
                 #if !UNITY_EDITOR
                 Logger.Instance.Log("Loading scene: " + sceneName, "Level_End", LogType.Log);
                 #endif
-                SceneManager.LoadScene(sceneName);
+                SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
             }
             else
             {

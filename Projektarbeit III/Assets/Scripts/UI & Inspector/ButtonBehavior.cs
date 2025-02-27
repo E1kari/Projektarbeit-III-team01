@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 #if UNITY_EDITOR
@@ -13,43 +12,36 @@ public class ButtonBehavior : MonoBehaviour
     private GameObject[] panels_;
     private S_SceneSaver sceneSaver_;
     private Logger logger = Logger.Instance;
-    private List<GameObject> deactivatedObjects = new List<GameObject>();
 
     public void Start()
     {
         sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
-
         panels_ = GameObject.FindGameObjectsWithTag("Panel");
         foreach (GameObject panel in panels_)
         {
-            if (panel.name == "Control Panel")
-            {
-                panel.SetActive(true);
-                #if !UNITY_EDITOR 
-                Logger.Instance.Log("Control Panel loaded:", "Button", LogType.Log); 
-                #endif
-            }
-            else panel.SetActive(false);
-            #if !UNITY_EDITOR
-            Logger.Instance.Log("Panel loaded: " + panel.name, "Button", LogType.Log);
-            #endif
+            panel.SetActive(false);
         }
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void loadScene(string pa_sceneName)
     {
-        if (this != null)
+        Time.timeScale = 1f; // Resume time
+
+        if (pa_sceneName.ToLower().Contains("level") || pa_sceneName.ToLower().Contains("room") || pa_sceneName.ToLower().Contains("main")) // can be removed, when scenes are cleaned up and sorted in the build menu
         {
-            StartCoroutine(DeactivateDuplicatesCoroutine());
+            SceneManager.LoadScene(pa_sceneName, LoadSceneMode.Single);
+
+        }
+
+        else if (pa_sceneName.ToLower().Contains("menu"))
+        {
+            SceneManager.LoadScene(pa_sceneName, LoadSceneMode.Additive);
         }
     }
 
     public void LoadScene(string sceneNameToLoad)
     {
-        Time.timeScale = 1f; // Resume time
-
         if (string.IsNullOrEmpty(sceneNameToLoad))
         {
             Debug.LogError("Scene name is not set");
@@ -158,6 +150,7 @@ public class ButtonBehavior : MonoBehaviour
             Debug.LogError("Panel is not set");
             return;
         }
+
         foreach (GameObject panel in panels_)
         {
             panel.SetActive(false);
@@ -165,12 +158,25 @@ public class ButtonBehavior : MonoBehaviour
         pa_panel.gameObject.SetActive(true);
     }
 
+    public void startLevel()
+    {
+        GameObject.Find("Preview Manager").GetComponent<PreviewManager>().reactivatePauseManager();
+        SceneManager.UnloadSceneAsync("menu_preview");
+        resumeLevel();
+    }
+
+    public void nextLevel()
+    {
+        int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        string levelName = System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(nextLevelIndex));
+        SceneManager.LoadScene(levelName);
+    }
+
     public void resetLevel()
     {
         resumeLevel();
-        ReactivateDeactivatedObjects();
         SceneManager.LoadScene(sceneSaver_.GetCurrentLevelSceneName());
-        SceneManager.UnloadSceneAsync("menu_pause"); // Unload menu
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
     }
 
     public void resumeLevel()
@@ -180,12 +186,12 @@ public class ButtonBehavior : MonoBehaviour
 
     public void back()
     {
-        ReactivateDeactivatedObjects();
-        SceneManager.LoadScene(sceneSaver_.GetPreviousMenuSceneName());
+        SceneManager.UnloadSceneAsync("menu_options");
     }
 
     public void exitGame()
     {
+        Debug.Log("closing game...");
         Application.Quit();
     }
 }
