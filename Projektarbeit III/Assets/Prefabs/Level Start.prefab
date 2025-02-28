@@ -100,5 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9745ea47c0720a44b5b823b95d41fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab_: {fileID: 5373175673608368738, guid: 18396234c85e8554f8361ee6894630ee, type: 3}
+  playerPrefab_: {fileID: 1383375594605279248, guid: 828f3dcd3d4fac047b5731f00a501aae, type: 3}
   timer_: {fileID: 11400000, guid: d738793ecc4aa0e4c973fd2d915f9801, type: 2}

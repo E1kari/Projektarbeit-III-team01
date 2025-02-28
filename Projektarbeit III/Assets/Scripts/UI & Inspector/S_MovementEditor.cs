@@ -66,6 +66,10 @@ public class S_MovementEditor : ScriptableObject
     [Tooltip("The tolerance for the grapple distance. The higher the value, the more forgiving the grapple/easier to hit the target")]
     [Range(-5f, 10f)] public float toleranceRadius = 0.5f;
 
+
+    [Tooltip("The degrees the player can tilt their head in the direction of the grapple point. The tilt will cap at this number")]
+    [Range(0f, 90f)] public float headTiltLimit = 60f;
+
     [Header("Indicator Settings")]
     [Tooltip("The puffer when the hook is in the tolerance radius. The higher the value, the bigger the puffer")]
     [Range(-5f, 10f)] public float indicatorPuffer = 0.55f;

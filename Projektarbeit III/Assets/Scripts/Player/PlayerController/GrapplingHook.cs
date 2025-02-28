@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -32,6 +33,9 @@ public class GrapplingHook : MonoBehaviour
     private float indicatorPuffer;           // Puffer when the hook is in the tolerance radius
     private float indicatorSize;             // Indicator size
     private int indicatorSegments;         // Amount of segments the indicator has
+
+    GameObject head;
+    Vector2 indicatorDirection;
 
     void Start()
     {
@@ -73,6 +77,8 @@ public class GrapplingHook : MonoBehaviour
 
         // Register input callbacks
         grappleAction.Enable();
+
+        head = gameObject.transform.GetChild(1).gameObject;
     }
 
     void Update()
@@ -86,6 +92,46 @@ public class GrapplingHook : MonoBehaviour
         {
             HandleGrappling();
         }
+
+        rotatePlayerHead();
+    }
+
+    private void rotatePlayerHead()
+    {
+        float maxTiltAngle = controller.movementEditor.headTiltLimit;
+        float angle;
+
+
+        if (head.GetComponent<SpriteRenderer>().flipX)
+        {
+            angle = Vector2.SignedAngle(Vector2.left, indicatorDirection);
+        }
+        else
+        {
+            angle = Vector2.SignedAngle(Vector2.right, indicatorDirection);
+        }
+
+
+        if (angle > maxTiltAngle)
+        {
+            head.transform.right = Quaternion.Euler(0, 0, maxTiltAngle) * Vector2.right;
+        }
+        else if (angle < -maxTiltAngle)
+        {
+            head.transform.right = Quaternion.Euler(0, 0, -maxTiltAngle) * Vector2.right;
+        }
+        else
+        {
+            if (!head.GetComponent<SpriteRenderer>().flipX)
+            {
+                head.transform.right = indicatorDirection;
+            }
+            else
+            {
+                head.transform.right = -indicatorDirection;
+            }
+        }
+
     }
 
     private void StartGrapple(Vector2 target)
@@ -136,7 +182,7 @@ public class GrapplingHook : MonoBehaviour
                 // Update the rope's visual position
                 UpdateLineRenderer(transform.position, enemy.transform.position);
             }
-            else 
+            else
             {
                 UpdateLineRenderer(transform.position, grappleSpot);
             }
@@ -164,8 +210,8 @@ public class GrapplingHook : MonoBehaviour
                 {
                     if (enemy.currentStateName != "EnemyGrappledState")
                     {
-                    //Debug.Log("Enemy found! Changing to Grappled state");
-                    enemy.ChangeState(new EnemyGrappledState(enemy));
+                        //Debug.Log("Enemy found! Changing to Grappled state");
+                        enemy.ChangeState(new EnemyGrappledState(enemy));
                     }
                 }
                 else
@@ -181,7 +227,7 @@ public class GrapplingHook : MonoBehaviour
                 // Update the rope's visual position
                 UpdateLineRenderer(transform.position, enemy.transform.position);
             }
-            else 
+            else
             {
                 UpdateLineRenderer(transform.position, grappleSpot);
             }
@@ -196,9 +242,9 @@ public class GrapplingHook : MonoBehaviour
         //Debug.Log("Stopping grapple");
 
         // Stop grappling, Start the cooldown timer and hide the rope
-        isGrappling = false; 
+        isGrappling = false;
         isCooldown = true;
-        cooldownTimer = grappleCooldown;        
+        cooldownTimer = grappleCooldown;
         lineRenderer.positionCount = 0;
 
         if (grappleCollider.tag == "Light Enemy" && enemy.currentStateName == "EnemyGrappledState")
@@ -214,7 +260,7 @@ public class GrapplingHook : MonoBehaviour
                 //Debug.LogError("Enemy component not found on Light Enemy");
             }
         }
-        
+
         CheckCollisionState(); // Check which state to transition to
     }
 
@@ -338,7 +384,7 @@ public class GrapplingHook : MonoBehaviour
         {
             controller.UpdatePhysicsMaterial();
             //Debug.Log("Stopped grappling with no collision");
-            controller.ChangeState(new IdleState(controller));            
+            controller.ChangeState(new IdleState(controller));
         }
     }
 
@@ -369,30 +415,29 @@ public class GrapplingHook : MonoBehaviour
 
     private void UpdateGrappleIndicator()
     {
-        Vector2 direction;
         Vector2 playerPosition = transform.position;
 
         if (isUsingController)
         {
             // Use the controller's aim input for direction
-            direction = aimAction.ReadValue<Vector2>().normalized;
-            if (direction != Vector2.zero)
+            indicatorDirection = aimAction.ReadValue<Vector2>().normalized;
+            if (indicatorDirection != Vector2.zero)
             {
-                lastControllerDirection = direction;
+                lastControllerDirection = indicatorDirection;
             }
             else
             {
-                direction = lastControllerDirection;
+                indicatorDirection = lastControllerDirection;
             }
         }
         else
         {
             // Use the mouse position for direction
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            direction = (mousePosition - (Vector2)playerPosition).normalized;
+            indicatorDirection = (mousePosition - (Vector2)playerPosition).normalized;
         }
 
-        RaycastHit2D hit = FindGrapplePoint(direction, grappleRange, grappleLayer);
+        RaycastHit2D hit = FindGrapplePoint(indicatorDirection, grappleRange, grappleLayer);
 
         if (hit.collider != null)
         {
@@ -419,7 +464,7 @@ public class GrapplingHook : MonoBehaviour
                 grappleIndicator.endColor = controller.movementEditor.indicatorColorNotInRange;
 
                 // Draw the grapple indicator at the maximum range in the direction
-                Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
+                Vector2 maxRangePoint = (Vector2)playerPosition + indicatorDirection * grappleRange;
                 DrawCircle(grappleIndicator, maxRangePoint, indicatorSize, indicatorSegments);
             }
         }
@@ -429,7 +474,7 @@ public class GrapplingHook : MonoBehaviour
             grappleIndicator.endColor = controller.movementEditor.indicatorColorNotInRange;
 
             // Draw the grapple indicator at the maximum range in the direction
-            Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
+            Vector2 maxRangePoint = (Vector2)playerPosition + indicatorDirection * grappleRange;
             DrawCircle(grappleIndicator, maxRangePoint, indicatorSize, indicatorSegments);
         }
 
@@ -438,7 +483,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void DrawCircle(LineRenderer lineRenderer, Vector2 position, float radius, int segments)
     {
-        lineRenderer.positionCount = segments + 1; 
+        lineRenderer.positionCount = segments + 1;
         float angle = 0f;
 
         for (int i = 0; i <= segments; i++)

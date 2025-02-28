@@ -30,6 +30,7 @@ MonoBehaviour:
   grappleRange: 12
   grappleSpeedBoost: 0.5
   toleranceRadius: 0.5
+  headTiltLimit: 90
   indicatorPuffer: 0.55
   indicatorSize: 0.55
   indicatorSegments: 15

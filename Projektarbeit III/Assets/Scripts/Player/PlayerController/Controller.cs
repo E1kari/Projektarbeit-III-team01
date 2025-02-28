@@ -11,6 +11,8 @@ public class Controller : MonoBehaviour
     private Animator animator;
     private StateIndexingBecauseTheAnimatorIsMean stateIndex;
     private SpriteRenderer spriteRenderer;
+    private SpriteRenderer bodyRenderer;
+    private SpriteRenderer headRenderer;
     [SerializeField] private PhysicsMaterial2D highFriction;
     [SerializeField] private PhysicsMaterial2D lowFriction;
     private Rigidbody2D rb;
@@ -19,11 +21,21 @@ public class Controller : MonoBehaviour
     {
         UpdatePhysicsMaterial(); // Update the physics material based on the player's velocity
         currentState?.UpdateState(); // Safely call UpdateState if there's a current state
+        if (bodyRenderer.flipX)
+        {
+            headRenderer.flipX = true;
+        }
+        else
+        {
+            headRenderer.flipX = false;
+        }
     }
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        bodyRenderer = gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        headRenderer = gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
             //Debug.LogError("SpriteRenderer component is missing on the Player game object.");
@@ -136,7 +148,8 @@ public class Controller : MonoBehaviour
         {
             return true;
         }
-        
+
+
         return false;
     }
 
@@ -213,11 +226,11 @@ public class Controller : MonoBehaviour
 
     public void UpdatePhysicsMaterial()
     {
-        if (((rb.linearVelocity.y < 0) || (Mathf.Abs(rb.linearVelocity.x) < 0.01f)) && IsGrounded())  
+        if (((rb.linearVelocity.y < 0) || (Mathf.Abs(rb.linearVelocity.x) < 0.01f)) && IsGrounded())
         {
             rb.sharedMaterial = highFriction;
         }
-        else 
+        else
         {
             rb.sharedMaterial = lowFriction;
         }
