@@ -114,6 +114,8 @@ public class GrapplingHook : MonoBehaviour
             if (hit.collider.tag == "Light Enemy" || hit.collider.tag == "GrapplePoint")
             {
                 grappleSpot = hit.collider.bounds.center;
+                controller.movementEditor.hasDashed = false;
+                controller.movementEditor.hasJumped = false;
             }
             else
             {
