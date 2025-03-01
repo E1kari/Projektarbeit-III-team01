@@ -192,6 +192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementEditor: {fileID: 11400000, guid: 7032a72594e9f2e45b70dacea5bbaab4, type: 2}
+  highFriction: {fileID: 6200000, guid: 694893de6912e684aacfc24eb537b302, type: 2}
+  lowFriction: {fileID: 6200000, guid: 4c6fb32b2b95767488bbd33c34fcd52d, type: 2}
 --- !u!212 &8718892119889206154
 SpriteRenderer:
   m_ObjectHideFlags: 0

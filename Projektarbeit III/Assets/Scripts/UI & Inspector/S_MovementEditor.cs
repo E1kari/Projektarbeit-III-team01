@@ -76,6 +76,12 @@ public class S_MovementEditor : ScriptableObject
     [Tooltip("The amount of segments the indicator has. The higher the value, the more segments. Segments are basically the lines of the indicator")]
     [Range(-5f, 25f)] public int indicatorSegments = 15;
 
+    [Tooltip("The indicator color when the hook is in the tolerance radius")]
+    public Color indicatorColor = Color.green;
+
+    [Tooltip("The indicator color when the hook is not in the tolerance radius")]
+    public Color indicatorColorNotInRange = Color.blue;
+
     [Header("Enemy Settings")]
     [Tooltip("The speed the player hooks the enemy with. The higher the value, the faster the pull")]
     [Range(0.01f, 50f)] public float enemyHookSpeed = 10f;
@@ -96,15 +102,4 @@ public class S_MovementEditor : ScriptableObject
 
 public class ReadOnlyAttribute : PropertyAttribute // Custom attribute to make a field read-only in the inspector
 {
-}
-
-[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
-public class ReadOnlyDrawer : PropertyDrawer
-{
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) // Override the OnGUI method to make the property read-only
-    {
-        GUI.enabled = false;
-        EditorGUI.PropertyField(position, property, label); // Draw the property field as disabled
-        GUI.enabled = true;
-    }
 }
