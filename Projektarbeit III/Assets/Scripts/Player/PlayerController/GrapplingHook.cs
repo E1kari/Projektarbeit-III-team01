@@ -24,7 +24,6 @@ public class GrapplingHook : MonoBehaviour
     private PlayerInput playerInput;         // Player input reference
     private InputAction grappleAction;       // Grappling input action
     private InputAction aimAction;           // Aim input action for controller
-    private InputAction stickAction;         // Wall sticking input action
     private bool isUsingController;          // Whether the player is using a controller
     private Vector2 lastControllerDirection; // Last direction from the controller
     private Enemy enemy;                     // Reference to the enemy
@@ -41,7 +40,6 @@ public class GrapplingHook : MonoBehaviour
         playerInput = controller.GetComponent<PlayerInput>();
         grappleAction = playerInput.actions["Grappling"];
         aimAction = playerInput.actions["Aiming"];
-        stickAction = playerInput.actions["WallSticking"];
         aimAction.Enable();
 
         // Initialize the LineRenderer to hide the rope
@@ -90,7 +88,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void StartGrapple(Vector2 target)
     {
-        if (isCooldown && !isGrappling) // Check if the hook is on cooldown and not already grappling
+        if (isCooldown || isGrappling) // Check if the hook is on cooldown or already grappling
         {
             //Debug.Log("Hook is on cooldown and/or already grappling");
             return;
