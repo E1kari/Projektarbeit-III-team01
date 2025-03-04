@@ -56,6 +56,7 @@ public class IdleState : Interface.IState
         if (jumpAction.triggered && !controller.movementEditor.hasJumped)
         {
             controller.ChangeState(new JumpingState(controller));
+            controller.movementEditor.hasJumped = true;
         }
 
         // Transition to DashingState if Dash button is pressed and player hasn't dashed yet

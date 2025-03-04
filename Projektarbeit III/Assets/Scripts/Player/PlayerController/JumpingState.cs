@@ -30,7 +30,6 @@ public class JumpingState : Interface.IState
     {
         //Debug.Log("Entered Jumping State");
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Apply upward force
-        controller.movementEditor.hasJumped = true; // Set the jump flag
 
         // Reset the wall jump cooldown timer if the player was previously wall jumping
         if (controller.GetPreviousState() is WallJumpingState)
