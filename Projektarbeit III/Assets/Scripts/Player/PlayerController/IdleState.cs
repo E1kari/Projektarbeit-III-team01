@@ -27,7 +27,6 @@ public class IdleState : Interface.IState
     public void OnEnter()
     {
         //Debug.Log("Entered Idle State");
-        // Reset animations, stop movement, etc.
     }
 
     public void UpdateState()
@@ -39,6 +38,12 @@ public class IdleState : Interface.IState
         if (rb.linearVelocityY < 0)
         {
             rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
+        }
+
+        if (controller.IsGrounded())
+        {
+            controller.movementEditor.hasJumped = false;
+            controller.movementEditor.hasDashed = false;
         }
 
         // Transition to WalkingState if horizontal input is detected
@@ -54,23 +59,10 @@ public class IdleState : Interface.IState
         }
 
         // Transition to DashingState if Dash button is pressed and player hasn't dashed yet
-        if (dashAction.triggered && !controller.movementEditor.hasDashed)
+        if (dashAction.triggered && !controller.movementEditor.hasDashed && controller.IsGrounded())
         {
-            if (controller.IsGrounded())
-            {
-                //Debug.Log("Player is grounded");
-                //Debug.Log("Cannot dash while grounded");
-            }
-            else
-            {
-                controller.ChangeState(new DashingState(controller));
-                controller.movementEditor.hasDashed = true;
-            }
-        }
-
-        if (controller.IsCeilinged())
-        {
-            //Debug.Log("Player is touching a ceiling");
+            controller.ChangeState(new DashingState(controller));
+            controller.movementEditor.hasDashed = true;
         }
     }
 

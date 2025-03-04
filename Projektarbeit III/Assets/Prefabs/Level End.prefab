@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: -533865393
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6007857137893288414, guid: ae108dd1b21f1a54199334ea796bd1da, type: 3}
-  m_Color: {r: 0.9019608, g: 0.30980393, b: 0.30980393, a: 1}
+  m_Sprite: {fileID: 2955286255927101427, guid: b6fc1c1eb6337f84693ed95abd34522d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 4, y: 3}
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,5 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b987138892d6e34ba77642dcc515313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad_: {fileID: 102900000, guid: 9811f0678eea237459393905311e8cf5, type: 3}
+  sceneToLoad_: {fileID: 102900000, guid: ba04ce07129e8ab41a08e6377c443055, type: 3}
   timer_: {fileID: 11400000, guid: d738793ecc4aa0e4c973fd2d915f9801, type: 2}

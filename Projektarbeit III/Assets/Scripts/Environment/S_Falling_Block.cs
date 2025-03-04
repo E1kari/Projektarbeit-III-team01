@@ -9,4 +9,10 @@ public class S_Falling_Block : ScriptableObject
 
     [Range(0.0f, 5f)]
     public float fallDelay_ = 0.5f;
+
+    [Range(0.0f, 5f)]
+    public float graceDistance_ = 0.5f;
+
+    [Range(0.0f, 0.1f)]
+    public float shakeIntensity = 0.01f;
 }
