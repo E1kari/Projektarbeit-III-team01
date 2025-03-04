@@ -562,6 +562,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3639296625323785245, guid: 828f3dcd3d4fac047b5731f00a501aae, type: 3}
+      propertyPath: invincible
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529917082366911884, guid: 828f3dcd3d4fac047b5731f00a501aae, type: 3}
+      propertyPath: showFps
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529917082366911884, guid: 828f3dcd3d4fac047b5731f00a501aae, type: 3}
+      propertyPath: showTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8467274663089508137, guid: 828f3dcd3d4fac047b5731f00a501aae, type: 3}
       propertyPath: wallJumpCooldown
       value: 0.1
@@ -5636,11 +5648,11 @@ PrefabInstance:
       objectReference: {fileID: 1383375594605279248, guid: 828f3dcd3d4fac047b5731f00a501aae, type: 3}
     - target: {fileID: 2575070112632428251, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.74
+      value: -14.84
       objectReference: {fileID: 0}
     - target: {fileID: 2575070112632428251, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.98
+      value: -11.94
       objectReference: {fileID: 0}
     - target: {fileID: 2575070112632428251, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: m_LocalPosition.z

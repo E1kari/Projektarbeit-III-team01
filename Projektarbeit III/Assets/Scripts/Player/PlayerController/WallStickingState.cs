@@ -20,7 +20,6 @@ public class WallStickingState : Interface.IState
         movementAction = playerInput.actions["Walking"];
         jumpAction = playerInput.actions["Jumping"];
         stickAction = playerInput.actions["WallSticking"];
-        controller.movementEditor.hasJumped = false;
     }
 
     public void OnEnter()
@@ -30,6 +29,7 @@ public class WallStickingState : Interface.IState
         rb.linearVelocity = Vector2.zero; // Stop movement initially
         rb.gravityScale = 0f; // Disable gravity
         stickTimer = controller.movementEditor.stickDuration; // Initialize the stick timer
+        controller.movementEditor.hasJumped = false; // Reset the jump flag
     }
 
     public void UpdateState()
@@ -56,6 +56,7 @@ public class WallStickingState : Interface.IState
         if (jumpAction.triggered && !controller.movementEditor.hasJumped)
         {
             controller.ChangeState(new WallJumpingState(controller));
+            controller.movementEditor.hasJumped = true;
             return;
         }
 
