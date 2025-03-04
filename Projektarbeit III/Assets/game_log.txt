@@ -33,3 +33,114 @@
 27.02.2025 21:41:02 [Log]: Logger stopped
 27.02.2025 21:41:02 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
 27.02.2025 21:41:03 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:07:19 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:07:19 [Log]: Logger initialized successfully
+04.03.2025 23:07:19 [Log]: 04.03.2025 23:07:19 [Log]: Logger initialized successfully
+04.03.2025 23:07:22 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:07:24 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:07:34 [Log]: Logger stopped
+04.03.2025 23:07:37 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:07:38 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:09:03 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:09:03 [Log]: Logger initialized successfully
+04.03.2025 23:09:03 [Log]: 04.03.2025 23:09:03 [Log]: Logger initialized successfully
+04.03.2025 23:09:06 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:09:08 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:09:33 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:09:33 [Log]: Logger initialized successfully
+04.03.2025 23:09:33 [Log]: 04.03.2025 23:09:33 [Log]: Logger initialized successfully
+04.03.2025 23:09:35 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:10:00 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:10:18 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:10:18 [Log]: Logger initialized successfully
+04.03.2025 23:10:18 [Log]: 04.03.2025 23:10:18 [Log]: Logger initialized successfully
+04.03.2025 23:10:20 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:10:22 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:10:44 [Log]: Logger stopped
+04.03.2025 23:10:46 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:12:17 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:12:26 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:12:26 [Log]: Logger initialized successfully
+04.03.2025 23:12:26 [Log]: 04.03.2025 23:12:26 [Log]: Logger initialized successfully
+04.03.2025 23:13:23 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:13:58 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:18:17 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:18:17 [Log]: Logger initialized successfully
+04.03.2025 23:18:17 [Log]: 04.03.2025 23:18:17 [Log]: Logger initialized successfully
+04.03.2025 23:18:20 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:18:30 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:19:11 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:19:11 [Log]: Logger initialized successfully
+04.03.2025 23:19:11 [Log]: 04.03.2025 23:19:11 [Log]: Logger initialized successfully
+04.03.2025 23:19:14 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:19:20 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:19:46 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:19:46 [Log]: Logger initialized successfully
+04.03.2025 23:19:46 [Log]: 04.03.2025 23:19:46 [Log]: Logger initialized successfully
+04.03.2025 23:19:49 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:22:24 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:24:38 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:24:38 [Log]: Logger initialized successfully
+04.03.2025 23:24:38 [Log]: 04.03.2025 23:24:38 [Log]: Logger initialized successfully
+04.03.2025 23:25:16 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:25:27 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:25:58 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:25:58 [Log]: Logger initialized successfully
+04.03.2025 23:25:58 [Log]: 04.03.2025 23:25:58 [Log]: Logger initialized successfully
+04.03.2025 23:26:02 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:37:27 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:37:27 [Log]: Logger initialized successfully
+04.03.2025 23:37:27 [Log]: 04.03.2025 23:37:27 [Log]: Logger initialized successfully
+04.03.2025 23:37:30 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:39:54 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:39:54 [Log]: Logger initialized successfully
+04.03.2025 23:39:54 [Log]: 04.03.2025 23:39:54 [Log]: Logger initialized successfully
+04.03.2025 23:39:56 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:39:57 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:42:17 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:42:17 [Log]: Logger initialized successfully
+04.03.2025 23:42:17 [Log]: 04.03.2025 23:42:17 [Log]: Logger initialized successfully
+04.03.2025 23:42:22 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:42:27 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+04.03.2025 23:42:41 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:42:41 [Log]: Logger initialized successfully
+04.03.2025 23:42:41 [Log]: 04.03.2025 23:42:41 [Log]: Logger initialized successfully
+04.03.2025 23:42:45 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:43:19 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:43:19 [Log]: Logger initialized successfully
+04.03.2025 23:43:19 [Log]: 04.03.2025 23:43:19 [Log]: Logger initialized successfully
+04.03.2025 23:43:21 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:43:22 [Error]: Scene 'Training Room 0' couldn't be loaded because it has not been added to the active build profile or shared scene list or the AssetBundle has not been loaded.
+To add a scene to the active build profile or shared scene list use the menu File->Build Profiles
+04.03.2025 23:44:44 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+04.03.2025 23:44:44 [Log]: Logger initialized successfully
+04.03.2025 23:44:44 [Log]: 04.03.2025 23:44:44 [Log]: Logger initialized successfully
+04.03.2025 23:44:47 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+04.03.2025 23:45:02 [Log]: Entered Wall Jumping State
+04.03.2025 23:45:03 [Log]: Exiting Wall Jumping State
+04.03.2025 23:45:06 [Log]: Entered Wall Jumping State
+04.03.2025 23:45:06 [Log]: Exiting Wall Jumping State
+04.03.2025 23:45:07 [Log]: Entered Wall Jumping State
+04.03.2025 23:45:07 [Log]: Exiting Wall Jumping State
+04.03.2025 23:45:07 [Log]: Entered Wall Jumping State
+04.03.2025 23:45:08 [Log]: Exiting Wall Jumping State
+04.03.2025 23:45:08 [Log]: Entered Wall Jumping State
+04.03.2025 23:45:09 [Log]: Exiting Wall Jumping State
+04.03.2025 23:45:09 [Log]: Entered Wall Jumping State
+04.03.2025 23:45:09 [Log]: Exiting Wall Jumping State
+04.03.2025 23:45:13 [Log]: Entered Wall Jumping State
+04.03.2025 23:45:14 [Log]: Exiting Wall Jumping State
+04.03.2025 23:46:01 [Log]: Entered Wall Jumping State
+04.03.2025 23:46:01 [Log]: Exiting Wall Jumping State
+04.03.2025 23:46:02 [Log]: Entered Wall Jumping State
+04.03.2025 23:46:02 [Log]: Exiting Wall Jumping State
+04.03.2025 23:46:03 [Log]: Entered Wall Jumping State
+04.03.2025 23:46:03 [Log]: Exiting Wall Jumping State
+04.03.2025 23:46:40 [Log]: Entered Wall Jumping State
+04.03.2025 23:46:40 [Log]: Exiting Wall Jumping State
+04.03.2025 23:46:40 [Log]: Entered Wall Jumping State
+04.03.2025 23:46:41 [Log]: Exiting Wall Jumping State
+04.03.2025 23:46:41 [Log]: Entered Wall Jumping State
+04.03.2025 23:46:41 [Log]: Exiting Wall Jumping State
+04.03.2025 23:46:42 [Log]: Entered Wall Jumping State
+04.03.2025 23:46:42 [Log]: Exiting Wall Jumping State

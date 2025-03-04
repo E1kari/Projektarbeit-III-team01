@@ -18,9 +18,9 @@ public class S_SceneSaver : ScriptableObject
     private static void Initialize()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        #if !UNITY_EDITOR
+#if !UNITY_EDITOR
         Logger.Instance.Log("SceneSaver initialized", "SceneSaver", LogType.Log);
-        #endif
+#endif
     }
 
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -43,7 +43,7 @@ public class S_SceneSaver : ScriptableObject
             }
 
         }
-        else if (scene.name.ToLower().Contains("level") || scene.name.ToLower().Contains("room"))
+        else if (scene.name.ToLower().Contains("level"))
         {
             currentLevelScene = scene.name;
         }

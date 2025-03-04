@@ -221,6 +221,15 @@ public class S_Scoreboard : ScriptableObject
         scoreboardStrings.times = "";
         scoreboardStrings.dates = "";
 
+        if (levelLeaderboard.entries == null)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                formattingAid(new LeaderboardEntry());
+            }
+            return scoreboardStrings;
+        }
+
         for (int j = 0; j < levelLeaderboard.entries.Length; j++)
         {
             LeaderboardEntry currentEntry = levelLeaderboard.entries[j];

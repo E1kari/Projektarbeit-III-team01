@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/menu_options.unity
     guid: a3fb294355d906b4ea9904e5303d9171
   - enabled: 1
-    path: Assets/Scenes/Training Room 0.unity
+    path: Assets/Scenes/Training Room.unity
     guid: d75baf28ed1c9e648838f0f3048159bb
   - enabled: 1
     path: Assets/Scenes/definitiv level 1.unity
