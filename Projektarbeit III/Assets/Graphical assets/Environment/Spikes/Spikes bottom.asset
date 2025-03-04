@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spikes bottom
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 75322f451d8562d4385e864b44a414bc, type: 3}
-  m_Color: {r: 1, g: 0.55190325, b: 0.2245282, a: 1}
+  m_Color: {r: 1, g: 0.44566643, b: 0.33773577, a: 1}
   m_Transform:
     e00: 1
     e01: 0
