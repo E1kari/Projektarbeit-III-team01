@@ -821,9 +821,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b> Design </b>\r\n<i> Cem Joel Mullem </i>\r\n\r\n<b> Art </b>\r\n<i>
-    Miriam Link\r\nSarah Gumbel\r\nEmelyne Klein </i>\r\n\r\n<b> Programming </b>\r\n<i>
-    Linus Theuringer\r\nJosefine Choll\xE9 </i>\n\n<b> Musik </b>\n<i> Florian Simon</i>"
+  m_text: '<b> Design </b>
+
+    <i> Cem Joel Mullem </i>
+
+    
+
+    <b> Art </b>
+
+    <i>
+    Miriam Link
+
+    Sarah Gumbel
+
+    Emelyne Klein </i>
+
+    
+
+    <b> Programming
+    </b>
+
+    <i> Linus Theuringer
+
+    Josefine Cholle </i>
+
+
+    <b> Musik </b>
+
+    <i>
+    Florian Simon</i>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 93ce4fc6f0f3523429eb820da7612e12, type: 2}
   m_sharedMaterial: {fileID: 5326739350939681361, guid: 93ce4fc6f0f3523429eb820da7612e12, type: 2}
