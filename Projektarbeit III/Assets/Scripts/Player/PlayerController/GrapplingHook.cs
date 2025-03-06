@@ -301,9 +301,26 @@ public class GrapplingHook : MonoBehaviour
         // Check for wall and ceiling collisions
         if (controller.IsTouchingLeftWall() || controller.IsTouchingRightWall() || controller.IsCeilinged())
         {
-            //Debug.Log("Player is touching a wall or ceiling");
-            StopGrapple();
+            if (IsMovingTowardsWall())
+            {
+                //Debug.Log("Player is touching a wall or ceiling and moving towards it");
+                StopGrapple();
+            }
         }
+    }
+
+    private bool IsMovingTowardsWall()
+    {
+        Vector2 velocity = rb.linearVelocity;
+        if (controller.IsTouchingLeftWall() && velocity.x < 0)
+        {
+            return true;
+        }
+        if (controller.IsTouchingRightWall() && velocity.x > 0)
+        {
+            return true;
+        }
+        return false;
     }
     private bool CheckEnemyCollision()
     {
