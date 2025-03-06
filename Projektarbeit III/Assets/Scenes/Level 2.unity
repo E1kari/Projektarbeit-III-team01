@@ -14293,11 +14293,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7226140135648605832, guid: 94fded45e0af8f64daf07983f6dd8cb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.42
+      value: 73.36
       objectReference: {fileID: 0}
     - target: {fileID: 7226140135648605832, guid: 94fded45e0af8f64daf07983f6dd8cb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40.461086
+      value: 40.32
       objectReference: {fileID: 0}
     - target: {fileID: 7226140135648605832, guid: 94fded45e0af8f64daf07983f6dd8cb8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14338,6 +14338,14 @@ PrefabInstance:
     - target: {fileID: 7481022799867348468, guid: 94fded45e0af8f64daf07983f6dd8cb8, type: 3}
       propertyPath: m_Size.x
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481022799867348468, guid: 94fded45e0af8f64daf07983f6dd8cb8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481022799867348468, guid: 94fded45e0af8f64daf07983f6dd8cb8, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1357281507
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46141,11 +46149,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2575070112632428251, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9823914
+      value: -2.02
       objectReference: {fileID: 0}
     - target: {fileID: 2575070112632428251, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.520442
+      value: -5.67
       objectReference: {fileID: 0}
     - target: {fileID: 2575070112632428251, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -46184,8 +46192,16 @@ PrefabInstance:
       value: Level Start
       objectReference: {fileID: 0}
     - target: {fileID: 5670981611512740863, guid: d36077b68c861534c93186aee666348f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670981611512740863, guid: d36077b68c861534c93186aee666348f, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670981611512740863, guid: d36077b68c861534c93186aee666348f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1357281507
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
