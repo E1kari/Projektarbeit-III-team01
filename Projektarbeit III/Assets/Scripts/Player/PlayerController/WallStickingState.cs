@@ -12,6 +12,8 @@ public class WallStickingState : Interface.IState
     private float stickTimer;
     private float wallJumpCooldownTimer;
 
+    private GameObject stickingObject;
+
     public WallStickingState(Controller controller)
     {
         this.controller = controller;
@@ -30,6 +32,12 @@ public class WallStickingState : Interface.IState
         rb.gravityScale = 0f; // Disable gravity
         stickTimer = controller.movementEditor.stickDuration; // Initialize the stick timer
         controller.movementEditor.hasJumped = false; // Reset the jump flag
+
+        stickingObject = DetermineStickingObject();
+        if (stickingObject != null && stickingObject.tag == "Falling Block")
+        {
+            stickingObject.GetComponent<Falling_Block>().attachObject(controller.gameObject);
+        }
     }
 
     public void UpdateState()
@@ -69,6 +77,34 @@ public class WallStickingState : Interface.IState
         return controller.IsWalkingAgainstWall() && wallJumpCooldownTimer <= 0 && stickAction.IsPressed();
     }
 
+    private GameObject DetermineStickingObject()
+    {
+        Vector2 direction;
+        float distance = controller.movementEditor.raycastDistanceX;
+
+        if (controller.IsTouchingLeftWall())
+        {
+            direction = Vector2.left;
+        }
+        else
+        {
+            direction = Vector2.right;
+        }
+
+        Vector2[] raycastOrigins = controller.GetRaycastOrigins(direction);
+
+        foreach (var origin in raycastOrigins)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, LayerMask.GetMask("Ground"));
+
+            if (hit.collider != null)
+            {
+                return hit.collider.gameObject;
+            }
+        }
+        return null;
+    }
+
     public void OnDeath()
     {
         // Handle death logic
@@ -80,5 +116,6 @@ public class WallStickingState : Interface.IState
 
         // Reset gravity scale when exiting the state
         rb.gravityScale = 1f; // Default gravity scale
+        stickingObject.GetComponent<Falling_Block>()?.detachObject(controller.gameObject);
     }
 }
