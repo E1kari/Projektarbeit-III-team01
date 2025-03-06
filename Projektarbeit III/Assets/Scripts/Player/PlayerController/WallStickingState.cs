@@ -48,7 +48,7 @@ public class WallStickingState : Interface.IState
         if (stickTimer <= 0)
         {
             //Debug.Log("The Stick Timer has expired");
-            controller.ChangeState(new IdleState(controller));
+            controller.ChangeState(new FallingState(controller));
             return;
         }
 

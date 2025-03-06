@@ -65,13 +65,13 @@ public class DashingState : Interface.IState
         if (controller.IsCeilinged())
         {
             //Debug.Log("Player is touching a ceiling");
-            controller.ChangeState(new IdleState(controller));
+            controller.ChangeState(new FallingState(controller));
         }
 
         if (rb.linearVelocity.x == 0)
         {
             //Debug.Log("Player has stopped dashing (bumped against something)");
-            controller.ChangeState(new IdleState(controller));
+            controller.ChangeState(new FallingState(controller));
         }
 
         if (dashTimer <= 0)
@@ -86,7 +86,7 @@ public class DashingState : Interface.IState
                 // Revert to normal air speed
                 rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
             }
-            controller.ChangeState(new IdleState(controller));
+            controller.ChangeState(new FallingState(controller));
         }
     }
 

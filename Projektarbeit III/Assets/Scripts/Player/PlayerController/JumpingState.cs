@@ -47,15 +47,12 @@ public class JumpingState : Interface.IState
         MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed, controller.movementEditor.maxSpeed);
 
         // Apply gravitational pull after reaching the peak of the jump
-        if (rb.linearVelocity.y <= 0)
+        if (!(rb.linearVelocity.y >= 0))
         {
-            rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
+            controller.ChangeState(new FallingState(controller));
         }
 
-        // Clamp the player's velocity to prevent insane speeds
-        rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocity.x, -controller.movementEditor.maxSpeed, controller.movementEditor.maxSpeed), rb.linearVelocity.y);
-
-        // Transition to IdleState when the player starts falling and is grounded
+        // Transition to IdleState when the player stops falling and is grounded
         if (rb.linearVelocity.y <= 0 && controller.IsGrounded())
         {
             controller.ChangeState(new IdleState(controller));
@@ -81,13 +78,13 @@ public class JumpingState : Interface.IState
         if (wallStickingState.StickingCheck() && wallJumpCooldownTimer <= 0)
         {
             //Debug.Log("Player is touching a wall and walking against it");
-            controller.ChangeState(new WallStickingState(controller));
+            controller.ChangeState(wallStickingState);
         }
 
         if (controller.IsCeilinged())
         {
             //Debug.Log("Player is touching a ceiling");
-            controller.ChangeState(new IdleState(controller));
+            controller.ChangeState(new FallingState(controller));
         }
 
         // Decrease the wall jump cooldown timer

@@ -36,9 +36,9 @@ public class WalkingState : Interface.IState
         MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed, controller.movementEditor.maxSpeed);
 
         // Apply fall force when the player starts falling
-        if (rb.linearVelocity.y < 0)
+        if (!controller.IsGrounded())
         {
-            rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
+            controller.ChangeState(new FallingState(controller));
         }
 
         rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocity.x, -controller.movementEditor.maxSpeed, controller.movementEditor.maxSpeed), rb.linearVelocity.y);
@@ -82,7 +82,7 @@ public class WalkingState : Interface.IState
         if (controller.IsCeilinged())
         {
             //Debug.Log("Player is touching a ceiling");
-            controller.ChangeState(new IdleState(controller));
+            controller.ChangeState(new FallingState(controller));
         }
     }
 
