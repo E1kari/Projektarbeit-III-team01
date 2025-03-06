@@ -9,10 +9,10 @@ public class Falling_Block : MonoBehaviour
     private bool countdown = false;
     private bool triggered = false;
     private SpriteRenderer spriteRenderer;
-
     private BoxCollider2D boxCollider2D_;
     private BoxCollider2D boxTrigger2D_;
     private Rigidbody2D rb2D_;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -110,5 +110,30 @@ public class Falling_Block : MonoBehaviour
         Vector2 spriteSize = gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().bounds.size;
         spriteSize += new Vector2(fallingBlockData_.graceDistance_, fallingBlockData_.graceDistance_);
         Gizmos.DrawWireCube(transform.position, spriteSize);
+    }
+
+    public void attachObject(GameObject pa_object)
+    {
+        if (pa_object.tag != "Player")
+        {
+            return;
+        }
+
+        pa_object.transform.SetParent(transform);
+        pa_object.GetComponent<Rigidbody2D>().simulated = false;
+        //GameObject.Destroy(pa_object.GetComponent<Rigidbody2D>());
+    }
+
+    public void detachObject(GameObject pa_object)
+    {
+        if (pa_object.tag != "Player")
+        {
+            return;
+        }
+
+        pa_object.transform.SetParent(null);
+        pa_object.GetComponent<Rigidbody2D>().simulated = true;
+        //pa_object.AddComponent<Rigidbody2D>();
+        //pa_object.GetComponent<Controller>().InitializedRidgibody();
     }
 }

@@ -38,6 +38,13 @@ public class Controller : MonoBehaviour
 
         movementEditor = Resources.Load<S_MovementEditor>("Scriptable Objects/S_MovementEditor");
 
+        InitializedRidgibody();
+
+        ChangeState(new IdleState(this));
+    }
+
+    public void InitializedRidgibody()
+    {
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
@@ -47,8 +54,6 @@ public class Controller : MonoBehaviour
         {
             rb.sharedMaterial = highFriction; // Set the default physics material to high friction
         }
-
-        ChangeState(new IdleState(this));
     }
 
     public void ChangeState(Interface.IState newState)
@@ -136,11 +141,11 @@ public class Controller : MonoBehaviour
         {
             return true;
         }
-        
+
         return false;
     }
 
-    private Vector2[] GetRaycastOrigins(Vector2 direction)
+    public Vector2[] GetRaycastOrigins(Vector2 direction)
     {
         Vector2 size = spriteRenderer.bounds.size;
         Vector2 position = transform.position;
@@ -213,11 +218,16 @@ public class Controller : MonoBehaviour
 
     public void UpdatePhysicsMaterial()
     {
-        if (((rb.linearVelocity.y < 0) || (Mathf.Abs(rb.linearVelocity.x) < 0.01f)) && IsGrounded())  
+        if (rb == null)
+        {
+            return;
+        }
+
+        if (((rb.linearVelocity.y < 0) || (Mathf.Abs(rb.linearVelocity.x) < 0.01f)) && IsGrounded())
         {
             rb.sharedMaterial = highFriction;
         }
-        else 
+        else
         {
             rb.sharedMaterial = lowFriction;
         }

@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lasso Larry Tounge Grapple_0: -1148439622181648938
+      Lasso Larry Tounge Grapple_1: -8717693457518820392
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

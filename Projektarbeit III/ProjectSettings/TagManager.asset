@@ -10,6 +10,7 @@ TagManager:
   - Level End
   - GrapplePoint
   - Panel
+  - Falling Block
   layers:
   - Default
   - TransparentFX
