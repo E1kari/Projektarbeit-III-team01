@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour
     {
         yield return null;
         sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
-        if (sceneSaver_.GetShowPreview())
+        if (sceneSaver_.GetShowPreview() && !SceneManager.GetSceneByName("Training Room").isLoaded)
         {
             previewMenu();
         }
