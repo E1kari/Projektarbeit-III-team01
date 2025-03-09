@@ -373,12 +373,12 @@ public class GrapplingHook : MonoBehaviour
                 if (hit.collider.tag == "Light Enemy" || hit.collider.tag == "GrapplePoint")
                 {
                     // Draw the grapple indicator at the hit point
-                    DrawCircle(grappleIndicator, hit.transform.position, indicatorSize, indicatorSegments);
+                    DrawingUtils.DrawCircle(grappleIndicator, hit.transform.position, indicatorSize, indicatorSegments);
                 }
                 else
                 {
                     // Draw the grapple indicator at the hit point
-                    DrawCircle(grappleIndicator, hit.point, indicatorSize, indicatorSegments);
+                    DrawingUtils.DrawCircle(grappleIndicator, hit.point, indicatorSize, indicatorSegments);
                 }
             }
             else
@@ -388,7 +388,7 @@ public class GrapplingHook : MonoBehaviour
 
                 // Draw the grapple indicator at the maximum range in the direction
                 Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
-                DrawCircle(grappleIndicator, maxRangePoint, indicatorSize, indicatorSegments);
+                DrawingUtils.DrawCircle(grappleIndicator, maxRangePoint, indicatorSize, indicatorSegments);
             }
         }
         else
@@ -398,24 +398,10 @@ public class GrapplingHook : MonoBehaviour
 
             // Draw the grapple indicator at the maximum range in the direction
             Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
-            DrawCircle(grappleIndicator, maxRangePoint, indicatorSize, indicatorSegments);
+            DrawingUtils.DrawCircle(grappleIndicator, maxRangePoint, indicatorSize, indicatorSegments);
         }
 
         if (grappleIndicator.enabled == false) grappleIndicator.enabled = true;
-    }
-
-    private void DrawCircle(LineRenderer lineRenderer, Vector2 position, float radius, int segments)
-    {
-        lineRenderer.positionCount = segments + 1;
-        float angle = 0f;
-
-        for (int i = 0; i <= segments; i++)
-        {
-            float x = position.x + Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
-            float y = position.y + Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
-            lineRenderer.SetPosition(i, new Vector3(x, y, 0));
-            angle += 360f / segments;
-        }
     }
 
     private void OnDestroy()
