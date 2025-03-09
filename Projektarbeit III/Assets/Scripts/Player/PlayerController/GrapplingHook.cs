@@ -37,14 +37,10 @@ public class GrapplingHook : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<Controller>();
-        lineRenderer = GetComponent<LineRenderer>();
 
-        // Initialize the LineRenderer to hide the rope
-        lineRenderer.positionCount = 0;
-
-        // Set the width of the LineRenderer
-        lineRenderer.startWidth = 0.2f;
-        lineRenderer.endWidth = 0.2f;
+        // Initialize the LineRenderer (rope)
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer = DrawingUtils.InitializeLineRenderer(gameObject, 0.2f, 0.2f);
 
         // Get values from MovementEditor
         grappleSpeed = controller.movementEditor.grappleSpeed;
@@ -137,11 +133,11 @@ public class GrapplingHook : MonoBehaviour
             {
                 enemy = grappleCollider.GetComponent<Enemy>();
                 // Update the rope's visual position
-                UpdateLineRenderer(transform.position, enemy.transform.position);
+                DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, enemy.transform.position);
             }
             else
             {
-                UpdateLineRenderer(transform.position, grappleSpot);
+                DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, grappleSpot);
             }
         }
     }
@@ -182,11 +178,11 @@ public class GrapplingHook : MonoBehaviour
             if (grappleCollider.tag == "Light Enemy")
             {
                 // Update the rope's visual position
-                UpdateLineRenderer(transform.position, enemy.transform.position);
+                DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, enemy.transform.position);
             }
             else
             {
-                UpdateLineRenderer(transform.position, grappleSpot);
+                DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, grappleSpot);
             }
 
             // Check if the player cancels the grapple
@@ -219,17 +215,6 @@ public class GrapplingHook : MonoBehaviour
         }
 
         grappleChecks.CheckCollisionState(); // Check which state to transition to
-    }
-
-    public void UpdateLineRenderer(Vector2 playerPosition, Vector2 grapplePosition)
-    {
-        // Draw the rope between the player and the grapple point
-        if (isGrappling)
-        {
-            //Debug.Log("Updating line renderer for PlayerPos and GrapplePos: " + playerPosition + " " + grapplePosition);
-            lineRenderer.SetPosition(0, playerPosition);    // Start of the rope (player position)
-            lineRenderer.SetPosition(1, grapplePosition);   // End of the rope (grapple point)
-        }
     }
 
     private void OnDestroy()
