@@ -136,7 +136,7 @@ public class GrapplingHook : MonoBehaviour
                 // Update the rope's visual position
                 UpdateLineRenderer(transform.position, enemy.transform.position);
             }
-            else 
+            else
             {
                 UpdateLineRenderer(transform.position, grappleSpot);
             }
@@ -164,8 +164,8 @@ public class GrapplingHook : MonoBehaviour
                 {
                     if (enemy.currentStateName != "EnemyGrappledState")
                     {
-                    //Debug.Log("Enemy found! Changing to Grappled state");
-                    enemy.ChangeState(new EnemyGrappledState(enemy));
+                        //Debug.Log("Enemy found! Changing to Grappled state");
+                        enemy.ChangeState(new EnemyGrappledState(enemy));
                     }
                 }
                 else
@@ -181,7 +181,7 @@ public class GrapplingHook : MonoBehaviour
                 // Update the rope's visual position
                 UpdateLineRenderer(transform.position, enemy.transform.position);
             }
-            else 
+            else
             {
                 UpdateLineRenderer(transform.position, grappleSpot);
             }
@@ -196,9 +196,9 @@ public class GrapplingHook : MonoBehaviour
         //Debug.Log("Stopping grapple");
 
         // Stop grappling, Start the cooldown timer and hide the rope
-        isGrappling = false; 
+        isGrappling = false;
         isCooldown = true;
-        cooldownTimer = grappleCooldown;        
+        cooldownTimer = grappleCooldown;
         lineRenderer.positionCount = 0;
 
         if (grappleCollider.tag == "Light Enemy" && enemy.currentStateName == "EnemyGrappledState")
@@ -214,7 +214,7 @@ public class GrapplingHook : MonoBehaviour
                 //Debug.LogError("Enemy component not found on Light Enemy");
             }
         }
-        
+
         CheckCollisionState(); // Check which state to transition to
     }
 
@@ -349,13 +349,13 @@ public class GrapplingHook : MonoBehaviour
         {
             controller.UpdatePhysicsMaterial();
             //Debug.Log("Player is touching a ceiling");
-            controller.ChangeState(new IdleState(controller));
+            controller.ChangeState(new FallingState(controller));
         }
         else
         {
             controller.UpdatePhysicsMaterial();
             //Debug.Log("Stopped grappling with no collision");
-            controller.ChangeState(new IdleState(controller));            
+            controller.ChangeState(new FallingState(controller));
         }
     }
 
@@ -455,7 +455,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void DrawCircle(LineRenderer lineRenderer, Vector2 position, float radius, int segments)
     {
-        lineRenderer.positionCount = segments + 1; 
+        lineRenderer.positionCount = segments + 1;
         float angle = 0f;
 
         for (int i = 0; i <= segments; i++)
