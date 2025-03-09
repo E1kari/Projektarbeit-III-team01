@@ -43,11 +43,11 @@ public class WallJumpingState : Interface.IState
     }
 
     public void UpdateState()
-    {  
+    {
         isWallJumping -= Time.deltaTime;
         if (isWallJumping <= 0)
         {
-            controller.ChangeState(new IdleState(controller));
+            controller.ChangeState(new FallingState(controller));
             return;
         }
     }
@@ -58,6 +58,6 @@ public class WallJumpingState : Interface.IState
 
     public void OnExit()
     {
-       Debug.Log("Exiting Wall Jumping State");
+        Debug.Log("Exiting Wall Jumping State");
     }
 }

@@ -16,6 +16,7 @@ public class StateIndexingBecauseTheAnimatorIsMean : ScriptableObject
         playerStates["WallStickingState"] = 4;
         playerStates["DashingState"] = 5;
         playerStates["GrapplingState"] = 6;
+        playerStates["FallingState"] = 7;
 
 
         enemyStates["EnemyIdleState"] = 0;

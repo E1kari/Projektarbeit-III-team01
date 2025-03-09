@@ -31,15 +31,6 @@ public class IdleState : Interface.IState
 
     public void UpdateState()
     {
-        // Example: Transition to WalkingState if horizontal input is detected
-        MovementUtils.ApplyHorizontalMovement(rb, movementAction, moveSpeed, controller.movementEditor.maxSpeed);
-
-        // Apply fall force when the player starts falling
-        if (rb.linearVelocityY < 0)
-        {
-            rb.linearVelocity += Vector2.down * fallForce * Time.deltaTime;
-        }
-
         if (controller.IsGrounded())
         {
             controller.movementEditor.hasJumped = false;
@@ -47,7 +38,7 @@ public class IdleState : Interface.IState
         }
 
         // Transition to WalkingState if horizontal input is detected
-        if (rb.linearVelocityX != 0)
+        if (movementAction.ReadValue<Vector2>().x != 0)
         {
             controller.ChangeState(new WalkingState(controller));
         }
