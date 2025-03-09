@@ -7,40 +7,41 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(LineRenderer))]
 public class GrapplingHook : MonoBehaviour
 {
-    private float grappleSpeed;              // Speed at which the grappling hook moves
-    private float grappleSpeedBoost;         // Speed boost when grappling to a point
-    private float grappleCooldown;           // Cooldown time between grappling hook uses
-    private float grappleRange;              // Maximum distance the grappling hook can reach
-    private Collider2D grappleCollider;      // Collider of the grapple point
-    private LayerMask grappleLayer;          // Layer to check for grapple points
-    private Vector2 grappleSpot;             // Point where the hook attaches
-    private bool isGrappling;                // Whether the player is grappling
-    private bool isCooldown;                 // Whether the grappling hook is on cooldown
-    private Rigidbody2D rb;                  // Rigidbody for movement
-    private Controller controller;           // Reference to the player's state manager
-    private LineRenderer lineRenderer;       // Visual representation of the rope
-    private float cooldownTimer;             // Timer to track cooldown
-    private LineRenderer grappleIndicator;   // Visual indicator for the potential grapple point
-    private PlayerInput playerInput;         // Player input reference
-    private InputAction grappleAction;       // Grappling input action
-    private InputAction aimAction;           // Aim input action for controller
-    private bool isUsingController;          // Whether the player is using a controller
-    private Vector2 lastControllerDirection; // Last direction from the controller
-    private Enemy enemy;                     // Reference to the enemy
-    private float toleranceRadius;           // Tolerance for the grapple distance
-    private float indicatorPuffer;           // Puffer when the hook is in the tolerance radius
-    private float indicatorSize;             // Indicator size
-    private int indicatorSegments;         // Amount of segments the indicator has
+    public float grappleSpeed;              // Speed at which the grappling hook moves
+    public float grappleSpeedBoost;         // Speed boost when grappling to a point
+    public float grappleCooldown;           // Cooldown time between grappling hook uses
+    public float grappleRange;              // Maximum distance the grappling hook can reach
+    public Collider2D grappleCollider;      // Collider of the grapple point
+    public LayerMask grappleLayer;          // Layer to check for grapple points
+    public Vector2 grappleSpot;             // Point where the hook attaches
+    public bool isGrappling;                // Whether the player is grappling
+    public bool isCooldown;                 // Whether the grappling hook is on cooldown
+    public Rigidbody2D rb;                  // Rigidbody for movement
+    public Controller controller;           // Reference to the player's state manager
+    public LineRenderer lineRenderer;       // Visual representation of the rope
+    public float cooldownTimer;             // Timer to track cooldown
+    public LineRenderer grappleIndicator;   // Visual indicator for the potential grapple point
+    public InputAction grappleAction;       // Grappling input action
+    public InputAction aimAction;           // Aim input action for controller
+    public bool isUsingController;          // Whether the player is using a controller
+    public Vector2 lastControllerDirection; // Last direction from the controller
+    public Enemy enemy;                     // Reference to the enemy
+    public float toleranceRadius;           // Tolerance for the grapple distance
+    public float indicatorPuffer;           // Puffer when the hook is in the tolerance radius
+    public float indicatorSize;             // Indicator size
+    public int indicatorSegments;         // Amount of segments the indicator has
+    public GrappleInputHandler grappleInputHandler; // Input handler for the grappling hook
 
     void Start()
     {
+        grappleInputHandler = gameObject.AddComponent<GrappleInputHandler>();
+        grappleInputHandler.Initialize(this);
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<Controller>();
         lineRenderer = GetComponent<LineRenderer>();
-        playerInput = controller.GetComponent<PlayerInput>();
-        grappleAction = playerInput.actions["Grappling"];
-        aimAction = playerInput.actions["Aiming"];
-        aimAction.Enable();
+        grappleAction = grappleInputHandler.grappleAction;
+        aimAction = grappleInputHandler.aimAction;
+        isUsingController = grappleInputHandler.isUsingController; 
 
         // Initialize the LineRenderer to hide the rope
         lineRenderer.positionCount = 0;
@@ -68,29 +69,37 @@ public class GrapplingHook : MonoBehaviour
         grappleIndicator.material = new Material(Shader.Find("Sprites/Default"));
         grappleIndicator.startColor = controller.movementEditor.indicatorColorNotInRange;
         grappleIndicator.endColor = controller.movementEditor.indicatorColorNotInRange;
-
-        // Register input callbacks
-        grappleAction.Enable();
+        grappleIndicator.sortingLayerID = SortingLayer.NameToID("Main Character");
     }
 
     void Update()
     {
-        CheckPlayerInput();
+        grappleInputHandler.CheckPlayerInput();
     }
 
     private void FixedUpdate()
     {
+        // Handle cooldown timer
+        if (isCooldown)
+        {
+            cooldownTimer -= Time.deltaTime;
+            if (cooldownTimer <= 0)
+            {
+                isCooldown = false;
+            }
+        }
+
         if (isGrappling)
         {
             HandleGrappling();
         }
     }
 
-    private void StartGrapple(Vector2 target)
+    public void StartGrapple(Vector2 target)
     {
         if (isCooldown || isGrappling) // Check if the hook is on cooldown or already grappling
         {
-            //Debug.Log("Hook is on cooldown and/or already grappling");
+            //Debug.Log("Hook is on cooldown and/or already grappling." + (isCooldown ? " Cooldown: " + cooldownTimer : ""));
             return;
         }
 
@@ -218,64 +227,6 @@ public class GrapplingHook : MonoBehaviour
         CheckCollisionState(); // Check which state to transition to
     }
 
-    private void CheckPlayerInput()
-    {
-        // Check if the player is using a controller (for Aiming)
-        isUsingController = playerInput.currentControlScheme == "Gamepad";
-
-        // Handle cooldown timer
-        if (isCooldown)
-        {
-            cooldownTimer -= Time.deltaTime;
-            if (cooldownTimer <= 0)
-            {
-                isCooldown = false;
-            }
-        }
-
-        if (grappleAction.triggered)
-        {
-            //Debug.Log("Grapple action triggered");
-            UpdateGrappleIndicator();
-            Vector2 target;
-
-            if (isUsingController)
-            {
-                // Get the aim direction from the controller
-                Vector2 aimDirection = aimAction.ReadValue<Vector2>().normalized;
-
-                if (aimDirection == Vector2.zero)
-                {
-                    aimDirection = lastControllerDirection;
-                }
-                else
-                {
-                    lastControllerDirection = aimDirection;
-                }
-
-                // Calculate the target based on the aim direction
-                Vector2 startPosition = transform.position;
-                target = startPosition + aimDirection * grappleRange;
-            }
-            else
-            {
-                // Get the target position from the mouse
-                target = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            }
-
-            // Start the grapple if a valid target is found
-            if (target != Vector2.zero)
-            {
-                StartGrapple(target);
-            }
-        }
-        else
-        {
-            // Update the grapple indicator position
-            UpdateGrappleIndicator();
-        }
-    }
-
     private void CheckGrappleStops()
     {
         if (CheckEnemyCollision())
@@ -384,7 +335,7 @@ public class GrapplingHook : MonoBehaviour
         }
     }
 
-    private void UpdateGrappleIndicator()
+    public void UpdateGrappleIndicator()
     {
         Vector2 direction;
         Vector2 playerPosition = transform.position;
