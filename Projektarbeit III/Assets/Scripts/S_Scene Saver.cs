@@ -10,6 +10,8 @@ public class S_SceneSaver : ScriptableObject
 {
     private static string previousMenuScene;
     private static string currentMenuScene;
+
+    private static string previousLevelScene;
     private static string currentLevelScene;
 
     private static bool showPreview = true;
@@ -45,6 +47,7 @@ public class S_SceneSaver : ScriptableObject
         }
         else if (scene.name.ToLower().Contains("level"))
         {
+            previousLevelScene = currentLevelScene;
             currentLevelScene = scene.name;
         }
     }
@@ -57,6 +60,11 @@ public class S_SceneSaver : ScriptableObject
     public string GetPreviousMenuSceneName()
     {
         return previousMenuScene;
+    }
+
+    public string GetPreviousLevelSceneName()
+    {
+        return previousLevelScene;
     }
 
     public string GetCurrentLevelSceneName()

@@ -11,6 +11,8 @@
 /[Uu]ser[Ss]ettings/
 /[Tt]est[Rr]un/
 
+/[Aa]ssets/game_log
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
