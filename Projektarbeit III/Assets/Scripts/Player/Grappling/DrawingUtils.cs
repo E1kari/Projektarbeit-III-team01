@@ -2,6 +2,7 @@ using UnityEngine;
 
 public static class DrawingUtils
 {
+    // Indicator
     public static void DrawCircle(LineRenderer lineRenderer, Vector2 position, float radius, int segments)
     {
         lineRenderer.positionCount = segments + 1;
@@ -15,4 +16,6 @@ public static class DrawingUtils
             angle += 360f / segments;
         }
     }
+
+    // LineRenderer
 }

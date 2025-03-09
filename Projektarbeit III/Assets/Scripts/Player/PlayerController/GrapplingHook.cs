@@ -31,6 +31,7 @@ public class GrapplingHook : MonoBehaviour
     public int indicatorSegments;         // Amount of segments the indicator has
     public GrappleInputHandler grappleInputHandler; // Input handler for the grappling hook
     public GrappleIndicator grappleIndicator;   // Indicator for the grapple point
+    public GrappleChecks grappleChecks;         // Checks for the grappling hook
 
     void Start()
     {
@@ -56,8 +57,9 @@ public class GrapplingHook : MonoBehaviour
         indicatorSize = controller.movementEditor.indicatorSize;
         indicatorSegments = controller.movementEditor.indicatorSegments;
 
-        grappleIndicator = new GrappleIndicator(this, controller, grappleRange, indicatorPuffer, indicatorSize, indicatorSegments);
-        grappleInputHandler = new GrappleInputHandler(this, grappleIndicator, controller, grappleRange, lastControllerDirection);        
+        grappleChecks = new GrappleChecks(this, controller, rb, enemy); 
+        grappleIndicator = new GrappleIndicator(this, grappleChecks, controller, grappleRange, indicatorPuffer, indicatorSize, indicatorSegments);
+        grappleInputHandler = new GrappleInputHandler(this, grappleIndicator, controller, grappleRange, lastControllerDirection);  
         grappleAction = grappleInputHandler.grappleAction;
         aimAction = grappleInputHandler.aimAction;
         isUsingController = grappleInputHandler.isUsingController; 
@@ -96,7 +98,7 @@ public class GrapplingHook : MonoBehaviour
         }
 
         // Check if the target is within range
-        if (Vector2.Distance(transform.position, target) > grappleRange && IsIndicatorOnValidGrappleSpot())
+        if (Vector2.Distance(transform.position, target) > grappleRange && grappleChecks.CheckIsIndicatorOnValidGrappleSpot())
         {
             //Debug.Log("Target out of range");
             return;
@@ -105,7 +107,7 @@ public class GrapplingHook : MonoBehaviour
         // Cast a ray towards the target to find a valid grapple spot
         Vector2 direction = (target - (Vector2)transform.position).normalized;
 
-        RaycastHit2D hit = FindGrapplePoint(direction, grappleRange, grappleLayer);
+        RaycastHit2D hit = grappleChecks.CheckFindGrapplePoint(direction, grappleRange, grappleLayer);
 
         if (hit.collider != null) // Check if the ray hits a valid grapple spot
         {
@@ -188,11 +190,11 @@ public class GrapplingHook : MonoBehaviour
             }
 
             // Check if the player cancels the grapple
-            CheckGrappleStops();
+            grappleChecks.CheckGrappleStops();
         }
     }
 
-    private void StopGrapple()
+    public void StopGrapple()
     {
         //Debug.Log("Stopping grapple");
 
@@ -216,104 +218,7 @@ public class GrapplingHook : MonoBehaviour
             }
         }
 
-        CheckCollisionState(); // Check which state to transition to
-    }
-
-    private void CheckGrappleStops()
-    {
-        if (CheckEnemyCollision())
-        {
-            //Debug.Log("Player is near the enemy. Stopping grapple.");
-            StopGrapple();
-        }
-
-        // Check if the player cancels the grapple by releasing the grapple button
-        if (!grappleAction.IsPressed())
-        {
-            //Debug.Log("Grapple action released");
-            StopGrapple();
-        }
-
-        // Stop grappling if the player reaches the grapple point
-        if (Vector2.Distance(transform.position, grappleSpot) < 0.5f)
-        {
-            //Debug.Log("Player reached the grapple point");
-            StopGrapple();
-        }
-
-        // Check for wall and ceiling collisions
-        if (controller.IsTouchingLeftWall() || controller.IsTouchingRightWall() || controller.IsCeilinged())
-        {
-            if (IsMovingTowardsWall())
-            {
-                //Debug.Log("Player is touching a wall or ceiling and moving towards it");
-                StopGrapple();
-            }
-        }
-    }
-
-    private bool IsMovingTowardsWall()
-    {
-        Vector2 velocity = rb.linearVelocity;
-        if (controller.IsTouchingLeftWall() && velocity.x < 0)
-        {
-            return true;
-        }
-        if (controller.IsTouchingRightWall() && velocity.x > 0)
-        {
-            return true;
-        }
-        return false;
-    }
-    private bool CheckEnemyCollision()
-    {
-        if (enemy == null)
-        {
-            //Debug.LogWarning("Enemy reference is null");
-            return false;
-        }
-
-        float distance = Vector2.Distance(transform.position, enemy.transform.position);
-        //Debug.Log($"Distance to enemy: {distance}");
-
-        return distance < 2f;   // Check if the player is near an enemy
-    }
-
-    private void CheckCollisionState()
-    {
-        // Check for wall and ceiling collisions
-        WallStickingState wallStickingState = new WallStickingState(controller);
-        if (wallStickingState.StickingCheck())
-        {
-            //Debug.Log("Player is touching a wall and walking against it");
-            controller.ChangeState(new WallStickingState(controller));
-        }
-        else if (controller.IsCeilinged())
-        {
-            controller.UpdatePhysicsMaterial();
-            //Debug.Log("Player is touching a ceiling");
-            controller.ChangeState(new FallingState(controller));
-        }
-        else
-        {
-            controller.UpdatePhysicsMaterial();
-            //Debug.Log("Stopped grappling with no collision");
-            controller.ChangeState(new FallingState(controller));
-        }
-    }
-
-    private bool IsIndicatorOnValidGrappleSpot()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(grappleIndicator.GetIndicatorPos(), Vector2.zero, 0f, grappleLayer);
-        return hit.collider != null;
-    }
-
-    public RaycastHit2D FindGrapplePoint(Vector2 direction, float grappleRange, LayerMask grappleLayer)
-    {
-        // Find a valid grapple point in the direction with a CircleCast
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, toleranceRadius, direction, grappleRange, grappleLayer);
-
-        return hit;
+        grappleChecks.CheckCollisionState(); // Check which state to transition to
     }
 
     public void UpdateLineRenderer(Vector2 playerPosition, Vector2 grapplePosition)

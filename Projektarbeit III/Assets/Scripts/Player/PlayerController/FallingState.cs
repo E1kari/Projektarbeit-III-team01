@@ -54,7 +54,7 @@ public class FallingState : IState
         }
 
         // Transition to DashingState if Dash button is pressed and player hasn't dashed yet
-        if (dashAction.triggered && !controller.movementEditor.hasDashed && controller.IsGrounded())
+        if (dashAction.triggered && !controller.movementEditor.hasDashed && !controller.IsGrounded())
         {
             controller.ChangeState(new DashingState(controller));
             controller.movementEditor.hasDashed = true;

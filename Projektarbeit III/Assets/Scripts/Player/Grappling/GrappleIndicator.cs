@@ -6,14 +6,16 @@ public class GrappleIndicator
     private LineRenderer grappleIndicator;
     private Controller controller;
     private GrapplingHook grapplingHook;
+    private GrappleChecks grappleChecks;
     private float grappleRange;
     private float indicatorPuffer;
     private float indicatorSize;
     private int indicatorSegments;
 
-    public GrappleIndicator(GrapplingHook grapplingHook, Controller controller, float grappleRange, float indicatorPuffer, float indicatorSize, int indicatorSegments)
+    public GrappleIndicator(GrapplingHook grapplingHook, GrappleChecks grappleChecks, Controller controller, float grappleRange, float indicatorPuffer, float indicatorSize, int indicatorSegments)
     {
         this.grapplingHook = grapplingHook;
+        this.grappleChecks = grappleChecks;
         this.controller = controller;
         this.grappleRange = grappleRange;
         this.indicatorPuffer = indicatorPuffer;
@@ -54,7 +56,7 @@ public class GrappleIndicator
             direction = (mousePosition - (Vector2)playerPosition).normalized;
         }
 
-        RaycastHit2D hit = grapplingHook.FindGrapplePoint(direction, grappleRange, grapplingHook.grappleLayer);
+        RaycastHit2D hit = grappleChecks.CheckFindGrapplePoint(direction, grappleRange, grapplingHook.grappleLayer);
 
         if (hit.collider != null)
         {
