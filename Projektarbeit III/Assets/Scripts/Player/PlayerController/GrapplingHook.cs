@@ -20,7 +20,6 @@ public class GrapplingHook : MonoBehaviour
     public Controller controller;           // Reference to the player's state manager
     public LineRenderer lineRenderer;       // Visual representation of the rope
     public float cooldownTimer;             // Timer to track cooldown
-    public LineRenderer grappleIndicator;   // Visual indicator for the potential grapple point
     public InputAction grappleAction;       // Grappling input action
     public InputAction aimAction;           // Aim input action for controller
     public bool isUsingController;          // Whether the player is using a controller
@@ -31,17 +30,13 @@ public class GrapplingHook : MonoBehaviour
     public float indicatorSize;             // Indicator size
     public int indicatorSegments;         // Amount of segments the indicator has
     public GrappleInputHandler grappleInputHandler; // Input handler for the grappling hook
+    public GrappleIndicator grappleIndicator;   // Indicator for the grapple point
 
     void Start()
     {
-        grappleInputHandler = gameObject.AddComponent<GrappleInputHandler>();
-        grappleInputHandler.Initialize(this);
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<Controller>();
         lineRenderer = GetComponent<LineRenderer>();
-        grappleAction = grappleInputHandler.grappleAction;
-        aimAction = grappleInputHandler.aimAction;
-        isUsingController = grappleInputHandler.isUsingController; 
 
         // Initialize the LineRenderer to hide the rope
         lineRenderer.positionCount = 0;
@@ -61,15 +56,12 @@ public class GrapplingHook : MonoBehaviour
         indicatorSize = controller.movementEditor.indicatorSize;
         indicatorSegments = controller.movementEditor.indicatorSegments;
 
-        // Create the grapple indicator
-        grappleIndicator = new GameObject("GrappleIndicator").AddComponent<LineRenderer>();
-        grappleIndicator.startWidth = 0.1f;
-        grappleIndicator.endWidth = 0.1f;
-        grappleIndicator.positionCount = 0;
-        grappleIndicator.material = new Material(Shader.Find("Sprites/Default"));
-        grappleIndicator.startColor = controller.movementEditor.indicatorColorNotInRange;
-        grappleIndicator.endColor = controller.movementEditor.indicatorColorNotInRange;
-        grappleIndicator.sortingLayerID = SortingLayer.NameToID("Main Character");
+        grappleIndicator = new GrappleIndicator(this, controller, grappleRange, indicatorPuffer, indicatorSize, indicatorSegments);
+        grappleInputHandler = new GrappleInputHandler(this, grappleIndicator, controller, grappleRange, lastControllerDirection);        
+        grappleAction = grappleInputHandler.grappleAction;
+        aimAction = grappleInputHandler.aimAction;
+        isUsingController = grappleInputHandler.isUsingController; 
+
     }
 
     void Update()
@@ -312,7 +304,7 @@ public class GrapplingHook : MonoBehaviour
 
     private bool IsIndicatorOnValidGrappleSpot()
     {
-        RaycastHit2D hit = Physics2D.Raycast(grappleIndicator.transform.position, Vector2.zero, 0f, grappleLayer);
+        RaycastHit2D hit = Physics2D.Raycast(grappleIndicator.GetIndicatorPos(), Vector2.zero, 0f, grappleLayer);
         return hit.collider != null;
     }
 
@@ -333,75 +325,6 @@ public class GrapplingHook : MonoBehaviour
             lineRenderer.SetPosition(0, playerPosition);    // Start of the rope (player position)
             lineRenderer.SetPosition(1, grapplePosition);   // End of the rope (grapple point)
         }
-    }
-
-    public void UpdateGrappleIndicator()
-    {
-        Vector2 direction;
-        Vector2 playerPosition = transform.position;
-
-        if (isUsingController)
-        {
-            // Use the controller's aim input for direction
-            direction = aimAction.ReadValue<Vector2>().normalized;
-            if (direction != Vector2.zero)
-            {
-                lastControllerDirection = direction;
-            }
-            else
-            {
-                direction = lastControllerDirection;
-            }
-        }
-        else
-        {
-            // Use the mouse position for direction
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            direction = (mousePosition - (Vector2)playerPosition).normalized;
-        }
-
-        RaycastHit2D hit = FindGrapplePoint(direction, grappleRange, grappleLayer);
-
-        if (hit.collider != null)
-        {
-            float distanceToHit = Vector2.Distance(playerPosition, hit.point);
-            if (distanceToHit <= grappleRange + indicatorPuffer)
-            {
-                grappleIndicator.startColor = controller.movementEditor.indicatorColor;
-                grappleIndicator.endColor = controller.movementEditor.indicatorColor;
-
-                if (hit.collider.tag == "Light Enemy" || hit.collider.tag == "GrapplePoint")
-                {
-                    // Draw the grapple indicator at the hit point
-                    DrawingUtils.DrawCircle(grappleIndicator, hit.transform.position, indicatorSize, indicatorSegments);
-                }
-                else
-                {
-                    // Draw the grapple indicator at the hit point
-                    DrawingUtils.DrawCircle(grappleIndicator, hit.point, indicatorSize, indicatorSegments);
-                }
-            }
-            else
-            {
-                grappleIndicator.startColor = controller.movementEditor.indicatorColorNotInRange;
-                grappleIndicator.endColor = controller.movementEditor.indicatorColorNotInRange;
-
-                // Draw the grapple indicator at the maximum range in the direction
-                Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
-                DrawingUtils.DrawCircle(grappleIndicator, maxRangePoint, indicatorSize, indicatorSegments);
-            }
-        }
-        else
-        {
-            grappleIndicator.startColor = controller.movementEditor.indicatorColorNotInRange;
-            grappleIndicator.endColor = controller.movementEditor.indicatorColorNotInRange;
-
-            // Draw the grapple indicator at the maximum range in the direction
-            Vector2 maxRangePoint = (Vector2)playerPosition + direction * grappleRange;
-            DrawingUtils.DrawCircle(grappleIndicator, maxRangePoint, indicatorSize, indicatorSegments);
-        }
-
-        if (grappleIndicator.enabled == false) grappleIndicator.enabled = true;
     }
 
     private void OnDestroy()

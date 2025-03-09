@@ -1,30 +1,27 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GrappleInputHandler : MonoBehaviour
+public class GrappleInputHandler
 {
     public bool isUsingController;           // Whether the player is using a controller
-    private Controller controller;           // Reference to the controller
     private PlayerInput playerInput;         // Reference to the PlayerInput component
     private float grappleRange;              // Maximum distance the grappling hook can reach
-    private bool isCooldown;                 // Whether the grappling hook is on cooldown
-    private float cooldownTimer;             // Timer to track cooldown
     public InputAction grappleAction;       // Grappling input action
     public InputAction aimAction;           // Aim input action for controller
     private Vector2 lastControllerDirection; // Last direction from the controller
     private GrapplingHook grapplingHook;     // Reference to the GrapplingHook script
+    private GrappleIndicator grappleIndicator; // Reference to the GrappleIndicator script
 
-    public void Initialize(GrapplingHook grapplingHook)
+    public GrappleInputHandler(GrapplingHook grapplingHook, GrappleIndicator grappleIndicator, Controller controller, float grappleRange, Vector2 lastControllerDirection)
     {
         this.grapplingHook = grapplingHook;
-        controller = GetComponent<Controller>();
+        this.grappleIndicator = grappleIndicator;
+        this.grappleRange = grappleRange;
+        this.lastControllerDirection = lastControllerDirection;
+
         playerInput = controller.GetComponentInParent<PlayerInput>();
         grappleAction = playerInput.actions["Grappling"];
         aimAction = playerInput.actions["Aiming"];
-        isCooldown = grapplingHook.isCooldown;
-        cooldownTimer = grapplingHook.cooldownTimer;
-        grappleRange = grapplingHook.grappleRange;
-        lastControllerDirection = grapplingHook.lastControllerDirection;
 
         aimAction.Enable();
         grappleAction.Enable();
@@ -35,10 +32,13 @@ public class GrappleInputHandler : MonoBehaviour
         // Check if the player is using a controller (for Aiming)
         isUsingController = playerInput.currentControlScheme == "Gamepad";
 
+        // Getting PlayerPos
+        Vector2 playerPos = grapplingHook.transform.position;
+
         if (grappleAction.triggered)
         {
             //Debug.Log("Grapple action triggered");
-            grapplingHook.UpdateGrappleIndicator();
+            grappleIndicator.UpdateGrappleIndicator(playerPos);
             Vector2 target;
 
             if (isUsingController)
@@ -56,7 +56,7 @@ public class GrappleInputHandler : MonoBehaviour
                 }
 
                 // Calculate the target based on the aim direction
-                Vector2 startPosition = transform.position;
+                Vector2 startPosition = grapplingHook.transform.position;
                 target = startPosition + aimDirection * grappleRange;
             }
             else
@@ -74,7 +74,7 @@ public class GrappleInputHandler : MonoBehaviour
         else
         {
             // Update the grapple indicator position
-            grapplingHook.UpdateGrappleIndicator();
+            grappleIndicator.UpdateGrappleIndicator(playerPos);
         }
     }
 }
