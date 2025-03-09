@@ -43,15 +43,7 @@ public class GrapplingHook : MonoBehaviour
         lineRenderer = DrawingUtils.InitializeLineRenderer(gameObject, 0.2f, 0.2f);
 
         // Get values from MovementEditor
-        grappleSpeed = controller.movementEditor.grappleSpeed;
-        grappleCooldown = controller.movementEditor.grappleCooldown;
-        grappleRange = controller.movementEditor.grappleRange;
-        grappleLayer = controller.movementEditor.grappleLayer;
-        grappleSpeedBoost = controller.movementEditor.grappleSpeedBoost;
-        toleranceRadius = controller.movementEditor.toleranceRadius;
-        indicatorPuffer = controller.movementEditor.indicatorPuffer;
-        indicatorSize = controller.movementEditor.indicatorSize;
-        indicatorSegments = controller.movementEditor.indicatorSegments;
+        GrappleValues.InitializeGrappleValues(this, controller);
 
         grappleChecks = new GrappleChecks(this, controller, rb, enemy); 
         grappleIndicator = new GrappleIndicator(this, grappleChecks, controller, grappleRange, indicatorPuffer, indicatorSize, indicatorSegments);
@@ -59,7 +51,6 @@ public class GrapplingHook : MonoBehaviour
         grappleAction = grappleInputHandler.grappleAction;
         aimAction = grappleInputHandler.aimAction;
         isUsingController = grappleInputHandler.isUsingController; 
-
     }
 
     void Update()
