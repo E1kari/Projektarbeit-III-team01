@@ -1,6 +1,7 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "S_SceneSaver", menuName = "Scriptable Objects/S_SceneSaver")]
@@ -27,28 +28,43 @@ public class S_SceneSaver : ScriptableObject
 
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // If it's a menu scene
         if (scene.name.ToLower().Contains("menu"))
         {
             previousMenuScene = currentMenuScene;
-
-            // Update the current menu scene to the newly loaded scene
             currentMenuScene = scene.name;
 
-            if (scene.name.ToLower().Equals("menu_selection"))
-            {
-                showPreview = true;
-            }
-            else if (scene.name.ToLower().Equals("menu_preview"))
-            {
-                showPreview = false;
-            }
-
+            determineShowPreview(scene.name);
+            determineSelectedButton(scene);
         }
         else if (scene.name.ToLower().Contains("level"))
         {
             previousLevelScene = currentLevelScene;
             currentLevelScene = scene.name;
+        }
+    }
+
+    public static void determineSelectedButton(Scene scene)
+    {
+        GameObject[] buttons = GameObject.FindGameObjectsWithTag("default Button");
+
+        foreach (GameObject button in buttons)
+        {
+            if (button.scene == scene)
+            {
+                GameObject.FindAnyObjectByType<EventSystem>()?.SetSelectedGameObject(button);
+            }
+        }
+    }
+
+    private static void determineShowPreview(string sceneName)
+    {
+        if (sceneName.ToLower().Equals("menu_selection"))
+        {
+            showPreview = true;
+        }
+        else if (sceneName.ToLower().Equals("menu_preview"))
+        {
+            showPreview = false;
         }
     }
 
