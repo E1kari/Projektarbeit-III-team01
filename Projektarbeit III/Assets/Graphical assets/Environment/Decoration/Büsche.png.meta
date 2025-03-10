@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: b28ff45eca4fdca4b951ec92a5bef8bd
+guid: b04a433de4377394e9adb2c84d6861c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3714107449674919735
-    second: Unbenannt1_0
+      213: -8572017535660904959
+    second: E8D466F5-88DA-494C-9E32-5FD026E494F0_0
   - first:
-      213: 4181159279707887077
-    second: Unbenannt1_1
+      213: -3913725306810664330
+    second: E8D466F5-88DA-494C-9E32-5FD026E494F0_1
+  - first:
+      213: -5140096909175948602
+    second: E8D466F5-88DA-494C-9E32-5FD026E494F0_2
+  - first:
+      213: -6913215145999797434
+    second: E8D466F5-88DA-494C-9E32-5FD026E494F0_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Unbenannt1_0
+      name: E8D466F5-88DA-494C-9E32-5FD026E494F0_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 143
         y: 128
-        width: 128
-        height: 128
+        width: 746
+        height: 711
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73f618b1c092b8330800000000000000
-      internalID: 3714107449674919735
+      spriteID: 10e2382c7731a0980800000000000000
+      internalID: -8572017535660904959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Unbenannt1_1
+      name: E8D466F5-88DA-494C-9E32-5FD026E494F0_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
+        x: 688
+        y: 711
+        width: 336
+        height: 878
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +159,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e511505636760a30800000000000000
-      internalID: 4181159279707887077
+      spriteID: 67af71bb197afa9c0800000000000000
+      internalID: -3913725306810664330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E8D466F5-88DA-494C-9E32-5FD026E494F0_2
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 707
+        width: 360
+        height: 846
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cafb713815baa8b0800000000000000
+      internalID: -5140096909175948602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: E8D466F5-88DA-494C-9E32-5FD026E494F0_3
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 156
+        width: 1172
+        height: 756
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 643f4d6d3735f00a0800000000000000
+      internalID: -6913215145999797434
       vertices: []
       indices: 
       edges: []
@@ -163,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 552978ae477a65d4ebdc93fea988e0b0
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Unbenannt1_0: 3714107449674919735
-      Unbenannt1_1: 4181159279707887077
+      E8D466F5-88DA-494C-9E32-5FD026E494F0_0: -8572017535660904959
+      E8D466F5-88DA-494C-9E32-5FD026E494F0_1: -3913725306810664330
+      E8D466F5-88DA-494C-9E32-5FD026E494F0_2: -5140096909175948602
+      E8D466F5-88DA-494C-9E32-5FD026E494F0_3: -6913215145999797434
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

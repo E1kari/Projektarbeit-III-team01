@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: b28ff45eca4fdca4b951ec92a5bef8bd
+guid: f2159f995d783d34fb3800edc4c75739
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3714107449674919735
-    second: Unbenannt1_0
-  - first:
-      213: 4181159279707887077
-    second: Unbenannt1_1
+      213: -717747990786903167
+    second: Hintergrund 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Unbenannt1_0
+      name: Hintergrund 2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 128
-        height: 128
+        y: 0
+        width: 7680
+        height: 2160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73f618b1c092b8330800000000000000
-      internalID: 3714107449674919735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Unbenannt1_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5e511505636760a30800000000000000
-      internalID: 4181159279707887077
+      spriteID: 18375e2510c0a06f0800000000000000
+      internalID: -717747990786903167
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 552978ae477a65d4ebdc93fea988e0b0
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -172,9 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Unbenannt1_0: 3714107449674919735
-      Unbenannt1_1: 4181159279707887077
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

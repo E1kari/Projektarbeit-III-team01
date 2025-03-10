@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: b28ff45eca4fdca4b951ec92a5bef8bd
+guid: c6e255c0005800a41a854bfd76eeed4a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3714107449674919735
-    second: Unbenannt1_0
+      213: -4651698217790814455
+    second: CAABE635-0282-4DCE-9E5A-FDBF5D8954AB_0
   - first:
-      213: 4181159279707887077
-    second: Unbenannt1_1
+      213: 1061513859356694005
+    second: CAABE635-0282-4DCE-9E5A-FDBF5D8954AB_1
+  - first:
+      213: 7455944529354011706
+    second: CAABE635-0282-4DCE-9E5A-FDBF5D8954AB_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 420
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Unbenannt1_0
+      name: CAABE635-0282-4DCE-9E5A-FDBF5D8954AB_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 128
-        height: 128
+        x: 504
+        y: 142
+        width: 590
+        height: 774
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73f618b1c092b8330800000000000000
-      internalID: 3714107449674919735
+      spriteID: 907c24edd19d17fb0800000000000000
+      internalID: -4651698217790814455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Unbenannt1_1
+      name: CAABE635-0282-4DCE-9E5A-FDBF5D8954AB_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
+        x: 907
+        y: 816
+        width: 621
+        height: 778
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +156,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e511505636760a30800000000000000
-      internalID: 4181159279707887077
+      spriteID: 5f51c1f1b314bbe00800000000000000
+      internalID: 1061513859356694005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CAABE635-0282-4DCE-9E5A-FDBF5D8954AB_2
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 114
+        width: 688
+        height: 802
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34b921db06d87760800000000000000
+      internalID: 7455944529354011706
       vertices: []
       indices: 
       edges: []
@@ -163,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 552978ae477a65d4ebdc93fea988e0b0
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Unbenannt1_0: 3714107449674919735
-      Unbenannt1_1: 4181159279707887077
+      CAABE635-0282-4DCE-9E5A-FDBF5D8954AB_0: -4651698217790814455
+      CAABE635-0282-4DCE-9E5A-FDBF5D8954AB_1: 1061513859356694005
+      CAABE635-0282-4DCE-9E5A-FDBF5D8954AB_2: 7455944529354011706
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

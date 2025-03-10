@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: 4ba39d208089f424a90c2554d431eaaf
+guid: 5b53856591416684ea7cb69b23d2d6dc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -529024581838642100
-    second: Unbenannt_0
+      213: -5599151554891120898
+    second: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_0
+  - first:
+      213: 498807968754556735
+    second: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_1
+  - first:
+      213: 7172424901386841271
+    second: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_2
+  - first:
+      213: -5304847661405866270
+    second: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_3
+  - first:
+      213: 3927791928430251247
+    second: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_4
+  - first:
+      213: -2727367585819907092
+    second: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_5
+  - first:
+      213: 948153675880732452
+    second: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Balkon_0
+      name: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 128
-        height: 128
+        x: 140
+        y: 1238
+        width: 1413
+        height: 1054
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ba837eec5b0f2f49820ec308c9311bc
-      internalID: 1087804340
+      spriteID: 4b44c8fcaedc84740a86befbe6ae4bea
+      internalID: -1797405008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Balkon_1
+      name: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
+        x: 1839
+        y: 1981
+        width: 29
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28492173925fbb14fa021f5cc4ed3226
-      internalID: -178232940
+      spriteID: 5c1ad13138a6bdc40940cf19ef7a82c0
+      internalID: -233391364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Balkon_2
+      name: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 128
-        height: 128
+        x: 1570
+        y: 1786
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 772cf6a27145e4c4e8ccac0e8fb80410
-      internalID: -236575486
+      spriteID: 195ce7338aada2d48ab78c5c45000211
+      internalID: 1911968721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Balkon_3
+      name: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 1594
+        y: 1642
+        width: 12
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +212,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76d95cf8bb26b3248993e2380ad7cfc4
-      internalID: -1032419560
+      spriteID: 05049213f2eaeef4f85f708c6ace1aca
+      internalID: 1885466538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_4
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 227
+        width: 1160
+        height: 1142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd76601c21212d478acff485e9be53f
+      internalID: -1233088553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_5
+      rect:
+        serializedVersion: 2
+        x: 3227
+        y: 996
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479652b9ac403b649bc16142a29be83c
+      internalID: 543087753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8D49027F-AFAB-4A12-9C28-346F3DB6170C_6
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 982
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c9d72b0090d2a43adf88582ec46921
+      internalID: 1926142009
       vertices: []
       indices: 
       edges: []
@@ -204,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 982ad9b7c028672458dc76e144ba8d7f
+    spriteID: a454bc7cd7285b945b8d64e21d6741eb
     internalID: 0
     vertices: []
     indices: 
@@ -214,10 +298,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Balkon_0: 1087804340
-      Balkon_1: -178232940
-      Balkon_2: -236575486
-      Balkon_3: -1032419560
+      8D49027F-AFAB-4A12-9C28-346F3DB6170C_0: -1797405008
+      8D49027F-AFAB-4A12-9C28-346F3DB6170C_1: -233391364
+      8D49027F-AFAB-4A12-9C28-346F3DB6170C_2: 1911968721
+      8D49027F-AFAB-4A12-9C28-346F3DB6170C_3: 1885466538
+      8D49027F-AFAB-4A12-9C28-346F3DB6170C_4: -1233088553
+      8D49027F-AFAB-4A12-9C28-346F3DB6170C_5: 543087753
+      8D49027F-AFAB-4A12-9C28-346F3DB6170C_6: 1926142009
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
