@@ -21,8 +21,12 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
         audioData = Resources.Load<S_AudioData>("Scriptable Objects/AudioData");
+
         musicSource = gameObject.AddComponent<AudioSource>();
+        musicSource.loop = true;
+
         effectSource = gameObject.AddComponent<AudioSource>();
+
         UpdateVolumes();
     }
 
