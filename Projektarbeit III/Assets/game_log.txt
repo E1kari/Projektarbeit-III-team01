@@ -227,3 +227,99 @@
 10.03.2025 19:57:30 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
 10.03.2025 19:57:35 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
 10.03.2025 19:57:40 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 21:16:39 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+11.03.2025 21:16:39 [Log]: Logger initialized successfully
+11.03.2025 21:16:39 [Log]: 11.03.2025 21:16:39 [Log]: Logger initialized successfully
+11.03.2025 21:16:40 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+11.03.2025 21:16:42 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 21:16:57 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 21:17:01 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 21:18:50 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+11.03.2025 21:18:50 [Log]: Logger initialized successfully
+11.03.2025 21:18:50 [Log]: 11.03.2025 21:18:50 [Log]: Logger initialized successfully
+11.03.2025 21:18:51 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+11.03.2025 21:18:53 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 21:19:03 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 21:19:09 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 21:19:34 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 21:19:42 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 21:19:46 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 21:19:58 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:14:54 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+11.03.2025 22:14:54 [Log]: Logger initialized successfully
+11.03.2025 22:14:54 [Log]: 11.03.2025 22:14:54 [Log]: Logger initialized successfully
+11.03.2025 22:14:56 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+11.03.2025 22:14:57 [Error]: Invalid scene asset
+11.03.2025 22:14:58 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:15:03 [Log]: Entered Wall Jumping State
+11.03.2025 22:15:03 [Log]: Exiting Wall Jumping State
+11.03.2025 22:15:05 [Log]: Entered Wall Jumping State
+11.03.2025 22:15:05 [Log]: Exiting Wall Jumping State
+11.03.2025 22:15:06 [Log]: Entered Wall Jumping State
+11.03.2025 22:15:06 [Log]: Exiting Wall Jumping State
+11.03.2025 22:15:08 [Log]: Entered Wall Jumping State
+11.03.2025 22:15:08 [Log]: Exiting Wall Jumping State
+11.03.2025 22:15:13 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:15:36 [Log]: Entered Wall Jumping State
+11.03.2025 22:15:36 [Log]: Exiting Wall Jumping State
+11.03.2025 22:15:38 [Log]: Entered Wall Jumping State
+11.03.2025 22:15:39 [Log]: Exiting Wall Jumping State
+11.03.2025 22:15:53 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:15:57 [Log]: Entered Wall Jumping State
+11.03.2025 22:15:57 [Log]: Exiting Wall Jumping State
+11.03.2025 22:15:58 [Log]: Entered Wall Jumping State
+11.03.2025 22:15:58 [Log]: Exiting Wall Jumping State
+11.03.2025 22:16:02 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:16:08 [Log]: Entered Wall Jumping State
+11.03.2025 22:16:08 [Log]: Exiting Wall Jumping State
+11.03.2025 22:16:12 [Log]: Entered Wall Jumping State
+11.03.2025 22:16:13 [Log]: Exiting Wall Jumping State
+11.03.2025 22:16:18 [Log]: Entered Wall Jumping State
+11.03.2025 22:16:18 [Log]: Exiting Wall Jumping State
+11.03.2025 22:16:20 [Log]: Entered Wall Jumping State
+11.03.2025 22:16:20 [Log]: Exiting Wall Jumping State
+11.03.2025 22:16:23 [Log]: Entered Wall Jumping State
+11.03.2025 22:16:23 [Log]: Exiting Wall Jumping State
+11.03.2025 22:16:40 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:16:47 [Log]: Entered Wall Jumping State
+11.03.2025 22:16:47 [Log]: Exiting Wall Jumping State
+11.03.2025 22:16:54 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:17:00 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:17:05 [Log]: Entered Wall Jumping State
+11.03.2025 22:17:06 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:17:11 [Log]: Entered Wall Jumping State
+11.03.2025 22:17:11 [Log]: Exiting Wall Jumping State
+11.03.2025 22:17:22 [Log]: Entered Wall Jumping State
+11.03.2025 22:17:22 [Log]: Exiting Wall Jumping State
+11.03.2025 22:17:27 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:17:35 [Log]: Entered Wall Jumping State
+11.03.2025 22:17:35 [Log]: Exiting Wall Jumping State
+11.03.2025 22:17:37 [Log]: Entered Wall Jumping State
+11.03.2025 22:17:38 [Log]: Exiting Wall Jumping State
+11.03.2025 22:17:46 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:17:52 [Log]: Entered Wall Jumping State
+11.03.2025 22:17:52 [Log]: Exiting Wall Jumping State
+11.03.2025 22:17:54 [Log]: Entered Wall Jumping State
+11.03.2025 22:17:55 [Log]: Exiting Wall Jumping State
+11.03.2025 22:18:03 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:18:08 [Log]: Entered Wall Jumping State
+11.03.2025 22:18:08 [Log]: Exiting Wall Jumping State
+11.03.2025 22:18:11 [Log]: Entered Wall Jumping State
+11.03.2025 22:18:11 [Log]: Exiting Wall Jumping State
+11.03.2025 22:18:25 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:18:31 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:18:37 [Log]: Entered Wall Jumping State
+11.03.2025 22:18:37 [Log]: Exiting Wall Jumping State
+11.03.2025 22:18:41 [Log]: Entered Wall Jumping State
+11.03.2025 22:18:42 [Log]: Exiting Wall Jumping State
+11.03.2025 22:18:50 [Log]: Entered Wall Jumping State
+11.03.2025 22:18:51 [Log]: Exiting Wall Jumping State
+11.03.2025 22:18:55 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:19:05 [Log]: Entered Wall Jumping State
+11.03.2025 22:19:05 [Log]: Exiting Wall Jumping State
+11.03.2025 22:19:07 [Log]: Entered Wall Jumping State
+11.03.2025 22:19:08 [Log]: Exiting Wall Jumping State
+11.03.2025 22:19:19 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+11.03.2025 22:19:28 [Log]: Entered Wall Jumping State
+11.03.2025 22:19:28 [Log]: Exiting Wall Jumping State
+11.03.2025 22:19:46 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
