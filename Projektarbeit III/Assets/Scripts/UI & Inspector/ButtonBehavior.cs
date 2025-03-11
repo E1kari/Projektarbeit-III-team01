@@ -11,7 +11,6 @@ public class ButtonBehavior : MonoBehaviour
 {
     private GameObject[] panels_;
     private S_SceneSaver sceneSaver_;
-    private Logger logger = Logger.Instance;
 
     public void Start()
     {
@@ -20,40 +19,11 @@ public class ButtonBehavior : MonoBehaviour
         panels_ = GameObject.FindGameObjectsWithTag("Panel");
         foreach (GameObject panel in panels_)
         {
-            panel.SetActive(false);
+            if (panel.name != "Sound Panel")
+            {
+                panel.SetActive(false);
+            }
         }
-    }
-
-    private void loadScene(string pa_sceneName)
-    {
-        Time.timeScale = 1f; // Resume time
-
-        if (pa_sceneName.ToLower().Contains("level") || pa_sceneName.ToLower().Contains("room") || pa_sceneName.ToLower().Contains("main")) // can be removed, when scenes are cleaned up and sorted in the build menu
-        {
-            SceneManager.LoadScene(pa_sceneName, LoadSceneMode.Single);
-
-        }
-
-        else if (pa_sceneName.ToLower().Contains("menu"))
-        {
-            SceneManager.LoadScene(pa_sceneName, LoadSceneMode.Additive);
-        }
-    }
-
-    public void LoadScene(string sceneNameToLoad)
-    {
-        if (string.IsNullOrEmpty(sceneNameToLoad))
-        {
-            Debug.LogError("Scene name is not set");
-            #if !UNITY_EDITOR
-            Logger.Instance.Log("Scene name is not set", "Button", LogType.Error);
-            #endif
-            return;
-        }
-        #if !UNITY_EDITOR
-        Logger.Instance.Log("Scene to load: " + sceneNameToLoad, "Button", LogType.Log);
-        #endif
-        LoadSceneByName(sceneNameToLoad);
     }
 
     private void LoadSceneByName(string sceneNameToLoad)
@@ -67,37 +37,28 @@ public class ButtonBehavior : MonoBehaviour
             SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Additive);
         }
 
-        #if !UNITY_EDITOR
+#if !UNITY_EDITOR
         Logger.Instance.Log("Scene loaded: " + sceneNameToLoad, "Button", LogType.Log);
-        #endif
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+#endif
     }
 
     // Wrapper method to be called by the button in the Unity Inspector
     public void LoadSceneWrapper(string sceneName)
     {
-        #if UNITY_EDITOR
-        if (!string.IsNullOrEmpty(sceneName))
-        {
-            LoadScene(sceneName);
-        }
-        else
-        {
-            Debug.LogError("Invalid scene asset");
-        }
-        #else
         Logger.Instance.Log("Scene to load: " + sceneName, "Button", LogType.Log);
         if (!string.IsNullOrEmpty(sceneName))
         {
+#if !UNITY_EDITOR
             Logger.Instance.Log("Scene to load: " + sceneName, "Button", LogType.Log);
-            LoadScene(sceneName);
+#endif
+            LoadSceneByName(sceneName);
         }
         else
         {
-            Debug.LogError("Invalid scene name");
+#if !UNITY_EDITOR
             Logger.Instance.Log("Invalid scene name " + sceneName, "Button", LogType.Error);
+#endif
         }
-        #endif
     }
 
     public void activatePanel(GameObject pa_panel)
@@ -144,6 +105,15 @@ public class ButtonBehavior : MonoBehaviour
     public void back()
     {
         SceneManager.UnloadSceneAsync("menu_options");
+
+        if (SceneManager.GetSceneByName("menu_pause").isLoaded)
+        {
+            S_SceneSaver.determineSelectedButton(SceneManager.GetSceneByName("menu_pause"));
+        }
+        else if (SceneManager.GetSceneByName("menu_main").isLoaded)
+        {
+            S_SceneSaver.determineSelectedButton(SceneManager.GetSceneByName("menu_main"));
+        }
     }
 
     public void exitGame()

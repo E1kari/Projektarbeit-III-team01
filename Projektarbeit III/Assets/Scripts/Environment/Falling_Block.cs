@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static S_AudioData;
 
 public class Falling_Block : MonoBehaviour
 {
@@ -52,8 +53,13 @@ public class Falling_Block : MonoBehaviour
     {
         countdown = true;
         triggered = true;
+
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Environment_FallingBlock);
+
         StartCoroutine(startShaking());
         yield return new WaitForSeconds(fallingBlockData_.fallDelay_);
+
         restetSpritePosition();
         countdown = false;
         activateGravity();
