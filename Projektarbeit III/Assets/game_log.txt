@@ -33,3 +33,197 @@
 27.02.2025 21:41:02 [Log]: Logger stopped
 27.02.2025 21:41:02 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
 27.02.2025 21:41:03 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+09.03.2025 14:28:38 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:28:38 [Log]: Logger initialized successfully
+09.03.2025 14:28:38 [Log]: 09.03.2025 14:28:38 [Log]: Logger initialized successfully
+09.03.2025 14:28:41 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:29:16 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:29:16 [Log]: Logger initialized successfully
+09.03.2025 14:29:16 [Log]: 09.03.2025 14:29:16 [Log]: Logger initialized successfully
+09.03.2025 14:29:25 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:29:26 [Log]: Logger stopped
+09.03.2025 14:29:27 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:29:32 [Log]: Logger stopped
+09.03.2025 14:29:34 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:29:40 [Error]: Cannot load scene: Invalid scene name (empty string) and invalid build index -1
+09.03.2025 14:29:40 [Warning]: Unloading the last loaded scene Assets/Scenes/Training Room.unity(build index: 6), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:29:43 [Log]: Logger stopped
+09.03.2025 14:29:46 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:29:48 [Error]: Invalid scene asset
+09.03.2025 14:29:53 [Error]: Invalid scene asset
+09.03.2025 14:30:12 [Log]: Entered Wall Jumping State
+09.03.2025 14:30:12 [Log]: Exiting Wall Jumping State
+09.03.2025 14:30:14 [Log]: Entered Wall Jumping State
+09.03.2025 14:30:14 [Log]: Exiting Wall Jumping State
+09.03.2025 14:30:33 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:30:33 [Log]: Logger initialized successfully
+09.03.2025 14:30:33 [Log]: 09.03.2025 14:30:33 [Log]: Logger initialized successfully
+09.03.2025 14:30:36 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:30:57 [Log]: Entered Wall Jumping State
+09.03.2025 14:30:58 [Log]: Exiting Wall Jumping State
+09.03.2025 14:31:00 [Log]: Entered Wall Jumping State
+09.03.2025 14:31:00 [Log]: Exiting Wall Jumping State
+09.03.2025 14:31:05 [Log]: Entered Wall Jumping State
+09.03.2025 14:31:05 [Log]: Exiting Wall Jumping State
+09.03.2025 14:32:22 [Log]: Entered Wall Jumping State
+09.03.2025 14:32:23 [Log]: Exiting Wall Jumping State
+09.03.2025 14:32:45 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+09.03.2025 14:32:59 [Exception]: NullReferenceException: Object reference not set to an instance of an object
+09.03.2025 14:43:05 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:43:05 [Log]: Logger initialized successfully
+09.03.2025 14:43:05 [Log]: 09.03.2025 14:43:05 [Log]: Logger initialized successfully
+09.03.2025 14:43:07 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:43:43 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:43:43 [Log]: Logger initialized successfully
+09.03.2025 14:43:43 [Log]: 09.03.2025 14:43:43 [Log]: Logger initialized successfully
+09.03.2025 14:43:45 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:44:20 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:44:20 [Log]: Logger initialized successfully
+09.03.2025 14:44:20 [Log]: 09.03.2025 14:44:20 [Log]: Logger initialized successfully
+09.03.2025 14:44:22 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:45:57 [Log]: Logger stopped
+09.03.2025 14:46:24 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:46:24 [Log]: Logger initialized successfully
+09.03.2025 14:46:24 [Log]: 09.03.2025 14:46:24 [Log]: Logger initialized successfully
+09.03.2025 14:46:25 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:46:49 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:46:49 [Log]: Logger initialized successfully
+09.03.2025 14:46:49 [Log]: 09.03.2025 14:46:49 [Log]: Logger initialized successfully
+09.03.2025 14:46:50 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:46:53 [Log]: Logger stopped
+09.03.2025 14:46:54 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:47:01 [Log]: Logger stopped
+09.03.2025 14:47:04 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:47:11 [Log]: Logger stopped
+09.03.2025 14:47:14 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:47:15 [Error]: Invalid scene asset
+09.03.2025 14:47:32 [Log]: Logger stopped
+09.03.2025 14:47:33 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:47:49 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:47:49 [Log]: Logger initialized successfully
+09.03.2025 14:47:49 [Log]: 09.03.2025 14:47:49 [Log]: Logger initialized successfully
+09.03.2025 14:47:55 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:48:02 [Log]: Logger stopped
+09.03.2025 14:48:03 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:48:10 [Log]: Entered Wall Jumping State
+09.03.2025 14:48:10 [Log]: Exiting Wall Jumping State
+09.03.2025 14:48:22 [Log]: Entered Wall Jumping State
+09.03.2025 14:48:22 [Log]: Exiting Wall Jumping State
+09.03.2025 14:48:40 [Log]: Entered Wall Jumping State
+09.03.2025 14:48:40 [Log]: Exiting Wall Jumping State
+09.03.2025 14:48:41 [Log]: Entered Wall Jumping State
+09.03.2025 14:48:41 [Log]: Exiting Wall Jumping State
+09.03.2025 14:48:43 [Log]: Entered Wall Jumping State
+09.03.2025 14:48:44 [Log]: Exiting Wall Jumping State
+09.03.2025 14:48:45 [Log]: Entered Wall Jumping State
+09.03.2025 14:48:46 [Log]: Exiting Wall Jumping State
+09.03.2025 14:48:46 [Log]: Entered Wall Jumping State
+09.03.2025 14:48:47 [Log]: Exiting Wall Jumping State
+09.03.2025 14:48:47 [Log]: Entered Wall Jumping State
+09.03.2025 14:48:48 [Log]: Exiting Wall Jumping State
+09.03.2025 14:48:49 [Log]: Entered Wall Jumping State
+09.03.2025 14:48:50 [Log]: Exiting Wall Jumping State
+09.03.2025 14:49:07 [Log]: Logger stopped
+09.03.2025 14:49:09 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:49:49 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:49:49 [Log]: Logger initialized successfully
+09.03.2025 14:49:49 [Log]: 09.03.2025 14:49:49 [Log]: Logger initialized successfully
+09.03.2025 14:50:15 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:50:20 [Log]: Logger stopped
+09.03.2025 14:50:21 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:50:26 [Log]: Logger stopped
+09.03.2025 14:50:26 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:52:30 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+09.03.2025 14:52:30 [Log]: Logger initialized successfully
+09.03.2025 14:52:30 [Log]: 09.03.2025 14:52:30 [Log]: Logger initialized successfully
+09.03.2025 14:52:44 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:52:47 [Log]: Logger stopped
+09.03.2025 14:52:48 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+09.03.2025 14:52:53 [Log]: Logger stopped
+09.03.2025 14:52:54 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+10.03.2025 17:21:56 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+10.03.2025 17:21:56 [Log]: Logger initialized successfully
+10.03.2025 17:21:56 [Log]: 10.03.2025 17:21:56 [Log]: Logger initialized successfully
+10.03.2025 17:21:58 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+10.03.2025 17:22:00 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:22:07 [Log]: Entered Wall Jumping State
+10.03.2025 17:22:07 [Log]: Exiting Wall Jumping State
+10.03.2025 17:22:18 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:22:39 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:22:46 [Log]: Entered Wall Jumping State
+10.03.2025 17:22:47 [Log]: Exiting Wall Jumping State
+10.03.2025 17:22:48 [Log]: Entered Wall Jumping State
+10.03.2025 17:22:48 [Log]: Exiting Wall Jumping State
+10.03.2025 17:23:10 [Log]: Entered Wall Jumping State
+10.03.2025 17:23:11 [Log]: Exiting Wall Jumping State
+10.03.2025 17:23:16 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:23:24 [Log]: Entered Wall Jumping State
+10.03.2025 17:23:25 [Log]: Exiting Wall Jumping State
+10.03.2025 17:23:35 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:23:42 [Log]: Entered Wall Jumping State
+10.03.2025 17:23:42 [Log]: Exiting Wall Jumping State
+10.03.2025 17:23:47 [Log]: Entered Wall Jumping State
+10.03.2025 17:23:48 [Log]: Exiting Wall Jumping State
+10.03.2025 17:24:01 [Log]: Entered Wall Jumping State
+10.03.2025 17:24:01 [Log]: Exiting Wall Jumping State
+10.03.2025 17:24:08 [Log]: Entered Wall Jumping State
+10.03.2025 17:24:09 [Log]: Exiting Wall Jumping State
+10.03.2025 17:25:16 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:25:35 [Warning]: Unloading the last loaded scene Assets/Scenes/Level 3.unity(build index: 9), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+10.03.2025 17:25:35 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:25:58 [Log]: Entered Wall Jumping State
+10.03.2025 17:25:59 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:26:19 [Log]: Entered Wall Jumping State
+10.03.2025 17:26:20 [Log]: Exiting Wall Jumping State
+10.03.2025 17:26:21 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:26:24 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:26:28 [Log]: Entered Wall Jumping State
+10.03.2025 17:26:28 [Log]: Exiting Wall Jumping State
+10.03.2025 17:26:36 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:26:39 [Log]: Entered Wall Jumping State
+10.03.2025 17:26:39 [Log]: Exiting Wall Jumping State
+10.03.2025 17:26:51 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:27:41 [Log]: Entered Wall Jumping State
+10.03.2025 17:27:41 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 17:27:59 [Log]: Entered Wall Jumping State
+10.03.2025 17:27:59 [Log]: Exiting Wall Jumping State
+10.03.2025 17:28:02 [Log]: Entered Wall Jumping State
+10.03.2025 17:28:02 [Log]: Exiting Wall Jumping State
+10.03.2025 17:28:02 [Log]: Entered Wall Jumping State
+10.03.2025 17:28:03 [Log]: Exiting Wall Jumping State
+10.03.2025 19:53:48 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+10.03.2025 19:53:48 [Log]: Logger initialized successfully
+10.03.2025 19:53:48 [Log]: 10.03.2025 19:53:48 [Log]: Logger initialized successfully
+10.03.2025 19:53:50 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+10.03.2025 19:53:52 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:54:14 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:55:00 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+10.03.2025 19:55:00 [Log]: Logger initialized successfully
+10.03.2025 19:55:00 [Log]: 10.03.2025 19:55:00 [Log]: Logger initialized successfully
+10.03.2025 19:55:01 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+10.03.2025 19:55:03 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:55:13 [Log]: Entered Wall Jumping State
+10.03.2025 19:55:14 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:55:19 [Log]: Entered Wall Jumping State
+10.03.2025 19:55:21 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:55:27 [Log]: Entered Wall Jumping State
+10.03.2025 19:55:27 [Log]: Exiting Wall Jumping State
+10.03.2025 19:55:30 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:55:37 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:55:45 [Log]: Entered Wall Jumping State
+10.03.2025 19:55:45 [Log]: Exiting Wall Jumping State
+10.03.2025 19:55:58 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:56:22 [Log]: Entered Wall Jumping State
+10.03.2025 19:56:22 [Log]: Exiting Wall Jumping State
+10.03.2025 19:56:41 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:56:51 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:56:57 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:57:03 [Log]: Entered Wall Jumping State
+10.03.2025 19:57:03 [Log]: Exiting Wall Jumping State
+10.03.2025 19:57:08 [Log]: Entered Wall Jumping State
+10.03.2025 19:57:08 [Log]: Exiting Wall Jumping State
+10.03.2025 19:57:19 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:57:30 [Log]: Entered Wall Jumping State
+10.03.2025 19:57:30 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:57:35 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+10.03.2025 19:57:40 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
