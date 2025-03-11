@@ -43,7 +43,7 @@ public class Breakable_Ground : MonoBehaviour
     IEnumerator activateBreaking()
     {
         AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        audioManager.PlayAudio(AudioIndex.Environment_BreakingBlock);
+        audioManager.PlayAudio(AudioIndex.Environment_BreakableBlock);
 
         yield return new WaitForSeconds(breakableGroundData_.breakDelay_);
         Destroy(gameObject);
