@@ -99,7 +99,8 @@ public class JumpingState : Interface.IState
 
     public void OnDeath()
     {
-        // Handle death logic
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Player_Death);
     }
 
     public void OnExit()
