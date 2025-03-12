@@ -13,47 +13,50 @@ MonoBehaviour:
   m_Name: AudioData
   m_EditorClassIdentifier: 
   allAudioClips_:
-  - name: Player_Run
-    sounds: []
   - name: Player_Jump
     sounds:
-    - {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+    - {fileID: 8300000, guid: 1debfa415451f9444bba0c800648a5ce, type: 3}
   - name: Player_Dash
     sounds:
-    - {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+    - {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
   - name: Player_Death
     sounds:
-    - {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
-  - name: Environment_Well
-    sounds: []
-  - name: Environment_BreakingBlock
+    - {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}
+  - name: Enemy_Attack
     sounds:
-    - {fileID: 8300000, guid: c91fcf414acc0344cb03b13996f1bf3b, type: 3}
+    - {fileID: 8300000, guid: e3d4b6f914613014e84554bb60ddcafb, type: 3}
+  - name: Enemy_Death
+    sounds:
+    - {fileID: 8300000, guid: 1ee43d832688cd64c8909a9c645aa6ff, type: 3}
+  - name: Player_GrapplingHook
+    sounds:
+    - {fileID: 8300000, guid: 34bc7d813d4b41847bd6ab18d93e9b08, type: 3}
+  - name: Environment_GrappleSpeedBoost
+    sounds:
+    - {fileID: 8300000, guid: 672919e5c591a9442bd84cddabf4609c, type: 3}
   - name: Environment_FallingBlock
     sounds:
-    - {fileID: 8300000, guid: 21c4a490b24ba2045bc815f7626a40ef, type: 3}
-  - name: Enemy_Attack
+    - {fileID: 8300000, guid: 2f8154d2dc9339246b24a344fb9c897d, type: 3}
+  - name: Environment_BreakableBlock
+    sounds:
+    - {fileID: 8300000, guid: 93cfbea52655842459fdb991dcc5f52c, type: 3}
+  - name: Environment_LevelStart
     sounds: []
-  - name: Enemy_Death
-    sounds: []
+  - name: Environment_LevelEnd
+    sounds:
+    - {fileID: 8300000, guid: 5bfe9ab90eea0874fa95fa68864dbee8, type: 3}
   - name: Music_Level1
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: 5842ce4b0a248604f9af5881bdef1b5d, type: 3}
   - name: Music_Level2
     sounds:
     - {fileID: 8300000, guid: 5bfe9ab90eea0874fa95fa68864dbee8, type: 3}
   - name: Music_Level3
-    sounds: []
-  - name: UI_Timer
-    sounds: []
-  - name: UI_Leaderboard
-    sounds: []
-  - name: UI_PauseMenu
-    sounds: []
-  - name: UI_MainMenu
-    sounds: []
-  - name: UI_LevelSelect
-    sounds: []
-  - name: UI_LevelTransition
-    sounds: []
-  - name: UI_Settings
-    sounds: []
+    sounds:
+    - {fileID: 8300000, guid: 2de8083202488a944b1e327d6349adfa, type: 3}
+  - name: UI_buttonClick
+    sounds:
+    - {fileID: 8300000, guid: 6852620bffc6960478faab13669edeb5, type: 3}
+  masterVolume: 0.5
+  musicVolume: 0.1
+  effectVolume: 1
