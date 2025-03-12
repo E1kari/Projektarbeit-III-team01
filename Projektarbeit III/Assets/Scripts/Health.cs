@@ -24,6 +24,9 @@ public class Health : MonoBehaviour
         }
         else
         {
+            Enemy enemy = gameObject.GetComponent<Enemy>();
+            enemy.HandleDeath();
+
             // Destroy the game object after a short delay if it's not the player
             Destroy(gameObject, 0.5f);
         }

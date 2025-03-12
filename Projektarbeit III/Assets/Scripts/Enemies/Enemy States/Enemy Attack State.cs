@@ -78,6 +78,7 @@ public class EnemyAttackState : Interface.IState
 
     public void OnDeath()
     {
-
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Enemy_Death);
     }
 }
