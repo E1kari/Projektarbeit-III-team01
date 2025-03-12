@@ -13,5 +13,6 @@ public class GrappleValues
         grapplingHook.indicatorPuffer = controller.movementEditor.indicatorPuffer;
         grapplingHook.indicatorSize = controller.movementEditor.indicatorSize;
         grapplingHook.indicatorSegments = controller.movementEditor.indicatorSegments;
+        grapplingHook.playedBoostAudio = false;
     }
 }

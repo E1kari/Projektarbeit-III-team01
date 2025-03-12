@@ -30,6 +30,7 @@ public class GrapplingHook : MonoBehaviour
     public float indicatorPuffer;           // Puffer when the hook is in the tolerance radius
     public float indicatorSize;             // Indicator size
     public int indicatorSegments;         // Amount of segments the indicator has
+    public bool playedBoostAudio;           // Whether the speed boost audio has been played
     public GrappleInputHandler grappleInputHandler; // Input handler for the grappling hook
     public GrappleIndicator grappleIndicator;   // Indicator for the grapple point
     public GrappleChecks grappleChecks;         // Checks for the grappling hook
@@ -150,6 +151,12 @@ public class GrapplingHook : MonoBehaviour
             {
                 //Debug.Log("GrapplePoint found! Applying speed boost");
                 currentGrappleSpeed += grappleSpeedBoost;
+                if (playedBoostAudio == false)
+                {
+                    playedBoostAudio = true;
+                    AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+                    audioManager.PlayAudio(AudioIndex.Environment_GrappleSpeedBoost);
+                }
             }
 
             if (grappleCollider.tag == "Light Enemy")
@@ -194,6 +201,7 @@ public class GrapplingHook : MonoBehaviour
         isCooldown = true;
         cooldownTimer = grappleCooldown;
         lineRenderer.positionCount = 0;
+        playedBoostAudio = false;
 
         if (grappleCollider.tag == "Light Enemy" && enemy.currentStateName == "EnemyGrappledState")
         {
