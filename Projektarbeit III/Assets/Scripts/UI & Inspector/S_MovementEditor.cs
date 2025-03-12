@@ -86,6 +86,9 @@ public class S_MovementEditor : ScriptableObject
     [Tooltip("The speed the player hooks the enemy with. The higher the value, the faster the pull")]
     [Range(0.01f, 50f)] public float enemyHookSpeed = 10f;
 
+    [Tooltip("The force the player moves to the enemy. The higher the value, the faster the pull")]
+    [Range(0.0f, 50f)] public float enemyPullForce = 0.5f;
+
     [Tooltip("The layer to check for grapple points (e.g., walls, ground etc.)")]
     public LayerMask grappleLayer; // Layer to check for grapple points
 

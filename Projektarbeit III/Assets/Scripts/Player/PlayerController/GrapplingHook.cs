@@ -29,6 +29,7 @@ public class GrapplingHook : MonoBehaviour
     public float indicatorPuffer;           // Puffer when the hook is in the tolerance radius
     public float indicatorSize;             // Indicator size
     public int indicatorSegments;         // Amount of segments the indicator has
+    public float enemyPull;            // Force the player moves to the enemy
     public GrappleInputHandler grappleInputHandler; // Input handler for the grappling hook
     public GrappleIndicator grappleIndicator;   // Indicator for the grapple point
     public GrappleChecks grappleChecks;         // Checks for the grappling hook
@@ -164,7 +165,14 @@ public class GrapplingHook : MonoBehaviour
                 }
             }
 
-            rb.linearVelocity = direction * currentGrappleSpeed;
+            if (grappleCollider.tag == "Light Enemy")
+            {
+                rb.linearVelocity = enemyPull * direction;
+            }
+            else
+            {
+                rb.linearVelocity = direction * currentGrappleSpeed;
+            }
 
             if (grappleCollider.tag == "Light Enemy")
             {
@@ -176,8 +184,9 @@ public class GrapplingHook : MonoBehaviour
                 DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, grappleSpot);
             }
 
-            // Check if the player cancels the grapple
+            // Check to cancel the grapple
             grappleChecks.CheckGrappleStops();
+            grappleChecks.CheckEnemyGrapple(transform.position, enemy.transform.position);
         }
     }
 
