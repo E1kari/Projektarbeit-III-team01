@@ -40,6 +40,7 @@ MonoBehaviour:
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
-  currentStateName: FallingState
-  hasJumped: 1
+  currentStateName: IdleState
+  hasJumped: 0
   hasDashed: 0
+  headTiltLimit: 45

@@ -101,6 +101,9 @@ public class S_MovementEditor : ScriptableObject
 
     [Tooltip("Flag to indicate if the player has dashed. Used for state transitions.")]
     [ReadOnly] public bool hasDashed = false;
+
+    [Tooltip("Player Head Tilt Limit. The maximum angle the player's head can tilt. Used for aiming the grappling hook.")]
+    [Range(0.0f, 90f)] public float headTiltLimit = 45f;
 }
 
 public class ReadOnlyAttribute : PropertyAttribute // Custom attribute to make a field read-only in the inspector

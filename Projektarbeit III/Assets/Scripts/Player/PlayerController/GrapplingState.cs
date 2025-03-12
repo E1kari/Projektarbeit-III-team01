@@ -4,6 +4,8 @@ public class GrapplingState : Interface.IState
 {
     private Controller controller;
     private GrapplingHook grapplingHook;
+    public GameObject grappleHead;
+    private GrappleHead grappleHeadCode;
 
     public GrapplingState(Controller controller, GrapplingHook grapplingHook)
     {
@@ -13,7 +15,10 @@ public class GrapplingState : Interface.IState
 
     public void OnEnter()
     {
-        //Debug.Log("Entered Grappling State");
+        grappleHead = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/PlayerHead"));
+        grappleHead.transform.SetParent(controller.gameObject.transform);
+        grappleHeadCode = grappleHead.GetComponent<GrappleHead>();
+        grappleHeadCode.LoadHead(grapplingHook, controller);
     }
 
     public void UpdateState()
@@ -33,6 +38,6 @@ public class GrapplingState : Interface.IState
 
     public void OnExit()
     {
-        //Debug.Log("Exiting Grappling State");
+        GameObject.Destroy(grappleHead);
     }
 }

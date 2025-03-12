@@ -30,9 +30,11 @@ public class GrapplingHook : MonoBehaviour
     public float indicatorSize;             // Indicator size
     public int indicatorSegments;         // Amount of segments the indicator has
     public float enemyPull;            // Force the player moves to the enemy
+    public RaycastHit2D hit;                 // Raycast hit information
     public GrappleInputHandler grappleInputHandler; // Input handler for the grappling hook
     public GrappleIndicator grappleIndicator;   // Indicator for the grapple point
     public GrappleChecks grappleChecks;         // Checks for the grappling hook
+    public GrappleHead grappleHead;             // Head of the grappling hook
 
     void Start()
     {
@@ -48,7 +50,8 @@ public class GrapplingHook : MonoBehaviour
 
         grappleChecks = new GrappleChecks(this, controller, rb, enemy); 
         grappleIndicator = new GrappleIndicator(this, grappleChecks, controller, grappleRange, indicatorPuffer, indicatorSize, indicatorSegments);
-        grappleInputHandler = new GrappleInputHandler(this, grappleIndicator, controller, grappleRange, lastControllerDirection);  
+        grappleInputHandler = new GrappleInputHandler(this, grappleIndicator, controller, grappleRange, lastControllerDirection);
+        grappleHead = new GrappleHead(this, controller, grappleInputHandler);
         grappleAction = grappleInputHandler.grappleAction;
         aimAction = grappleInputHandler.aimAction;
         isUsingController = grappleInputHandler.isUsingController; 
@@ -95,7 +98,7 @@ public class GrapplingHook : MonoBehaviour
         // Cast a ray towards the target to find a valid grapple spot
         Vector2 direction = (target - (Vector2)transform.position).normalized;
 
-        RaycastHit2D hit = grappleChecks.CheckFindGrapplePoint(direction, grappleRange, grappleLayer);
+        hit = grappleChecks.CheckFindGrapplePoint(direction, grappleRange, grappleLayer);
 
         if (hit.collider != null) // Check if the ray hits a valid grapple spot
         {
@@ -186,7 +189,7 @@ public class GrapplingHook : MonoBehaviour
 
             // Check to cancel the grapple
             grappleChecks.CheckGrappleStops();
-            grappleChecks.CheckEnemyGrapple(transform.position, enemy.transform.position);
+            if (enemy) grappleChecks.CheckEnemyGrapple(transform.position, enemy.transform.position);
         }
     }
 
