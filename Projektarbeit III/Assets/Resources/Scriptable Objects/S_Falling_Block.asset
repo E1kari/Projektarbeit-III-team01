@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityScale_: 1
   fallDelay_: 1
+  graceDistance_: 0.5
+  shakeIntensity: 0.01
