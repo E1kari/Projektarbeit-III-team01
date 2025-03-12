@@ -179,6 +179,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2e38953fbd335459bd2684dd90c5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grappleSpeed: 0
+  grappleSpeedBoost: 0
+  grappleCooldown: 0
+  grappleRange: 0
+  grappleCollider: {fileID: 0}
+  grappleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  grappleSpot: {x: 0, y: 0}
+  isGrappling: 0
+  isCooldown: 0
+  rb: {fileID: 0}
+  controller: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  cooldownTimer: 0
+  grappleAction:
+    m_Name: Grapple
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 08ed8c24-8f74-440a-8bc2-27f181247ac8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  aimAction:
+    m_Name: Aim
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f786b0d1-af14-4056-8a84-08895608d91f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  isUsingController: 0
+  lastControllerDirection: {x: 0, y: 0}
+  enemy: {fileID: 0}
+  toleranceRadius: 0
+  indicatorPuffer: 0
+  indicatorSize: 0
+  indicatorSegments: 0
 --- !u!114 &5611957542525670278
 MonoBehaviour:
   m_ObjectHideFlags: 0
