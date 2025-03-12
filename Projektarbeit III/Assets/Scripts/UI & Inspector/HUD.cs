@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class HUD : MonoBehaviour
@@ -18,6 +19,15 @@ public class HUD : MonoBehaviour
     void Update()
     {
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+
+        if (showTime)
+        {
+            GameObject timer = GameObject.FindWithTag("Timer Text");
+            TextMeshProUGUI timerText = timer.GetComponent<TextMeshProUGUI>();
+
+            string text = timer_.retrieveTimeAsString();
+            timerText.text = text;
+        }
     }
 
     void OnGUI()
@@ -36,11 +46,6 @@ public class HUD : MonoBehaviour
             string text = string.Format("{0:0.} fps", fps);
             GUI.Label(rect, text, style);
         }
-        if (showTime)
-        {
-            Rect rect = new Rect(width - (width / 7), 20, width, height / 50);
-            string text = timer_.retrieveTimeAsString();
-            GUI.Label(rect, text, style);
-        }
+
     }
 }

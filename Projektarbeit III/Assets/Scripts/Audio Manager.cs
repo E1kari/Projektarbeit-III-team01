@@ -76,6 +76,9 @@ public class AudioManager : MonoBehaviour
     public void PlayAudio(AudioIndex audioIndex)
     {
         AudioClip clip = audioData.GetAudioClip(audioIndex);
+
+        if (clip == null) return;
+
         effectSource.PlayOneShot(clip);
     }
 
@@ -84,6 +87,9 @@ public class AudioManager : MonoBehaviour
         Enum.TryParse("Music_Level" + levelNumber, out AudioIndex index);
 
         AudioClip clip = audioData.GetAudioClip(index);
+
+        if (clip == null) return;
+
         musicSource.clip = clip;
         musicSource.Play();
     }
