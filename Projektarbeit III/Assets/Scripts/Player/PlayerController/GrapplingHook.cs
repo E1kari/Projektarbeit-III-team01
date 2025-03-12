@@ -184,8 +184,9 @@ public class GrapplingHook : MonoBehaviour
                 DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, grappleSpot);
             }
 
-            // Check if the player cancels the grapple
+            // Check to cancel the grapple
             grappleChecks.CheckGrappleStops();
+            grappleChecks.CheckEnemyGrapple(transform.position, enemy.transform.position);
         }
     }
 

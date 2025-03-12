@@ -41,6 +41,16 @@ public class GrappleChecks
         }
     }
 
+    public void CheckEnemyGrapple(Vector2 grapplingHookPos, Vector2 enemyPos)
+    {
+        Debug.Log("Distance between grappling hook and enemy: " + Vector2.Distance(grapplingHookPos, enemyPos));
+
+        if (Vector2.Distance(grapplingHookPos, enemyPos) <= 1.7f)
+        {
+            grapplingHook.StopGrapple();
+        }
+    }
+
     public bool CheckIsMovingTowardsWall()
     {
         Vector2 velocity = rb.linearVelocity;
