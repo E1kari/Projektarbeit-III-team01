@@ -96,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -161,12 +161,12 @@ TextureImporter:
       name: Salamander_Death_Animation_0
       rect:
         serializedVersion: 2
-        x: 53
+        x: 43
         y: 0
-        width: 328
-        height: 541
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 343
+        height: 547
+      alignment: 9
+      pivot: {x: 0.39269677, y: 0.469161}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: Salamander_Death_Animation_1
       rect:
         serializedVersion: 2
-        x: 598
-        y: 116
-        width: 424
-        height: 310
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 593
+        y: 104
+        width: 447
+        height: 492
+      alignment: 9
+      pivot: {x: 0.51029253, y: 0.30674905}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: Salamander_Death_Animation_2
       rect:
         serializedVersion: 2
-        x: 760
-        y: 413
-        width: 273
-        height: 183
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1180
+        y: 74
+        width: 547
+        height: 483
+      alignment: 9
+      pivot: {x: 0.46635792, y: 0.35394862}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -227,12 +227,12 @@ TextureImporter:
       name: Salamander_Death_Animation_3
       rect:
         serializedVersion: 2
-        x: 1181
-        y: 93
-        width: 424
-        height: 339
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1770
+        y: 90
+        width: 590
+        height: 425
+      alignment: 9
+      pivot: {x: 0.41422614, y: 0.33762524}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -249,12 +249,12 @@ TextureImporter:
       name: Salamander_Death_Animation_4
       rect:
         serializedVersion: 2
-        x: 1448
-        y: 349
-        width: 261
-        height: 201
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2388
+        y: 91
+        width: 562
+        height: 336
+      alignment: 9
+      pivot: {x: 0.39085177, y: 0.42241037}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -271,12 +271,12 @@ TextureImporter:
       name: Salamander_Death_Animation_5
       rect:
         serializedVersion: 2
-        x: 1781
-        y: 100
-        width: 422
-        height: 326
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3007
+        y: 94
+        width: 522
+        height: 327
+      alignment: 9
+      pivot: {x: 0.36192352, y: 0.42027473}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -293,12 +293,12 @@ TextureImporter:
       name: Salamander_Death_Animation_6
       rect:
         serializedVersion: 2
-        x: 2185
-        y: 238
-        width: 176
-        height: 269
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3536
+        y: 93
+        width: 594
+        height: 311
+      alignment: 9
+      pivot: {x: 0.41682583, y: 0.4605521}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -315,12 +315,12 @@ TextureImporter:
       name: Salamander_Death_Animation_7
       rect:
         serializedVersion: 2
-        x: 2784
-        y: 143
-        width: 158
-        height: 275
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4130
+        y: 94
+        width: 590
+        height: 310
+      alignment: 9
+      pivot: {x: 0.40902823, y: 0.46537182}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -337,12 +337,12 @@ TextureImporter:
       name: Salamander_Death_Animation_8
       rect:
         serializedVersion: 2
-        x: 2398
-        y: 100
-        width: 401
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4720
+        y: 96
+        width: 590
+        height: 308
+      alignment: 9
+      pivot: {x: 0.41682583, y: 0.4402519}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -359,12 +359,12 @@ TextureImporter:
       name: Salamander_Death_Animation_9
       rect:
         serializedVersion: 2
-        x: 3016
-        y: 100
-        width: 359
+        x: 5310
+        y: 99
+        width: 590
         height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4038301, y: 0.44955453}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -377,143 +377,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Salamander_Death_Animation_10
-      rect:
-        serializedVersion: 2
-        x: 3330
-        y: 109
-        width: 190
-        height: 271
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c596d4336fc498480800000000000000
-      internalID: -8896494968587327140
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salamander_Death_Animation_11
-      rect:
-        serializedVersion: 2
-        x: 3539
-        y: 100
-        width: 584
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f95ba038078007050800000000000000
-      internalID: 5796141999753704863
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salamander_Death_Animation_12
-      rect:
-        serializedVersion: 2
-        x: 4130
-        y: 100
-        width: 583
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 284cc7a349bfd6a80800000000000000
-      internalID: -8471838709959048062
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salamander_Death_Animation_13
-      rect:
-        serializedVersion: 2
-        x: 4720
-        y: 101
-        width: 582
-        height: 299
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c26808a47121aa780800000000000000
-      internalID: -8671098241304984020
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salamander_Death_Animation_14
-      rect:
-        serializedVersion: 2
-        x: 5312
-        y: 102
-        width: 578
-        height: 296
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cf27219540ab717b0800000000000000
-      internalID: -5253525912467377412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salamander_Death_Animation_15
-      rect:
-        serializedVersion: 2
-        x: 4125
-        y: 100
-        width: 6
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a22e764ec1af2e660800000000000000
-      internalID: 7413762938603299370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8300886cad64e6849b18ea9aecb7b7e9
     internalID: 0
     vertices: []
     indices: 
@@ -525,12 +393,6 @@ TextureImporter:
     nameFileIdTable:
       Salamander_Death_Animation_0: -1635559180258196480
       Salamander_Death_Animation_1: -3593867432655191386
-      Salamander_Death_Animation_10: -8896494968587327140
-      Salamander_Death_Animation_11: 5796141999753704863
-      Salamander_Death_Animation_12: -8471838709959048062
-      Salamander_Death_Animation_13: -8671098241304984020
-      Salamander_Death_Animation_14: -5253525912467377412
-      Salamander_Death_Animation_15: 7413762938603299370
       Salamander_Death_Animation_2: 6313893914158177113
       Salamander_Death_Animation_3: 542455897028578525
       Salamander_Death_Animation_4: -8937376477427731782
