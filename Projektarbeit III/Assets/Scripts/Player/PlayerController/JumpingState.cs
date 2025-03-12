@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using static S_AudioData;
 public class JumpingState : Interface.IState
 {
     private Controller controller;
@@ -30,6 +30,9 @@ public class JumpingState : Interface.IState
     {
         //Debug.Log("Entered Jumping State");
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Apply upward force
+
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Player_Jump);
 
         // Reset the wall jump cooldown timer if the player was previously wall jumping
         if (controller.GetPreviousState() is WallJumpingState)
