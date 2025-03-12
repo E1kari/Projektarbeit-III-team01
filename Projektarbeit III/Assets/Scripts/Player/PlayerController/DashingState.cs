@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static S_AudioData;
 public class DashingState : Interface.IState
 {
     private Controller controller;
@@ -48,6 +49,9 @@ public class DashingState : Interface.IState
 
         // Apply the dash force
         rb.linearVelocity = dashDirection * dashSpeed;
+
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Player_Dash);
     }
 
     public void UpdateState()
