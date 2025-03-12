@@ -45,7 +45,6 @@ public class ButtonBehavior : MonoBehaviour
     // Wrapper method to be called by the button in the Unity Inspector
     public void LoadSceneWrapper(string sceneName)
     {
-        Logger.Instance.Log("Scene to load: " + sceneName, "Button", LogType.Log);
         if (!string.IsNullOrEmpty(sceneName))
         {
 #if !UNITY_EDITOR
