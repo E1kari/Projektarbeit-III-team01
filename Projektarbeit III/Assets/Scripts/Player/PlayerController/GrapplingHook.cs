@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using static S_AudioData;
 
 [RequireComponent(typeof(LineRenderer))]
 public class GrapplingHook : MonoBehaviour
@@ -130,6 +131,9 @@ public class GrapplingHook : MonoBehaviour
             {
                 DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, grappleSpot);
             }
+
+            AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+            audioManager.PlayAudio(AudioIndex.Player_GrapplingHook);
         }
     }
 
