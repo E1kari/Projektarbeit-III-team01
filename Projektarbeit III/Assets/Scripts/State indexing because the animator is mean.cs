@@ -24,6 +24,7 @@ public class StateIndexingBecauseTheAnimatorIsMean : ScriptableObject
         enemyStates["EnemyGrappledState"] = 2;
         enemyStates["EnemyAlertState"] = 3;
         enemyStates["EnemyAttackState"] = 4;
+        enemyStates["EnemyDeathState"] = 5;
     }
     public int GetPlayerIndex(string stateName)
     {

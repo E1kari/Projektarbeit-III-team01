@@ -29,10 +29,21 @@ public class EnemyFallingState : Interface.IState
         Vector2 raycastStart = (Vector2)enemy.gameObject.transform.position - new Vector2(0, spriteHeight);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, Vector2.down, enemy.lightEnemyData_.fallDistance_, LayerMask.GetMask("Ground"));
 
-        if (hit)
+        if (!hit)
         {
-            //Debug.Log("Enemy landed. Enemy changing to Idle State");
+            return;
+        }
+
+        if (hit.collider.gameObject.GetComponent<Spikes>() != null)
+        {
+            enemy.ChangeState(new EnemyDeathState(enemy));
+            return;
+        }
+
+        if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
             enemy.ChangeState(new EnemyIdleState(enemy));
+            return;
         }
     }
 
