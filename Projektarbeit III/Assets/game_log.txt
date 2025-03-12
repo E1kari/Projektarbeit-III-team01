@@ -227,99 +227,365 @@
 10.03.2025 19:57:30 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
 10.03.2025 19:57:35 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
 10.03.2025 19:57:40 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 21:16:39 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
-11.03.2025 21:16:39 [Log]: Logger initialized successfully
-11.03.2025 21:16:39 [Log]: 11.03.2025 21:16:39 [Log]: Logger initialized successfully
-11.03.2025 21:16:40 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
-11.03.2025 21:16:42 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 21:16:57 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 21:17:01 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 21:18:50 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
-11.03.2025 21:18:50 [Log]: Logger initialized successfully
-11.03.2025 21:18:50 [Log]: 11.03.2025 21:18:50 [Log]: Logger initialized successfully
-11.03.2025 21:18:51 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
-11.03.2025 21:18:53 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 21:19:03 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 21:19:09 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 21:19:34 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 21:19:42 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 21:19:46 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 21:19:58 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:14:54 [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
-11.03.2025 22:14:54 [Log]: Logger initialized successfully
-11.03.2025 22:14:54 [Log]: 11.03.2025 22:14:54 [Log]: Logger initialized successfully
-11.03.2025 22:14:56 [Warning]: Unloading the last loaded scene Assets/Scenes/Menus/menu_main.unity(build index: 0), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
-11.03.2025 22:14:57 [Error]: Invalid scene asset
-11.03.2025 22:14:58 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:15:03 [Log]: Entered Wall Jumping State
-11.03.2025 22:15:03 [Log]: Exiting Wall Jumping State
-11.03.2025 22:15:05 [Log]: Entered Wall Jumping State
-11.03.2025 22:15:05 [Log]: Exiting Wall Jumping State
-11.03.2025 22:15:06 [Log]: Entered Wall Jumping State
-11.03.2025 22:15:06 [Log]: Exiting Wall Jumping State
-11.03.2025 22:15:08 [Log]: Entered Wall Jumping State
-11.03.2025 22:15:08 [Log]: Exiting Wall Jumping State
-11.03.2025 22:15:13 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:15:36 [Log]: Entered Wall Jumping State
-11.03.2025 22:15:36 [Log]: Exiting Wall Jumping State
-11.03.2025 22:15:38 [Log]: Entered Wall Jumping State
-11.03.2025 22:15:39 [Log]: Exiting Wall Jumping State
-11.03.2025 22:15:53 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:15:57 [Log]: Entered Wall Jumping State
-11.03.2025 22:15:57 [Log]: Exiting Wall Jumping State
-11.03.2025 22:15:58 [Log]: Entered Wall Jumping State
-11.03.2025 22:15:58 [Log]: Exiting Wall Jumping State
-11.03.2025 22:16:02 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:16:08 [Log]: Entered Wall Jumping State
-11.03.2025 22:16:08 [Log]: Exiting Wall Jumping State
-11.03.2025 22:16:12 [Log]: Entered Wall Jumping State
-11.03.2025 22:16:13 [Log]: Exiting Wall Jumping State
-11.03.2025 22:16:18 [Log]: Entered Wall Jumping State
-11.03.2025 22:16:18 [Log]: Exiting Wall Jumping State
-11.03.2025 22:16:20 [Log]: Entered Wall Jumping State
-11.03.2025 22:16:20 [Log]: Exiting Wall Jumping State
-11.03.2025 22:16:23 [Log]: Entered Wall Jumping State
-11.03.2025 22:16:23 [Log]: Exiting Wall Jumping State
-11.03.2025 22:16:40 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:16:47 [Log]: Entered Wall Jumping State
-11.03.2025 22:16:47 [Log]: Exiting Wall Jumping State
-11.03.2025 22:16:54 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:17:00 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:17:05 [Log]: Entered Wall Jumping State
-11.03.2025 22:17:06 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:17:11 [Log]: Entered Wall Jumping State
-11.03.2025 22:17:11 [Log]: Exiting Wall Jumping State
-11.03.2025 22:17:22 [Log]: Entered Wall Jumping State
-11.03.2025 22:17:22 [Log]: Exiting Wall Jumping State
-11.03.2025 22:17:27 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:17:35 [Log]: Entered Wall Jumping State
-11.03.2025 22:17:35 [Log]: Exiting Wall Jumping State
-11.03.2025 22:17:37 [Log]: Entered Wall Jumping State
-11.03.2025 22:17:38 [Log]: Exiting Wall Jumping State
-11.03.2025 22:17:46 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:17:52 [Log]: Entered Wall Jumping State
-11.03.2025 22:17:52 [Log]: Exiting Wall Jumping State
-11.03.2025 22:17:54 [Log]: Entered Wall Jumping State
-11.03.2025 22:17:55 [Log]: Exiting Wall Jumping State
-11.03.2025 22:18:03 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:18:08 [Log]: Entered Wall Jumping State
-11.03.2025 22:18:08 [Log]: Exiting Wall Jumping State
-11.03.2025 22:18:11 [Log]: Entered Wall Jumping State
-11.03.2025 22:18:11 [Log]: Exiting Wall Jumping State
-11.03.2025 22:18:25 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:18:31 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:18:37 [Log]: Entered Wall Jumping State
-11.03.2025 22:18:37 [Log]: Exiting Wall Jumping State
-11.03.2025 22:18:41 [Log]: Entered Wall Jumping State
-11.03.2025 22:18:42 [Log]: Exiting Wall Jumping State
-11.03.2025 22:18:50 [Log]: Entered Wall Jumping State
-11.03.2025 22:18:51 [Log]: Exiting Wall Jumping State
-11.03.2025 22:18:55 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:19:05 [Log]: Entered Wall Jumping State
-11.03.2025 22:19:05 [Log]: Exiting Wall Jumping State
-11.03.2025 22:19:07 [Log]: Entered Wall Jumping State
-11.03.2025 22:19:08 [Log]: Exiting Wall Jumping State
-11.03.2025 22:19:19 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
-11.03.2025 22:19:28 [Log]: Entered Wall Jumping State
-11.03.2025 22:19:28 [Log]: Exiting Wall Jumping State
-11.03.2025 22:19:46 [Log]: Can't add component 'LineRenderer' to Josi PlayerFrogDummy because such a component is already added to the game object!
+3/12/2025 1:31:58 PM [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+3/12/2025 1:31:58 PM [Log]: Logger initialized successfully
+3/12/2025 1:31:58 PM [Log]: 3/12/2025 1:31:58 PM [Log]: Logger initialized successfully
+3/12/2025 1:32:02 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: menu_selection
+3/12/2025 1:32:02 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:32:02 PM [Log]: 3/12/2025 1:32:02 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:32:12 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: Level 2
+3/12/2025 1:32:12 PM [Log]: Scene to load: Level 2
+3/12/2025 1:32:12 PM [Log]: 3/12/2025 1:32:12 PM [Log]: Scene to load: Level 2
+3/12/2025 1:32:12 PM [Exception]: IndexOutOfRangeException: Index was outside the bounds of the array.
+3/12/2025 1:32:12 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:32:12 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:32:51 PM [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+3/12/2025 1:32:51 PM [Log]: Logger initialized successfully
+3/12/2025 1:32:51 PM [Log]: 3/12/2025 1:32:51 PM [Log]: Logger initialized successfully
+3/12/2025 1:33:29 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: menu_selection
+3/12/2025 1:33:29 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:33:29 PM [Log]: 3/12/2025 1:33:29 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:33:30 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: Level 2
+3/12/2025 1:33:30 PM [Log]: Scene to load: Level 2
+3/12/2025 1:33:30 PM [Log]: 3/12/2025 1:33:30 PM [Log]: Scene to load: Level 2
+3/12/2025 1:33:30 PM [Exception]: IndexOutOfRangeException: Index was outside the bounds of the array.
+3/12/2025 1:33:30 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:33:30 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:33:32 PM [Exception]: IndexOutOfRangeException: Index was outside the bounds of the array.
+3/12/2025 1:33:34 PM [Exception]: IndexOutOfRangeException: Index was outside the bounds of the array.
+3/12/2025 1:33:36 PM [Exception]: IndexOutOfRangeException: Index was outside the bounds of the array.
+3/12/2025 1:35:13 PM [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+3/12/2025 1:35:13 PM [Log]: Logger initialized successfully
+3/12/2025 1:35:13 PM [Log]: 3/12/2025 1:35:13 PM [Log]: Logger initialized successfully
+3/12/2025 1:38:40 PM [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+3/12/2025 1:38:40 PM [Log]: Logger initialized successfully
+3/12/2025 1:38:40 PM [Log]: 3/12/2025 1:38:40 PM [Log]: Logger initialized successfully
+3/12/2025 1:38:42 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: menu_selection
+3/12/2025 1:38:42 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:38:42 PM [Log]: 3/12/2025 1:38:42 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:38:43 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: menu_main
+3/12/2025 1:38:43 PM [Log]: Scene to load: menu_main
+3/12/2025 1:38:43 PM [Log]: 3/12/2025 1:38:43 PM [Log]: Scene to load: menu_main
+3/12/2025 1:38:43 PM [Log]: Logger stopped
+3/12/2025 1:38:45 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: menu_selection
+3/12/2025 1:38:45 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:38:45 PM [Log]: 3/12/2025 1:38:45 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:38:52 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: 
+3/12/2025 1:38:52 PM [Log]: Scene to load: 
+3/12/2025 1:38:52 PM [Log]: 3/12/2025 1:38:52 PM [Log]: Scene to load: 
+3/12/2025 1:38:55 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: Level 2
+3/12/2025 1:38:55 PM [Log]: Scene to load: Level 2
+3/12/2025 1:38:55 PM [Log]: 3/12/2025 1:38:55 PM [Log]: Scene to load: Level 2
+3/12/2025 1:38:56 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.AudioSource' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:38:56 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:38:56 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:39:06 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:39:06 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:39:09 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: menu_options
+3/12/2025 1:39:09 PM [Log]: Scene to load: menu_options
+3/12/2025 1:39:09 PM [Log]: 3/12/2025 1:39:09 PM [Log]: Scene to load: menu_options
+3/12/2025 1:39:26 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:39:26 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:39:27 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:39:27 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:39:30 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:39:31 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:39:36 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:39:36 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:39:38 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:39:38 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:39:46 PM [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+3/12/2025 1:39:46 PM [Log]: Logger initialized successfully
+3/12/2025 1:39:46 PM [Log]: 3/12/2025 1:39:46 PM [Log]: Logger initialized successfully
+3/12/2025 1:39:48 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: menu_selection
+3/12/2025 1:39:48 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:39:48 PM [Log]: 3/12/2025 1:39:48 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:39:50 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: Level 3
+3/12/2025 1:39:50 PM [Log]: Scene to load: Level 3
+3/12/2025 1:39:50 PM [Log]: 3/12/2025 1:39:50 PM [Log]: Scene to load: Level 3
+3/12/2025 1:39:50 PM [Error]: Problem detected while opening the Scene file: 'Assets/Scenes/Level 3.unity'.
+Check the following logs for more details.
+3/12/2025 1:39:50 PM [Error]: Prefab instance problem. Missing Prefab Asset: 'Josi PlayerFrogDummy (Missing Prefab with guid: 828f3dcd3d4fac047b5731f00a501aae)'
+3/12/2025 1:39:50 PM [Exception]: MissingReferenceException: The variable playerPrefab_ of Level_Start doesn't exist anymore.
+You probably need to reassign the playerPrefab_ variable of the 'Level_Start' script in the inspector.
+3/12/2025 1:39:53 PM [Exception]: NullReferenceException: Object reference not set to an instance of an object
+3/12/2025 1:44:11 PM [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+3/12/2025 1:44:11 PM [Log]: Logger initialized successfully
+3/12/2025 1:44:11 PM [Log]: 3/12/2025 1:44:11 PM [Log]: Logger initialized successfully
+3/12/2025 1:44:13 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: menu_selection
+3/12/2025 1:44:13 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:44:13 PM [Log]: 3/12/2025 1:44:13 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:44:15 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: Level 3
+3/12/2025 1:44:15 PM [Log]: Scene to load: Level 3
+3/12/2025 1:44:15 PM [Log]: 3/12/2025 1:44:15 PM [Log]: Scene to load: Level 3
+3/12/2025 1:44:15 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:44:15 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:44:22 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:44:23 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:44:27 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:44:28 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:44:34 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:44:35 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:44:50 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:44:50 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:44:50 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:44:50 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:44:51 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:44:51 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:45:01 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:45:01 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:45:14 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:45:14 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:45:15 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:45:15 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:45:18 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:45:18 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:45:25 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:25 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:45:27 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:27 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:45:28 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:29 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:45:31 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:45:31 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:45:32 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:45:32 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:37 PM [Exception]: MissingReferenceException: The object of type 'UnityEngine.GameObject' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+3/12/2025 1:45:38 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:45:38 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:45:40 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:40 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:45:46 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:47 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:45:47 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:47 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:45:48 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:48 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:45:48 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:48 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:45:49 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:49 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:45:50 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:51 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:45:53 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:45:54 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:46:05 PM [Log]: Entered Wall Jumping State
+3/12/2025 1:46:05 PM [Log]: Exiting Wall Jumping State
+3/12/2025 1:46:06 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:46:06 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:46:07 PM [Exception]: UnassignedReferenceException: The variable playerPrefab_ of Level_Start has not been assigned.
+You probably need to assign the playerPrefab_ variable of the Level_Start script in the inspector.
+3/12/2025 1:46:07 PM [Log]: Can't add component 'LineRenderer' to Player because such a component is already added to the game object!
+3/12/2025 1:56:55 PM [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+3/12/2025 1:56:55 PM [Log]: Logger initialized successfully
+3/12/2025 1:56:55 PM [Log]: 3/12/2025 1:56:55 PM [Log]: Logger initialized successfully
+3/12/2025 1:56:56 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: menu_selection
+3/12/2025 1:56:56 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:56:56 PM [Log]: 3/12/2025 1:56:56 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:56:57 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: 
+3/12/2025 1:56:57 PM [Log]: Scene to load: 
+3/12/2025 1:56:57 PM [Log]: 3/12/2025 1:56:57 PM [Log]: Scene to load: 
+3/12/2025 1:58:00 PM [Log]: Log-Message received. Original Message (if not written in the Log): Logger initialized successfully
+3/12/2025 1:58:00 PM [Log]: Logger initialized successfully
+3/12/2025 1:58:00 PM [Log]: 3/12/2025 1:58:00 PM [Log]: Logger initialized successfully
+3/12/2025 1:58:01 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: menu_selection
+3/12/2025 1:58:01 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:58:01 PM [Log]: 3/12/2025 1:58:01 PM [Log]: Scene to load: menu_selection
+3/12/2025 1:58:03 PM [Log]: Log-Message received. Original Message (if not written in the Log): Scene to load: Level 1
+3/12/2025 1:58:03 PM [Log]: Scene to load: Level 1
+3/12/2025 1:58:03 PM [Log]: 3/12/2025 1:58:03 PM [Log]: Scene to load: Level 1
+3/12/2025 1:58:03 PM [Error]: Scene 'Level 1' couldn't be loaded because it has not been added to the active build profile or shared scene list or the AssetBundle has not been loaded.
+To add a scene to the active build profile or shared scene list use the menu File->Build Profiles

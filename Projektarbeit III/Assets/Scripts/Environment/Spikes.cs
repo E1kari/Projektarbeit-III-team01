@@ -5,17 +5,17 @@ public class Spikes : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetType() == typeof(CapsuleCollider2D))
+        if (other.gameObject.tag == "Player")
         {
-            try
-            {
-                other.gameObject.GetComponent<Health>().takeDamage();
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            other.gameObject.GetComponent<Health>().takeDamage();
+            return;
+        }
+
+        if (other.gameObject.tag == "Light Enemy")
+        {
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            enemy.ChangeState(new EnemyDeathState(enemy));
+            return;
         }
     }
-
 }

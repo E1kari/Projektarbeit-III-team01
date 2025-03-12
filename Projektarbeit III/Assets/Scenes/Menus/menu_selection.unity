@@ -132,8 +132,8 @@ GameObject:
   - component: {fileID: 129762495}
   - component: {fileID: 129762494}
   m_Layer: 5
-  m_Name: Button (2)
-  m_TagString: Untagged
+  m_Name: 1
+  m_TagString: default Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,12 +171,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 1954029027}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1856364790}
+    m_SelectOnRight: {fileID: 1959673580}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 300, y: 150}
-  m_Spacing: {x: 80, y: 0}
+  m_Spacing: {x: 80, y: 30}
   m_Constraint: 1
   m_ConstraintCount: 4
 --- !u!114 &144203421
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 2 shortcut
+  m_text: Level 3 shortcut
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1214,7 +1214,7 @@ GameObject:
   - component: {fileID: 1050073624}
   - component: {fileID: 1050073623}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1253,11 +1253,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 1
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 1954029027}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1959673580}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -1621,7 +1621,7 @@ GameObject:
   - component: {fileID: 1856364791}
   - component: {fileID: 1856364790}
   m_Layer: 5
-  m_Name: Button
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1660,12 +1660,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 1
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 1954029027}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1954029027}
+    m_SelectOnRight: {fileID: 129762494}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1754,7 +1754,7 @@ GameObject:
   - component: {fileID: 1954029028}
   - component: {fileID: 1954029027}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1793,10 +1793,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 1
+    m_Mode: 4
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 1856364790}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 1959673581}
   - component: {fileID: 1959673580}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1926,12 +1926,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 1954029027}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 129762494}
+    m_SelectOnRight: {fileID: 1050073623}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2156,7 +2156,7 @@ GameObject:
   - component: {fileID: 2129070254}
   - component: {fileID: 2129070253}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: Shortcut button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2179,8 +2179,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280, y: -550}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 280, y: -490}
+  m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2129070253
 MonoBehaviour:
@@ -2203,8 +2203,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5345911, g: 0.2831023, b: 0.17315362, a: 1}
-    m_HighlightedColor: {r: 0.654088, g: 0.36934417, b: 0.24476874, a: 1}
+    m_NormalColor: {r: 0.8584906, g: 0.7880648, b: 0.75725347, a: 1}
+    m_HighlightedColor: {r: 0.8588236, g: 0.78823537, b: 0.7568628, a: 1}
     m_PressedColor: {r: 0.38364768, g: 0.17634992, b: 0.08565716, a: 1}
     m_SelectedColor: {r: 0.654902, g: 0.36862746, b: 0.24313727, a: 1}
     m_DisabledColor: {r: 0.46540874, g: 0.3402543, b: 0.2853921, a: 1}
@@ -2228,14 +2228,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 269516908}
         m_TargetAssemblyTypeName: ButtonBehavior, Assembly-CSharp
-        m_MethodName: loadScene
-        m_Mode: 2
+        m_MethodName: LoadSceneWrapper
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 102900000, guid: 72d689ca92f580d44a6090e831b3cad0, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Shortcut Level 3
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &2129070254
@@ -2258,7 +2258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 649223268058989734, guid: 6a2d2ef1298a907469028442e7ac8fa7, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
