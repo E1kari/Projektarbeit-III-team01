@@ -243,15 +243,6 @@ public class S_Scoreboard : ScriptableObject
             formattingAid(currentEntry);
         }
 
-        if (!playerInTop10 && markPlayer)
-        {
-            formattingAid(playerEntry_, true);
-        }
-        else
-        {
-            formattingAid(new LeaderboardEntry());
-        }
-
         return scoreboardStrings;
     }
 
@@ -259,8 +250,8 @@ public class S_Scoreboard : ScriptableObject
     {
         if (isPlayerEntry)
         {
-            scoreboardStrings.times += string.Format("<b><color=#9ECC91>{0:00}:{1:00}:{2:000}</color></b>", pa_entry.time.Minutes, pa_entry.time.Seconds, pa_entry.time.Milliseconds) + "\n";
-            scoreboardStrings.dates += string.Format("<b><color=#9ECC91>{0}</color> </b>", pa_entry.date.ToString("dd.MM.yyyy")) + "\n";
+            scoreboardStrings.times += string.Format("<b><color=#659162>{0:00}:{1:00}:{2:000}</color></b>", pa_entry.time.Minutes, pa_entry.time.Seconds, pa_entry.time.Milliseconds) + "\n";
+            scoreboardStrings.dates += string.Format("<b><color=#659162>{0}</color> </b>", pa_entry.date.ToString("dd.MM.yyyy")) + "\n";
         }
         else if (!pa_entry.isEmpty())
         {
