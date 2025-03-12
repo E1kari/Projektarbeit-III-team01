@@ -11,6 +11,7 @@ TagManager:
   - GrapplePoint
   - Panel
   - Falling Block
+  - default Button
   layers:
   - Default
   - TransparentFX
