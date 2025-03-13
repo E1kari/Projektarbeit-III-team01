@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using static S_AudioData;
 
 public class GrapplingHook : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class GrapplingHook : MonoBehaviour
     public float indicatorPuffer;           // Puffer when the hook is in the tolerance radius
     public float indicatorSize;             // Indicator size
     public int indicatorSegments;         // Amount of segments the indicator has
+    public bool playedBoostAudio;           // Whether the speed boost audio has been played
     public float enemyPull;            // Force the player moves to the enemy
     public RaycastHit2D hit;                 // Raycast hit information
     public GrappleInputHandler grappleInputHandler; // Input handler for the grappling hook
@@ -118,6 +120,9 @@ public class GrapplingHook : MonoBehaviour
             {
                 enemy = grappleCollider.GetComponent<Enemy>();
             }
+
+            AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+            audioManager.PlayAudio(AudioIndex.Player_GrapplingHook);
         }
     }
 
@@ -134,6 +139,12 @@ public class GrapplingHook : MonoBehaviour
             {
                 //Debug.Log("GrapplePoint found! Applying speed boost");
                 currentGrappleSpeed += grappleSpeedBoost;
+                if (playedBoostAudio == false)
+                {
+                    playedBoostAudio = true;
+                    AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+                    audioManager.PlayAudio(AudioIndex.Environment_GrappleSpeedBoost);
+                }
             }
 
             if (grappleCollider.tag == "Light Enemy")
@@ -163,7 +174,11 @@ public class GrapplingHook : MonoBehaviour
 
             // Check to cancel the grapple
             grappleChecks.CheckGrappleStops();
-            if (enemy) grappleChecks.CheckEnemyGrapple(transform.position, enemy.transform.position);
+
+            if (enemy)
+            {
+                grappleChecks.CheckEnemyGrapple(transform.position, enemy.transform.position);
+            }
         }
     }
 
@@ -175,6 +190,7 @@ public class GrapplingHook : MonoBehaviour
         isGrappling = false;
         isCooldown = true;
         cooldownTimer = grappleCooldown;
+        playedBoostAudio = false;
 
         if (grappleCollider.tag == "Light Enemy" && enemy.currentStateName == "EnemyGrappledState")
         {

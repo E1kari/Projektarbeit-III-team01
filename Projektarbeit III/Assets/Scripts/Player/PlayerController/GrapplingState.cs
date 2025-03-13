@@ -1,4 +1,5 @@
 using UnityEngine;
+using static S_AudioData;
 
 public class GrapplingState : Interface.IState
 {
@@ -33,7 +34,8 @@ public class GrapplingState : Interface.IState
 
     public void OnDeath()
     {
-        // Handle death logic
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Player_Death);
     }
 
     public void OnExit()

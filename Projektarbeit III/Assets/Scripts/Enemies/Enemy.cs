@@ -49,6 +49,11 @@ public class Enemy : MonoBehaviour
         UpdateEnemyAnimator();
     }
 
+    public void HandleDeath()
+    {
+        currentState?.OnDeath();
+    }
+
     // Update is called once per frame
     void Update()
     {
