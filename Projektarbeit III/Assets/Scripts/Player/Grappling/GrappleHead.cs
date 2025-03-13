@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,13 +8,11 @@ public class GrappleHead : MonoBehaviour
     GrapplingHook grapplingHook;
     GrappleInputHandler grappleInputHandler;
     GameObject parent;
+    SpriteRenderer playerRenderer;
 
-    public GrappleHead(GrapplingHook grapplingHook, Controller controller, GrappleInputHandler grappleInputHandler)
-    {
-        this.controller = controller;
-        this.grapplingHook = grapplingHook;
-        this.grappleInputHandler = grappleInputHandler;
-    }
+    GameObject toungeGroup;
+    GameObject[] toungePieces;
+
 
     public void LoadHead(GrapplingHook grapplingHook, Controller controller)
     {
@@ -22,69 +21,70 @@ public class GrappleHead : MonoBehaviour
 
         parent = GameObject.Find("Player");
         gameObject.transform.SetParent(parent.transform);
-        gameObject.transform.position = new Vector3(parent.transform.position.x, (float)(parent.transform.position.y + 0.1), 0);
+        playerRenderer = parent.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
 
-        if (controller == null)
+        toungeGroup = transform.GetChild(0).gameObject;
+
+        if (!playerRenderer.flipX)
         {
-            Debug.LogError("Controller not found in GrappleHead");
+            gameObject.transform.position = new Vector3(parent.transform.localPosition.x + 0.2f, parent.transform.localPosition.y + 0.2f, 0);
+            toungeGroup.transform.localPosition = new Vector3(0, 0.15f, 0);
         }
-        if (grapplingHook == null)
+        else
         {
-            Debug.LogError("GrapplingHook not found in GrappleHead");
+            gameObject.transform.position = new Vector3(parent.transform.localPosition.x - 0.2f, parent.transform.localPosition.y + 0.2f, 0);
+            toungeGroup.transform.localPosition = new Vector3(0, -0.15f, 0);
         }
+
+        toungePieces = new GameObject[4];
+        for (int i = 0; i < 4; i++)
+        {
+            toungePieces[i] = toungeGroup.transform.GetChild(i).gameObject;
+        }
+
+        rotatePlayerHead();
     }
 
     void Update()
     {
-        RotatePlayerHead();
+        manageTounge();
     }
 
-    public void RotatePlayerHead()
+    private void rotatePlayerHead()
     {
         float maxTiltAngle = controller.movementEditor.headTiltLimit;
         float angle;
+        Vector2 indicaterPosition = grapplingHook.hit.point;
+        Vector2 indicatorDistance = indicaterPosition - (Vector2)transform.position;
 
-        //Vector2 indicatorDirectionController = grappleInputHandler.aimAction.ReadValue<Vector2>().normalized;
-        Vector2 indicatorDirection = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        GameObject playerSprite = parent.gameObject.transform.GetChild(0).gameObject;
-        RaycastHit2D raycastHit = GetComponentInParent<GrapplingHook>().hit;
-        
-
-        if (playerSprite.GetComponent<SpriteRenderer>().flipX)
+        if (playerRenderer.flipX)
         {
-            SpriteRenderer spriteRenderer = playerSprite.GetComponent<SpriteRenderer>();
-            spriteRenderer.color = Color.red;
-            angle = Vector2.SignedAngle(Vector2.left, raycastHit.point + (Vector2)transform.position);
-            Debug.Log("angle: " + angle);
+            angle = Vector2.SignedAngle(Vector2.left, indicatorDistance);
+            gameObject.GetComponent<SpriteRenderer>().flipY = true;
         }
         else
         {
-            angle = Vector2.SignedAngle(Vector2.right, raycastHit.point - (Vector2)transform.position);
-            Debug.Log("angle: " + angle);
+            angle = Vector2.SignedAngle(Vector2.right, indicatorDistance);
+            gameObject.GetComponent<SpriteRenderer>().flipY = false;
         }
 
-        if (angle > maxTiltAngle)
-        {
-            transform.right = Quaternion.Euler(0, 0, maxTiltAngle) * Vector2.right;
-            //Debug.Log("Transforming by Angle: " + Quaternion.Euler(0, 0, maxTiltAngle) * Vector2.right);
-        }
-        else if (angle < -maxTiltAngle)
-        {
-            transform.right = Quaternion.Euler(0, 0, -maxTiltAngle) * Vector2.right;
-            //Debug.Log("Transforming by Angle: " + Quaternion.Euler(0, 0, -maxTiltAngle) * Vector2.right);
-        }
-        else
-        {
-            if (!playerSprite.GetComponentInChildren<SpriteRenderer>().flipX)
-            {
-                transform.right = indicatorDirection;
-                //Debug.Log("Transforming: " + indicatorDirection);
-            }
-            else
-            {
-                transform.right = -indicatorDirection;
-                //Debug.Log("Transforming: " + -indicatorDirection);
-            }
-        }
+        gameObject.transform.right = indicatorDistance;
+
+    }
+
+    private void manageTounge()
+    {
+        float distance = (grapplingHook.hit.point - (Vector2)transform.position).magnitude;
+
+        float toungeLength = toungePieces[0].GetComponent<SpriteRenderer>().bounds.size.y;
+
+        toungePieces[0].transform.localPosition = new Vector3(toungeLength / 2, 0, 0);
+        toungePieces[1].transform.localPosition = new Vector3(toungeLength + (toungeLength / 2), 0, 0);
+        toungePieces[3].transform.localPosition = new Vector3(distance - (toungeLength / 2), 0, 0);
+
+        float middleDistance = distance - (3 * toungeLength);
+
+        toungePieces[2].transform.localPosition = new Vector3(2 * toungeLength + middleDistance / 2, 0, 0);
+        toungePieces[2].transform.localScale = new Vector3(1, middleDistance / toungeLength, 1);
     }
 }

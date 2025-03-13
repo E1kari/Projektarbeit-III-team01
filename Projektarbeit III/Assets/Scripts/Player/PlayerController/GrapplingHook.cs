@@ -48,13 +48,12 @@ public class GrapplingHook : MonoBehaviour
         // Get values from MovementEditor
         GrappleValues.InitializeGrappleValues(this, controller);
 
-        grappleChecks = new GrappleChecks(this, controller, rb, enemy); 
+        grappleChecks = new GrappleChecks(this, controller, rb, enemy);
         grappleIndicator = new GrappleIndicator(this, grappleChecks, controller, grappleRange, indicatorPuffer, indicatorSize, indicatorSegments);
         grappleInputHandler = new GrappleInputHandler(this, grappleIndicator, controller, grappleRange, lastControllerDirection);
-        grappleHead = new GrappleHead(this, controller, grappleInputHandler);
         grappleAction = grappleInputHandler.grappleAction;
         aimAction = grappleInputHandler.aimAction;
-        isUsingController = grappleInputHandler.isUsingController; 
+        isUsingController = grappleInputHandler.isUsingController;
     }
 
     void Update()
