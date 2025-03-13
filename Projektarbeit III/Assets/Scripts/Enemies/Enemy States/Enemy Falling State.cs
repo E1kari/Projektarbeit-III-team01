@@ -19,6 +19,7 @@ public class EnemyFallingState : Interface.IState
     public void UpdateState()
     {
         CheckExitConditions();
+        moveOutOfCollision();
     }
 
     public void CheckExitConditions()
@@ -44,6 +45,31 @@ public class EnemyFallingState : Interface.IState
         {
             enemy.ChangeState(new EnemyIdleState(enemy));
             return;
+        }
+    }
+
+    private void moveOutOfCollision()
+    {
+        float widthStep = enemy.gameObject.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        float heightStep = enemy.gameObject.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+        Vector2 upperCenter = new Vector2(enemy.transform.position.x, enemy.transform.position.y + heightStep);
+
+        for (int i = 0; i < 3; i++)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(upperCenter.x, upperCenter.y - (i * heightStep)), Vector2.right, widthStep + 0.1f, LayerMask.GetMask("Ground"));
+            if (hit)
+            {
+                enemy.transform.position = new Vector2(hit.point.x - (widthStep + 0.2f), hit.point.y);
+            }
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(upperCenter.x, upperCenter.y - (i * heightStep)), Vector2.left, widthStep + 0.1f, LayerMask.GetMask("Ground"));
+            if (hit)
+            {
+                enemy.transform.position = new Vector2(hit.point.x + (widthStep + 0.2f), hit.point.y);
+            }
         }
     }
 

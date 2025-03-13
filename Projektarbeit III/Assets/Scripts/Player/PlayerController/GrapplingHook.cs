@@ -46,12 +46,12 @@ public class GrapplingHook : MonoBehaviour
         // Get values from MovementEditor
         GrappleValues.InitializeGrappleValues(this, controller);
 
-        grappleChecks = new GrappleChecks(this, controller, rb, enemy); 
+        grappleChecks = new GrappleChecks(this, controller, rb, enemy);
         grappleIndicator = new GrappleIndicator(this, grappleChecks, controller, grappleRange, indicatorPuffer, indicatorSize, indicatorSegments);
-        grappleInputHandler = new GrappleInputHandler(this, grappleIndicator, controller, grappleRange, lastControllerDirection);  
+        grappleInputHandler = new GrappleInputHandler(this, grappleIndicator, controller, grappleRange, lastControllerDirection);
         grappleAction = grappleInputHandler.grappleAction;
         aimAction = grappleInputHandler.aimAction;
-        isUsingController = grappleInputHandler.isUsingController; 
+        isUsingController = grappleInputHandler.isUsingController;
     }
 
     void Update()
@@ -186,7 +186,11 @@ public class GrapplingHook : MonoBehaviour
 
             // Check to cancel the grapple
             grappleChecks.CheckGrappleStops();
-            grappleChecks.CheckEnemyGrapple(transform.position, enemy.transform.position);
+
+            if (enemy)
+            {
+                grappleChecks.CheckEnemyGrapple(transform.position, enemy.transform.position);
+            }
         }
     }
 
