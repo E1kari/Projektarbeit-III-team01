@@ -32,12 +32,21 @@ public class EnemyAlertState : Interface.IState
 
         foreach (var collider in hitColliders)
         {
-            if (collider.CompareTag("Player"))
+            if (!collider.CompareTag("Player"))
+            {
+                continue;
+            }
+
+            RaycastHit2D hit;
+            hit = Physics2D.Raycast(enemy.transform.position, collider.transform.position - enemy.transform.position, enemy.lightEnemyData_.attackRange_);
+
+            if (hit && hit.collider.gameObject.tag == "Player")
             {
                 playerFound = true;
                 break;
             }
         }
+
 
         if (!playerFound)
         {
