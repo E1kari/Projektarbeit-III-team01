@@ -109,6 +109,9 @@ public class ButtonBehavior : MonoBehaviour
 
         resumeLevel();
         SceneManager.LoadScene(sceneSaver_.GetCurrentLevelSceneName());
+        S_Timer timer = Resources.Load<S_Timer>("Scriptable Objects/Timer");
+        timer.ResetTimer();
+
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
     }
 
