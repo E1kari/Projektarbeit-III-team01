@@ -10,14 +10,24 @@ public class Health : MonoBehaviour
     public virtual void takeDamage()
     {
         if (invincible) return;
+
+        // Change the color of the sprite to red to indicate damage
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-        if (gameObject.tag == "Player")
+
+        if (gameObject.CompareTag("Player"))
         {
-            GameObject levelStart = GameObject.FindWithTag("Level Start");
+            Controller controller = gameObject.GetComponent<Controller>();
+            controller.HandleDeath();
+
+            // Reload the current scene if the player takes damage
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
+            Enemy enemy = gameObject.GetComponent<Enemy>();
+            enemy.HandleDeath();
+
+            // Destroy the game object after a short delay if it's not the player
             Destroy(gameObject, 0.5f);
         }
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static S_AudioData;
 
 public class SettingManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class SettingManager : MonoBehaviour
 
     public void SetVolumes()
     {
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.UI_sliderGrab);
+
         float masterVolume = GameObject.Find("Master Volume Slider").GetComponent<Slider>().value / 10f;
         float musicVolume = GameObject.Find("Music Volume Slider").GetComponent<Slider>().value / 10f;
         float effectVolume = GameObject.Find("Effect Volume Slider").GetComponent<Slider>().value / 10f;

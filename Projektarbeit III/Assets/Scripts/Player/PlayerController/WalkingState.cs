@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static S_AudioData;
 
 public class WalkingState : Interface.IState
 {
@@ -88,7 +89,8 @@ public class WalkingState : Interface.IState
 
     public void OnDeath()
     {
-        // Handle death logic
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Player_Death);
     }
 
     public void OnExit()

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static S_AudioData;
 
 public class EnemyAttackState : Interface.IState
 {
@@ -23,6 +24,9 @@ public class EnemyAttackState : Interface.IState
         {
             fired = true;
             enemy.StartCoroutine(attack());
+
+            AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+            audioManager.PlayAudio(AudioIndex.Enemy_Attack);
         }
         CheckExitConditions();
     }
@@ -74,6 +78,7 @@ public class EnemyAttackState : Interface.IState
 
     public void OnDeath()
     {
-
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Enemy_Death);
     }
 }

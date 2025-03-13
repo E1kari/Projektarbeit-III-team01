@@ -1,4 +1,5 @@
 using UnityEngine;
+using static S_AudioData;
 
 public class EnemyGrappledState : Interface.IState
 {
@@ -37,6 +38,7 @@ public class EnemyGrappledState : Interface.IState
 
     public void OnDeath()
     {
-
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Enemy_Death);
     }
 }
