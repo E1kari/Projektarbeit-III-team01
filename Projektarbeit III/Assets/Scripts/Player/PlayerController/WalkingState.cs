@@ -79,12 +79,6 @@ public class WalkingState : Interface.IState
             //Debug.Log("Player is touching a wall and walking against it");
             controller.ChangeState(new WallStickingState(controller));
         }
-
-        if (controller.IsCeilinged())
-        {
-            //Debug.Log("Player is touching a ceiling");
-            controller.ChangeState(new FallingState(controller));
-        }
     }
 
     public void OnDeath()
