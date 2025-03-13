@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(LineRenderer))]
 public class GrapplingHook : MonoBehaviour
 {
     public float grappleSpeed;              // Speed at which the grappling hook moves
@@ -18,7 +17,6 @@ public class GrapplingHook : MonoBehaviour
     public bool isCooldown;                 // Whether the grappling hook is on cooldown
     public Rigidbody2D rb;                  // Rigidbody for movement
     public Controller controller;           // Reference to the player's state manager
-    public LineRenderer lineRenderer;       // Visual representation of the rope
     public float cooldownTimer;             // Timer to track cooldown
     public InputAction grappleAction;       // Grappling input action
     public InputAction aimAction;           // Aim input action for controller
@@ -40,10 +38,6 @@ public class GrapplingHook : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<Controller>();
-
-        // Initialize the LineRenderer (rope)
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
-        lineRenderer = DrawingUtils.InitializeLineRenderer(gameObject, 0.2f, 0.2f);
 
         // Get values from MovementEditor
         GrappleValues.InitializeGrappleValues(this, controller);
@@ -120,18 +114,9 @@ public class GrapplingHook : MonoBehaviour
             // Switch to the GRAPPLING state
             controller.ChangeState(new GrapplingState(controller, this));
 
-            // Enable the rope and update its positions
-            lineRenderer.positionCount = 2;
-
             if (grappleCollider.tag == "Light Enemy")
             {
                 enemy = grappleCollider.GetComponent<Enemy>();
-                // Update the rope's visual position
-                DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, enemy.transform.position);
-            }
-            else
-            {
-                DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, grappleSpot);
             }
         }
     }
@@ -176,16 +161,6 @@ public class GrapplingHook : MonoBehaviour
                 rb.linearVelocity = direction * currentGrappleSpeed;
             }
 
-            if (grappleCollider.tag == "Light Enemy")
-            {
-                // Update the rope's visual position
-                DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, enemy.transform.position);
-            }
-            else
-            {
-                DrawingUtils.UpdateLineRenderer(lineRenderer, transform.position, grappleSpot);
-            }
-
             // Check to cancel the grapple
             grappleChecks.CheckGrappleStops();
             if (enemy) grappleChecks.CheckEnemyGrapple(transform.position, enemy.transform.position);
@@ -200,7 +175,6 @@ public class GrapplingHook : MonoBehaviour
         isGrappling = false;
         isCooldown = true;
         cooldownTimer = grappleCooldown;
-        lineRenderer.positionCount = 0;
 
         if (grappleCollider.tag == "Light Enemy" && enemy.currentStateName == "EnemyGrappledState")
         {
