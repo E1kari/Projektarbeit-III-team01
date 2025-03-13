@@ -20,7 +20,7 @@ public class GrappleHead : MonoBehaviour
         this.controller = controller;
         this.grapplingHook = grapplingHook;
 
-        parent = GameObject.Find("Player");
+        parent = GameObject.FindWithTag("Player");
         gameObject.transform.SetParent(parent.transform);
         playerRenderer = parent.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
 
