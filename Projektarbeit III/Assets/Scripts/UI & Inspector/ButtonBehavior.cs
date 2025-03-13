@@ -38,6 +38,9 @@ public class ButtonBehavior : MonoBehaviour
             SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Additive);
         }
 
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.UI_buttonClick);
+
 #if !UNITY_EDITOR
         Logger.Instance.Log("Scene loaded: " + sceneNameToLoad, "Button", LogType.Log);
 #endif
@@ -97,6 +100,8 @@ public class ButtonBehavior : MonoBehaviour
         resumeLevel();
         SceneManager.LoadScene(sceneSaver_.GetCurrentLevelSceneName());
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.UI_buttonClick);
     }
 
     public void resumeLevel()
@@ -116,10 +121,16 @@ public class ButtonBehavior : MonoBehaviour
         {
             S_SceneSaver.determineSelectedButton(SceneManager.GetSceneByName("menu_main"));
         }
+
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.UI_buttonClick);
     }
 
     public void exitGame()
     {
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.UI_buttonClick);
+
         Debug.Log("closing game...");
         Application.Quit();
     }
