@@ -51,7 +51,7 @@ MonoBehaviour:
   centerLRY: 0
   bottomRayLRX: 0
   bottomRayLRY: -0.05
-  drawRaycasts: 1
+  drawRaycasts: 0
   currentStateName: IdleState
   hasJumped: 0
   hasDashed: 0

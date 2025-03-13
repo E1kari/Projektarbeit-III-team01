@@ -1,4 +1,5 @@
 
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -69,22 +70,25 @@ public class GrappleHead : MonoBehaviour
         }
 
         gameObject.transform.right = indicatorDistance;
-
     }
 
     private void manageTounge()
     {
         float distance = (grapplingHook.hit.point - (Vector2)transform.position).magnitude;
+        Debug.DrawLine(transform.position, grapplingHook.hit.point, Color.red, 0.1f);
 
-        float toungeLength = toungePieces[0].GetComponent<SpriteRenderer>().bounds.size.y;
+        float toungeLength = toungePieces[0].GetComponent<SpriteRenderer>().sprite.bounds.size.y;
+        Debug.LogWarning(toungeLength);
 
-        toungePieces[0].transform.localPosition = new Vector3(toungeLength / 2, 0, 0);
-        toungePieces[1].transform.localPosition = new Vector3(toungeLength + (toungeLength / 2), 0, 0);
-        toungePieces[3].transform.localPosition = new Vector3(distance - (toungeLength / 2), 0, 0);
 
-        float middleDistance = distance - (3 * toungeLength);
+        toungePieces[0].transform.localPosition = new Vector3((toungeLength / 2) - .01f, 0, 0);
+        toungePieces[1].transform.localPosition = new Vector3((toungeLength + (toungeLength / 2)) - .02f, 0, 0);
+        toungePieces[3].transform.localPosition = new Vector3(distance, 0, 0);
+
+        float middleDistance = distance - ((2 * toungeLength) + (toungeLength / 2));
+        float scaleFactor = 1 / toungeLength;
 
         toungePieces[2].transform.localPosition = new Vector3(2 * toungeLength + middleDistance / 2, 0, 0);
-        toungePieces[2].transform.localScale = new Vector3(1, middleDistance / toungeLength, 1);
+        toungePieces[2].transform.localScale = new Vector3(1, middleDistance * scaleFactor, 1);
     }
 }
