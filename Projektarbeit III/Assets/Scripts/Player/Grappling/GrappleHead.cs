@@ -26,16 +26,7 @@ public class GrappleHead : MonoBehaviour
 
         toungeGroup = transform.GetChild(0).gameObject;
 
-        if (!playerRenderer.flipX)
-        {
-            gameObject.transform.position = new Vector3(parent.transform.localPosition.x + 0.2f, parent.transform.localPosition.y + 0.2f, 0);
-            toungeGroup.transform.localPosition = new Vector3(0, 0.15f, 0);
-        }
-        else
-        {
-            gameObject.transform.position = new Vector3(parent.transform.localPosition.x - 0.2f, parent.transform.localPosition.y + 0.2f, 0);
-            toungeGroup.transform.localPosition = new Vector3(0, -0.15f, 0);
-        }
+        positionPlayerHead();
 
         toungePieces = new GameObject[4];
         for (int i = 0; i < 4; i++)
@@ -46,6 +37,20 @@ public class GrappleHead : MonoBehaviour
         rotatePlayerHead();
     }
 
+    void positionPlayerHead()
+    {
+        if (!playerRenderer.flipX)
+        {
+            gameObject.transform.position = new Vector3(parent.transform.localPosition.x + 0.2f, parent.transform.localPosition.y + 0.2f, 0);
+            toungeGroup.transform.localPosition = new Vector3(0, 0.15f, 0);
+        }
+        else
+        {
+            gameObject.transform.position = new Vector3(parent.transform.localPosition.x - 0.2f, parent.transform.localPosition.y + 0.2f, 0);
+            toungeGroup.transform.localPosition = new Vector3(0, -0.15f, 0);
+        }
+    }
+
     void Update()
     {
         manageTounge();
@@ -53,7 +58,6 @@ public class GrappleHead : MonoBehaviour
 
     private void rotatePlayerHead()
     {
-        float maxTiltAngle = controller.movementEditor.headTiltLimit;
         float angle;
         Vector2 indicaterPosition = grapplingHook.hit.point;
         Vector2 indicatorDistance = indicaterPosition - (Vector2)transform.position;
@@ -67,6 +71,13 @@ public class GrappleHead : MonoBehaviour
         {
             angle = Vector2.SignedAngle(Vector2.right, indicatorDistance);
             gameObject.GetComponent<SpriteRenderer>().flipY = false;
+        }
+
+        if (angle < -90 || angle > 90)
+        {
+            playerRenderer.flipX = !playerRenderer.flipX;
+            gameObject.GetComponent<SpriteRenderer>().flipY = !gameObject.GetComponent<SpriteRenderer>().flipY;
+            positionPlayerHead();
         }
 
         gameObject.transform.right = indicatorDistance;
