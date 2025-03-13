@@ -40,6 +40,6 @@ MonoBehaviour:
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
-  currentStateName: IdleState
+  currentStateName: FallingState
   hasJumped: 0
   hasDashed: 0
