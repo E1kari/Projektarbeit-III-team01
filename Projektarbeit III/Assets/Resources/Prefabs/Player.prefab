@@ -219,6 +219,7 @@ MonoBehaviour:
   indicatorPuffer: 0
   indicatorSize: 0
   indicatorSegments: 0
+  enemyPull: 0
 --- !u!114 &5611957542525670278
 MonoBehaviour:
   m_ObjectHideFlags: 0

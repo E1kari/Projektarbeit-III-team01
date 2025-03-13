@@ -32,8 +32,8 @@ MonoBehaviour:
   indicatorSegments: 15
   indicatorColor: {r: 0.323599, g: 0.745283, b: 0.31287822, a: 0.8509804}
   indicatorColorNotInRange: {r: 0.26254895, g: 0.3809565, b: 0.9433962, a: 0.87058824}
-  enemyHookSpeed: 20
-  enemyPullForce: 0.01
+  enemyHookSpeed: 12.7
+  enemyPullForce: 4.4
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
