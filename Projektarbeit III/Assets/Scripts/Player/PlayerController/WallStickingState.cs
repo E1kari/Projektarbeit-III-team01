@@ -10,7 +10,6 @@ public class WallStickingState : Interface.IState
     private InputAction movementAction;
     private InputAction jumpAction;
     private InputAction stickAction;
-    private float stickTimer;
     private float wallJumpCooldownTimer;
 
     private GameObject stickingObject;
@@ -31,7 +30,6 @@ public class WallStickingState : Interface.IState
 
         rb.linearVelocity = Vector2.zero; // Stop movement initially
         rb.gravityScale = 0f; // Disable gravity
-        stickTimer = controller.movementEditor.stickDuration; // Initialize the stick timer
         controller.movementEditor.hasJumped = false; // Reset the jump flag
 
         stickingObject = DetermineStickingObject();
@@ -44,20 +42,12 @@ public class WallStickingState : Interface.IState
     public void UpdateState()
     {
         Vector2 movementInput = movementAction.ReadValue<Vector2>();
-        stickTimer -= Time.deltaTime;
 
 
         // Transition to IdleState if the player is grounded or WallSticking button is released
         if (controller.IsGrounded() || !stickAction.IsPressed())
         {
             controller.ChangeState(new IdleState(controller));
-            return;
-        }
-
-        if (stickTimer <= 0)
-        {
-            //Debug.Log("The Stick Timer has expired");
-            controller.ChangeState(new FallingState(controller));
             return;
         }
 
