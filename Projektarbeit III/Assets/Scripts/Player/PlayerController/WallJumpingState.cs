@@ -41,6 +41,9 @@ public class WallJumpingState : Interface.IState
         // Apply the jump force in the opposite direction of the wall
         wallJumpingDirection = jumpingFromLeftWall ? 1 : -1;
         rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Player_WallJump);
     }
 
     public void UpdateState()

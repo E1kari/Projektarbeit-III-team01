@@ -23,6 +23,7 @@ public class S_AudioData : ScriptableObject
     public enum AudioIndex
     {
         Player_Jump,
+        Player_WallJump,
         Player_Dash,
         Player_Death,
         Enemy_Attack,
