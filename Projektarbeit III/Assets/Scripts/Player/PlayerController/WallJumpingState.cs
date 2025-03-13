@@ -33,7 +33,7 @@ public class WallJumpingState : Interface.IState
 
     public void OnEnter()
     {
-        Debug.Log("Entered Wall Jumping State");
+        //Debug.Log("Entered Wall Jumping State");
 
         // Determine which wall the player is jumping from
         jumpingFromLeftWall = controller.IsTouchingLeftWall();
@@ -63,6 +63,6 @@ public class WallJumpingState : Interface.IState
 
     public void OnExit()
     {
-        Debug.Log("Exiting Wall Jumping State");
+        //Debug.Log("Exiting Wall Jumping State");
     }
 }
