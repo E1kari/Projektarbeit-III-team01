@@ -150,35 +150,35 @@ public class Controller : MonoBehaviour
         return false;
     }
 
-    public Vector2[] GetRaycastOrigins(Vector2 direction)
+public Vector2[] GetRaycastOrigins(Vector2 direction)
+{
+    Vector2 size = spriteRenderer.bounds.size;
+    Vector2 position = transform.position;
+
+    float offsetX = size.x * 0.23f; // Adjust the offset to be closer to the center. High values will make the raycasts start further from the center 
+    float offsetY = size.y * 0.4f;
+
+    Vector2[] raycastOrigins = new Vector2[3];
+
+    if (direction == Vector2.down || direction == Vector2.up) // If the direction is up or down
     {
-        Vector2 size = spriteRenderer.bounds.size;
-        Vector2 position = transform.position;
-
-        float offsetX = size.x * 0.23f; // Adjust the offset to be closer to the center. High values will make the raycasts start further from the center 
-        float offsetY = size.y * 0.4f;
-
-        if (direction == Vector2.down || direction == Vector2.up)
-        {
-            return new Vector2[]
-            {
-            new Vector2(position.x - offsetX, position.y), // Left
-            new Vector2(position.x, position.y), // Center
-            new Vector2(position.x + offsetX, position.y) // Right
-            };
-        }
-        else if (direction == Vector2.left || direction == Vector2.right)
-        {
-            return new Vector2[]
-            {
-            new Vector2(position.x, position.y + offsetY), // Top
-            new Vector2(position.x, position.y), // Center
-            new Vector2(position.x, position.y - offsetY) // Bottom
-            };
-        }
-
-        return new Vector2[] { position };
+        raycastOrigins[0] = new Vector2(position.x + offsetX + movementEditor.leftRayTBX, position.y + movementEditor.leftRayTBY); // Left Raycast
+        raycastOrigins[1] = new Vector2(position.x + movementEditor.centerTBX, position.y + movementEditor.centerTBY); // Center
+        raycastOrigins[2] = new Vector2(position.x - offsetX + movementEditor.rightRayTBX, position.y + movementEditor.rightRayTBY); // Right Raycast
     }
+    else if (direction == Vector2.left || direction == Vector2.right) // If the direction is left or right
+    {
+        raycastOrigins[0] = new Vector2(position.x + movementEditor.topRayLRX, position.y + offsetY + movementEditor.topRayLRY); // Top Raycast
+        raycastOrigins[1] = new Vector2(position.x + movementEditor.centerLRX, position.y + movementEditor.centerLRY); // Center
+        raycastOrigins[2] = new Vector2(position.x + movementEditor.bottomRayLRX, position.y - offsetY + movementEditor.bottomRayLRY); // Bottom Raycast
+    }
+    else
+    {
+        raycastOrigins[0] = position;
+    }
+
+    return raycastOrigins;
+}
 
     public bool IsGrounded()
     {
