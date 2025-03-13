@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static S_AudioData;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -80,6 +81,8 @@ public class ButtonBehavior : MonoBehaviour
         GameObject.Find("Preview Manager").GetComponent<PreviewManager>().reactivatePauseManager();
         SceneManager.UnloadSceneAsync("menu_preview");
         resumeLevel();
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Environment_LevelStart);
     }
 
     public void nextLevel()
