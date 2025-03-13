@@ -66,6 +66,11 @@ public class Controller : MonoBehaviour
         UpdatePlayerAnimator();
     }
 
+    public void HandleDeath()
+    {
+        currentState?.OnDeath();
+    }
+
     public Interface.IState GetPreviousState()
     {
         return previousState;

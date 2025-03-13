@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static S_AudioData;
 
 public class WallJumpingState : Interface.IState
 {
@@ -40,6 +41,9 @@ public class WallJumpingState : Interface.IState
         // Apply the jump force in the opposite direction of the wall
         wallJumpingDirection = jumpingFromLeftWall ? 1 : -1;
         rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Player_WallJump);
     }
 
     public void UpdateState()
@@ -53,7 +57,8 @@ public class WallJumpingState : Interface.IState
     }
     public void OnDeath()
     {
-        // Handle death logic
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Player_Death);
     }
 
     public void OnExit()
