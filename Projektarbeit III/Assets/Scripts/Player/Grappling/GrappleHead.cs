@@ -81,8 +81,8 @@ public class GrappleHead : MonoBehaviour
         Debug.LogWarning(toungeLength);
 
 
-        toungePieces[0].transform.localPosition = new Vector3((toungeLength / 2) - .01f, 0, 0);
-        toungePieces[1].transform.localPosition = new Vector3((toungeLength + (toungeLength / 2)) - .02f, 0, 0);
+        toungePieces[0].transform.localPosition = new Vector3(toungeLength / 2, 0, 0);
+        toungePieces[1].transform.localPosition = new Vector3(toungeLength + (toungeLength / 2), 0, 0);
         toungePieces[3].transform.localPosition = new Vector3(distance, 0, 0);
 
         float middleDistance = distance - ((2 * toungeLength) + (toungeLength / 2));
