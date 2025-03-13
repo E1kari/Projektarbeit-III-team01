@@ -34,12 +34,13 @@ public class GrappleIndicator
 
     public void UpdateGrappleIndicator(Vector2 playerPosition)
     {
+        GrappleInputHandler grappleInputHandler = grapplingHook.grappleInputHandler;
         Vector2 direction;
 
-        if (grapplingHook.isUsingController)
+        if (grappleInputHandler.isUsingController)
         {
             // Use the controller's aim input for direction
-            direction = grapplingHook.aimAction.ReadValue<Vector2>().normalized;
+            direction = grappleInputHandler.aimAction.ReadValue<Vector2>().normalized;
             if (direction != Vector2.zero)
             {
                 grapplingHook.lastControllerDirection = direction;
