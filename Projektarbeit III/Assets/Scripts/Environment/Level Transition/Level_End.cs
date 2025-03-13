@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static S_AudioData;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -30,6 +31,9 @@ public class Level_End : MonoBehaviour
         if (other.gameObject.tag == "Player" && !isTriggered) // for some reason this gets triggered twice without isTriggered and I don't know why and I hate this. It's so much clutter for nothing :/
         {
             isTriggered = true;
+
+            AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+            audioManager.PlayAudio(AudioIndex.Environment_LevelEnd);
 
             GameObject.Find("Pause Manager").GetComponent<PauseManager>().TogglePause();
             timer_.StopTimer();
