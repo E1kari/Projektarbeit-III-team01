@@ -21,9 +21,6 @@ public class GrapplingHook : MonoBehaviour
     public Controller controller;           // Reference to the player's state manager
     public LineRenderer lineRenderer;       // Visual representation of the rope
     public float cooldownTimer;             // Timer to track cooldown
-    public InputAction grappleAction;       // Grappling input action
-    public InputAction aimAction;           // Aim input action for controller
-    public bool isUsingController;          // Whether the player is using a controller
     public Vector2 lastControllerDirection; // Last direction from the controller
     public Enemy enemy;                     // Reference to the enemy
     public float toleranceRadius;           // Tolerance for the grapple distance
@@ -48,12 +45,10 @@ public class GrapplingHook : MonoBehaviour
         // Get values from MovementEditor
         GrappleValues.InitializeGrappleValues(this, controller);
 
-        grappleChecks = new GrappleChecks(this, controller, rb, enemy);
+        grappleChecks = new GrappleChecks(this, null, controller, rb, enemy);
         grappleIndicator = new GrappleIndicator(this, grappleChecks, controller, grappleRange, indicatorPuffer, indicatorSize, indicatorSegments);
         grappleInputHandler = new GrappleInputHandler(this, grappleIndicator, controller, grappleRange, lastControllerDirection);
-        grappleAction = grappleInputHandler.grappleAction;
-        aimAction = grappleInputHandler.aimAction;
-        isUsingController = grappleInputHandler.isUsingController;
+        grappleChecks.SetDependencies(grappleInputHandler);
     }
 
     void Update()
@@ -235,8 +230,6 @@ public class GrapplingHook : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Unregister input callbacks
-        grappleAction.Disable();
-        aimAction.Disable();
+        grappleInputHandler.UnloadActions();
     }
 }
