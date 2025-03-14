@@ -39,17 +39,6 @@ public class Level_End : MonoBehaviour
             GameObject.Find("Pause Manager").GetComponent<PauseManager>().TogglePause();
             timer_.StopTimer();
 
-#if UNITY_EDITOR
-            if (sceneToLoad_ != null)
-            {
-                string scenePath = AssetDatabase.GetAssetPath(sceneToLoad_);
-                sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
-            }
-#else
-            sceneName = sceneToLoad_.name; // Use object name in a build
-            Logger.Instance.Log("Scene name: " + sceneName, "Level_End", LogType.Log);
-#endif
-
             if (!string.IsNullOrEmpty(sceneName))
             {
 #if !UNITY_EDITOR
