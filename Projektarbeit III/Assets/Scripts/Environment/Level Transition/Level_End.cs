@@ -41,7 +41,7 @@ public class Level_End : MonoBehaviour
             if (!string.IsNullOrEmpty(sceneToLoad_))
             {
 #if !UNITY_EDITOR
-                Logger.Instance.Log("Loading scene: " + sceneName, "Level_End", LogType.Log);
+                Logger.Instance.Log("Loading scene: " + sceneToLoad_, "Level_End", LogType.Log);
 #endif
                 SceneManager.LoadScene(sceneToLoad_, LoadSceneMode.Additive);
             }
