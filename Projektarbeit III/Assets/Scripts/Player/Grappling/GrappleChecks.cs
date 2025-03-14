@@ -3,13 +3,15 @@ using UnityEngine;
 public class GrappleChecks
 {
     private GrapplingHook grapplingHook;
+    private GrappleInputHandler grappleInputHandler;
     private Controller controller;
     private Rigidbody2D rb;
     private Enemy enemy;
 
-    public GrappleChecks(GrapplingHook grapplingHook, Controller controller, Rigidbody2D rb, Enemy enemy)
+    public GrappleChecks(GrapplingHook grapplingHook, GrappleInputHandler grappleInputHandler, Controller controller, Rigidbody2D rb, Enemy enemy)
     {
         this.grapplingHook = grapplingHook;
+        this.grappleInputHandler = grappleInputHandler;
         this.controller = controller;
         this.rb = rb;
         this.enemy = enemy;
@@ -22,7 +24,7 @@ public class GrappleChecks
             grapplingHook.StopGrapple();
         }
 
-        if (!grapplingHook.grappleAction.IsPressed())
+        if (!grappleInputHandler.grappleAction.IsPressed())
         {
             grapplingHook.StopGrapple();
         }
@@ -38,6 +40,17 @@ public class GrappleChecks
             {
                 grapplingHook.StopGrapple();
             }
+        }
+    }
+
+    public void CheckEnemyGrapple(Vector2 grapplingHookPos, Vector2 enemyPos)
+    {
+        float distanceValue = 1.7f;
+        //Debug.Log("Distance between grappling hook and enemy: " + Vector2.Distance(grapplingHookPos, enemyPos));
+
+        if (Vector2.Distance(grapplingHookPos, enemyPos) <= distanceValue)
+        {
+            grapplingHook.StopGrapple();
         }
     }
 
@@ -95,5 +108,10 @@ public class GrappleChecks
     {
         RaycastHit2D hit = Physics2D.CircleCast(grapplingHook.transform.position, grapplingHook.toleranceRadius, direction, grappleRange, grappleLayer);
         return hit;
+    }
+
+    public void SetDependencies(GrappleInputHandler grappleInputHandler)
+    {
+        this.grappleInputHandler = grappleInputHandler;
     }
 }

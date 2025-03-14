@@ -20,17 +20,17 @@ public class GrappleInputHandler
         this.lastControllerDirection = lastControllerDirection;
 
         playerInput = controller.GetComponentInParent<PlayerInput>();
-        grappleAction = playerInput.actions["Grappling"];
-        aimAction = playerInput.actions["Aiming"];
-
-        aimAction.Enable();
-        grappleAction.Enable();
+        LoadActions();
     }
 
     public void CheckPlayerInput()
     {
-        // Check if the player is using a controller (for Aiming)
-        isUsingController = playerInput.currentControlScheme == "Gamepad";
+        if (aimAction == null && grappleAction == null)
+        {
+            LoadActions();
+        }
+
+        CheckPlayerInputMethode();
 
         // Getting PlayerPos
         Vector2 playerPos = grapplingHook.transform.position;
@@ -76,5 +76,30 @@ public class GrappleInputHandler
             // Update the grapple indicator position
             grappleIndicator.UpdateGrappleIndicator(playerPos);
         }
+    }
+
+    public void CheckPlayerInputMethode()
+    {
+        // Check if the player is using a controller
+        if (playerInput.currentControlScheme == "Gamepad")
+        {
+            isUsingController = true;
+        }
+        else
+        {
+            isUsingController = false;
+        }
+    }
+
+    public void LoadActions()
+    {
+        grappleAction = playerInput.actions["Grappling"];
+        aimAction = playerInput.actions["Aiming"];
+    }
+
+    public void UnloadActions()
+    {
+        grappleAction.Disable();
+        aimAction.Disable();
     }
 }

@@ -195,6 +195,28 @@
                 },
                 {
                     "name": "",
+                    "id": "a9c95fda-a8a5-4d97-b85c-21ae0c3161b2",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Jumping",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8caa21d7-a611-4824-a109-9a715d3d98e0",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jumping",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e39c630a-8b73-4c3a-98c9-69e8898f6bbb",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -233,6 +255,28 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
+                    "action": "Dashing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "874592d8-6c0f-4bb5-9310-8e9c7b0fc824",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dashing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "200fe1c0-0797-4597-9ccb-ec866f60a21f",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Dashing",
                     "isComposite": false,
                     "isPartOfComposite": false

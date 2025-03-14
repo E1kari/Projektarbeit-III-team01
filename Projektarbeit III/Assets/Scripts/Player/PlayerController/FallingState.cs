@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Interface;
+using static S_AudioData;
 
 public class FallingState : IState
 {
@@ -76,6 +77,7 @@ public class FallingState : IState
 
     public void OnDeath()
     {
-
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.PlayAudio(AudioIndex.Player_Death);
     }
 }

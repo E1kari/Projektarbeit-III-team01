@@ -12,33 +12,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a022905d44d467f4f91c10a0851e2383, type: 3}
   m_Name: S_MovementEditor
   m_EditorClassIdentifier: 
+  moveSpeed: 6.8
+  maxSpeed: 15
   jumpForce: 7.8
   fallForce: 6
-  stickDuration: 3.5
   wallJumpForce: 7.3
   wallJumpSideForce: 3.2
-  raycastDistanceX: 0.35
-  raycastDistanceY: 1
-  drawRaycasts: 1
   dashSpeed: 12.4
   dashDuration: 0.62
   preserveDashMomentum: 1
-  moveSpeed: 6.8
-  maxSpeed: 15
   grappleSpeed: 10.5
   grappleCooldown: 1
   grappleRange: 12
   grappleSpeedBoost: 0.5
   toleranceRadius: 0.5
+  headTiltLimit: 45
   indicatorPuffer: 0.55
   indicatorSize: 0.55
   indicatorSegments: 15
   indicatorColor: {r: 0.323599, g: 0.745283, b: 0.31287822, a: 0.8509804}
   indicatorColorNotInRange: {r: 0.26254895, g: 0.3809565, b: 0.9433962, a: 0.87058824}
-  enemyHookSpeed: 20
+  enemyHookSpeed: 12.7
+  enemyPullForce: 4.4
   grappleLayer:
     serializedVersion: 2
     m_Bits: 320
+  raycastDistanceX: 0.35
+  raycastDistanceY: 1.1
+  leftRayTBX: 0
+  leftRayTBY: 0.05
+  centerTBX: 0
+  centerTBY: 0.05
+  rightRayTBX: 0
+  rightRayTBY: 0.05
+  topRayLRX: 0
+  topRayLRY: -0.035
+  centerLRX: 0
+  centerLRY: 0
+  bottomRayLRX: 0
+  bottomRayLRY: -0.05
+  drawRaycasts: 0
   currentStateName: IdleState
   hasJumped: 0
   hasDashed: 0

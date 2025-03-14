@@ -9,9 +9,11 @@ public class GrappleValues
         grapplingHook.grappleRange = controller.movementEditor.grappleRange;
         grapplingHook.grappleLayer = controller.movementEditor.grappleLayer;
         grapplingHook.grappleSpeedBoost = controller.movementEditor.grappleSpeedBoost;
+        grapplingHook.enemyPull = controller.movementEditor.enemyPullForce;
         grapplingHook.toleranceRadius = controller.movementEditor.toleranceRadius;
         grapplingHook.indicatorPuffer = controller.movementEditor.indicatorPuffer;
         grapplingHook.indicatorSize = controller.movementEditor.indicatorSize;
         grapplingHook.indicatorSegments = controller.movementEditor.indicatorSegments;
+        grapplingHook.playedBoostAudio = false;
     }
 }

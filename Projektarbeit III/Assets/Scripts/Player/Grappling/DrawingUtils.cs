@@ -16,26 +16,4 @@ public static class DrawingUtils
             angle += 360f / segments;
         }
     }
-
-    // LineRenderer
-    public static LineRenderer InitializeLineRenderer(GameObject gameObject, float startWidth, float endWidth)
-    {
-        LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
-        lineRenderer.startWidth = startWidth;
-        lineRenderer.endWidth = endWidth;
-        lineRenderer.positionCount = 0;
-        return lineRenderer;
-    }
-
-    public static void UpdateLineRenderer(LineRenderer lineRenderer, Vector2 startPosition, Vector2 endPosition)
-    {
-        lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, startPosition);
-        lineRenderer.SetPosition(1, endPosition);
-    }
-
-    public static void HideLineRenderer(LineRenderer lineRenderer)
-    {
-        lineRenderer.positionCount = 0;
-    }
 }
