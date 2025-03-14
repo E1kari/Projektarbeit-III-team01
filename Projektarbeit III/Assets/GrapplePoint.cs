@@ -5,6 +5,7 @@ public class GrapplePoint : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(6, 8);
         Physics2D.IgnoreLayerCollision(7, 8);
     }
 

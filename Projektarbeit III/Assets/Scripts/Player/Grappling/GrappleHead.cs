@@ -20,7 +20,7 @@ public class GrappleHead : MonoBehaviour
         this.controller = controller;
         this.grapplingHook = grapplingHook;
 
-        parent = GameObject.Find("Player");
+        parent = GameObject.FindWithTag("Player");
         gameObject.transform.SetParent(parent.transform);
         playerRenderer = parent.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
 
@@ -89,8 +89,6 @@ public class GrappleHead : MonoBehaviour
         Debug.DrawLine(transform.position, grapplingHook.hit.point, Color.red, 0.1f);
 
         float toungeLength = toungePieces[0].GetComponent<SpriteRenderer>().sprite.bounds.size.y;
-        Debug.LogWarning(toungeLength);
-
 
         toungePieces[0].transform.localPosition = new Vector3(toungeLength / 2, 0, 0);
         toungePieces[1].transform.localPosition = new Vector3(toungeLength + (toungeLength / 2), 0, 0);

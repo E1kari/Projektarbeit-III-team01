@@ -38,12 +38,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/menu_credits.unity
     guid: b3d55176b5a60474eb8bfc5482364cf6
-  - enabled: 1
-    path: Assets/Scenes/Shortcut Level 3.unity
-    guid: 3489e1891a7ba624089627416c794521
-  - enabled: 1
-    path: Assets/Scenes/Josi Playground.unity
-    guid: d611c3a727d8938458e951863e564228
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3f3d51987d171ba4d94f09e53aad4990, type: 3}
   m_UseUCBPForAssetBundles: 0

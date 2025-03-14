@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: S_Breakable_Ground_Data
   m_EditorClassIdentifier: 
   breakDelay_: 0.27
-  graceArea_: 0.103
+  graceArea_: -0.075
