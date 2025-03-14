@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d627ed24f17060e4598fa4ca8876dab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showFps: 1
+  showFps: 0
   showTime: 1
   timer_: {fileID: 11400000, guid: d738793ecc4aa0e4c973fd2d915f9801, type: 2}
 --- !u!50 &6397819308051543604
@@ -192,34 +192,16 @@ MonoBehaviour:
   isCooldown: 0
   rb: {fileID: 0}
   controller: {fileID: 0}
-  lineRenderer: {fileID: 0}
   cooldownTimer: 0
-  grappleAction:
-    m_Name: Grapple
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 08ed8c24-8f74-440a-8bc2-27f181247ac8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  aimAction:
-    m_Name: Aim
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f786b0d1-af14-4056-8a84-08895608d91f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  isUsingController: 0
   lastControllerDirection: {x: 0, y: 0}
   enemy: {fileID: 0}
   toleranceRadius: 0
   indicatorPuffer: 0
   indicatorSize: 0
   indicatorSegments: 0
+  playedBoostAudio: 0
   enemyPull: 0
+  grappleHead: {fileID: 0}
 --- !u!114 &5611957542525670278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,9 +637,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 2047910673
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 54b5ba462c445194aaf9d9a2a46c206c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

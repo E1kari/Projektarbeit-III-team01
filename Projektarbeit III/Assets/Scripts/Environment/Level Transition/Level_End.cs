@@ -9,7 +9,7 @@ using UnityEditor;
 public class Level_End : MonoBehaviour
 {
     [SerializeField]
-    private Object sceneToLoad_;
+    private string sceneToLoad_;
 
     [SerializeField]
     private S_Timer timer_;
@@ -38,31 +38,18 @@ public class Level_End : MonoBehaviour
             GameObject.Find("Pause Manager").GetComponent<PauseManager>().TogglePause();
             timer_.StopTimer();
 
-            string sceneName = "";
-
-            #if UNITY_EDITOR
-            if (sceneToLoad_ != null)
+            if (!string.IsNullOrEmpty(sceneToLoad_))
             {
-                string scenePath = AssetDatabase.GetAssetPath(sceneToLoad_);
-                sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
-            }
-            #else
-            sceneName = sceneToLoad_.name; // Use object name in a build
-            Logger.Instance.Log("Scene name: " + sceneName, "Level_End", LogType.Log);
-            #endif
-
-            if (!string.IsNullOrEmpty(sceneName))
-            {
-                #if !UNITY_EDITOR
-                Logger.Instance.Log("Loading scene: " + sceneName, "Level_End", LogType.Log);
-                #endif
-                SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+#if !UNITY_EDITOR
+                Logger.Instance.Log("Loading scene: " + sceneToLoad_, "Level_End", LogType.Log);
+#endif
+                SceneManager.LoadScene(sceneToLoad_, LoadSceneMode.Additive);
             }
             else
             {
-                #if !UNITY_EDITOR
+#if !UNITY_EDITOR
                 Logger.Instance.Log("Scene name is empty or null!", "Level_End", LogType.Error);
-                #endif
+#endif
                 Debug.LogError("Scene name is empty or null!");
             }
         }

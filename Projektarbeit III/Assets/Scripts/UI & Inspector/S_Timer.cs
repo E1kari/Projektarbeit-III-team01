@@ -15,6 +15,8 @@ public class S_Timer : ScriptableObject
     private void OnEnable()
     {
         scoreboard_ = Resources.Load<S_Scoreboard>("Scriptable Objects/S_Scoreboard");
+        time_ = 0f;
+        startTime_ = Time.time;
     }
 
 

@@ -58,7 +58,7 @@ public class S_SceneSaver : ScriptableObject
 
     private static void determineShowPreview(string sceneName)
     {
-        if (sceneName.ToLower().Equals("menu_selection"))
+        if (sceneName.ToLower().Equals("menu_selection") || sceneName.ToLower().Equals("menu_scoreboard"))
         {
             showPreview = true;
         }

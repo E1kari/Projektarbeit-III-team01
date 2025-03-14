@@ -30502,6 +30502,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.12
       objectReference: {fileID: 0}
+    - target: {fileID: 5529917082366911884, guid: dd298e94f6fbd6c479d45ba56a4195e7, type: 3}
+      propertyPath: showFps
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529917082366911884, guid: dd298e94f6fbd6c479d45ba56a4195e7, type: 3}
+      propertyPath: showTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5611957542525670278, guid: aaae60613bb33b943ac821ec9e1aff20, type: 3}
       propertyPath: movementEditor
       value: 

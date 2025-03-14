@@ -169,9 +169,9 @@ MonoBehaviour:
   previewText_: {fileID: 1597675514}
   previewPicture_: {fileID: 1439777030}
   previewTextContent_:
-  - Oh no! The Bandits are Robbing the Bank! Help Sheriff Lasso Lick Larry to stop
+  - Oh no! The Bandits are robbing the bank! Help Sheriff Lasso Lick Larry to stop
     them!
-  - Their Camp in hidden in the Canyon, let's chase them!
+  - Their Camp is hidden in the Canyon, let's chase them!
   - Almost there partner, their camp is located at the end of this cave!
   previewPictureContent_:
   - {fileID: 3033253319805997227, guid: a86f3aaede21d2b41bce9fce939c8ab5, type: 3}

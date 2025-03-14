@@ -20,7 +20,7 @@ public class EnemyFallingState : Interface.IState
     public void UpdateState()
     {
         CheckExitConditions();
-        moveOutOfCollision();
+        MoveOutOfCollision();
     }
 
     public void CheckExitConditions()
@@ -49,7 +49,7 @@ public class EnemyFallingState : Interface.IState
         }
     }
 
-    private void moveOutOfCollision()
+    private void MoveOutOfCollision()
     {
         float widthStep = enemy.gameObject.GetComponent<SpriteRenderer>().bounds.size.x / 2;
         float heightStep = enemy.gameObject.GetComponent<SpriteRenderer>().bounds.size.y / 2;

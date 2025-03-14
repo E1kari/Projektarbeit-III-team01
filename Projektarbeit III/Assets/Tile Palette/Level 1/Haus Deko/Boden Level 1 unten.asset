@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Boden Level 1 unten
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -537661250821492327, guid: f3518fefb7371ff46a7b53c672efff6e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.85490197, g: 0.7490196, b: 0.54901963, a: 1}
   m_Transform:
     e00: 1
     e01: 0
