@@ -9,14 +9,13 @@ using UnityEditor;
 public class Level_End : MonoBehaviour
 {
     [SerializeField]
-    private Object sceneToLoad_;
+    private string sceneToLoad_;
 
     [SerializeField]
     private S_Timer timer_;
     private BoxCollider2D boxCollider2D_;
     private Logger logger = Logger.Instance;
     private bool isTriggered = false;
-    private string sceneName;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,12 +38,12 @@ public class Level_End : MonoBehaviour
             GameObject.Find("Pause Manager").GetComponent<PauseManager>().TogglePause();
             timer_.StopTimer();
 
-            if (!string.IsNullOrEmpty(sceneName))
+            if (!string.IsNullOrEmpty(sceneToLoad_))
             {
 #if !UNITY_EDITOR
                 Logger.Instance.Log("Loading scene: " + sceneName, "Level_End", LogType.Log);
 #endif
-                SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+                SceneManager.LoadScene(sceneToLoad_, LoadSceneMode.Additive);
             }
             else
             {
@@ -61,16 +60,4 @@ public class Level_End : MonoBehaviour
         Vector2 spriteSize = gameObject.GetComponent<SpriteRenderer>().bounds.size;
         Gizmos.DrawWireCube(transform.position, new Vector2(spriteSize.x - spriteSize.x / 2, spriteSize.y - spriteSize.y / 2));
     }
-
-#if UNITY_EDITOR
-    // Runs in the Editor to auto-assign the scene name
-    private void OnValidate()
-    {
-        if (sceneToLoad_ != null)
-        {
-            string path = AssetDatabase.GetAssetPath(sceneToLoad_);
-            sceneName = System.IO.Path.GetFileNameWithoutExtension(path);
-        }
-    }
-#endif
 }
