@@ -13930,6 +13930,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Build Kit
       objectReference: {fileID: 0}
+    - target: {fileID: 6670012014130983471, guid: 95180884dd9e2a142adccda715f4147b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670012014130983471, guid: 95180884dd9e2a142adccda715f4147b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376498346087164340, guid: 95180884dd9e2a142adccda715f4147b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 88.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376498346087164340, guid: 95180884dd9e2a142adccda715f4147b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.788
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -20025,6 +20041,14 @@ PrefabInstance:
     - target: {fileID: 1564632886432097817, guid: d9856f0401b69f2498fc0efde9002ffd, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291400542746586055, guid: d9856f0401b69f2498fc0efde9002ffd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291400542746586055, guid: d9856f0401b69f2498fc0efde9002ffd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.82
       objectReference: {fileID: 0}
     - target: {fileID: 7452495963359347904, guid: d9856f0401b69f2498fc0efde9002ffd, type: 3}
       propertyPath: m_LocalPosition.x
