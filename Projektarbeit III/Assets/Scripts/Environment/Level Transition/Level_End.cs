@@ -16,6 +16,7 @@ public class Level_End : MonoBehaviour
     private BoxCollider2D boxCollider2D_;
     private Logger logger = Logger.Instance;
     private bool isTriggered = false;
+    private string sceneName;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,31 +39,29 @@ public class Level_End : MonoBehaviour
             GameObject.Find("Pause Manager").GetComponent<PauseManager>().TogglePause();
             timer_.StopTimer();
 
-            string sceneName = "";
-
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (sceneToLoad_ != null)
             {
                 string scenePath = AssetDatabase.GetAssetPath(sceneToLoad_);
                 sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
             }
-            #else
+#else
             sceneName = sceneToLoad_.name; // Use object name in a build
             Logger.Instance.Log("Scene name: " + sceneName, "Level_End", LogType.Log);
-            #endif
+#endif
 
             if (!string.IsNullOrEmpty(sceneName))
             {
-                #if !UNITY_EDITOR
+#if !UNITY_EDITOR
                 Logger.Instance.Log("Loading scene: " + sceneName, "Level_End", LogType.Log);
-                #endif
+#endif
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
             }
             else
             {
-                #if !UNITY_EDITOR
+#if !UNITY_EDITOR
                 Logger.Instance.Log("Scene name is empty or null!", "Level_End", LogType.Error);
-                #endif
+#endif
                 Debug.LogError("Scene name is empty or null!");
             }
         }
@@ -73,4 +72,16 @@ public class Level_End : MonoBehaviour
         Vector2 spriteSize = gameObject.GetComponent<SpriteRenderer>().bounds.size;
         Gizmos.DrawWireCube(transform.position, new Vector2(spriteSize.x - spriteSize.x / 2, spriteSize.y - spriteSize.y / 2));
     }
+
+#if UNITY_EDITOR
+    // Runs in the Editor to auto-assign the scene name
+    private void OnValidate()
+    {
+        if (sceneToLoad_ != null)
+        {
+            string path = AssetDatabase.GetAssetPath(sceneToLoad_);
+            sceneName = System.IO.Path.GetFileNameWithoutExtension(path);
+        }
+    }
+#endif
 }
