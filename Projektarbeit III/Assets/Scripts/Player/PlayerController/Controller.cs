@@ -182,6 +182,7 @@ public Vector2[] GetRaycastOrigins(Vector2 direction)
 
     public bool IsGrounded()
     {
+        //Debug.Log(CheckCollision(Vector2.down, movementEditor.raycastDistanceY, Color.red));
         return CheckCollision(Vector2.down, movementEditor.raycastDistanceY, Color.red);
     }
 
@@ -228,7 +229,10 @@ public Vector2[] GetRaycastOrigins(Vector2 direction)
             return;
         }
 
-        if (((rb.linearVelocity.y < 0) || (Mathf.Abs(rb.linearVelocity.x) < 0.01f)) && IsGrounded())
+        //Debug.Log("LinearVelocity: " + rb.linearVelocity.y);
+        //Debug.Log("Math: " + Mathf.Abs(rb.linearVelocity.x));
+
+        if (((rb.linearVelocity.y <= 0) || (Mathf.Abs(rb.linearVelocity.x) <= 0.01f)) && IsGrounded())
         {
             rb.sharedMaterial = highFriction;
         }
