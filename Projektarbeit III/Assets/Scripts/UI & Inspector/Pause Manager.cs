@@ -24,11 +24,19 @@ public class PauseManager : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         pauseAction = playerInput.actions["Pause"];
 
+        player = GameObject.FindWithTag("Player");
+
         sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
+        if (SceneManager.GetSceneByName("Training Room").isLoaded)
+        {
+            ResumeGame();
+            yield return null;
+        }
         if (sceneSaver_.GetShowPreview() && !SceneManager.GetSceneByName("Training Room").isLoaded)
         {
             previewMenu();
         }
+
     }
 
     public void Update()
@@ -54,7 +62,6 @@ public class PauseManager : MonoBehaviour
     private void PauseGame(bool loadPauseMenu)
     {
         Time.timeScale = 0f; // Freeze time
-        player = GameObject.FindWithTag("Player");
         player?.SetActive(false);
         if (loadPauseMenu)
         {
