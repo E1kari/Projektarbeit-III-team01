@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
@@ -8,6 +10,8 @@ public class PauseManager : MonoBehaviour
     private S_SceneSaver sceneSaver_;
     private bool isPaused = false;
     GameObject player;
+    PlayerInput playerInput;
+    InputAction pauseAction;
 
     public void Start()
     {
@@ -17,6 +21,9 @@ public class PauseManager : MonoBehaviour
     private IEnumerator OnSceneLoaded()
     {
         yield return null;
+        playerInput = GetComponent<PlayerInput>();
+        pauseAction = playerInput.actions["Pause"];
+
         sceneSaver_ = Resources.Load<S_SceneSaver>("Scriptable Objects/S_SceneSaver");
         if (sceneSaver_.GetShowPreview() && !SceneManager.GetSceneByName("Training Room").isLoaded)
         {
@@ -26,7 +33,7 @@ public class PauseManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (pauseAction != null && pauseAction.WasPressedThisFrame())
         {
             TogglePause(true);
         }
